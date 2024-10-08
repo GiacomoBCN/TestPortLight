@@ -561,14 +561,13 @@ a, a:hover {
 .unslate_co--site-nav.scrolled .site-nav-ul > li > a.active:before, .unslate_co--site-nav.scrolled .site-nav-ul-none-onepage > li > a.active:before {
   background: #fff;
 }
-
-.unslate_co--site-nav.scrolled.awake {
+/* questo fa apparire il nav in mobile */
+ .unslate_co--site-nav.scrolled.awake {
   margin-top: 0px;
   -webkit-transition: .3s all ease-out;
   -o-transition: .3s all ease-out;
   transition: .3s all ease-out;
-}
-
+} 
 .unslate_co--site-nav.scrolled.sleep {
   -webkit-transition: .3s all ease-out;
   -o-transition: .3s all ease-out;
@@ -1154,6 +1153,20 @@ a, a:hover {
 }
 
 @media (max-width: 767.98px) {
+  /* Gia add */
+
+html, body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container, .unslate_co--site-inner, .unslate_co--footer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
   .unslate_co--section {
     padding: 2rem 0;
   }
