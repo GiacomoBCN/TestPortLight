@@ -235,13 +235,13 @@ var owlCarouselPlugin = function() {
 	    nav: false,
 	    responsive:{
 		    400:{
-		      items: 2
+		      items: 3 
 		    },
 		    768:{
-		    	items: 3
+		    	items: 5
 		    },
 		    1000:{
-		    	items: 5
+		    	items: 8
 		    }
 	    }
 	   });
