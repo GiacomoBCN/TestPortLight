@@ -476,7 +476,7 @@ var portfolioItemClick = function() {
 		
 	});
 };
-
+// single page case study weap gia 
 $(document).ajaxStop(function(){
 	setTimeout(function(){
 		TweenMax.to('.loader-portfolio-wrap', 1, { top: '0px', autoAlpha: 0, ease: Power4.easeOut });	
