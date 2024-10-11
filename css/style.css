@@ -1170,9 +1170,9 @@ a, a:hover {
 }
 
 @media (max-width: 767.98px) {
-  /* Gia add */
+  /* Gia add  questo risolve il problema della scroll bar naturale ma fotte il display delle cose stotto i progetti*/
 
-/* html, body {
+html, body {
   overflow-x: hidden;
 }
 
@@ -1183,7 +1183,7 @@ a, a:hover {
 .container, .unslate_co--site-inner, .unslate_co--footer {
   max-width: 100%;
   overflow-x: hidden;
-} */
+}
   .unslate_co--section {
     padding: 2rem 0;
   }
@@ -1419,7 +1419,7 @@ figure.dotted-bg:before {
   padding-bottom: 70px;
  
 /* From https://css.glass */
-background: rgba(39, 38, 38, 0.6);
+background: #13d1459c;
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(5.6px);
