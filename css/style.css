@@ -2662,20 +2662,20 @@ span.error {
   background: rgba(130, 48, 48, 0.84);
 }
 @media (max-width: 768px) {
-  /* Usare :active per simulare l'hover su dispositivi mobili */
+  /* Disabilitare le transizioni su mobile */
+  .portfolio-item img,
+  .portfolio-item .reveal-content {
+    transition: none !important; /* Nessuna transizione su mobile */
+  }
+
+  /* Simulare hover su dispositivi mobili con :active */
   .portfolio-item:active img {
-    transform: scale(1.09); /* Effetto simile a hover quando l'utente tocca */
+    transform: scale(1.09); /* L'effetto si attiva al tocco */
   }
 
   .portfolio-item:active .reveal-content {
-    opacity: 1; /* Il contenuto si rivela al tocco */
-    visibility: visible;
-  }
-
-  /* Disattivare le transizioni fluide */
-  .portfolio-item img,
-  .portfolio-item .reveal-content {
-    transition: none !important;
+    opacity: 1;
+    visibility: visible; /* Il contenuto si rivela al tocco */
   }
 }
 /* CSS parte case study  */
