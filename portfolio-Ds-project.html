@@ -218,38 +218,25 @@
 <!-- Inizializza la funzione quando il documento è caricato -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Seleziona tutte le immagini con la classe .image-clickable
-    const clickableImages = document.querySelectorAll('.image-clickable');
-
-    clickableImages.forEach(image => {
-      let clickCount = 0;
-      let timer;
-
-      // Aggiungi l'evento di clic su ogni immagine
-      image.addEventListener('click', function() {
-        clickCount++;
-
-        if (clickCount === 1) {
-          // Se è il primo clic, ingrandisci l'immagine e portala in primo piano
-          image.classList.add('zoomed');
-
-          // Avvia il timer di 2 secondi per ripristinare l'immagine se non viene cliccata di nuovo
-          timer = setTimeout(function() {
-            image.classList.remove('zoomed');
-            image.style.zIndex = 1; // Ripristina lo z-index originale
-            clickCount = 0; // Resetta il contatore dopo il timeout
-          }, 2000);
-        } else if (clickCount === 2) {
-          // Se è il secondo clic, rimuovi l'ingrandimento e ferma il timer
-          image.classList.remove('zoomed');
-          image.style.zIndex = 1; // Ripristina lo z-index originale
-          clearTimeout(timer); // Ferma il timer
-          clickCount = 0; // Resetta il contatore
-        }
-      });
-    });
+    initZoomableImages(); // Inizializza la funzione per le immagini
   });
+
+  function loadDynamicContent() {
+  $.ajax({
+    url: "path_to_content.html",
+    success: function(data) {
+      $('#portfolio-single-holder').html(data); // Inserisci il contenuto dinamico nella pagina
+
+      // Dopo aver caricato il contenuto, richiama la funzione per aggiungere il comportamento di zoom
+      initZoomableImages();  // Riapplica la funzione sugli elementi appena aggiunti
+    }
+  });
+}
+
+
+
 </script>
+
 
 
 

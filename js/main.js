@@ -677,3 +677,85 @@ var animateReveal = function() {
 }
 
 
+/* // Funzione per gestire l'ingrandimento e lo z-index delle immagini cliccabili
+function initZoomableImages() {
+	// Seleziona tutte le immagini con la classe .image-clickable
+	const clickableImages = document.querySelectorAll('.image-clickable');
+  
+	clickableImages.forEach(image => {
+	  let clickCount = 0;
+	  let timer;
+  
+	  // Aggiungi l'evento di clic su ogni immagine
+	  image.addEventListener('click', function() {
+		clickCount++;
+  
+		if (clickCount === 1) {
+		  // Se è il primo clic, ingrandisci l'immagine e portala in primo piano
+		  image.classList.add('zoomed');
+  
+		  // Avvia il timer di 2 secondi per ripristinare l'immagine se non viene cliccata di nuovo
+		  timer = setTimeout(function() {
+			image.classList.remove('zoomed');
+			image.style.zIndex = 1; // Ripristina lo z-index originale
+			clickCount = 0; // Resetta il contatore dopo il timeout
+		  }, 2000);
+		} else if (clickCount === 2) {
+		  // Se è il secondo clic, rimuovi l'ingrandimento e ferma il timer
+		  image.classList.remove('zoomed');
+		  image.style.zIndex = 1; // Ripristina lo z-index originale
+		  clearTimeout(timer); // Ferma il timer
+		  clickCount = 0; // Resetta il contatore
+		}
+	  });
+	});
+  } */
+
+
+	function initZoomableImages() {
+		// Seleziona tutte le immagini con la classe 'image-clickable' e aggiungi un evento click
+		document.querySelectorAll('.image-clickable').forEach(function(img) {
+		  let isZoomed = false;
+		  let originalZIndex = img.style.zIndex;
+	  
+		  img.addEventListener('click', function() {
+			if (!isZoomed) {
+			  img.style.transform = 'scale(1.5)'; // Ingrandisci l'immagine
+			  img.style.transition = 'transform 0.5s'; // Transizione di ingrandimento
+			  img.style.zIndex = '9999'; // Porta l'immagine in primo piano
+			  isZoomed = true;
+	  
+			  // Se non clicchi di nuovo dopo 2 secondi, l'immagine torna alla dimensione normale
+			  setTimeout(function() {
+				if (isZoomed) {
+				  img.style.transform = 'scale(1)'; // Torna alla dimensione originale
+				  img.style.zIndex = originalZIndex; // Torna all'indice z originale
+				  isZoomed = false;
+				}
+			  }, 2000);
+			} else {
+			  img.style.transform = 'scale(1)'; // Torna alla dimensione originale
+			  img.style.zIndex = originalZIndex; // Torna all'indice z originale
+			  isZoomed = false;
+			}
+		  });
+		});
+	  }
+	  
+
+
+
+
+
+  // Caricamento dinamico tramite AJAX (esempio)
+  document.addEventListener('DOMContentLoaded', function() {
+	initZoomableImages(); // Inizializza lo zoom sulle immagini quando la pagina viene caricata
+  
+	// Esempio di caricamento dinamico
+	$('.ajax-load-page').on('click', function(event) {
+	  event.preventDefault();
+	  loadDynamicContent(); // Carica il contenuto dinamico e riassegna gli eventi
+	});
+  });
+  
+  
