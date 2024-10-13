@@ -712,7 +712,7 @@ function initZoomableImages() {
   } */
 
  
-	function initZoomableImages() {
+/* 	function initZoomableImages() {
 		// Seleziona tutte le immagini con la classe 'image-clickable' e aggiungi un evento click
 		document.querySelectorAll('.image-clickable').forEach(function(img) {
 		  let isZoomed = false;
@@ -758,4 +758,4 @@ function initZoomableImages() {
 	});
   });
 
-  
+   */
