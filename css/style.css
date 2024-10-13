@@ -2702,6 +2702,15 @@ span.error {
 .phase {
   display: contents;
 }
+.image {
+  margin: auto;
+  
+}
+
+.image img {
+  display: block !important;
+  visibility: visible !important;
+}
 
 .phase .image img {
   width: 100%;
