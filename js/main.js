@@ -677,39 +677,3 @@ var animateReveal = function() {
 }
 
 
-// funzione per ingrandire le foto
-
-// Funzione per gestire l'ingrandimento e lo z-index delle immagini cliccabili
-function initZoomableImages() {
-	// Seleziona tutte le immagini con la classe .image-clickable
-	const clickableImages = document.querySelectorAll('.image-clickable');
-  
-	clickableImages.forEach(image => {
-	  let clickCount = 0;
-	  let timer;
-  
-	  // Aggiungi l'evento di clic su ogni immagine
-	  image.addEventListener('click', function() {
-		clickCount++;
-  
-		if (clickCount === 1) {
-		  // Se è il primo clic, ingrandisci l'immagine e portala in primo piano
-		  image.classList.add('zoomed');
-  
-		  // Avvia il timer di 2 secondi per ripristinare l'immagine se non viene cliccata di nuovo
-		  timer = setTimeout(function() {
-			image.classList.remove('zoomed');
-			image.style.zIndex = 1; // Ripristina lo z-index originale
-			clickCount = 0; // Resetta il contatore dopo il timeout
-		  }, 2000);
-		} else if (clickCount === 2) {
-		  // Se è il secondo clic, rimuovi l'ingrandimento e ferma il timer
-		  image.classList.remove('zoomed');
-		  image.style.zIndex = 1; // Ripristina lo z-index originale
-		  clearTimeout(timer); // Ferma il timer
-		  clickCount = 0; // Resetta il contatore
-		}
-	  });
-	});
-  }
-  
