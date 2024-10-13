@@ -109,12 +109,11 @@
         <div class="portfolio-single-wrap unslate_co--section" id="portfolio-single-section">
 
           <div class="portfolio-single-inner">
-
+            <h2 class="heading-portfolio-single-h2">Design System at Dow Jones</h2>
             <div class="case-study-container">
               <div class="phase">
-                <div class="image">
-                  <img src="images/ds/pallet-ds.jpg" alt="Immagine Fase 1" class="image-clickable">
-                </div>
+                <div class="image"><a href="images/ds/pallet-ds.jpg" data-fancybox="gal"> <img
+                      src="images/ds/pallet-ds.jpg" alt="Color pallet" class="img-fluid"> </a></div>
                 <div class="text phaseB1">
                   <h3>Overview</h3>
                   <div class="logo-casestudy ">
@@ -148,15 +147,13 @@
                   </ul>
 
                 </div>
-                <div class="image">
-                  <img src="images/ds/tokenDS.jpg" alt="Immagine Fase 2" class="image-clickable">
-                </div>
+                <div class="image"><a href="images/ds/tokenDS.jpg" data-fancybox="gal"> <img src="images/ds/tokenDS.jpg"
+                      alt="tokens first" class="img-fluid"> </a></div>
               </div>
 
               <div class="phase">
-                <div class="image">
-                  <img src="images/ds/tokenDS2.jpg" alt="Immagine Fase 3" class="image-clickable">
-                </div>
+                <div class="image"><a href="images/ds/tokenDS2.jpg" data-fancybox="gal"> <img
+                      src="images/ds/tokenDS2.jpg" alt="DS components" class="img-fluid"> </a></div>
                 <div class="text phaseB3">
                   <h3>Output</h3>
                   <ul>
@@ -215,27 +212,8 @@
   gtag('config', 'UA-XXXXX-Y');
 </script> -->
 
-<!-- Inizializza la funzione quando il documento è caricato -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    initZoomableImages(); // Inizializza la funzione per le immagini
-  });
+  <!-- Inizializza la funzione quando il documento è caricato -->
 
-  function loadDynamicContent() {
-  $.ajax({
-    url: "path_to_content.html",
-    success: function(data) {
-      $('#portfolio-single-holder').html(data); // Inserisci il contenuto dinamico nella pagina
-
-      // Dopo aver caricato il contenuto, richiama la funzione per aggiungere il comportamento di zoom
-      initZoomableImages();  // Riapplica la funzione sugli elementi appena aggiunti
-    }
-  });
-}
-
-
-
-</script>
 
 
 
