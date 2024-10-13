@@ -2794,3 +2794,15 @@ span.error {
   border: 1px solid rgba(229, 193, 46, 0.3);
   margin: auto;
 }
+
+.image-clickable {
+  transition: transform 0.3s ease, z-index 0s ease; /* Transizione fluida per ingrandimento */
+  cursor: pointer;
+  position: relative; /* Necessario per z-index */
+  z-index: 1; /* Z-index di default */
+}
+
+.image-clickable.zoomed {
+  transform: scale(2); /* Ingrandisce l'immagine */
+  z-index: 999 !important; /* Porta l'immagine in primo piano */
+}
