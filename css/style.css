@@ -2664,9 +2664,10 @@ span.error {
 
 .logo-casestudy {
   display: grid;
-  grid-template-columns: auto 1fr; /* Due colonne: una per l'immagine, una per il testo */
-  gap: 10px; /* Spazio di 20px tra l'immagine e il testo */
-  align-items: center; /* Allinea l'immagine e il testo verticalmente al centro */
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  justify-items: end;
 }
 
 .image-logo {
