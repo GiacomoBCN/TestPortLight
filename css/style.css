@@ -2675,6 +2675,15 @@ span.error {
   height: auto; /* Mantiene le proporzioni dell'immagine */
 }
 @media (max-width: 768px) {
+  .mar-20Mob {
+    margin-left: -20px;
+  }
+
+  .image-logo {
+    max-width: 75px; /* Puoi regolare la dimensione dell'immagine come desideri */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+  }
+
   /* Disabilitare le transizioni su mobile */
   .portfolio-item img,
   .portfolio-item .reveal-content {
@@ -2705,7 +2714,6 @@ span.error {
 }
 .image {
   margin: auto;
-  
 }
 
 .image img {
@@ -2804,4 +2812,3 @@ span.error {
   border: 1px solid rgba(229, 193, 46, 0.3);
   margin: auto;
 }
-
