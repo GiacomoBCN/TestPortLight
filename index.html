@@ -117,16 +117,20 @@
             </div>
 
           </div>
+
+
         </div>
 
 
         <!-- dov -->
+
         <a href="#portfolio-section" class="mouse-wrap smoothscroll">
           <span class="mouse">
             <span class="scroll"></span>
           </span>
           <span class="mouse-label">Scroll</span>
         </a>
+
 
       </div>
       <!-- END .cover-v1 -->
@@ -183,8 +187,8 @@
               </div>
  -->
               <div class="item pwa rst ux branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                <a href="portfolio-2-xpc-project.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img"
-                  data-id="2">
+                <a href="portfolio-2-xpc-project.html"
+                  class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="2">
                   <div class="overlay">
                     <span class="wrap-icon icon-link2"></span>
                     <div class="portfolio-item-content">
@@ -403,6 +407,8 @@
         </div>
       </div>
 
+      <div><a href="#portfolio-section" class="back-to-portfolio" id="backToPortfolio">&#8679;</a></div>
+
 
 
 
@@ -486,10 +492,16 @@
             </div>
             <div class="col-lg-4 pr-lg-5">
               <h3 class="mb-4 heading-h3"><span class="gsap-reveal">We can make it together</span></h3>
-              <p class="lead gsap-reveal"> I’m a dynamic and curious professional with a passion for merging the worlds of Social Sciences and technology. 
-                With a diverse background in UX design, Front-End development, and leadership, I specialize in creating user-centered products that align seamlessly with both business objectives and customer needs.
-              <p class="mb-4 gsap-reveal">My expertise spans across design systems, UX principles, and team collaboration, where I thrive on fostering innovation and building cohesive strategies. By balancing creativity with practical execution, I ensure the development of impactful digital experiences that not only engage users but also drive measurable business success.</p>
-              <p class="gsap-reveal"><a href="https://www.linkedin.com/in/giacomobianchi00/"   target="_blank" class="btn btn-outline-pill btn-custom-light">Contact me via Linkedin</a></p>
+              <p class="lead gsap-reveal"> I’m a dynamic and curious professional with a passion for merging the worlds
+                of Social Sciences and technology.
+                With a diverse background in UX design, Front-End development, and leadership, I specialize in creating
+                user-centered products that align seamlessly with both business objectives and customer needs.
+              <p class="mb-4 gsap-reveal">My expertise spans across design systems, UX principles, and team
+                collaboration, where I thrive on fostering innovation and building cohesive strategies. By balancing
+                creativity with practical execution, I ensure the development of impactful digital experiences that not
+                only engage users but also drive measurable business success.</p>
+              <p class="gsap-reveal"><a href="https://www.linkedin.com/in/giacomobianchi00/" target="_blank"
+                  class="btn btn-outline-pill btn-custom-light">Contact me via Linkedin</a></p>
             </div>
           </div>
         </div>
@@ -798,13 +810,14 @@
               </div>
               <div class="col-md-6 text-center text-md-right mt-3 mt-md-0">
                 <p class="gsap-reveal">
-                  <a href="https://www.linkedin.com/in/giacomobianchi00/" target="_blank" class="btn btn-outline-pill btn-custom-light">Contact me via Linkedin</a>
+                  <a href="https://www.linkedin.com/in/giacomobianchi00/" target="_blank"
+                    class="btn btn-outline-pill btn-custom-light">Contact me via Linkedin</a>
                 </p>
               </div>
             </div>
           </div>
-          
-          
+
+
 
 
 
@@ -848,6 +861,18 @@
 
   <script src="js/scripts-dist.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    // Function to show/hide the button when scrolling
+    window.onscroll = function () {
+      var backToPortfolio = document.getElementById("backToPortfolio");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToPortfolio.style.display = "block";
+      } else {
+        backToPortfolio.style.display = "none";
+      }
+    };
+  </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>

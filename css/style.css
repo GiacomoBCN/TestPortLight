@@ -2828,3 +2828,47 @@ span.error {
   border: 1px solid rgba(229, 193, 46, 0.3);
   margin: auto;
 }
+
+
+/* scroll */
+.back-to-portfolio {
+  position: fixed;
+ bottom: 10%;
+    right: 13%;
+  background-color: #333;
+  color: #fdcb12;
+  padding: 10px;
+  border-radius: 100%;
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+  display: none; /* Hidden initially */
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.back-to-portfolio:hover {
+  background-color: #555;
+}
+@media (max-width: 768px) {
+  .back-to-portfolio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fdcb12;
+    padding: 10px;
+    border-radius: 100%;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    display: none; /* Hidden initially */
+    z-index: 1000;
+    cursor: pointer;
+  }
+}
+
+
+
+
+
