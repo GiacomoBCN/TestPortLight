@@ -1834,13 +1834,13 @@ figure.dotted-bg:before {
   z-index: 9;
 }
 .glassCard {
-  color: white;
+  color: rgb(70, 64, 64);
   padding: 50px;
   border-radius: 5px;
   padding-bottom: 70px;
 
   /* From https://css.glass */
-  background: #13d1459c;
+  background: #2ee5c180;
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5.6px);
@@ -2125,9 +2125,7 @@ figure.dotted-bg:before {
   }
 }
 
-.contact-info-v1 > div {
-  margin-bottom: 30px;
-}
+
 
 .contact-info-v1 .contact-info-label {
   font-size: 11px;
@@ -2590,6 +2588,16 @@ span.error {
   display: inline-block;
 }
 /* gia */
+
+.logo-v1 {
+  background-color: #2ee5c180;
+}
+
+.owl-carousel img {
+  width: 150px;
+  height: 150px;
+}
+
 .border5 {
   border-radius: 5px;
 }
@@ -2677,6 +2685,14 @@ span.error {
 @media (max-width: 768px) {
   .mar-20Mob {
     margin-left: -20px;
+  }
+
+  .logo-v1 {
+    background-color: #2ee5c180;
+  }
+  .owl-carousel img {
+    width: 1px;
+    height: 100px;
   }
 
   .image-logo {
