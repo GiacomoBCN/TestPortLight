@@ -2125,8 +2125,6 @@ figure.dotted-bg:before {
   }
 }
 
-
-
 .contact-info-v1 .contact-info-label {
   font-size: 11px;
   letter-spacing: 0.1rem;
@@ -2728,16 +2726,16 @@ span.error {
 .phase {
   display: contents;
 }
-.image {
+.imageC {
   margin: auto;
 }
 
-.image img {
+.imageC img {
   display: block !important;
   visibility: visible !important;
 }
 
-.phase .image img {
+.phase .imageC img {
   width: 100%;
   height: auto;
 }
@@ -2747,7 +2745,7 @@ span.error {
 }
 
 /* Layout Desktop */
-.phase:nth-child(odd) .image {
+.phase:nth-child(odd) .imageC {
   grid-column: 1 / 2; /* Immagine a sinistra nelle righe dispari */
 }
 
@@ -2755,7 +2753,7 @@ span.error {
   grid-column: 2 / 3; /* Testo a destra nelle righe dispari */
 }
 
-.phase:nth-child(even) .image {
+.phase:nth-child(even) .imageC {
   grid-column: 2 / 3; /* Immagine a destra nelle righe pari */
 }
 
@@ -2766,7 +2764,16 @@ span.error {
 /* Layout responsive per dispositivi mobili */
 @media (max-width: 768px) {
   .case-study-container {
+    gap: 15px;
+    padding: 3px;
+  }
+  .case-study-container {
     grid-template-columns: 1fr;
+  }
+
+  .imageC {
+    padding-bottom: 10px !important;
+
   }
 
   .phase {
@@ -2774,7 +2781,7 @@ span.error {
     flex-direction: column;
   }
 
-  .phase .image {
+  .phase .imageC {
     order: 1;
   }
 
@@ -2829,12 +2836,11 @@ span.error {
   margin: auto;
 }
 
-
 /* scroll */
 .back-to-portfolio {
   position: fixed;
- bottom: 10%;
-    right: 13%;
+  bottom: 10%;
+  right: 13%;
   background-color: #333;
   color: #fdcb12;
   padding: 10px;
@@ -2867,8 +2873,3 @@ span.error {
     cursor: pointer;
   }
 }
-
-
-
-
-
