@@ -2144,10 +2144,10 @@ figure.dotted-bg:before {
   font-weight: 900;
 }
 
-.heading-portfolio-single-h2 {
+.heading-portfolio-single-h2{
   margin-top: 30px;
 }
-.heading-h2 {
+.mtop30 {
   margin-top: 30px;
 }
 
@@ -2156,7 +2156,7 @@ figure.dotted-bg:before {
     font-size: 30px;
   }
 
-  .heading-portfolio-single-h2 {
+  .heading-portfolio-single-h2{
     max-width: 90%;
     margin-top: 30px;
   }
@@ -2785,6 +2785,7 @@ span.error {
 
   .imageC {
     padding-bottom: 10px !important;
+
   }
 
   .phase {
