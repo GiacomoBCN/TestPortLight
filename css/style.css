@@ -1525,6 +1525,9 @@ a:hover {
 
 .filter-wrap .filter a.active {
   color: #000;
+  text-decoration: underline !important;
+  text-decoration-color: #ffc107 !important;
+  text-decoration-style: double !important;
 }
 
 @media (max-width: 991.98px) {
