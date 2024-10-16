@@ -2147,8 +2147,8 @@ figure.dotted-bg:before {
 .heading-portfolio-single-h2{
   margin-top: 30px;
 }
-.mtop30 {
-  margin-top: 30px;
+.mtop20 {
+  margin-top: 20px;
 }
 
 @media (max-width: 991.98px) {
@@ -2158,7 +2158,7 @@ figure.dotted-bg:before {
 
   .heading-portfolio-single-h2{
     max-width: 90%;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 }
 
