@@ -2145,6 +2145,7 @@ figure.dotted-bg:before {
   margin-bottom: 40px;
   font-size: 50px;
   font-weight: 900;
+  max-width: 1060px;
 }
 
 .heading-portfolio-single-h2{
