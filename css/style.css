@@ -2148,7 +2148,7 @@ figure.dotted-bg:before {
   max-width: 1060px;
 }
 
-.heading-portfolio-single-h2{
+.heading-portfolio-single-h2 {
   margin-top: 30px;
 }
 .mtop20 {
@@ -2160,7 +2160,7 @@ figure.dotted-bg:before {
     font-size: 30px;
   }
 
-  .heading-portfolio-single-h2{
+  .heading-portfolio-single-h2 {
     max-width: 90%;
     margin-top: 20px;
   }
@@ -2701,9 +2701,16 @@ span.error {
     margin-left: -20px;
   }
 
- /*  .logo-v1 {
+  /*  .logo-v1 {
     background-color: #2ee5c180;
-  } */
+    } 
+    */
+  .btnCent {
+    display: flex;
+
+    justify-content: space-evenly;
+  }
+
   .owl-carousel img {
     width: 1px;
     height: 100px;
@@ -2789,7 +2796,6 @@ span.error {
 
   .imageC {
     padding-bottom: 10px !important;
-
   }
 
   .phase {
