@@ -2880,6 +2880,9 @@ span.error {
 .back-to-portfolio:hover{
   border-radius: 0%;
 }
+.left-panel img:not(:hover) {
+  border-radius: 100%; /* Forza il ritorno allo stato arrotondato */
+}
 
 .back-to-portfolio:hover {
   background-color: #555;
@@ -2905,6 +2908,9 @@ span.error {
   }
   .back-to-portfolio:hover{
     border-radius: 0%;
+  }
+  .left-panel img:not(:hover) {
+    border-radius: 100%; /* Forza il ritorno allo stato arrotondato */
   }
 }
 
