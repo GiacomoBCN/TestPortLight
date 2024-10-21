@@ -2910,7 +2910,7 @@ span.error {
     border-radius: 0%;
   }
   .left-panel img:not(:hover) {
-    border-radius: 100%; /* Forza il ritorno allo stato arrotondato */
+    border-radius: 100% !important; /* Forza il ritorno allo stato arrotondato */
   }
 }
 
