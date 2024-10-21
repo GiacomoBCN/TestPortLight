@@ -2161,7 +2161,7 @@ figure.dotted-bg:before {
   }
 
   .heading-portfolio-single-h2 {
-    max-width: 90%;
+    max-width: 82% !important;
     margin-top: 20px;
   }
 }
@@ -2867,12 +2867,18 @@ span.error {
   color: #fdcb12;
   padding: 10px;
   border-radius: 100%;
+  transition: border-radius 0.3s ease;
   font-size: 24px;
   text-align: center;
   text-decoration: none;
   display: none; /* Hidden initially */
   z-index: 1000;
   cursor: pointer;
+  height: 48px;
+  width: 48px;
+}
+.back-to-portfolio:hover{
+  border-radius: 0%;
 }
 
 .back-to-portfolio:hover {
@@ -2887,11 +2893,70 @@ span.error {
     color: #fdcb12;
     padding: 10px;
     border-radius: 100%;
+    transition: border-radius 0.3s ease; 
     font-size: 24px;
     text-align: center;
     text-decoration: none;
     display: none; /* Hidden initially */
     z-index: 1000;
     cursor: pointer;
+    height: 48px;
+    width: 48px;
+  }
+  .back-to-portfolio:hover{
+    border-radius: 0%;
+  }
+}
+
+.container-box {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.left-panel {
+  padding: 10px;
+  background-size: contain;
+  display: flex; /* Aggiunto per centrare il contenuto */
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+.left-panel img {
+  max-width: 100%; /* Assicura che l'immagine non superi la larghezza del contenitore */
+  height: auto; /* Mantiene le proporzioni dell'immagine */
+  display: block; /* Elimina eventuali spazi indesiderati sotto l'immagine */
+}
+.right-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+.inner-box {
+  padding: 10px;
+  text-align: center;
+}
+.titIcon {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+/* Stile per dispositivi mobili */
+@media (max-width: 768px) {
+  .container-box {
+    grid-template-columns: 1fr; /* Disposizione verticale in mobile */
+  }
+
+  .right-panel {
+    grid-template-columns: 1fr 1fr; /* Mantiene 2 colonne e 2 righe anche su mobile */
+  }
+
+  .inner-box {
+    padding: 10px; /* Ridimensiona i box per adattarsi allo schermo più piccolo */
+  }
+
+  .titIcon {
+    font-size: 22px;
+    font-weight: 900;
   }
 }
