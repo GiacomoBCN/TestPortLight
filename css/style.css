@@ -71,7 +71,7 @@ a:hover {
 }
 
 .portfolio-item-content {
-  background: #fdcb1296;
+  background: #fdcb12e8;
   padding: 1% 3% 3%;
   border-radius: 5px;
 }
@@ -1478,10 +1478,13 @@ a:hover {
   font-size: 18px;
 }
 /* gia */
+
+
+
 .portfolio-item .portfolio-item-content p,
 .blog-item .portfolio-item-content p {
   font-size: 12px;
-  color: rgba(134, 91, 7, 0.768);
+  color: #5e3f03;
   font-family: "Arimo", sans-serif;
 }
 
@@ -1531,6 +1534,9 @@ a:hover {
 }
 
 @media (max-width: 991.98px) {
+  .borderC {
+    border: 1px solid #FDCB12 !important;
+  }
   .filter-wrap .filter {
     background: #fff;
     z-index: 9;
@@ -1885,6 +1891,7 @@ figure.dotted-bg:before {
 
 .testimonial-v1 .testimonial-author-info img {
   width: 90px;
+  height: 90px;
   margin: 0 auto 30px auto;
   border-radius: 50%;
   -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
@@ -2607,11 +2614,6 @@ span.error {
   background-color: #2ee5c180;
 } */
 
-.owl-carousel img {
-  width: 150px;
-  height: 150px;
-}
-
 .border5 {
   border-radius: 5px;
 }
@@ -2711,11 +2713,6 @@ span.error {
     justify-content: space-evenly;
   }
 
-  .owl-carousel img {
-    width: 1px;
-    height: 100px;
-  }
-
   .image-logo {
     max-width: 75px; /* Puoi regolare la dimensione dell'immagine come desideri */
     height: auto; /* Mantiene le proporzioni dell'immagine */
@@ -2737,6 +2734,16 @@ span.error {
     visibility: visible; /* Il contenuto si rivela al tocco */
   }
 }
+
+.w100h100 {
+  width: 100%;
+  height: 100%;
+}
+
+.blueLink {
+  color: #0443ff;
+}
+
 /* CSS parte case study  */
 .case-study-container {
   display: grid;
@@ -2877,7 +2884,7 @@ span.error {
   height: 48px;
   width: 48px;
 }
-.back-to-portfolio:hover{
+.back-to-portfolio:hover {
   border-radius: 0%;
 }
 .left-panel img:not(:hover) {
@@ -2896,7 +2903,7 @@ span.error {
     color: #fdcb12;
     padding: 10px;
     border-radius: 100%;
-    transition: border-radius 0.3s ease; 
+    transition: border-radius 0.3s ease;
     font-size: 24px;
     text-align: center;
     text-decoration: none;
@@ -2906,7 +2913,7 @@ span.error {
     height: 48px;
     width: 48px;
   }
-  .back-to-portfolio:hover{
+  .back-to-portfolio:hover {
     border-radius: 0%;
   }
   .left-panel img:not(:hover) {
