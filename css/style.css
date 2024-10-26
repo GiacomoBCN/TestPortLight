@@ -1479,18 +1479,15 @@ a:hover {
 }
 /* gia */
 
-.logoGB{
-    max-height: 55px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid #ffc107;
+.logoGB {
+  max-height: 55px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid #ffc107;
 }
-
-
-
 
 .portfolio-item .portfolio-item-content p,
 .blog-item .portfolio-item-content p {
@@ -1546,7 +1543,7 @@ a:hover {
 
 @media (max-width: 991.98px) {
   .borderC {
-    border: 1px solid #FDCB12 !important;
+    border: 1px solid #fdcb12 !important;
   }
   .filter-wrap .filter {
     background: #fff;
@@ -2881,54 +2878,27 @@ span.error {
   position: fixed;
   bottom: 10%;
   right: 13%;
-  background-color: #333;
-  color: #fdcb12;
-  padding: 10px;
-  border-radius: 100%;
-  transition: border-radius 0.3s ease;
-  font-size: 24px;
-  text-align: center;
-  text-decoration: none;
   display: none; /* Hidden initially */
   z-index: 1000;
   cursor: pointer;
-  height: 48px;
-  width: 48px;
-}
-.back-to-portfolio:hover {
-  border-radius: 0%;
-}
-.left-panel img:not(:hover) {
-  border-radius: 100%; /* Forza il ritorno allo stato arrotondato */
+  height: 50px;
+  width: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid #ffc107;
 }
 
-.back-to-portfolio:hover {
-  background-color: #555;
+.center-image-wrapper img {
+  margin: 4px;
 }
+
 @media (max-width: 768px) {
   .back-to-portfolio {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #333;
-    color: #fdcb12;
-    padding: 10px;
-    border-radius: 100%;
-    transition: border-radius 0.3s ease;
-    font-size: 24px;
-    text-align: center;
-    text-decoration: none;
-    display: none; /* Hidden initially */
-    z-index: 1000;
-    cursor: pointer;
-    height: 48px;
-    width: 48px;
-  }
-  .back-to-portfolio:hover {
-    border-radius: 0%;
-  }
-  .left-panel img:not(:hover) {
-    border-radius: 100% !important; /* Forza il ritorno allo stato arrotondato */
+    bottom: 2%;
+    right: 5%;
   }
 }
 
