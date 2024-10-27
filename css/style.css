@@ -2892,7 +2892,7 @@ span.error {
 }
 
 .center-image-wrapper img {
-  margin: 4px;
+  margin: 5px 4px 4px 4px;
 }
 
 @media (max-width: 768px) {
