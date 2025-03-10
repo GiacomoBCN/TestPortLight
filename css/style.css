@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Arimo:400|Raleway:300,400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap');
+
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   color: #000;
   font-size: 16px;
   line-height: 30px;
@@ -2311,7 +2313,7 @@ figure.dotted-bg:before {
 .unslate_co--footer .footer-site-logo a {
   font-size: 30px;
   font-weight: 900;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   color: #000;
 }
 
@@ -2779,7 +2781,7 @@ span.error {
 }
 
 .phase .text {
-  padding: 10px;
+  padding: 16px;
 }
 
 /* Layout Desktop */
