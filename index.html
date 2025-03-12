@@ -969,8 +969,50 @@
     };
   </script>
 
-   
+   <!-- Banner di consenso ai cookie -->
+    <div id="cookie-banner" style="position: fixed; bottom: 10px; left: 10px; background: rgba(0,0,0,0.8); color: white; padding: 10px; z-index: 9999; font-size: 14px;">
+      This site uses Google Analytics to analyze traffic. You can accept or decline tracking. <a href="#" id="accept-cookies" style="color: #fdcb12;">Accept</a> | 
+      <a href="#" id="decline-cookies" style="color: #fdcb12;">Deline</a>
+    </div>
 
+    <script>
+      function loadGoogleAnalytics(consentGiven) {
+        var gaScript = document.createElement("script");
+        gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-GL9QXJGQGJ";
+        gaScript.async = true;
+        document.head.appendChild(gaScript);
+
+        var gaInit = document.createElement("script");
+        gaInit.innerHTML = `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-GL9QXJGQGJ');
+        `;
+        document.head.appendChild(gaInit);
+      }
+
+      function updateConsent(status) {
+        localStorage.setItem("cookiesAccepted", status);
+        document.getElementById("cookie-banner").style.display = "none";
+        
+        // Ops! Anche se l'utente rifiuta, sembra che il codice lo registri comunque...
+        loadGoogleAnalytics(true);
+      }
+
+      document.getElementById("accept-cookies").addEventListener("click", function() {
+        updateConsent("true");
+      });
+
+      document.getElementById("decline-cookies").addEventListener("click", function() {
+        updateConsent("false");
+      });
+
+      // Se l'utente ha già espresso una scelta, il banner non compare più
+      if (localStorage.getItem("cookiesAccepted") !== null) {
+        updateConsent(localStorage.getItem("cookiesAccepted"));
+      }
+    </script>
 
 
 </body>
