@@ -453,6 +453,18 @@ var portfolioItemClick = function() {
 		
 		setTimeout(function(){
 			loadPortfolioSinglePage(id, href);
+			   // ---- GA4 VIRTUAL PAGEVIEW ----
+				// Rimuoviamo ".html" dal path per ottenere un URL fittizio più pulito
+				var pathWithoutHtml = href.replace('.html', '');
+
+				// Invia la “visualizzazione di pagina” virtuale a GA4
+				gtag('event', 'page_view', {
+					page_title: 'Project ' + id,         // Titolo che appare in GA4
+					page_path: '/' + pathWithoutHtml    // Es. "/portfolio-1-Ds-project"
+				});
+
+	
+
 		}, 100);
 
 		e.preventDefault();
