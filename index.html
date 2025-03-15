@@ -19,6 +19,18 @@
 
       gtag('config', 'G-GL9QXJGQGJ');
     </script>
+    <script>
+      function trackVirtualPageview(pageTitle, pageSlug) {
+        // Manda a GA4 l’evento "page_view"
+        gtag('event', 'page_view', {
+          page_title: pageTitle,
+          page_location: 'https://giacomobianchi.tech' + pageSlug
+        });
+    
+        // (Opzionale) Aggiorna l’URL nel browser
+        // history.pushState({}, '', pageSlug);
+      }
+    </script>
 
   <link rel="stylesheet" href="css/vendor/icomoon/style.css">
   <link rel="stylesheet" href="css/vendor/owl.carousel.min.css">
@@ -189,7 +201,7 @@
 
               <div class="item aipw ds branding mng col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
                 <a href="portfolio-1-Ds-project.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img"
-                  data-id="1">
+                  data-id="1"  onclick="trackVirtualPageview('DS', '/portfolio-1-Ds-project')">
                   <div class="overlay">
                     <span class="wrap-icon icon-link2"></span>
                     <div class="portfolio-item-content">
@@ -203,7 +215,7 @@
 
               <div class="item pwa rst ux branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
                 <a href="portfolio-2-xpc-project.html"
-                  class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="2">
+                  class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="2" onclick="trackVirtualPageview('Xpc', '/portfolio-2-xpc-project.html')">
                   <div class="overlay">
                     <span class="wrap-icon icon-link2"></span>
                     <div class="portfolio-item-content">
@@ -217,7 +229,7 @@
 
               <div class="item mobile ds ux branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
                 <a href="portfolio-3-sgpvFlutter.html"
-                  class="portfolio-item ajax-load-page item-portrait isotope-item gsap-reveal-img" data-id="3">
+                  class="portfolio-item ajax-load-page item-portrait isotope-item gsap-reveal-img" data-id="3"  onclick="trackVirtualPageview('SGPV new version', '/portfolio-3-sgpvFlutter.html')">
                   <div class="overlay">
                     <span class="wrap-icon icon-link2"></span>
                     <div class="portfolio-item-content">
