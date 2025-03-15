@@ -460,7 +460,7 @@ var portfolioItemClick = function() {
 				// Invia la “visualizzazione di pagina” virtuale a GA4
 				gtag('event', 'page_view', {
 					page_title: 'Project ' + id,         // Titolo che appare in GA4
-					page_path: '/' + pathWithoutHtml    // Es. "/portfolio-1-Ds-project"
+					page_location: 'https://giacomobianchi.tech/' + pathWithoutHtml  // Es. "/portfolio-1-Ds-project"
 				});
 
 	
