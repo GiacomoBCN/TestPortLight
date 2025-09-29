@@ -23,6 +23,7 @@ jQuery(function($) {
 	stickyFillPlugin();
 	animateReveal();
 	testimonialExpand();
+	fixMobileViewport();
 
 });
 
@@ -524,6 +525,8 @@ var loadPortfolioSinglePage = function(id, href) {
 				TweenMax.to('.portfolio-single-inner', .5, { marginTop: '0px', autoAlpha: 1, display: 'block', onComplete() {
 
 					TweenMax.to('.loader-portfolio-wrap', 1, { top: '0px', autoAlpha: 0, ease: Power4.easeOut });	
+					// Fix mobile viewport after content loads
+					fixMobileViewport();
 				} });
 			}, 700 );
 		}
@@ -778,3 +781,22 @@ var testimonialExpand = function() {
 		$(this).toggleClass('expanded');
 	});
 };
+
+// Mobile viewport height fix for portfolio pages
+var fixMobileViewport = function() {
+	if (window.innerWidth <= 991) {
+		// Set minimum height for portfolio content
+		var portfolioContent = $('.portfolio-single-wrap');
+		if (portfolioContent.length) {
+			var viewportHeight = window.innerHeight;
+			var navHeight = $('.unslate_co--site-nav').outerHeight() || 0;
+			var footerHeight = $('.unslate_co--footer').outerHeight() || 200;
+			var minContentHeight = viewportHeight - navHeight - footerHeight - 100;
+			
+			portfolioContent.css('min-height', minContentHeight + 'px');
+		}
+	}
+};
+
+// Call on page load and resize
+$(window).on('load resize', fixMobileViewport);

@@ -81,6 +81,7 @@ a:hover {
 @media (max-width: 991.98px) {
   .unslate_co--site-inner {
     margin-bottom: auto !important;
+    min-height: calc(100vh - 200px);
   }
 }
 
@@ -101,6 +102,7 @@ a:hover {
   .unslate_co--footer {
     height: auto !important;
     position: relative !important;
+    margin-top: 2rem;
   }
 }
 
