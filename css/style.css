@@ -2956,3 +2956,26 @@ span.error {
     font-weight: 900;
   }
 }
+
+/* Compact table utility */
+.table-compact {
+  font-size: 14px;
+}
+.table-compact th,
+.table-compact td {
+  padding: 0.35rem 0.5rem;
+  vertical-align: middle;
+}
+.table-compact thead th {
+  text-align: center;
+  vertical-align: middle;
+}
+@media (max-width: 768px) {
+  .table-compact {
+    font-size: 13px;
+  }
+  .table-compact th,
+  .table-compact td {
+    padding: 0.3rem 0.4rem;
+  }
+}
