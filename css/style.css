@@ -1851,12 +1851,20 @@ figure.dotted-bg:before {
 .testimonial-v1 {
   text-align: center;
   z-index: 9;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .glassCard {
   color: rgb(70, 64, 64);
   padding: 50px;
   border-radius: 5px;
   padding-bottom: 70px;
+  min-height: 350px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
   /* From https://css.glass */
   background: #2ee5c180;
@@ -1865,6 +1873,35 @@ figure.dotted-bg:before {
   backdrop-filter: blur(5.6px);
   -webkit-backdrop-filter: blur(5.6px);
   border: 1px solid rgba(39, 38, 38, 0.88);
+}
+
+.glassCard blockquote {
+  max-height: 350px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  position: relative;
+}
+
+.glassCard.expanded blockquote {
+  max-height: none;
+}
+
+.glassCard::after {
+  content: 'Read more...';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(46, 229, 193, 0.9);
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  color: #333;
+  z-index: 10;
+}
+
+.glassCard.expanded::after {
+  content: 'Read less...';
 }
 
 .testimonial-v1 .testimonial-inner-bg {
@@ -1880,10 +1917,23 @@ figure.dotted-bg:before {
 }
 
 @media (max-width: 991.98px) {
+  .testimonial-v1 {
+    min-height: 450px;
+  }
   .testimonial-v1 .testimonial-inner-bg .glassCard {
     font-size: 16px;
     line-height: 32px;
     padding: 30px 30px 50px 30px;
+    min-height: 350px;
+  }
+  .glassCard blockquote {
+    max-height: 200px;
+  }
+  .glassCard::after {
+    bottom: 15px;
+    right: 15px;
+    font-size: 11px;
+    padding: 2px 6px;
   }
 }
 
@@ -1895,8 +1945,9 @@ figure.dotted-bg:before {
 
 .testimonial-v1 .testimonial-author-info {
   z-index: 2;
-  margin-top: -45px;
+  margin-top: -60px;
   position: relative;
+  flex-shrink: 0;
 }
 
 .testimonial-v1 .testimonial-author-info img {

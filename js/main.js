@@ -22,6 +22,7 @@ jQuery(function($) {
 	contactForm();
 	stickyFillPlugin();
 	animateReveal();
+	testimonialExpand();
 
 });
 
@@ -770,4 +771,10 @@ function initZoomableImages() {
 	});
   });
 
-   */
+  */
+
+var testimonialExpand = function() {
+	$('.glassCard').on('click', function() {
+		$(this).toggleClass('expanded');
+	});
+};
