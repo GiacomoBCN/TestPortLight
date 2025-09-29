@@ -1626,7 +1626,7 @@ a:hover {
   .unslate_co--site-inner,
   .unslate_co--footer {
     max-width: 100%;
-    /*  overflow-x: hidden; */
+     overflow-x: hidden;
   }
   .unslate_co--section {
     padding: 2rem 0;
