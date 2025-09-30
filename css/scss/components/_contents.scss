@@ -125,11 +125,11 @@ figure{
 }
 
 .gutter-isotope-item {
-    margin-right: -15px!important;
-    margin-left: -15px!important;
+    margin-right: 0px!important;
+    margin-left: 05px!important;
     @include media-breakpoint-down(md) {
-	  	margin-left: -15px!important;
-	  	margin-right: -15px!important;
+	  	margin-left: 0px!important;
+	  	margin-right: 0px!important;
 	  }
   > .col,
   > [class*="col-"] {

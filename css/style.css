@@ -1825,14 +1825,14 @@ figure.dotted-bg:before {
 }
 
 .gutter-isotope-item {
-  margin-right: -15px !important;
-  margin-left: -15px !important;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
 }
 
 @media (max-width: 991.98px) {
   .gutter-isotope-item {
-    margin-left: -15px !important;
-    margin-right: -15px !important;
+    margin-left: -0px !important;
+    margin-right: -0px !important;
   }
 }
 
@@ -3081,4 +3081,17 @@ span.error {
   .table-compact td {
     padding: 0.3rem 0.4rem;
   }
+}
+
+
+@media (max-width: 768px) {
+  #about-section > div {
+        margin-left: 18px !important;
+  }
+      .unslate_co--section {
+        padding: 2rem 0;
+        max-width: 100%;
+        overflow-x: unset;
+    }
+  
 }
