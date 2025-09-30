@@ -1666,6 +1666,11 @@ a:hover {
     margin-right: -15px;
     max-width: 100%;
   }
+
+  #contact-section > div > div.container > div{
+
+    margin: 0px !important;
+  }
   
   /* Fix for images that might overflow */
   img {
