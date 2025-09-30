@@ -1611,11 +1611,13 @@ a:hover {
 }
 
 @media (max-width: 767.98px) {
-  /* Gia add  questo risolve il problema della scroll bar naturale ma fotte il display delle cose stotto i progetti*/
+  /* Fixed overflow issues for mobile */
 
   html,
   body {
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   * {
@@ -1627,9 +1629,24 @@ a:hover {
   .unslate_co--footer {
     max-width: 100%;
      overflow-x: hidden;
+    width: 100%;
   }
+  
   .unslate_co--section {
     padding: 2rem 0;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure rows don't overflow */
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  /* Fix for images that might overflow */
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -2814,6 +2831,8 @@ span.error {
   grid-auto-rows: auto;
   gap: 20px;
   padding: 20px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .phase {
@@ -2859,9 +2878,9 @@ span.error {
   .case-study-container {
     gap: 15px;
     padding: 3px;
-  }
-  .case-study-container {
     grid-template-columns: 1fr;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .imageC {
