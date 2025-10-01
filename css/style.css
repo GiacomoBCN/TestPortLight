@@ -1671,7 +1671,17 @@ a:hover {
 
     margin: 0px !important;
   }
-  
+  #home-section > div.container > div{
+
+   max-width: none !important;
+  }
+  body > footer > div > div{
+     max-width: none !important;
+  }
+
+  body > div.unslate_co--site-wrap > div > nav > div > div{
+      max-width: none !important;
+  }
   /* Fix for images that might overflow */
   img {
     max-width: 100%;
