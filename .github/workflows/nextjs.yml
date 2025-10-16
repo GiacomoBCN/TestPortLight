@@ -73,7 +73,7 @@ jobs:
       # Aggiungi CNAME e disabilita Jekyll
       - name: Add CNAME and .nojekyll
         run: |
-          echo "giacomobianchi.tech" > ./out/CNAME
+          echo -n "giacomobianchi.tech" > ./out/CNAME
           touch ./out/.nojekyll
 
       # (opzionale) fallback SPA: scommenta se al refresh delle rotte vedi 404
