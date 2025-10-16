@@ -1,12 +1,35 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import SiteShell from "@/app/SiteShell";
+import GoogleAnalytics from "@/app/components/GoogleAnalytics";
+import CookieConsent from "@/app/components/CookieConsent";
+import PWAInstallPrompt from "@/app/components/PWAInstallPrompt";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
+export const viewport: Viewport = {
+  themeColor: '#0066ff',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
-  title: "Giacomo Bianchi Portfolio",
-  description: "Check my work ;)",
+  title: "Giacomo Bianchi - Product & Design Leadership Portfolio",
+  description: "Product & Design Leadership Portfolio. UX/UI Designer, Front-End Developer, Teacher. Leading design systems, cross-platform experiences, and teaching 1000+ students.",
+  keywords: ["UX Designer", "UI Designer", "Product Design", "Design Systems", "Front-End Developer", "Teacher", "Portfolio"],
+  authors: [{ name: "Giacomo Bianchi" }],
+  creator: "Giacomo Bianchi",
+  publisher: "Giacomo Bianchi",
+  applicationName: "GB Portfolio",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "GB Portfolio",
+  },
+  formatDetection: {
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: `${basePath}/favicon.ico`, sizes: "16x16 32x32" },
@@ -37,10 +60,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
+
   return (
     <html lang="en">
+      <head>
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </head>
       <body>
+        <GoogleAnalytics measurementId={gaId} />
         <SiteShell>{children}</SiteShell>
+        <PWAInstallPrompt />
+        <CookieConsent />
       </body>
     </html>
   );
