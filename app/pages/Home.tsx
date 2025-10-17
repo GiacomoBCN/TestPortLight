@@ -512,7 +512,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#00d4ff] flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#10b981] flex-shrink-0">
                   <Image
                     src={getImagePath("images/profile/1756901959970.jpg")}
                     alt="Antonella Sassu"
@@ -550,7 +550,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#0066ff] flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#10b981] to-[#0066ff] flex-shrink-0">
                   <Image
                     src={getImagePath("images/profile/1710886367232.jpg")}
                     alt="Oana Stroe"
@@ -606,7 +606,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#00d4ff] flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#10b981] flex-shrink-0">
                   <Image
                     src={getImagePath("images/profile/1685965339196.jpg")}
                     alt="Frank Longo"
@@ -639,7 +639,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#0066ff] flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#10b981] to-[#0066ff] flex-shrink-0">
                   <Image
                     src={getImagePath("images/profile/1685897244209.jpg")}
                     alt="Ismael Ruiz"
@@ -676,7 +676,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#00d4ff] flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#10b981] flex-shrink-0">
                   <Image
                     src={getImagePath("images/profile/1517687171761.jpg")}
                     alt="Sergio D'Argenio"
@@ -721,14 +721,14 @@ export default function Home() {
 
             {/* Teaching & Research */}
             <div className="glass p-12 relative group hover:bg-[rgba(0,212,255,0.1)] transition-all duration-300">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#00d4ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#10b981]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div
                   className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6"
                   style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
                 >
-                  <GraduationCap size={32} className="text-[#00d4ff]" />
+                  <GraduationCap size={32} className="text-[#10b981]" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-4">
                   Teaching & Research
@@ -739,7 +739,7 @@ export default function Home() {
                 </p>
                 <Link
                   href={createPageUrl("Teaching")}
-                  className="inline-block px-8 py-4 glass rounded-xl text-white font-semibold border-2 border-[#00d4ff] hover:bg-[#00d4ff] transition-all duration-200 hover:scale-105"
+                  className="inline-block px-8 py-4 glass rounded-xl text-white font-semibold border-2 border-[#10b981] hover:bg-[#10b981] transition-all duration-200 hover:scale-105"
                   style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.2)" }}
                 >
                   View Teaching Portfolio{" "}

@@ -80,7 +80,7 @@ export default function Teaching() {
       {/* Hero Section */}
       <section className="min-h-[70vh] flex items-center justify-center relative px-6 pt-20">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] bg-[#00d4ff] rounded-full opacity-10 blur-3xl"></div>
+          <div className="w-[600px] h-[600px] bg-[#10b981] rounded-full opacity-10 blur-3xl"></div>
         </div>
 
         <motion.div
@@ -95,7 +95,7 @@ export default function Teaching() {
             transition={{ delay: 0.2 }}
             className="mb-6"
           >
-            <span className="inline-block px-6 py-3 glass rounded-full text-[#00d4ff] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
+            <span className="inline-block px-6 py-3 glass rounded-full text-[#10b981] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
               Academic Leadership
             </span>
           </motion.div>
@@ -137,10 +137,10 @@ export default function Teaching() {
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
                     style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
                   >
-                    <GraduationCap size={24} className="text-[#00d4ff]" />
+                    <GraduationCap size={24} className="text-[#10b981]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#00d4ff]">
+                    <div className="text-3xl font-bold text-[#10b981]">
                       7 years
                     </div>
                     <div className="text-sm text-[#94a3b8]">
@@ -154,10 +154,10 @@ export default function Teaching() {
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
                     style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
                   >
-                    <Users size={24} className="text-[#00d4ff]" />
+                    <Users size={24} className="text-[#10b981]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#00d4ff]">
+                    <div className="text-3xl font-bold text-[#10b981]">
                       1000+
                     </div>
                     <div className="text-sm text-[#94a3b8]">
@@ -171,10 +171,10 @@ export default function Teaching() {
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
                     style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
                   >
-                    <BookOpen size={24} className="text-[#00d4ff]" />
+                    <BookOpen size={24} className="text-[#10b981]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#00d4ff]">2</div>
+                    <div className="text-3xl font-bold text-[#10b981]">2</div>
                     <div className="text-sm text-[#94a3b8]">
                       Master's courses across official programs
                     </div>
@@ -186,10 +186,10 @@ export default function Teaching() {
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
                     style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
                   >
-                    <TrendingUp size={24} className="text-[#00d4ff]" />
+                    <TrendingUp size={24} className="text-[#10b981]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#00d4ff]">
+                    <div className="text-3xl font-bold text-[#10b981]">
                       19 teams
                     </div>
                     <div className="text-sm text-[#94a3b8]">
@@ -291,7 +291,7 @@ export default function Teaching() {
                   <h3 className="text-2xl font-bold text-white mb-2">
                     {course.name}
                   </h3>
-                  <p className="text-sm text-[#00d4ff]">{course.program}</p>
+                  <p className="text-sm text-[#10b981]">{course.program}</p>
                 </div>
 
                 <div className="mb-6">
@@ -321,7 +321,7 @@ export default function Teaching() {
                         className="flex items-start gap-2 text-[#cbd5e1] text-sm"
                       >
                         <span
-                          className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] mt-1.5 flex-shrink-0"
+                          className="w-1.5 h-1.5 rounded-full bg-[#10b981] mt-1.5 flex-shrink-0"
                           style={{
                             boxShadow: "0 0 8px rgba(0, 212, 255, 0.5)",
                           }}
@@ -340,7 +340,7 @@ export default function Teaching() {
                     {course.tools.map((tool, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-xs glass rounded-full border border-[#00d4ff] text-[#00d4ff]"
+                        className="px-3 py-1 text-xs glass rounded-full border border-[#10b981] text-[#10b981]"
                       >
                         {tool}
                       </span>
@@ -400,7 +400,7 @@ export default function Teaching() {
                 className="w-16 h-16 glass rounded-full flex items-center justify-center flex-shrink-0 hidden md:flex"
                 style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
               >
-                <Award size={32} className="text-[#00d4ff]" />
+                <Award size={32} className="text-[#10b981]" />
               </div>
 
               <div className="flex-1">

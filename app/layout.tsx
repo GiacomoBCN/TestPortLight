@@ -15,6 +15,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://giacomobianchi.tech'),
   title: "Giacomo Bianchi",
   description: "Italian by birth. Product leader by craft. Global by vocation.",
   keywords: [
