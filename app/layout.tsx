@@ -3,7 +3,6 @@ import "./globals.css";
 import SiteShell from "@/app/SiteShell";
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import CookieConsent from "@/app/components/CookieConsent";
-import PWAInstallPrompt from "@/app/components/PWAInstallPrompt";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -117,7 +116,6 @@ export default function RootLayout({
       <body>
         <GoogleAnalytics measurementId={gaId} />
         <SiteShell>{children}</SiteShell>
-        <PWAInstallPrompt />
         <CookieConsent />
       </body>
     </html>

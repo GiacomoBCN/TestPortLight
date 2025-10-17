@@ -1,12 +1,30 @@
 'use client';
 
 import Script from 'next/script';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 interface GoogleAnalyticsProps {
   measurementId: string;
 }
 
 export default function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (!measurementId || measurementId === '') return;
+
+    const url = pathname + searchParams.toString();
+
+    // Track page view on route change
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('config', measurementId, {
+        page_path: url,
+      });
+    }
+  }, [pathname, searchParams, measurementId]);
+
   if (!measurementId || measurementId === '') {
     return null;
   }
