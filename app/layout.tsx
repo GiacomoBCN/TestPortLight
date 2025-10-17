@@ -3,6 +3,7 @@ import "./globals.css";
 import SiteShell from "@/app/SiteShell";
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import CookieConsent from "@/app/components/CookieConsent";
+import { Suspense } from "react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -114,7 +115,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <GoogleAnalytics measurementId={gaId} />
+        <Suspense fallback={null}>
+          <GoogleAnalytics measurementId={gaId} />
+        </Suspense>
         <SiteShell>{children}</SiteShell>
         <CookieConsent />
       </body>
