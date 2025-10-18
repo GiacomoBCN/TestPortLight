@@ -27,6 +27,47 @@ import ProjectCard from "../components/portfolio/ProjectCard";
 import GlassCard from "../components/portfolio/GlassCard";
 import ExpandableText from "../components/ExpandableText";
 import BeforeAfterImpactCard from "../components/portfolio/BeforeAfterImpactCard";
+import TestimonialCarousel from "../components/TestimonialCarousel";
+
+// Testimonials data
+const testimonials = [
+  {
+    quote: "Giacomo is a very good assets when it comes to build bridges between design and tech. Not only he has a very good understanding of both sides. His best characteristic is the ability to talk to both in their own languages and to be the medium across the two world, communicating efficiently needs, constraints and opportunities. Last but not least, he his a good team player, able to build boundaries with everyone in the office, which comes to a benefit to the design team. He is also very good in research and humanistic approach. His ability to capture requirements and information out of interviews and focus groups is fantastic. Something I really value from a person in his position.",
+    name: "Antonella Sassu",
+    title: "Senior Manager Product Design B2B • Tech Company",
+    image: "images/profile/1756901959970.jpg",
+    alt: "Antonella Sassu",
+  },
+  {
+    quote: "I had the pleasure of working closely with Giacomo as a Design Lead Technologist at Dow Jones, and I can confidently say he is an exceptional professional. Giacomo played a critical role as a bridge between engineering and UX, which was instrumental in driving the success of our projects and ensuring smooth handoffs between teams. Additionally, I had the opportunity to collaborate with Giacomo on improving the User Acceptance Testing (UAT), Quality Assurance (QA), and Design acceptance processes. During this collaboration, Giacomo demonstrated his meticulous attention to detail, problem-solving skills, and dedication to optimizing workflows.",
+    name: "Oana Stroe",
+    title: "Design Lead | Product | UX Advocate #impact • Tech Company",
+    image: "images/profile/1710886367232.jpg",
+    alt: "Oana Stroe",
+  },
+  {
+    quote: "I had the pleasure of working with Giacomo while teaching Intelligent Capital and Talent Management in the Master´s in International Business program at EAE Business School. He not only helped organize the course and structure content but also brought invaluable expertise in cross-cultural management, ensuring students gained a truly global perspective.\n\nHaving taught Inclusive Leadership, I can confidently say that Giacomo embodies its principles. He fosters diverse perspectives, builds trust, and creates space where all voices are heard. He doesn't just lead - he empowers, ensuring that learning and collaboration thrive.\n\nHis communication skills stand out -clear, engaging, and adaptable. Whether leading discussions, mentoring students, or working with colleagues, he knows how to connect with people, spark thoughtful conversations, and bring key insights to life. And when it comes to collaboration, Giacomo strengthens every team he's part of.\n\nHis leadership reflects the core values of global citizenship-inclusiveness, cultural competence, adaptability, and a genuine commitment to making a positive impact. I would highly recommend him for any role that values strong leadership, strategic management, and the ability to foster inclusive, cross-cultural collaboration. Any organization would be lucky to have him on board!",
+    name: "Frank Longo",
+    title: "Higher Education Leader • Universty",
+    image: "images/profile/1685965339196.jpg",
+    alt: "Frank Longo",
+  },
+  {
+    quote: "I had the opportunity to be instructed by Giacomo in UX/UI at EAE. Giacomo's extensive experience and insightful perspective in this field provided me a solid foundation to effectively prepare and manage digital products. He is truly a great professional.",
+    name: "Ismael Ruiz Gutierrez",
+    title: "Marketing Strategy & Business Consultant • Former Student",
+    image: "images/profile/1685897244209.jpg",
+    alt: "Ismael Ruiz",
+  },
+  {
+    quote: "Giacomo acted as consultant on a personal project that involved the design and implementation of a website. He mentored me and guided me through several difficult choices pointing at the direction to take for each of them. The project would not have been possible without his input. He is very professional and also fun to work with. Thanks, wish you all the best.",
+    name: "Sergio D'Argenio",
+    title: "Data Analyst • Tech Company",
+    image: "images/profile/1517687171761.jpg",
+    alt: "Sergio D'Argenio",
+  },
+];
+
 export default function Home() {
   return (
     <div className="overflow-hidden">
@@ -483,211 +524,7 @@ export default function Home() {
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <SectionHeader title="What Colleagues Say" />
-
-          <div className="space-y-12">
-            <GlassCard hover={false}>
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-                <div className="flex-1">
-                  <ExpandableText>
-                    <p className="text-xl md:text-2xl text-white font-light leading-relaxed mb-4">
-                      "Giacomo is a very good assets when it comes to build
-                      bridges between design and tech. Not only he has a very
-                      good understanding of both sides. His best characteristic
-                      is the ability to talk to both in their own languages and
-                      to be the medium across the two world, communicating
-                      efficiently needs, constraints and opportunities. Last but
-                      not least, he his a good team player, able to build
-                      boundaries with everyone in the office, which comes to a
-                      benefit to the design team. He is also very good in
-                      research and humanistic approach. His ability to capture
-                      requirements and information out of interviews and focus
-                      groups is fantastic. Something I really value from a
-                      person in his position."{" "}
-                    </p>
-                  </ExpandableText>
-                  <div>
-                    <p className="font-semibold text-white">Antonella Sassu</p>
-                    <p className="text-sm text-[#94a3b8]">
-                      Senior Manager Product Design B2B • Tech Company
-                    </p>
-                  </div>
-                </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#10b981] flex-shrink-0">
-                  <Image
-                    src={getImagePath("images/profile/1756901959970.jpg")}
-                    alt="Antonella Sassu"
-                    width={64}
-                    height={64}
-                    className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                  />
-                </div>
-              </div>
-            </GlassCard>
-
-            <GlassCard hover={false} delay={0.1}>
-              <div className="flex flex-col md:flex-row-reverse items-center md:items-start gap-6">
-                <div className="flex-1">
-                  <ExpandableText>
-                    <p className="text-xl md:text-2xl text-white font-light leading-relaxed mb-4">
-                      "I had the pleasure of working closely with Giacomo as a
-                      Design Lead Technologist at Dow Jones, and I can
-                      confidently say he is an exceptional professional. Giacomo
-                      played a critical role as a bridge between engineering and
-                      UX, which was instrumental in driving the success of our
-                      projects and ensuring smooth handoffs between teams.
-                      Additionally, I had the opportunity to collaborate with
-                      Giacomo on improving the User Acceptance Testing (UAT),
-                      Quality Assurance (QA), and Design acceptance processes.
-                      During this collaboration, Giacomo demonstrated his
-                      meticulous attention to detail, problem-solving skills,
-                      and dedication to optimizing workflows."
-                    </p>
-                  </ExpandableText>
-                  <div>
-                    <p className="font-semibold text-white">Oana Stroe</p>
-                    <p className="text-sm text-[#94a3b8]">
-                      Design Lead | Product | UX Advocate• Tech Company
-                    </p>
-                  </div>
-                </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#10b981] to-[#0066ff] flex-shrink-0">
-                  <Image
-                    src={getImagePath("images/profile/1710886367232.jpg")}
-                    alt="Oana Stroe"
-                    width={64}
-                    height={64}
-                    className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                  />
-                </div>
-              </div>
-            </GlassCard>
-
-            <GlassCard hover={false} delay={0.2}>
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-                <div className="flex-1">
-                  <ExpandableText>
-                    <p className="text-xl md:text-2xl text-white font-light leading-relaxed mb-4">
-                      "I had the pleasure of working with Giacomo while teaching
-                      Intelligent Capital and Talent Management in the Master´s
-                      in International Business program at EAE Business School.
-                      He not only helped organize the course and structure
-                      content but also brought invaluable expertise in
-                      cross-cultural management, ensuring students gained a
-                      truly global perspective.
-                      <br />
-                      Having taught Inclusive Leadership, I can confidently say
-                      that Giacomo embodies its principles. He fosters diverse
-                      perspectives, builds trust, and creates space where all
-                      voices are heard. He doesn't just lead - he empowers,
-                      ensuring that learning and collaboration thrive.
-                      <br />
-                      His communication skills stand out -clear, engaging, and
-                      adaptable. Whether leading discussions, mentoring
-                      students, or working with colleagues, he knows how to
-                      connect with people, spark thoughtful conversations, and
-                      bring key insights to life. And when it comes to
-                      collaboration, Giacomo strengthens every team he's part
-                      of. <br />
-                      His leadership reflects the core values of global
-                      citizenship-inclusiveness, cultural competence,
-                      adaptability, and a genuine commitment to making a
-                      positive impact. I would highly recommend him for any role
-                      that values strong leadership, strategic management, and
-                      the ability to foster inclusive, cross-cultural
-                      collaboration. Any organization would be lucky to have him
-                      on board!"
-                    </p>
-                  </ExpandableText>
-                  <div>
-                    <p className="font-semibold text-white"> Frank Longo </p>
-                    <p className="text-sm text-[#94a3b8]">
-                      {" "}
-                      Higher Education Leader • Universty
-                    </p>
-                  </div>
-                </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#10b981] flex-shrink-0">
-                  <Image
-                    src={getImagePath("images/profile/1685965339196.jpg")}
-                    alt="Frank Longo"
-                    width={64}
-                    height={64}
-                    className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                  />
-                </div>
-              </div>
-            </GlassCard>
-
-            <GlassCard hover={false} delay={0.1}>
-              <div className="flex flex-col md:flex-row-reverse items-center md:items-start gap-6">
-                <div className="flex-1">
-                  <ExpandableText>
-                    <p className="text-xl md:text-2xl text-white font-light leading-relaxed mb-4">
-                      " I had the opportunity to be instructed by Giacomo in
-                      UX/UI at EAE. Giacomo's extensive experience and
-                      insightful perspective in this field provided me a solid
-                      foundation to effectively prepare and manage digital
-                      products. He is truly a great professional."
-                    </p>
-                  </ExpandableText>
-                  <div>
-                    <p className="font-semibold text-white">
-                      Ismael Ruiz Gutierrez
-                    </p>
-                    <p className="text-sm text-[#94a3b8]">
-                      Marketing Strategy & Business Consultant • Former Student
-                    </p>
-                  </div>
-                </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#10b981] to-[#0066ff] flex-shrink-0">
-                  <Image
-                    src={getImagePath("images/profile/1685897244209.jpg")}
-                    alt="Ismael Ruiz"
-                    width={64}
-                    height={64}
-                    className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                  />
-                </div>
-              </div>
-            </GlassCard>
-
-            <GlassCard hover={false} delay={0.2}>
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-                <div className="flex-1">
-                  <ExpandableText>
-                    <p className="text-xl md:text-2xl text-white font-light leading-relaxed mb-4">
-                      "Giacomo acted as consultant on a personal project that
-                      involved the design and implementation of a website. He
-                      mentored me and guided me through several difficult
-                      choices pointing at the direction to take for each of
-                      them. The project would not have been possible without his
-                      input. He is very professional and also fun to work with.
-                      Thanks, wish you all the best. "
-                    </p>
-                  </ExpandableText>
-                  <div>
-                    <p className="font-semibold text-white">
-                      {" "}
-                      Sergio D'Argenio
-                    </p>
-                    <p className="text-sm text-[#94a3b8]">
-                      {" "}
-                      Data Analyst • Tech Company
-                    </p>
-                  </div>
-                </div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#10b981] flex-shrink-0">
-                  <Image
-                    src={getImagePath("images/profile/1517687171761.jpg")}
-                    alt="Sergio D'Argenio"
-                    width={64}
-                    height={64}
-                    className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                  />
-                </div>
-              </div>
-            </GlassCard>
-          </div>
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
       </section>
 
