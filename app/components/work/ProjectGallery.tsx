@@ -18,6 +18,8 @@ export default function ProjectGallery({
 }: ProjectGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = React.useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = React.useState<number | null>(null);
 
   const nextImage = () => {
     if (selectedIndex !== null && selectedIndex < images.length - 1) {
@@ -43,6 +45,53 @@ export default function ProjectGallery({
     }
   };
 
+  // Minimum swipe distance (in px) to trigger navigation
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextImage();
+    } else if (isRightSwipe) {
+      prevImage();
+    }
+  };
+
+  // Keyboard navigation
+  React.useEffect(() => {
+    if (selectedIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevImage();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextImage();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        setSelectedIndex(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex, images.length]);
+
   return (
     <>
       <section className="py-16 px-6">
@@ -51,18 +100,20 @@ export default function ProjectGallery({
             {title}
           </h2>
           <div className="relative group px-12">
-            {/* Left Arrow */}
-            <button
-              onClick={scrollLeft}
-              className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100"
-            >
-              <ChevronLeft size={24} />
-            </button>
+            {/* Left Arrow - Only show if more than 3 images */}
+            {images.length > 3 && (
+              <button
+                onClick={scrollLeft}
+                className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100"
+              >
+                <ChevronLeft size={24} />
+              </button>
+            )}
 
             {/* Gallery Container */}
             <div
               ref={scrollContainerRef}
-              className="flex justify-start gap-4 overflow-x-auto pb-4"
+              className={`flex ${images.length <= 3 ? 'justify-center' : 'justify-start'} gap-4 overflow-x-auto pb-4`}
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               <style jsx>{`
@@ -88,13 +139,15 @@ export default function ProjectGallery({
               ))}
             </div>
 
-            {/* Right Arrow */}
-            <button
-              onClick={scrollRight}
-              className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100"
-            >
-              <ChevronRight size={24} />
-            </button>
+            {/* Right Arrow - Only show if more than 3 images */}
+            {images.length > 3 && (
+              <button
+                onClick={scrollRight}
+                className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100"
+              >
+                <ChevronRight size={24} />
+              </button>
+            )}
           </div>
         </div>
       </section>
@@ -104,6 +157,9 @@ export default function ProjectGallery({
         <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedIndex(null)}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           <button
             onClick={() => setSelectedIndex(null)}
@@ -114,12 +170,14 @@ export default function ProjectGallery({
 
           {images.length > 1 && (
             <>
+              {/* Navigation arrows - hidden on mobile, visible on desktop */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   prevImage();
                 }}
-                className="absolute left-4 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3"
+                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                aria-label="Previous image"
               >
                 <ChevronLeft size={32} />
               </button>
@@ -129,7 +187,8 @@ export default function ProjectGallery({
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="absolute right-4 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3"
+                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                aria-label="Next image"
               >
                 <ChevronRight size={32} />
               </button>

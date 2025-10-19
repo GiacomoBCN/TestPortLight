@@ -16,6 +16,8 @@ import {
   Zap,
   CheckCircle,
   X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import OverviewCard from "../components/work/OverviewCard";
 import DecisionTable from "../components/work/DecisionTable";
@@ -32,6 +34,8 @@ export default function VoDPlatform() {
   const [galleryImages, setGalleryImages] = useState<
     { src: string; alt: string }[]
   >([]);
+  const [touchStart, setTouchStart] = React.useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = React.useState<number | null>(null);
 
   const openImageModal = (src: string) => {
     setModalImageSrc(src);
@@ -71,6 +75,53 @@ export default function VoDPlatform() {
       setModalImageSrc(galleryImages[prevIndex].src);
     }
   };
+
+  // Minimum swipe distance (in px) to trigger navigation
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextImage();
+    } else if (isRightSwipe) {
+      previousImage();
+    }
+  };
+
+  // Keyboard navigation
+  React.useEffect(() => {
+    if (!isImageModalOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        previousImage();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextImage();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isImageModalOpen, currentImageIndex, galleryImages.length]);
 
   const keyDecisions = [
     {
@@ -227,6 +278,17 @@ export default function VoDPlatform() {
       },
     ],
   };
+
+  const navigationComparisonImages = [
+    {
+      src: getImagePath("images/projects/Vod_old_navigation.png"),
+      alt: "Old Navigation (3-Axis) - Complex three-layer navigation system with icon belt, tabs, and carousels",
+    },
+    {
+      src: getImagePath("images/projects/Vod_New_navigarion.png"),
+      alt: "New Navigation (2-Axis) - Simplified vertical rail and horizontal tabs system reducing interaction steps by 40%",
+    },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -662,12 +724,18 @@ export default function VoDPlatform() {
           <div className="pl-0 md:pl-24 mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div className="flex flex-col items-center">
-                <div className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg">
+                <div
+                  className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
+                  onClick={() => openGallery(navigationComparisonImages, 0)}
+                >
                   <img
                     src={getImagePath("images/projects/Vod_old_navigation.png")}
                     alt="Old Navigation (3-Axis)"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="text-white text-sm font-medium">Click to enlarge</span>
+                  </div>
                 </div>
                 <p className="text-gray-400 text-sm mt-2">
                   🟥 Old Navigation (3-Axis)
@@ -675,12 +743,18 @@ export default function VoDPlatform() {
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg">
+                <div
+                  className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
+                  onClick={() => openGallery(navigationComparisonImages, 1)}
+                >
                   <img
                     src={getImagePath("images/projects/Vod_New_navigarion.png")}
                     alt="New Navigation (2-Axis)"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="text-white text-sm font-medium">Click to enlarge</span>
+                  </div>
                 </div>
                 <p className="text-gray-400 text-sm mt-2">
                   🟦 New Navigation (2-Axis)
@@ -1243,6 +1317,9 @@ export default function VoDPlatform() {
         <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={closeImageModal}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           <button
             onClick={closeImageModal}
@@ -1253,14 +1330,16 @@ export default function VoDPlatform() {
 
           {galleryImages.length > 1 && (
             <>
+              {/* Navigation arrows - hidden on mobile, visible on desktop */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   previousImage();
                 }}
-                className="absolute left-4 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3"
+                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                aria-label="Previous image"
               >
-                <ArrowLeft size={32} />
+                <ChevronLeft size={32} />
               </button>
 
               <button
@@ -1268,9 +1347,10 @@ export default function VoDPlatform() {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="absolute right-4 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3"
+                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                aria-label="Next image"
               >
-                <ArrowLeft size={32} className="rotate-180" />
+                <ChevronRight size={32} />
               </button>
 
               <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">

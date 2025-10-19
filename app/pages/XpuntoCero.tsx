@@ -20,6 +20,8 @@ import {
   Target,
   GitBranch,
   X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import OverviewCard from "../components/work/OverviewCard";
 import DecisionTable from "../components/work/DecisionTable";
@@ -36,6 +38,8 @@ export default function XpuntoCero() {
   const [galleryImages, setGalleryImages] = useState<
     { src: string; alt: string }[]
   >([]);
+  const [touchStart, setTouchStart] = React.useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = React.useState<number | null>(null);
 
   const openImageModal = (src: string) => {
     setModalImageSrc(src);
@@ -75,6 +79,53 @@ export default function XpuntoCero() {
       setModalImageSrc(galleryImages[prevIndex].src);
     }
   };
+
+  // Minimum swipe distance (in px) to trigger navigation
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextImage();
+    } else if (isRightSwipe) {
+      previousImage();
+    }
+  };
+
+  // Keyboard navigation
+  React.useEffect(() => {
+    if (!isImageModalOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        previousImage();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextImage();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isImageModalOpen, currentImageIndex, galleryImages.length]);
 
   // Add near the top with other arrays
   const keyDecisions = [
@@ -819,6 +870,9 @@ export default function XpuntoCero() {
         <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={closeImageModal}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           <button
             onClick={closeImageModal}
@@ -834,9 +888,10 @@ export default function XpuntoCero() {
                   e.stopPropagation();
                   previousImage();
                 }}
-                className="absolute left-4 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3"
+                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                aria-label="Previous image"
               >
-                <ArrowLeft size={32} />
+                <ChevronLeft size={32} />
               </button>
 
               <button
@@ -844,9 +899,10 @@ export default function XpuntoCero() {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="absolute right-4 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3"
+                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                aria-label="Next image"
               >
-                <ArrowLeft size={32} className="rotate-180" />
+                <ChevronRight size={32} />
               </button>
 
               <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
