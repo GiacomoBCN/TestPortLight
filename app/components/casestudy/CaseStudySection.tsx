@@ -22,7 +22,7 @@ export default function CaseStudySection({
     >
       <div className="max-w-5xl mx-auto">
         <div className="flex items-start gap-6 mb-8">
-          <div className="text-6xl font-bold text-[#0066ff] opacity-20">
+          <div className="text-6xl font-bold text-blue opacity-20">
             {number}
           </div>
           <div className="flex-1 pt-2">

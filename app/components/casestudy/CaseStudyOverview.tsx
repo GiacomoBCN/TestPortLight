@@ -29,7 +29,7 @@ export default function CaseStudyOverview({
               <div className="text-center">
                 <div className="text-4xl mb-4">{section.icon}</div>
                 <h3 className="text-lg font-bold text-white mb-3">{section.title}</h3>
-                <div className="text-[#cbd5e1] text-sm space-y-2">
+                <div className="text-slate-300 text-sm space-y-2">
                   {Array.isArray(section.content) ? (
                     section.content.map((item, i) => (
                       <p key={i}>{item}</p>

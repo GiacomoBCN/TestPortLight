@@ -81,30 +81,30 @@ export default function PWAInstallPrompt() {
       >
         <div
           className="rounded-xl bg-[#0a0a0a]/80 backdrop-blur-xl shadow-2xl border border-white/20 p-4"
-          style={{ boxShadow: "0 8px 32px 0 rgba(0, 102, 255, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1)" }}
+          style={{ boxShadow: "0 8px 32px 0 rgba(26, 122, 255, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1)" }}
         >
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 glass rounded-lg flex items-center justify-center flex-shrink-0">
-              <Download size={20} className="text-[#0066ff]" />
+              <Download size={20} className="text-blue" />
             </div>
             <div className="flex-1">
               <h3 className="text-sm font-semibold text-white mb-1">
                 Install Portfolio
               </h3>
-              <p className="text-xs text-[#cbd5e1] mb-3">
+              <p className="text-xs text-slate-300 mb-3">
                 Add to your home screen for quick access
               </p>
               <div className="flex gap-2">
                 <button
                   onClick={handleDismiss}
-                  className="flex-1 px-3 py-1.5 text-xs font-medium text-[#94a3b8] hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition-all border border-white/10"
+                  className="flex-1 px-3 py-1.5 text-xs font-medium text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition-all border border-white/10"
                 >
                   Not now
                 </button>
                 <button
                   onClick={handleInstall}
-                  className="flex-1 px-3 py-1.5 text-xs font-medium text-white bg-[#0066ff] hover:bg-[#0052cc] rounded-lg transition-all"
-                  style={{ boxShadow: "0 0 20px rgba(0, 102, 255, 0.3)" }}
+                  className="flex-1 px-3 py-1.5 text-xs font-medium text-white bg-blue-600 hover:bg-blue-hover rounded-lg transition-all"
+                  style={{ boxShadow: "0 0 20px rgba(26, 122, 255, 0.3)" }}
                 >
                   Install
                 </button>
@@ -112,7 +112,7 @@ export default function PWAInstallPrompt() {
             </div>
             <button
               onClick={handleDismiss}
-              className="text-[#94a3b8] hover:text-white transition-colors"
+              className="text-slate-400 hover:text-white transition-colors"
             >
               <X size={18} />
             </button>

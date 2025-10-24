@@ -69,7 +69,7 @@ export default function TestimonialModal({
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-white hover:bg-[#0066ff] transition-all duration-200 glow-blue hover:scale-110"
+                className="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-200 glow-blue hover:scale-110"
                 aria-label="Close modal"
               >
                 <X size={20} />
@@ -87,11 +87,11 @@ export default function TestimonialModal({
                   {/* Author Info */}
                   <div className="mb-4">
                     <p className="font-semibold text-white text-lg">{name}</p>
-                    <p className="text-sm text-[#94a3b8]">{title}</p>
+                    <p className="text-sm text-slate-400">{title}</p>
                   </div>
 
                   {/* Image */}
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#0066ff] to-[#10b981] flex-shrink-0">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-blue to-[#10b981] flex-shrink-0">
                     <Image
                       src={getImagePath(image)}
                       alt={alt}

@@ -10,6 +10,29 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ============================================
+     ACCESSIBLE COLOR PALETTE
+     All colors meet WCAG AA standards (4.5:1)
+     ============================================ */
+
+  /* Blue - Primary Brand Color */
+  --color-blue: #1a7aff;             /* Text/Links (5.03:1 on dark bg) */
+  --color-blue-600: #086efd;         /* Button backgrounds (4.51:1 with white text) */
+  --color-blue-hover: #2375ef;       /* Hover states (4.64:1 on dark bg) */
+
+  /* Slate - Neutral Text Colors */
+  --color-slate-300: #cbd5e1;        /* Body text (13.49:1) - AAA compliant */
+  --color-slate-400: #94a3b8;        /* Tertiary text (7.81:1) - AAA compliant */
+  --color-slate-500: #697990;        /* Secondary text (4.52:1) - AA compliant (improved from #64748b) */
+
+  /* Emerald - Teaching/Success accent */
+  --color-emerald: #10b981;          /* Teaching sections (7.89:1) - AAA compliant */
+  --color-emerald-500: #10b981;      /* Teaching sections - alias for compatibility */
+
+  /* Background colors */
+  --color-dark-bg: #050810;          /* Main dark background */
+  --color-dark-bg-secondary: #0a0e27; /* Glass card backgrounds */
 }
 
 @media (prefers-color-scheme: dark) {

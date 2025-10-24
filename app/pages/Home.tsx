@@ -79,7 +79,7 @@ export default function Home() {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(0, 102, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 102, 255, 0.1) 1px, transparent 1px)",
+                "linear-gradient(rgba(26, 122, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 122, 255, 0.1) 1px, transparent 1px)",
               backgroundSize: "50px 50px",
             }}
           />
@@ -87,7 +87,7 @@ export default function Home() {
 
         {/* Glow Effect */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] bg-[#0066ff] rounded-full opacity-10 blur-3xl"></div>
+          <div className="w-[600px] h-[600px] bg-blue-600 rounded-full opacity-10 blur-3xl"></div>
         </div>
 
         <motion.div
@@ -102,7 +102,7 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="mb-3 md:mb-6"
           >
-            <span className="inline-block px-6 py-3 glass rounded-full text-[#0066ff] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
+            <span className="inline-block px-6 py-3 glass rounded-full text-blue text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
               Product & Design Leadership
             </span>
           </motion.div>
@@ -120,7 +120,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl text-[#cbd5e1] mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             I align designers and engineers to ship scalable systems. I reduce
             friction in complex interfaces, unify fragmented codebases, and
@@ -138,13 +138,13 @@ export default function Home() {
           >
             <a
               href="#work"
-              className="px-8 py-4 bg-[#0066ff] rounded-xl text-white font-semibold hover:bg-[#0052cc] transition-all duration-200 glow-blue hover:scale-105"
+              className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all duration-200 glow-blue hover:scale-105"
             >
               View Product Work
             </a>
             <Link
               href={createPageUrl("Teaching")}
-              className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-[#0066ff] hover:border-[#0066ff] transition-all duration-200 hover:scale-105"
+              className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all duration-200 hover:scale-105"
             >
               View Teaching Portfolio
             </Link>
@@ -162,7 +162,7 @@ export default function Home() {
             }}
             className="flex justify-center cursor-pointer"
           >
-            <ChevronDown size={32} className="text-[#0066ff] glow-blue" />
+            <ChevronDown size={32} className="text-blue glow-blue" />
           </motion.a>
         </motion.div>
       </section>
@@ -379,7 +379,7 @@ export default function Home() {
 
       {/* How I Work Section (updated layout with portrait) */}
       <section id="about" className="py-24 px-6 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0066ff]/5 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue/5 to-transparent"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionHeader
@@ -419,16 +419,16 @@ export default function Home() {
                 <GlassCard hover={false}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <DraftingCompass size={24} className="text-[#0066ff]" />
+                      <DraftingCompass size={24} className="text-blue" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">
                         Product Design
                       </h3>
-                      <p className="text-sm font-semibold text-[#cbd5e1] mb-2">
+                      <p className="text-sm font-semibold text-slate-300 mb-2">
                         Research → Strategy → Design → Testing → Delivery.
                       </p>
-                      <p className="text-sm text-[#94a3b8]">
+                      <p className="text-sm text-slate-400">
                         I run heuristic evaluations, user interviews, and
                         usability tests to validate decisions before engineering
                         builds.
@@ -442,17 +442,17 @@ export default function Home() {
                     <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
                       <SquareDashedKanban
                         size={24}
-                        className="text-[#0066ff]"
+                        className="text-blue"
                       />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">
                         Product Strategy
                       </h3>
-                      <p className="text-sm font-semibold text-[#cbd5e1] mb-2">
+                      <p className="text-sm font-semibold text-slate-300 mb-2">
                         Roadmaps, Prioritization, Stakeholder Alignment.
                       </p>
-                      <p className="text-sm text-[#94a3b8]">
+                      <p className="text-sm text-slate-400">
                         I co-own product roadmaps and prioritize features based
                         on user research, business goals, and technical
                         constraints. I've led strategic decisions across design
@@ -465,17 +465,17 @@ export default function Home() {
                 <GlassCard hover={false}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <Code size={24} className="text-[#0066ff]" />
+                      <Code size={24} className="text-blue" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">
                         Front-End Development
                       </h3>
-                      <p className="text-sm font-semibold text-[#cbd5e1] mb-2">
+                      <p className="text-sm font-semibold text-slate-300 mb-2">
                         React, Flutter, Dart, HTML5, CSS3, JavaScript,
                         TypeScript, Tailwind.
                       </p>
-                      <p className="text-sm text-[#94a3b8]">
+                      <p className="text-sm text-slate-400">
                         I code functional prototypes to bridge design and
                         engineering. This shared language helps me validate
                         feasibility early and align teams on technical approach.
@@ -487,17 +487,17 @@ export default function Home() {
                 <GlassCard hover={false} delay={0.1}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <Sparkles size={24} className="text-[#0066ff]" />
+                      <Sparkles size={24} className="text-blue" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">
                         AI-Augmented Workflow
                       </h3>
-                      <p className="text-sm font-semibold text-[#cbd5e1] mb-2">
+                      <p className="text-sm font-semibold text-slate-300 mb-2">
                         ChatGPT, GitHub Copilot, Vertex AI, Midjourney, Cursor,
                         AI Agents.
                       </p>
-                      <p className="text-sm text-[#94a3b8]">
+                      <p className="text-sm text-slate-400">
                         I use AI throughout my design process. Following design
                         thinking principles, I accelerate feedback loops and
                         improve decision-making through rapid iteration.
@@ -507,7 +507,7 @@ export default function Home() {
                 </GlassCard>
               </div>
               <GlassCard hover={false} delay={0.1}>
-                <p className="text-lg text-[#cbd5e1] leading-relaxed ">
+                <p className="text-lg text-slate-300 leading-relaxed ">
                   My technical background allows me to bridge design and
                   engineering - prototyping rapidly and participating in
                   architecture discussions. I use AI tools to validate ideas in
@@ -534,22 +534,22 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden">
             {/* Product & Design Leadership */}
             <div className="glass p-12 relative group hover:bg-[rgba(0,102,255,0.1)] transition-all duration-300 border-r border-[rgba(255,255,255,0.08)]">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#0066ff]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6 glow-blue">
-                  <Briefcase size={32} className="text-[#0066ff]" />
+                  <Briefcase size={32} className="text-blue" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-4">
                   Product & Design Leadership
                 </h3>
-                <p className="text-[#cbd5e1] mb-8 leading-relaxed">
+                <p className="text-slate-300 mb-8 leading-relaxed">
                   Explore my work leading cross-functional teams, building
                   design systems, and driving measurable business impact.
                 </p>
                 <Link
                   href={createPageUrl("ProductWork")}
-                  className="inline-block px-8 py-4 bg-[#0066ff] rounded-xl text-white font-semibold hover:bg-[#0052cc] transition-all duration-200 glow-blue hover:scale-105"
+                  className="inline-block px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all duration-200 glow-blue hover:scale-105"
                 >
                   Explore Product Work
                 </Link>
@@ -570,7 +570,7 @@ export default function Home() {
                 <h3 className="text-3xl font-bold text-white mb-4">
                   Teaching & Research
                 </h3>
-                <p className="text-[#cbd5e1] mb-8 leading-relaxed">
+                <p className="text-slate-300 mb-8 leading-relaxed">
                   Discover my experience teaching 1000+ students and bridging
                   academic research with industry practice.
                 </p>

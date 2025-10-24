@@ -38,7 +38,7 @@ export default function ExpandableText({
           {shouldTruncate && !isExpanded && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="ml-2 text-sm text-[#0066ff] hover:text-[#00d4ff] transition-colors duration-200 font-medium underline underline-offset-2"
+              className="ml-2 text-sm text-blue hover:text-[#00d4ff] transition-colors duration-200 font-medium underline underline-offset-2"
             >
               {isExpanded ? "Show less" : "Show more"}
             </button>
@@ -56,7 +56,7 @@ export default function ExpandableText({
           {shouldTruncate && !isExpanded && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="ml-2 text-sm text-[#0066ff] hover:text-[#00d4ff] transition-colors duration-200 font-medium underline underline-offset-2"
+              className="ml-2 text-sm text-blue hover:text-[#00d4ff] transition-colors duration-200 font-medium underline underline-offset-2"
             >
               {isExpanded ? "Show less" : "Show more"}
             </button>
@@ -89,7 +89,7 @@ export default function ExpandableText({
         >
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-sm text-[#0066ff] hover:text-[#00d4ff] transition-colors duration-200 font-medium underline underline-offset-2"
+            className="text-sm text-blue hover:text-[#00d4ff] transition-colors duration-200 font-medium underline underline-offset-2"
           >
             Show less
           </button>

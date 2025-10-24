@@ -113,7 +113,7 @@ export default function Teaching() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl text-[#cbd5e1] mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
             I bring real-world product expertise into the classroom, helping
             1000+ students design impactful products and navigate the challenges
@@ -143,7 +143,7 @@ export default function Teaching() {
                     <div className="text-3xl font-bold text-[#10b981]">
                       7 years
                     </div>
-                    <div className="text-sm text-[#94a3b8]">
+                    <div className="text-sm text-slate-400">
                       EAE Business School
                     </div>
                   </div>
@@ -160,7 +160,7 @@ export default function Teaching() {
                     <div className="text-3xl font-bold text-[#10b981]">
                       1000+
                     </div>
-                    <div className="text-sm text-[#94a3b8]">
+                    <div className="text-sm text-slate-400">
                       Students mentored
                     </div>
                   </div>
@@ -175,7 +175,7 @@ export default function Teaching() {
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-[#10b981]">2</div>
-                    <div className="text-sm text-[#94a3b8]">
+                    <div className="text-sm text-slate-400">
                       Master's courses across official programs
                     </div>
                   </div>
@@ -192,7 +192,7 @@ export default function Teaching() {
                     <div className="text-3xl font-bold text-[#10b981]">
                       19 teams
                     </div>
-                    <div className="text-sm text-[#94a3b8]">
+                    <div className="text-sm text-slate-400">
                       Guided through full product design projects each year
                     </div>
                   </div>
@@ -210,7 +210,7 @@ export default function Teaching() {
                   <h4 className="font-semibold text-white mb-2">
                     Experiential Learning
                   </h4>
-                  <p className="text-[#cbd5e1] text-sm leading-relaxed">
+                  <p className="text-slate-300 text-sm leading-relaxed">
                     My teaching approach combines theory with real-world
                     application. Students learn by doing designing,
                     collaborating, and reflecting - through hands-on experiences
@@ -222,7 +222,7 @@ export default function Teaching() {
                   <h4 className="font-semibold text-white mb-2">
                     Collaborative Learning Environments
                   </h4>
-                  <p className="text-[#cbd5e1] text-sm leading-relaxed">
+                  <p className="text-slate-300 text-sm leading-relaxed">
                     STeamwork is central to both courses. In Product Design
                     (UX/UI), students work in design teams to deliver complete
                     e-commerce projects. In Cross-Cultural Management, they
@@ -236,7 +236,7 @@ export default function Teaching() {
                   <h4 className="font-semibold text-white mb-2">
                     Skill Development through Practice
                   </h4>
-                  <p className="text-[#cbd5e1] text-sm leading-relaxed">
+                  <p className="text-slate-300 text-sm leading-relaxed">
                     Through project-based and interactive activities, students
                     develop critical thinking, adaptability, and creative
                     problem-solving skills. Each exercise is designed to help
@@ -249,7 +249,7 @@ export default function Teaching() {
                   <h4 className="font-semibold text-white mb-2">
                     Mentorship & Reflection
                   </h4>
-                  <p className="text-[#cbd5e1] text-sm leading-relaxed">
+                  <p className="text-slate-300 text-sm leading-relaxed">
                     I guide students throughout their learning journey,
                     fostering awareness of their strengths and areas for growth.
                     Reflection and feedback are key to helping them translate
@@ -302,7 +302,7 @@ export default function Teaching() {
                     {course.topics.map((topic, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-xs glass rounded-full border border-[rgba(255,255,255,0.1)] text-[#cbd5e1]"
+                        className="px-3 py-1 text-xs glass rounded-full border border-[rgba(255,255,255,0.1)] text-slate-300"
                       >
                         {topic}
                       </span>
@@ -318,7 +318,7 @@ export default function Teaching() {
                     {course.outcomes.map((outcome, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2 text-[#cbd5e1] text-sm"
+                        className="flex items-start gap-2 text-slate-300 text-sm"
                       >
                         <span
                           className="w-1.5 h-1.5 rounded-full bg-[#10b981] mt-1.5 flex-shrink-0"
@@ -360,7 +360,7 @@ export default function Teaching() {
 
           <GlassCard>
             <div className="prose prose-invert max-w-none">
-              <p className="text-lg text-[#cbd5e1] leading-relaxed mb-6">
+              <p className="text-lg text-slate-300 leading-relaxed mb-6">
                 I see teaching as a dialogue between theory and practice. My
                 goal is to help students connect what they learn in class to the
                 complexity of real professional life - where outcomes are
@@ -368,7 +368,7 @@ export default function Teaching() {
                 makes the difference.
               </p>
 
-              <p className="text-lg text-[#cbd5e1] leading-relaxed mb-6">
+              <p className="text-lg text-slate-300 leading-relaxed mb-6">
                 Drawing on my background in psychology and design, I approach
                 education as a process of guided discovery. I encourage students
                 to question, test, and refine their ideas through practice
@@ -376,7 +376,7 @@ export default function Teaching() {
                 moments, and reflection is a constant part of the process.
               </p>
 
-              <p className="text-lg text-[#cbd5e1] leading-relaxed mb-6">
+              <p className="text-lg text-slate-300 leading-relaxed mb-6">
                 Ultimately, I aim to prepare students who can think
                 independently and work effectively across disciplines and
                 cultures. Beyond technical skills, I want them to leave the
@@ -407,7 +407,7 @@ export default function Teaching() {
                 <h3 className="text-2xl font-bold text-white mb-2">
                   PhD in Occupational Health and Industrial Relations
                 </h3>
-                <p className="text-[#cbd5e1] mb-4">
+                <p className="text-slate-300 mb-4">
                   University of Bergamo • Focus: Human Factors, Behavioral
                   Systems & Labour Regulations
                 </p>
@@ -417,7 +417,7 @@ export default function Teaching() {
                     <h4 className="font-semibold text-white mb-2">
                       Research Focus
                     </h4>
-                    <p className="text-[#cbd5e1] text-sm leading-relaxed">
+                    <p className="text-slate-300 text-sm leading-relaxed">
                       My academic journey began with a PhD at the University of
                       Bergamo, where I explored how work environments,
                       organizational design, and labour relations shape team
@@ -427,7 +427,7 @@ export default function Teaching() {
                       assessing work-related stress - integrating insights from
                       human factors, behavioural systems, and labour law.
                     </p>
-                    <p className="text-[#cbd5e1] text-sm leading-relaxed">
+                    <p className="text-slate-300 text-sm leading-relaxed">
                       Over time, my focus evolved from occupational health and
                       organizational psychology toward technology - exploring
                       how digital products are created, experienced, and
@@ -441,7 +441,7 @@ export default function Teaching() {
                     <h4 className="font-semibold text-white mb-2">
                       Applied to Practice and Teaching
                     </h4>
-                    <p className="text-[#cbd5e1] text-sm leading-relaxed">
+                    <p className="text-slate-300 text-sm leading-relaxed">
                       Today, my work bridges research and practice through
                       industry-driven methodologies in UX/UI design and
                       cross-cultural management. I guide teams and students in

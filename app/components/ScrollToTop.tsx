@@ -32,7 +32,7 @@ export default function ScrollToTop() {
         <div className="flex justify-end">
           <button
             onClick={scrollToTop}
-            className={`w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-[#0066ff] glow-blue transition-all duration-300 pointer-events-auto ${
+            className={`w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-blue-600 glow-blue transition-all duration-300 pointer-events-auto ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
             }`}
             aria-label="Scroll to top"

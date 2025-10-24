@@ -106,7 +106,7 @@ export default function CaseStudyTemplate({
       <div className="fixed top-24 left-6 z-40">
         <Link
         href={createPageUrl("Home")}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-[#cbd5e1] hover:text-white hover:border-[#0066ff] transition-all"
+          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-white hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
           <span className="hidden md:inline">Back to Portfolio</span>
@@ -160,7 +160,7 @@ export default function CaseStudyTemplate({
       <CaseStudySection number="01" title="Business Context">
         <div className="prose prose-lg prose-invert max-w-none space-y-4">
           {businessContext.map((paragraph, index) => (
-            <p key={index} className="text-[#cbd5e1] leading-relaxed">
+            <p key={index} className="text-slate-300 leading-relaxed">
               {paragraph}
             </p>
           ))}
@@ -175,10 +175,10 @@ export default function CaseStudyTemplate({
               <span className="text-2xl">👥</span>
               User Problems
             </h3>
-            <ul className="space-y-2 text-[#cbd5e1] text-sm">
+            <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.userProblems.map((problem, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-[#0066ff] mt-1">•</span>
+                  <span className="text-blue mt-1">•</span>
                   {problem}
                 </li>
               ))}
@@ -190,10 +190,10 @@ export default function CaseStudyTemplate({
               <span className="text-2xl">💼</span>
               Business Constraints
             </h3>
-            <ul className="space-y-2 text-[#cbd5e1] text-sm">
+            <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.businessConstraints.map((constraint, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-[#0066ff] mt-1">•</span>
+                  <span className="text-blue mt-1">•</span>
                   {constraint}
                 </li>
               ))}
@@ -205,10 +205,10 @@ export default function CaseStudyTemplate({
               <span className="text-2xl">⚙️</span>
               Technical Complexity
             </h3>
-            <ul className="space-y-2 text-[#cbd5e1] text-sm">
+            <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.technicalComplexity.map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-[#0066ff] mt-1">•</span>
+                  <span className="text-blue mt-1">•</span>
                   {item}
                 </li>
               ))}
@@ -257,13 +257,13 @@ export default function CaseStudyTemplate({
                 {keyDecisions.map((decision, index) => (
                   <tr key={index} className="border-b border-[rgba(255,255,255,0.05)]">
                     <td className="py-4 px-4 text-white font-medium">{decision.point}</td>
-                    <td className="py-4 px-4 text-[#cbd5e1]">
+                    <td className="py-4 px-4 text-slate-300">
                       {decision.options.map((option, i) => (
                         <div key={i}>{i + 1}. {option}</div>
                       ))}
                     </td>
-                    <td className="py-4 px-4 text-[#cbd5e1]">{decision.rationale}</td>
-                    <td className="py-4 px-4 text-[#0066ff] font-semibold">{decision.impact}</td>
+                    <td className="py-4 px-4 text-slate-300">{decision.rationale}</td>
+                    <td className="py-4 px-4 text-blue font-semibold">{decision.impact}</td>
                   </tr>
                 ))}
               </tbody>
@@ -284,7 +284,7 @@ export default function CaseStudyTemplate({
                 <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
                   <span className="text-red-400">❌</span> Before
                 </h4>
-                <ul className="space-y-2 text-[#cbd5e1] text-sm">
+                <ul className="space-y-2 text-slate-300 text-sm">
                   {outcomes.before.map((item, index) => (
                     <li key={index}>• {item}</li>
                   ))}
@@ -294,7 +294,7 @@ export default function CaseStudyTemplate({
                 <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
                   <span className="text-green-400">✅</span> After
                 </h4>
-                <ul className="space-y-2 text-[#cbd5e1] text-sm">
+                <ul className="space-y-2 text-slate-300 text-sm">
                   {outcomes.after.map((item, index) => (
                     <li key={index}>• {item}</li>
                   ))}
@@ -314,7 +314,7 @@ export default function CaseStudyTemplate({
                 <h3 className="text-xl font-bold text-white mb-3">
                   {learning.title}
                 </h3>
-                <p className="text-[#cbd5e1] leading-relaxed">
+                <p className="text-slate-300 leading-relaxed">
                   {learning.description}
                 </p>
               </div>
@@ -332,7 +332,7 @@ export default function CaseStudyTemplate({
               {techStack.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 glass rounded-lg text-sm border border-[#0066ff] text-[#cbd5e1]"
+                  className="px-4 py-2 glass rounded-lg text-sm border border-blue text-slate-300"
                 >
                   {tech}
                 </span>
@@ -350,20 +350,20 @@ export default function CaseStudyTemplate({
               <h2 className="text-3xl font-bold text-white mb-4">
                 Want to see more work?
               </h2>
-              <p className="text-[#cbd5e1] mb-8 max-w-2xl mx-auto">
+              <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
                 This is just one example of how I lead cross-functional teams to deliver 
                 measurable business impact through strategic design.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                 href={createPageUrl("Home")}
-                  className="px-8 py-4 bg-[#0066ff] rounded-xl text-white font-semibold hover:bg-[#0052cc] transition-all glow-blue hover:scale-105"
+                  className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
                 >
                   View All Projects
                 </Link>
                 <a
                   href="mailto:consulting@giacomobianchi.tech"
-                  className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-[#0066ff] hover:border-[#0066ff] transition-all"
+                  className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all"
                 >
                   Let's Talk
                 </a>

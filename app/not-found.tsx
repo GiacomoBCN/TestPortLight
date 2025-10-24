@@ -36,7 +36,7 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={createPageUrl('Home')}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0066ff] rounded-xl text-white font-semibold hover:bg-[#0052cc] transition-all glow-blue hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
             >
               <Home size={20} />
               Go Home
@@ -44,7 +44,7 @@ export default function NotFound() {
 
             <button
               onClick={() => window.history.back()}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 glass rounded-xl text-white font-semibold hover:bg-[#0066ff] hover:border-[#0066ff] transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all"
             >
               <ArrowLeft size={20} />
               Go Back

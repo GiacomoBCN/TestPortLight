@@ -60,15 +60,15 @@ export default function BeforeAfterImpactCard({
     >
       <div className="flex flex-col items-center text-center h-full">
         <div className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6 glow-blue">
-          <Icon size={32} className="text-[#0066ff]" />
+          <Icon size={32} className="text-blue" />
         </div>
 
-        <h3 className="text-5xl font-bold text-[#0066ff] mb-6">
+        <h3 className="text-5xl font-bold text-blue mb-6">
           {displayHeadline}
         </h3>
 
         {subHeadline && (
-          <p className="text-lg font-semibold text-[#0066ff] mb-4 text-center">
+          <p className="text-lg font-semibold text-blue mb-4 text-center">
             {subHeadline}
           </p>
         )}
@@ -76,7 +76,7 @@ export default function BeforeAfterImpactCard({
         <div className="space-y-3 flex-1 flex flex-col w-full">
           <div className="glass p-3 rounded-lg flex-1 flex flex-col">
             <p className="text-white text-sm leading-relaxed text-left flex-1">
-              <span className="text-sm uppercase tracking-wider text-[#0066ff] font-semibold">
+              <span className="text-sm uppercase tracking-wider text-blue font-semibold">
                 Before:&nbsp;
               </span>
               {before}
@@ -85,16 +85,16 @@ export default function BeforeAfterImpactCard({
 
           <div className="glass p-3 rounded-lg flex-1 flex flex-col">
             <p className="text-white text-sm leading-relaxed text-left flex-1">
-              <span className="text-sm uppercase tracking-wider text-[#0066ff] font-semibold">
+              <span className="text-sm uppercase tracking-wider text-blue font-semibold">
                 After:&nbsp;
               </span>
               {after}
             </p>
           </div>
 
-          <div className="glass p-3 rounded-lg border-l-4 border-[#0066ff] flex-1 flex flex-col">
+          <div className="glass p-3 rounded-lg border-l-4 border-blue flex-1 flex flex-col">
             <p className="text-white text-sm leading-relaxed text-left flex-1">
-              <span className="text-sm uppercase tracking-wider text-[#0066ff] font-semibold">
+              <span className="text-sm uppercase tracking-wider text-blue font-semibold">
                 Impact:&nbsp;
               </span>
               {impact}

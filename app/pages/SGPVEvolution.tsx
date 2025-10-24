@@ -212,7 +212,7 @@ export default function SGPVEvolution() {
       <div className="fixed top-24 left-6 z-40">
         <Link
           href={createPageUrl("ProductWork")}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-[#cbd5e1] hover:text-white hover:border-[#0066ff] transition-all"
+          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-white hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
           <span className="hidden md:inline">Back to Projects</span>
@@ -1177,7 +1177,7 @@ export default function SGPVEvolution() {
               <h2 className="text-3xl font-bold text-white mb-4">
                 Want to see more work?
               </h2>
-              <p className="text-[#cbd5e1] mb-8 max-w-2xl mx-auto">
+              <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
                 This project shows how I lead multi-client product
                 evolution—turning research insights and governance into scalable
                 design systems.
@@ -1185,13 +1185,13 @@ export default function SGPVEvolution() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href={createPageUrl("ProductWork")}
-                  className="px-8 py-4 bg-[#0066ff] rounded-xl text-white font-semibold hover:bg-[#0052cc] transition-all glow-blue hover:scale-105"
+                  className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
                 >
                   View All Projects
                 </Link>
                 <a
                   href="mailto:consulting@giacomobianchi.tech"
-                  className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-[#0066ff] hover:border-[#0066ff] transition-all"
+                  className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all"
                 >
                   Let's Talk
                 </a>

@@ -128,7 +128,7 @@ export default function TestimonialCarousel({
                       {isTruncated && (
                         <button
                           onClick={() => openModal(testimonial)}
-                          className="mb-4 text-sm text-[#0066ff] hover:text-[#00d4ff] transition-colors duration-200 font-medium underline underline-offset-2 text-left"
+                          className="mb-4 text-sm text-blue hover:text-[#00d4ff] transition-colors duration-200 font-medium underline underline-offset-2 text-left"
                         >
                           Read more
                         </button>
@@ -139,11 +139,11 @@ export default function TestimonialCarousel({
                         {/* Author Info */}
                         <div className="mb-4">
                           <p className="font-semibold text-white">{testimonial.name}</p>
-                          <p className="text-sm text-[#94a3b8]">{testimonial.title}</p>
+                          <p className="text-sm text-slate-400">{testimonial.title}</p>
                         </div>
 
                         {/* Image */}
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0066ff] to-[#10b981] flex-shrink-0">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue to-[#10b981] flex-shrink-0">
                           <Image
                             src={getImagePath(testimonial.image)}
                             alt={testimonial.alt}
@@ -168,7 +168,7 @@ export default function TestimonialCarousel({
             <div className="flex justify-center items-center gap-4 mt-8">
               <button
                 onClick={() => paginate(-1)}
-                className="w-12 h-12 glass rounded-full flex items-center justify-center text-white hover:bg-[#0066ff] transition-all duration-200 glow-blue hover:scale-110"
+                className="w-12 h-12 glass rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-200 glow-blue hover:scale-110"
                 aria-label="Previous testimonials"
               >
                 <ChevronLeft size={24} />
@@ -182,7 +182,7 @@ export default function TestimonialCarousel({
                     onClick={() => goToSlide(index)}
                     className={`transition-all duration-300 rounded-full ${
                       index === currentIndex
-                        ? "w-8 h-3 bg-[#0066ff] glow-blue"
+                        ? "w-8 h-3 bg-blue-600 glow-blue"
                         : "w-3 h-3 bg-[#94a3b8] hover:bg-[#cbd5e1]"
                     }`}
                     aria-label={`Go to page ${index + 1}`}
@@ -192,7 +192,7 @@ export default function TestimonialCarousel({
 
               <button
                 onClick={() => paginate(1)}
-                className="w-12 h-12 glass rounded-full flex items-center justify-center text-white hover:bg-[#0066ff] transition-all duration-200 glow-blue hover:scale-110"
+                className="w-12 h-12 glass rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-200 glow-blue hover:scale-110"
                 aria-label="Next testimonials"
               >
                 <ChevronRight size={24} />
@@ -201,7 +201,7 @@ export default function TestimonialCarousel({
 
             {/* Counter */}
             <div className="text-center mt-4">
-              <p className="text-sm text-[#94a3b8]">
+              <p className="text-sm text-slate-400">
                 {currentIndex + 1} / {maxIndex + 1}
               </p>
             </div>

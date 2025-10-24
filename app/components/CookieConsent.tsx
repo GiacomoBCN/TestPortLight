@@ -65,25 +65,25 @@ export default function CookieConsent() {
             className="rounded-xl bg-[#0a0a0a]/80 backdrop-blur-xl shadow-2xl border border-white/20 p-4"
             style={{
               boxShadow:
-                "0 8px 32px 0 rgba(0, 102, 255, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1)",
+                "0 8px 32px 0 rgba(26, 122, 255, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1)",
             }}
           >
             <div className="flex flex-col gap-3">
-              <p className="text-sm text-[#cbd5e1] leading-relaxed">
+              <p className="text-sm text-slate-300 leading-relaxed">
                 We use cookies to analyze site traffic and improve your
                 experience.
               </p>
               <div className="flex gap-2">
                 <button
                   onClick={handleDecline}
-                  className="flex-1 px-4 py-2 text-xs font-medium text-[#94a3b8] hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition-all border border-white/10"
+                  className="flex-1 px-4 py-2 text-xs font-medium text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition-all border border-white/10"
                 >
                   Decline
                 </button>
                 <button
                   onClick={handleAccept}
-                  className="flex-1 px-4 py-2 text-xs font-medium text-white bg-[#0066ff] hover:bg-[#0052cc] rounded-lg transition-all"
-                  style={{ boxShadow: "0 0 20px rgba(0, 102, 255, 0.3)" }}
+                  className="flex-1 px-4 py-2 text-xs font-medium text-white bg-blue-600 hover:bg-blue-hover rounded-lg transition-all"
+                  style={{ boxShadow: "0 0 20px rgba(26, 122, 255, 0.3)" }}
                 >
                   Accept
                 </button>

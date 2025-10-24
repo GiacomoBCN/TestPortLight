@@ -20,7 +20,7 @@ export default function SectionHeader({
     >
       <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h2>
       {subtitle && (
-        <p className="text-lg text-[#cbd5e1] max-w-2xl mx-auto">{subtitle}</p>
+        <p className="text-lg text-slate-300 max-w-2xl mx-auto">{subtitle}</p>
       )}
     </motion.div>
   );
