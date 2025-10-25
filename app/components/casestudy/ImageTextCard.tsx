@@ -47,7 +47,7 @@ export default function ImageTextCard({
               className="w-full h-auto object-contain"
             />
             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <span className="text-white text-sm font-medium">
+              <span className="text-[var(--color-text-inverse)] text-sm font-medium">
                 Click to enlarge
               </span>
             </div>
@@ -59,16 +59,16 @@ export default function ImageTextCard({
 
   const textSection = (
     <div className="md:w-2/3">
-      <h3 className="text-xl font-semibold text-white mb-4">{title}</h3>
-      <div className="text-gray-300 leading-relaxed mb-4 space-y-3">
+      <h3 className="text-xl font-semibold text-[var(--card-text-heading)] mb-4">{title}</h3>
+      <div className="text-[var(--card-text-body)] leading-relaxed mb-4 space-y-3">
         {description.split(/\n+/).filter(p => p.trim()).map((paragraph, index) => (
           <p key={index}>{paragraph.trim()}</p>
         ))}
       </div>
-      <ul className="space-y-2 text-gray-400">
+      <ul className="space-y-2 text-[var(--card-text-meta)]">
         {bulletPoints.map((point, index) => (
           <li key={index} className="flex items-start gap-2">
-            <span className="text-blue-400 mt-1">•</span>
+            <span className="text-[var(--color-text-link-default)] mt-1">•</span>
             <span>
               <strong>{point.label}:</strong> {point.text}
             </span>
@@ -76,7 +76,7 @@ export default function ImageTextCard({
         ))}
       </ul>
       {additionalText && (
-        <p className="text-gray-300 leading-relaxed mt-4">{additionalText}</p>
+        <p className="text-[var(--card-text-body)] leading-relaxed mt-4">{additionalText}</p>
       )}
     </div>
   );

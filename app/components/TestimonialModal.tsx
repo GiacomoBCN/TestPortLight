@@ -69,7 +69,7 @@ export default function TestimonialModal({
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-200 glow-blue hover:scale-110"
+                className="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] transition-all duration-200 glow-blue hover:scale-110"
                 aria-label="Close modal"
               >
                 <X size={20} />
@@ -78,7 +78,7 @@ export default function TestimonialModal({
               {/* Content */}
               <div className="flex flex-col">
                 {/* Quote - Left aligned */}
-                <p className="text-lg md:text-xl text-white font-light leading-relaxed mb-8 whitespace-pre-line text-left">
+                <p className="text-lg md:text-xl text-[var(--color-text-inverse)] font-light leading-relaxed mb-8 whitespace-pre-line text-left">
                   "{quote}"
                 </p>
 
@@ -86,12 +86,12 @@ export default function TestimonialModal({
                 <div className="flex flex-col items-center text-center">
                   {/* Author Info */}
                   <div className="mb-4">
-                    <p className="font-semibold text-white text-lg">{name}</p>
-                    <p className="text-sm text-slate-400">{title}</p>
+                    <p className="font-semibold text-[var(--color-text-inverse)] text-lg">{name}</p>
+                    <p className="text-sm text-[var(--color-text-tertiary)]">{title}</p>
                   </div>
 
                   {/* Image */}
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-blue to-[#10b981] flex-shrink-0">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[var(--color-text-brand)] to-[var(--color-text-teaching)] flex-shrink-0">
                     <Image
                       src={getImagePath(image)}
                       alt={alt}

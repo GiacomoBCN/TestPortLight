@@ -18,9 +18,9 @@ export default function SectionHeader({
       transition={{ duration: 0.5 }}
       className={`text-center mb-16 ${className}`}
     >
-      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h2>
+      <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-inverse)] mb-4">{title}</h2>
       {subtitle && (
-        <p className="text-lg text-slate-300 max-w-2xl mx-auto">{subtitle}</p>
+        <p className="text-lg text-[var(--color-text-primary)] max-w-2xl mx-auto">{subtitle}</p>
       )}
     </motion.div>
   );

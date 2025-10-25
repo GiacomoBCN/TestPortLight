@@ -24,9 +24,9 @@ export default function LeadershipProfile({
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
           {/* Profile Image */}
           <div className="relative flex-shrink-0">
-            <div className="w-32 h-32 rounded-2xl overflow-hidden ring-2 ring-blue ring-offset-4 ring-offset-[#0a0e27]">
-              <img 
-                src={image} 
+            <div className="w-32 h-32 rounded-2xl overflow-hidden ring-2 ring-[var(--color-border-interactive)] ring-offset-4 ring-offset-[var(--color-surface-secondary)]">
+              <img
+                src={image}
                 alt={name}
                 className="w-full h-full object-cover"
               />
@@ -38,18 +38,18 @@ export default function LeadershipProfile({
 
           {/* Profile Info */}
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-2xl font-bold text-white mb-1">{name}</h3>
-            <p className="text-blue font-semibold mb-4">{role}</p>
-            
+            <h3 className="text-2xl font-bold text-[var(--color-text-inverse)] mb-1">{name}</h3>
+            <p className="text-[var(--color-text-brand)] font-semibold mb-4">{role}</p>
+
             {responsibilities.length > 0 && (
               <div className="space-y-2">
-                <p className="text-sm text-slate-400 uppercase tracking-wider mb-3">
+                <p className="text-sm text-[var(--color-text-tertiary)] uppercase tracking-wider mb-3">
                   Key Responsibilities
                 </p>
                 <ul className="space-y-2">
                   {responsibilities.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-slate-300 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 flex-shrink-0 glow-blue"></span>
+                    <li key={index} className="flex items-start gap-2 text-[var(--color-text-primary)] text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-surface-interactive-default)] mt-2 flex-shrink-0 glow-blue"></span>
                       <span>{item}</span>
                     </li>
                   ))}

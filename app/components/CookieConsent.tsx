@@ -69,21 +69,21 @@ export default function CookieConsent() {
             }}
           >
             <div className="flex flex-col gap-3">
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-[var(--color-text-primary)] leading-relaxed">
                 We use cookies to analyze site traffic and improve your
                 experience.
               </p>
               <div className="flex gap-2">
                 <button
                   onClick={handleDecline}
-                  className="flex-1 px-4 py-2 text-xs font-medium text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition-all border border-white/10"
+                  className="flex-1 px-4 py-2 text-xs font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] bg-[var(--color-text-inverse)]/5 hover:bg-[var(--color-text-inverse)]/10 rounded-lg transition-all border border-[var(--color-text-inverse)]/10"
                 >
                   Decline
                 </button>
                 <button
                   onClick={handleAccept}
-                  className="flex-1 px-4 py-2 text-xs font-medium text-white bg-blue-600 hover:bg-blue-hover rounded-lg transition-all"
-                  style={{ boxShadow: "0 0 20px rgba(26, 122, 255, 0.3)" }}
+                  className="flex-1 px-4 py-2 text-xs font-medium text-[var(--button-primary-text)] bg-[var(--button-primary-background-default)] hover:bg-[var(--button-primary-background-hover)] rounded-lg transition-all"
+                  style={{ boxShadow: "0 0 20px var(--color-surface-glow)" }}
                 >
                   Accept
                 </button>

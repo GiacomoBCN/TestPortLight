@@ -28,8 +28,8 @@ export default function CaseStudyOverview({
             <GlassCard key={index} delay={index * 0.1}>
               <div className="text-center">
                 <div className="text-4xl mb-4">{section.icon}</div>
-                <h3 className="text-lg font-bold text-white mb-3">{section.title}</h3>
-                <div className="text-slate-300 text-sm space-y-2">
+                <h3 className="text-lg font-bold text-[var(--card-text-heading)] mb-3">{section.title}</h3>
+                <div className="text-[var(--card-text-body)] text-sm space-y-2">
                   {Array.isArray(section.content) ? (
                     section.content.map((item, i) => (
                       <p key={i}>{item}</p>

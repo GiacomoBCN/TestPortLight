@@ -3,6 +3,188 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* ============================================
+     THREE-TIER COLOR TOKEN SYSTEM
+
+     📖 Full documentation: /COLOR_TOKENS.md
+
+     This project uses a three-tier design token methodology:
+     - TIER 1: Primitive tokens (raw values - never use directly)
+     - TIER 2: Semantic tokens (contextual meaning - HOW to use)
+     - TIER 3: Component tokens (specific usage - WHERE to use)
+
+     All colors meet WCAG AA standards (minimum 4.5:1)
+     ============================================ */
+
+  /* ============================================
+     TIER 1: PRIMITIVE TOKENS
+     Raw color values - DO NOT USE DIRECTLY in components
+     ============================================ */
+
+  /* Blue Palette */
+  --primitive-blue-400: #2375ef;    /* Hover states (4.64:1 on dark bg) */
+  --primitive-blue-500: #1a7aff;    /* Primary blue (5.03:1 on dark bg) */
+  --primitive-blue-600: #086efd;    /* Dark blue (4.51:1 with white text) */
+
+  /* Slate/Neutral Palette */
+  --primitive-slate-300: #cbd5e1;   /* 13.49:1 - AAA compliant */
+  --primitive-slate-400: #94a3b8;   /* 7.81:1 - AAA compliant */
+  --primitive-slate-500: #697990;   /* 4.52:1 - AA compliant */
+
+  /* Emerald/Success Palette */
+  --primitive-emerald-500: #10b981; /* 7.89:1 - AAA compliant */
+
+  /* Dark/Background Palette */
+  --primitive-dark-900: #050810;    /* Main dark background */
+  --primitive-dark-800: #0a0e27;    /* Glass card backgrounds */
+  --primitive-dark-700: #0f1629;    /* Elevated surfaces */
+
+  /* Base Monochrome */
+  --primitive-white: #ffffff;
+  --primitive-black: #0a0a0a;
+  --primitive-gray-900: #171717;
+  --primitive-gray-100: #ededed;
+
+  /* Opacity Values */
+  --primitive-alpha-subtle: 0.08;
+  --primitive-alpha-light: 0.1;
+  --primitive-alpha-medium: 0.3;
+  --primitive-alpha-heavy: 0.6;
+
+  /* ============================================
+     TIER 2: SEMANTIC TOKENS
+     Contextual meaning - describes HOW colors are used
+     ============================================ */
+
+  /* Text Colors */
+  --color-text-primary: var(--primitive-slate-300);      /* Main body text */
+  --color-text-secondary: var(--primitive-slate-500);    /* Supporting text */
+  --color-text-tertiary: var(--primitive-slate-400);     /* Subtle/meta info */
+  --color-text-inverse: var(--primitive-white);          /* Text on dark surfaces */
+  --color-text-on-light: var(--primitive-gray-900);      /* Text on light backgrounds */
+
+  /* Interactive Text */
+  --color-text-link-default: var(--primitive-blue-500);  /* Links default state */
+  --color-text-link-hover: var(--primitive-blue-400);    /* Links hover state */
+  --color-text-brand: var(--primitive-blue-500);         /* Brand-colored text */
+  --color-text-accent: var(--primitive-blue-600);        /* Accent/emphasis text */
+
+  /* Feedback Text */
+  --color-text-success: var(--primitive-emerald-500);    /* Success messages */
+  --color-text-teaching: var(--primitive-emerald-500);   /* Teaching section text */
+
+  /* Surface/Background Colors */
+  --color-surface-primary: var(--primitive-dark-900);        /* Main background */
+  --color-surface-secondary: var(--primitive-dark-800);      /* Card/glass backgrounds */
+  --color-surface-tertiary: var(--primitive-dark-700);       /* Elevated surfaces */
+  --color-surface-inverse: var(--primitive-white);           /* Light mode primary */
+  --color-surface-inverse-secondary: var(--primitive-gray-100); /* Light mode secondary */
+
+  /* Interactive Surfaces */
+  --color-surface-interactive-default: var(--primitive-blue-600);  /* Button backgrounds */
+  --color-surface-interactive-hover: var(--primitive-blue-500);    /* Button hover */
+  --color-surface-glow: rgba(8, 110, 253, 0.1); /* Blue glow effects */
+
+  /* Border Colors */
+  --color-border-default: rgba(255, 255, 255, 0.08);  /* Subtle borders */
+  --color-border-interactive: var(--primitive-blue-500);     /* Active/interactive borders */
+  --color-border-interactive-hover: var(--primitive-blue-400); /* Hover state borders */
+  --color-border-emphasis: var(--primitive-blue-600);        /* Emphasized borders */
+
+  /* Decoration & Effects */
+  --color-decoration-grid: rgba(26, 122, 255, 0.1);  /* Background grid */
+  --color-decoration-accent: var(--primitive-blue-500);      /* Accent decorations */
+
+  /* Glass Morphism */
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-glass-background: rgba(10, 14, 39, 0.7);
+
+  /* ============================================
+     TIER 3: COMPONENT TOKENS
+     Component-specific - describes WHERE colors are used
+     ============================================ */
+
+  /* Buttons */
+  --button-primary-background-default: var(--color-surface-interactive-default);
+  --button-primary-background-hover: var(--color-surface-interactive-hover);
+  --button-primary-text: var(--color-text-inverse);
+  --button-primary-border-focus: var(--color-border-interactive);
+
+  --button-secondary-background-default: transparent;
+  --button-secondary-background-hover: var(--color-surface-secondary);
+  --button-secondary-text: var(--color-text-link-default);
+  --button-secondary-border: var(--color-border-interactive);
+
+  /* Cards */
+  --card-background: var(--color-surface-secondary);
+  --card-background-hover: var(--color-surface-tertiary);
+  --card-border-default: var(--color-border-default);
+  --card-border-hover: var(--color-border-interactive);
+  --card-text-heading: var(--color-text-inverse);
+  --card-text-body: var(--color-text-primary);
+  --card-text-meta: var(--color-text-tertiary);
+
+  /* Glass Cards */
+  --glass-card-background: var(--color-glass-background);
+  --glass-card-border: var(--color-glass-border);
+
+  /* Project Cards */
+  --project-card-role-text: var(--color-text-brand);
+  --project-card-title-default: var(--color-text-inverse);
+  --project-card-title-hover: var(--color-text-link-hover);
+  --project-card-company-text: var(--color-text-tertiary);
+  --project-card-description-text: var(--color-text-primary);
+  --project-card-metric-value: var(--color-text-brand);
+  --project-card-metric-label: var(--color-text-tertiary);
+  --project-card-tag-border: var(--color-border-interactive);
+  --project-card-tag-text: var(--color-text-primary);
+
+  /* Navigation */
+  --nav-background: var(--color-surface-secondary);
+  --nav-border: var(--color-border-default);
+  --nav-link-default: var(--color-text-primary);
+  --nav-link-hover: var(--color-text-link-hover);
+  --nav-link-active: var(--color-text-brand);
+
+  /* Hero Section */
+  --hero-background: var(--color-surface-primary);
+  --hero-title-text: var(--color-text-inverse);
+  --hero-body-text: var(--color-text-primary);
+  --hero-grid-decoration: var(--color-decoration-grid);
+  --hero-glow-effect: var(--color-surface-glow);
+
+  /* Teaching Section */
+  --teaching-accent-text: var(--color-text-teaching);
+  --teaching-accent-border: var(--primitive-emerald-500);
+  --teaching-card-background: var(--color-surface-secondary);
+
+  /* Metrics/Statistics */
+  --metric-value-text: var(--color-text-brand);
+  --metric-label-text: var(--color-text-tertiary);
+  --metric-card-background: var(--color-surface-secondary);
+
+  /* Tags/Badges */
+  --tag-background: transparent;
+  --tag-border: var(--color-border-interactive);
+  --tag-text: var(--color-text-primary);
+  --tag-background-hover: var(--color-surface-secondary);
+
+  /* ============================================
+     LEGACY COMPATIBILITY ALIASES
+     These maintain backwards compatibility with existing code
+     Will be removed in future refactor
+     ============================================ */
+  --color-blue: var(--primitive-blue-500);
+  --color-blue-600: var(--primitive-blue-600);
+  --color-blue-hover: var(--primitive-blue-400);
+  --color-slate-300: var(--primitive-slate-300);
+  --color-slate-400: var(--primitive-slate-400);
+  --color-slate-500: var(--primitive-slate-500);
+  --color-emerald: var(--primitive-emerald-500);
+  --color-emerald-500: var(--primitive-emerald-500);
+  --color-dark-bg: var(--primitive-dark-900);
+  --color-dark-bg-secondary: var(--primitive-dark-800);
 }
 
 @theme inline {
@@ -10,29 +192,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-
-  /* ============================================
-     ACCESSIBLE COLOR PALETTE
-     All colors meet WCAG AA standards (4.5:1)
-     ============================================ */
-
-  /* Blue - Primary Brand Color */
-  --color-blue: #1a7aff;             /* Text/Links (5.03:1 on dark bg) */
-  --color-blue-600: #086efd;         /* Button backgrounds (4.51:1 with white text) */
-  --color-blue-hover: #2375ef;       /* Hover states (4.64:1 on dark bg) */
-
-  /* Slate - Neutral Text Colors */
-  --color-slate-300: #cbd5e1;        /* Body text (13.49:1) - AAA compliant */
-  --color-slate-400: #94a3b8;        /* Tertiary text (7.81:1) - AAA compliant */
-  --color-slate-500: #697990;        /* Secondary text (4.52:1) - AA compliant (improved from #64748b) */
-
-  /* Emerald - Teaching/Success accent */
-  --color-emerald: #10b981;          /* Teaching sections (7.89:1) - AAA compliant */
-  --color-emerald-500: #10b981;      /* Teaching sections - alias for compatibility */
-
-  /* Background colors */
-  --color-dark-bg: #050810;          /* Main dark background */
-  --color-dark-bg-secondary: #0a0e27; /* Glass card backgrounds */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,37 +201,58 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* 404 Page Animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
+@layer utilities {
+  /* Glass Morphism Utility Classes */
+  .glass {
+    background: var(--glass-card-background);
+    border: 1px solid var(--glass-card-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+
+  .glass-hover:hover {
+    background: var(--color-surface-tertiary);
+    border-color: var(--color-border-interactive);
   }
-}
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(8, 110, 253, 0.15);
+  }
 
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
+  /* 404 Page Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
 }

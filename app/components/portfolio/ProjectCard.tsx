@@ -39,41 +39,41 @@ export default function ProjectCard({
               alt={title}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e27] via-transparent to-transparent opacity-60"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-secondary)] via-transparent to-transparent opacity-60"></div>
           </div>
         </div>
       )}
 
       {/* Header Section - Fixed height */}
       <div className="mb-6">
-        <span className="text-xs uppercase tracking-wider text-blue font-semibold block">
+        <span className="text-xs uppercase tracking-wider text-[var(--project-card-role-text)] font-semibold block">
           {role}
         </span>
-        <h3 className="text-2xl font-bold text-white mt-2 mb-1 transition-colors duration-300 group-hover:text-blue min-h-[64px]">
+        <h3 className="text-2xl font-bold text-[var(--project-card-title-default)] mt-2 mb-1 transition-colors duration-300 group-hover:text-[var(--project-card-title-hover)] min-h-[64px]">
           {title}
         </h3>
-        <p className="text-sm text-slate-400">
+        <p className="text-sm text-[var(--project-card-company-text)]">
           {company}
           {timeframe && ` • ${timeframe}`}
         </p>
       </div>
 
       {/* Description - Fixed height */}
-      <p className="text-slate-300 mb-6 min-h-[72px]">{description}</p>
+      <p className="text-[var(--project-card-description-text)] mb-6 min-h-[72px]">{description}</p>
 
       {/* Spacer to push metrics and tags to bottom */}
       <div className="flex-1"></div>
 
       {/* Metrics - Fixed height */}
-      <div className="mb-6 pb-6 border-b border-[rgba(255,255,255,0.08)] min-h-[88px]">
+      <div className="mb-6 pb-6 border-b border-[var(--color-border-default)] min-h-[88px]">
         {metrics.length > 0 && (
           <div className="grid grid-cols-3 gap-4">
             {metrics.map((metric, index) => (
               <div key={index} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-blue mb-1">
+                <div className="text-2xl md:text-3xl font-bold text-[var(--project-card-metric-value)] mb-1">
                   {metric.value}
                 </div>
-                <div className="text-xs text-slate-400 leading-tight">
+                <div className="text-xs text-[var(--project-card-metric-label)] leading-tight">
                   {metric.label}
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function ProjectCard({
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-xs glass rounded-full border border-blue text-slate-300"
+                className="px-3 py-1 text-xs glass rounded-full border border-[var(--project-card-tag-border)] text-[var(--project-card-tag-text)]"
               >
                 {tag}
               </span>
@@ -112,8 +112,8 @@ export default function ProjectCard({
         <Link
           href={link}
           className="block h-full glass rounded-xl p-8 transition-all duration-300 cursor-pointer group
-                     hover:scale-[1.02] hover:border-blue hover:shadow-[0_0_30px_rgba(0,102,255,0.3)]
-                     focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 focus:ring-offset-[#0a0e27]"
+                     hover:scale-[1.02] hover:border-[var(--card-border-hover)] hover:shadow-[0_0_30px_rgba(8,110,253,0.3)]
+                     focus:outline-none focus:ring-2 focus:ring-[var(--color-border-interactive)] focus:ring-offset-2 focus:ring-offset-[var(--color-surface-secondary)]"
           aria-label={`View case study: ${title}`}
         >
           {cardContent}

@@ -22,11 +22,11 @@ export default function CaseStudySection({
     >
       <div className="max-w-5xl mx-auto">
         <div className="flex items-start gap-6 mb-8">
-          <div className="text-6xl font-bold text-blue opacity-20">
+          <div className="text-6xl font-bold text-[var(--color-text-brand)] opacity-20">
             {number}
           </div>
           <div className="flex-1 pt-2">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-inverse)]">
               {title}
             </h2>
           </div>

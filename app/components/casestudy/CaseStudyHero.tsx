@@ -57,7 +57,7 @@ export default function CaseStudyHero({
           {title}
         </motion.h1>
 
-        <div className="mt-4 text-sm md:text-base text-white/70 space-x-3">
+        <div className="mt-4 text-sm md:text-base text-[var(--color-text-inverse)]/70 space-x-3">
           {company && <span>{company}</span>}
           {role && <span>• {role}</span>}
           {year && <span>• {year}</span>}
@@ -68,7 +68,7 @@ export default function CaseStudyHero({
             {tags.map((t) => (
               <span
                 key={t}
-                className="px-2.5 py-1 rounded-full text-xs bg-white/10 border border-white/15"
+                className="px-2.5 py-1 rounded-full text-xs bg-[var(--color-text-inverse)]/10 border border-[var(--color-text-inverse)]/15"
               >
                 {t}
               </span>

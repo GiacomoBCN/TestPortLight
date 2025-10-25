@@ -120,7 +120,7 @@ export default function TestimonialCarousel({
                   <GlassCard key={startIdx + idx} hover={false}>
                     <div className="flex flex-col h-full">
                       {/* Quote */}
-                      <p className="text-base md:text-lg text-white font-light leading-relaxed mb-4 flex-grow text-left">
+                      <p className="text-base md:text-lg text-[var(--color-text-inverse)] font-light leading-relaxed mb-4 flex-grow text-left">
                         "{text}"
                       </p>
 
@@ -128,7 +128,7 @@ export default function TestimonialCarousel({
                       {isTruncated && (
                         <button
                           onClick={() => openModal(testimonial)}
-                          className="mb-4 text-sm text-blue hover:text-[#00d4ff] transition-colors duration-200 font-medium underline underline-offset-2 text-left"
+                          className="mb-4 text-sm text-[var(--color-text-brand)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium underline underline-offset-2 text-left"
                         >
                           Read more
                         </button>
@@ -138,12 +138,12 @@ export default function TestimonialCarousel({
                       <div className="flex flex-col items-center text-center">
                         {/* Author Info */}
                         <div className="mb-4">
-                          <p className="font-semibold text-white">{testimonial.name}</p>
-                          <p className="text-sm text-slate-400">{testimonial.title}</p>
+                          <p className="font-semibold text-[var(--color-text-inverse)]">{testimonial.name}</p>
+                          <p className="text-sm text-[var(--color-text-tertiary)]">{testimonial.title}</p>
                         </div>
 
                         {/* Image */}
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue to-[#10b981] flex-shrink-0">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-text-brand)] to-[var(--color-text-teaching)] flex-shrink-0">
                           <Image
                             src={getImagePath(testimonial.image)}
                             alt={testimonial.alt}
@@ -168,7 +168,7 @@ export default function TestimonialCarousel({
             <div className="flex justify-center items-center gap-4 mt-8">
               <button
                 onClick={() => paginate(-1)}
-                className="w-12 h-12 glass rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-200 glow-blue hover:scale-110"
+                className="w-12 h-12 glass rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] transition-all duration-200 glow-blue hover:scale-110"
                 aria-label="Previous testimonials"
               >
                 <ChevronLeft size={24} />
@@ -182,7 +182,7 @@ export default function TestimonialCarousel({
                     onClick={() => goToSlide(index)}
                     className={`transition-all duration-300 rounded-full ${
                       index === currentIndex
-                        ? "w-8 h-3 bg-blue-600 glow-blue"
+                        ? "w-8 h-3 bg-[var(--color-surface-interactive-default)] glow-blue"
                         : "w-3 h-3 bg-[#94a3b8] hover:bg-[#cbd5e1]"
                     }`}
                     aria-label={`Go to page ${index + 1}`}
@@ -192,7 +192,7 @@ export default function TestimonialCarousel({
 
               <button
                 onClick={() => paginate(1)}
-                className="w-12 h-12 glass rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-200 glow-blue hover:scale-110"
+                className="w-12 h-12 glass rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] transition-all duration-200 glow-blue hover:scale-110"
                 aria-label="Next testimonials"
               >
                 <ChevronRight size={24} />
@@ -201,7 +201,7 @@ export default function TestimonialCarousel({
 
             {/* Counter */}
             <div className="text-center mt-4">
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-[var(--color-text-tertiary)]">
                 {currentIndex + 1} / {maxIndex + 1}
               </p>
             </div>

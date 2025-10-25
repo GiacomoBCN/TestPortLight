@@ -11,14 +11,14 @@ export default function MetricShowcase({
       {metrics.map((metric, index) => (
         <GlassCard key={index} delay={index * 0.1}>
           <div className="text-center py-6">
-            <div className="text-5xl md:text-6xl font-bold text-blue mb-3 glow-blue">
+            <div className="text-5xl md:text-6xl font-bold text-[var(--metric-value-text)] mb-3 glow-blue">
               {metric.value}
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-xl font-semibold text-[var(--color-text-inverse)] mb-2">
               {metric.label}
             </h3>
             {metric.context && (
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-[var(--metric-label-text)]">
                 {metric.context}
               </p>
             )}
