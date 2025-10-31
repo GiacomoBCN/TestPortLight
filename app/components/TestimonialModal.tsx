@@ -86,8 +86,12 @@ export default function TestimonialModal({
                 <div className="flex flex-col items-center text-center">
                   {/* Author Info */}
                   <div className="mb-4">
-                    <p className="font-semibold text-[var(--color-text-inverse)] text-lg">{name}</p>
-                    <p className="text-sm text-[var(--color-text-tertiary)]">{title}</p>
+                    <p className="font-semibold text-[var(--color-text-inverse)] text-lg">
+                      {name}
+                    </p>
+                    <p className="text-sm text-[var(--color-text-tertiary)]">
+                      {title}
+                    </p>
                   </div>
 
                   {/* Image */}
