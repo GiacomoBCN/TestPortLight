@@ -251,7 +251,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="text-slate-300 text-sm">© 2025 Giacomo Bianchi.</p>
+              <p className="text-slate-300 text-sm">© 2026 Giacomo Bianchi.</p>
               <p className="text-slate-500 text-xs mt-1">
                 Italian by birth. Product leader by craft. Global by vocation.
               </p>
