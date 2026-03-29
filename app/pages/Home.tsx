@@ -455,8 +455,7 @@ export default function Home() {
                       <p className="text-sm text-[var(--color-text-tertiary)]">
                         I co-own product roadmaps and prioritize features based
                         on user research, business goals, and technical
-                        constraints. I've led strategic decisions across design
-                        systems, mobile apps, and B2B platforms.
+                        constraints. I have driven strategic decisions across design systems, mobile apps, and B2B platforms.
                       </p>
                     </div>
                   </div>
@@ -490,17 +489,14 @@ export default function Home() {
                       <Sparkles size={24} className="text-[var(--color-text-brand)]" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
-                        AI-Augmented Workflow
+                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">AI-Native Builder
                       </h3>
                       <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        ChatGPT, GitHub Copilot, Vertex AI, Midjourney, Cursor,
-                        AI Agents.
+                        Cursor, Claude Code, Claude API, n8n, Vercel, Ollama, GitHub Copilot, Vertex AI, ChatGPT, Midjourney.
                       </p>
                       <p className="text-sm text-[var(--color-text-tertiary)]">
-                        I use AI throughout my design process. Following design
-                        thinking principles, I accelerate feedback loops and
-                        improve decision-making through rapid iteration.
+                        ML/AI certified (180h: Python, TensorFlow, Deep Learning). I build with Cursor, Claude Code, and local LLMs, shipping functional prototypes and AI-powered workflows, not just designing around them. 
+                        Genuine technical fluency at the intersection of design craft and AI.
                       </p>
                     </div>
                   </div>
