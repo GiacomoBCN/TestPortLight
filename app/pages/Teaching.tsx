@@ -405,7 +405,7 @@ export default function Teaching() {
 
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  PhD in Occupational Health and Industrial Relations
+                  PhD in Human Capital Formation and Labour Relations
                 </h3>
                 <p className="text-slate-300 mb-4">
                   University of Bergamo • Focus: Human Factors, Behavioral
