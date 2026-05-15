@@ -223,7 +223,7 @@ export default function Teaching() {
                     Collaborative Learning Environments
                   </h4>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    STeamwork is central to both courses. In Product Design
+                    Teamwork is central to both courses. In Product Design
                     (UX/UI), students work in design teams to deliver complete
                     e-commerce projects. In Cross-Cultural Management, they
                     collaborate through case studies and role plays, learning
