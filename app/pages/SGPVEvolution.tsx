@@ -277,7 +277,7 @@ export default function SGPVEvolution() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={getImagePath("images/projects/sgpv-evo.png")}
+        image={getImagePath("images/projects/sgpv-evo.webp")}
         title="From Client Forks to a Unified, Scalable Platform"
         showGradient={false}
       >
@@ -408,7 +408,7 @@ export default function SGPVEvolution() {
               bulletPoints={[]}
               images={[
                 {
-                  src: getImagePath("images/projects/SGPV_V6_Old_New.png"),
+                  src: getImagePath("images/projects/SGPV_V6_Old_New.webp"),
                   alt: "Legacy tablet app redesigned into responsive v6 for mobile and tablet.",
                 },
               ]}
@@ -440,7 +440,7 @@ export default function SGPVEvolution() {
               ]}
               images={[
                 {
-                  src: getImagePath("images/projects/SGPV_V6_New_Diag.png"),
+                  src: getImagePath("images/projects/SGPV_V6_New_Diag.webp"),
                   alt: "Diagram summarizing Phase 1 impact: centralized styling enabled scalability, 20 % lower hardware cost, 80 % higher deployment efficiency, and 15 % higher user satisfaction.",
                 },
               ]}
@@ -473,15 +473,15 @@ export default function SGPVEvolution() {
         title="P1: Saved 15 Apps · From Legacy to Responsive Design"
         images={[
           {
-            src: getImagePath("images/projects/SGPV_V6_New_01.png"),
+            src: getImagePath("images/projects/SGPV_V6_New_01.webp"),
             alt: "Updated visit flow and simplified mobile UI in v6.",
           },
           {
-            src: getImagePath("images/projects/SGPV_V6_New_02.png"),
+            src: getImagePath("images/projects/SGPV_V6_New_02.webp"),
             alt: "Responsive document library, route map, and dashboard screens.",
           },
           {
-            src: getImagePath("images/projects/SGPV_V6_New_03.png"),
+            src: getImagePath("images/projects/SGPV_V6_New_03.webp"),
             alt: "Route and product management screens with improved hierarchy.",
           },
         ]}
@@ -516,7 +516,7 @@ export default function SGPVEvolution() {
               bulletPoints={[]}
               images={[
                 {
-                  src: getImagePath("images/projects/SGPV_Research_01.png"),
+                  src: getImagePath("images/projects/SGPV_Research_01.webp"),
                   alt: "Diagram summarizing all the process + output tech reasearch.",
                 },
               ]}
@@ -868,7 +868,7 @@ export default function SGPVEvolution() {
               images={[
                 {
                   src: getImagePath(
-                    "images/projects/sgpv_7_AI_flow_to colect_data.png"
+                    "images/projects/sgpv_7_AI_flow_to colect_data.webp"
                   ),
                   alt: "Flow diagram showing the redesigned AI-powered data capture process in SGPV v7. Users take photos of shelves or products instead of typing. The system extracts data automatically through image recognition, simplifying the field workflow.",
                 },
@@ -902,7 +902,7 @@ export default function SGPVEvolution() {
               images={[
                 {
                   src: getImagePath(
-                    "images/projects/sgpv_7_AI_Diagram_benefit.png"
+                    "images/projects/sgpv_7_AI_Diagram_benefit.webp"
                   ),
                   alt: "Diagram showing the impact of migrating to Flutter and adding AI image recognition in SGPV v7. Highlights include performance boost, task time reduced by 25%, and user satisfaction increased by 30%.",
                 },
@@ -919,21 +919,21 @@ export default function SGPVEvolution() {
         title="P2: From Hybrid to AI-Driven Workflows"
         images={[
           {
-            src: getImagePath("images/projects/sgpv_7_01_mobile.png"),
+            src: getImagePath("images/projects/sgpv_7_01_mobile.webp"),
             alt: "3D render of SGPV v7 mobile app screens highlighting redesigned interface and improved visual identity.",
           },
           {
-            src: getImagePath("images/projects/sgpv_7_02_mobile.png"),
+            src: getImagePath("images/projects/sgpv_7_02_mobile.webp"),
             alt: "Sequence of mobile screens showing login, confirmation, and performance dashboard in SGPV v7.",
           },
           {
             src: getImagePath(
-              "images/projects/sgpv_7_03_tablet_shopdashboard_imgRec.png"
+              "images/projects/sgpv_7_03_tablet_shopdashboard_imgRec.webp"
             ),
             alt: "Tablet interface displaying the shop dashboard and AI-based image recognition capture feature in SGPV v7.",
           },
           {
-            src: getImagePath("images/projects/sgpv_7_03_tablet_form.png"),
+            src: getImagePath("images/projects/sgpv_7_03_tablet_form.webp"),
             alt: "Tablet screens showing updated data entry forms and product status interface in SGPV v7.",
           },
         ]}

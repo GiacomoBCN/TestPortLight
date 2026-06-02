@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 
@@ -36,12 +37,13 @@ export default function CaseStudyHero({
       {/* Background Image with Overlay */}
       {imgSrc && (
         <div className="absolute inset-0 -z-10">
-          {/* usa <img> o next/image se preferisci */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={imgSrc}
             alt={imgAlt}
-            className="w-full h-full object-cover opacity-20"
+            fill
+            sizes="100vw"
+            className="object-cover opacity-20"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80" />
         </div>

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import {
@@ -220,11 +221,11 @@ export default function VoDPlatform() {
 
   const evaluationImages = [
     {
-      src: getImagePath("images/projects/Vod-Old_Home_nav.png"),
+      src: getImagePath("images/projects/Vod-Old_Home_nav.webp"),
       alt: "Original VOD platform interface showing navigation complexity",
     },
     {
-      src: getImagePath("images/projects/Vod-Old_Welcom.png"),
+      src: getImagePath("images/projects/Vod-Old_Welcom.webp"),
       alt: "Original VOD platform welcome screen interface",
     },
   ];
@@ -281,11 +282,11 @@ export default function VoDPlatform() {
 
   const navigationComparisonImages = [
     {
-      src: getImagePath("images/projects/Vod_old_navigation.png"),
+      src: getImagePath("images/projects/Vod_old_navigation.webp"),
       alt: "Old Navigation (3-Axis) - Complex three-layer navigation system with icon belt, tabs, and carousels",
     },
     {
-      src: getImagePath("images/projects/Vod_New_navigarion.png"),
+      src: getImagePath("images/projects/Vod_New_navigarion.webp"),
       alt: "New Navigation (2-Axis) - Simplified vertical rail and horizontal tabs system reducing interaction steps by 40%",
     },
   ];
@@ -351,7 +352,7 @@ export default function VoDPlatform() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={getImagePath("images/projects/Vod-01.png")}
+        image={getImagePath("images/projects/Vod-01.webp")}
         title="Evaluating & Redesigning a Multi-Device Streaming Experience"
         showGradient={false}
       >
@@ -435,23 +436,23 @@ export default function VoDPlatform() {
         title="Design Evolution"
         images={[
           {
-            src: getImagePath("images/projects/Vod-1_New _LiveTV.png"),
+            src: getImagePath("images/projects/Vod-1_New _LiveTV.webp"),
             alt: "New version of LiveTV page",
           },
           {
-            src: getImagePath("images/projects/Vod-2-New_Vod_Page.png"),
+            src: getImagePath("images/projects/Vod-2-New_Vod_Page.webp"),
             alt: "New version of VOD page",
           },
           {
-            src: getImagePath("images/projects/Vod-3- Nwe_Catch-up.png"),
+            src: getImagePath("images/projects/Vod-3- Nwe_Catch-up.webp"),
             alt: "New version of Chach-Up pagem",
           },
           {
-            src: getImagePath("images/projects/Vod-3_old_new_gamePage.png"),
+            src: getImagePath("images/projects/Vod-3_old_new_gamePage.webp"),
             alt: "After & Before of Game page",
           },
           {
-            src: getImagePath("images/projects/Vod-4_old_new_learnigPage.png"),
+            src: getImagePath("images/projects/Vod-4_old_new_learnigPage.webp"),
             alt: "After & Before of Learning page",
           },
         ]}
@@ -519,12 +520,12 @@ export default function VoDPlatform() {
               bulletPoints={heuristicData.bulletPoints}
               images={[
                 {
-                  src: getImagePath("images/projects/Vod-Old_Home_nav.png"),
+                  src: getImagePath("images/projects/Vod-Old_Home_nav.webp"),
                   alt: "Original VOD platform home screen showing the cluttered three-axis navigation layout",
                 },
                 {
                   src: getImagePath(
-                    "images/projects/Vod_Redesing_Nav_Graf_Reason.png"
+                    "images/projects/Vod_Redesing_Nav_Graf_Reason.webp"
                   ),
                   alt: "Diagram showing how redesigning VOD navigation improved usability and user experience through simplicity and accessibility.",
                 },
@@ -541,11 +542,11 @@ export default function VoDPlatform() {
               bulletPoints={accessibilityData.bulletPoints}
               images={[
                 {
-                  src: getImagePath("images/projects/Vod-Old_Welcom.png"),
+                  src: getImagePath("images/projects/Vod-Old_Welcom.webp"),
                   alt: "Original VOD welcome screen requiring multiple clicks before accessing content",
                 },
                 {
-                  src: getImagePath("images/projects/Vod-Old_ex_a11y.png"),
+                  src: getImagePath("images/projects/Vod-Old_ex_a11y.webp"),
                   alt: "Example of accessibility issues in the original VOD interface, showing low contrast and poor legibility",
                 },
               ]}
@@ -728,10 +729,12 @@ export default function VoDPlatform() {
                   className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
                   onClick={() => openGallery(navigationComparisonImages, 0)}
                 >
-                  <img
-                    src={getImagePath("images/projects/Vod_old_navigation.png")}
+                  <Image
+                    src={getImagePath("images/projects/Vod_old_navigation.webp")}
                     alt="Old Navigation (3-Axis)"
-                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="text-white text-sm font-medium">Click to enlarge</span>
@@ -747,10 +750,12 @@ export default function VoDPlatform() {
                   className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
                   onClick={() => openGallery(navigationComparisonImages, 1)}
                 >
-                  <img
-                    src={getImagePath("images/projects/Vod_New_navigarion.png")}
+                  <Image
+                    src={getImagePath("images/projects/Vod_New_navigarion.webp")}
                     alt="New Navigation (2-Axis)"
-                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="text-white text-sm font-medium">Click to enlarge</span>
@@ -1267,11 +1272,13 @@ export default function VoDPlatform() {
           </div>
 
           {/* IMAGE 5: Multi-platform, multi-brand scale */}
-          <div className="mt-8 rounded-lg overflow-hidden">
-            <img
-              src={getImagePath("images/projects/Vod-NewGamePage.png")}
+          <div className="mt-8 rounded-lg overflow-hidden relative w-full aspect-video">
+            <Image
+              src={getImagePath("images/projects/Vod-NewGamePage.webp")}
               alt="Resesign Game page"
-              className="w-full"
+              fill
+              sizes="100vw"
+              className="object-contain"
             />
             <p className="text-sm text-gray-400 mt-3 text-center">
               Resesign game page

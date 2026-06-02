@@ -502,4 +502,98 @@ When adding new colors:
 ---
 
 **Last Updated:** 2025-10-24
+
+---
+
+---
+
+# Image Optimization
+
+## Summary
+
+Performed a full image audit and optimization pass on all assets in `public/images/`.
+
+### Size Results
+
+| Category | Before | After | Saved |
+|---|---|---|---|
+| Unused files deleted | 50.7 MB | 0 | **50.7 MB** |
+| WebP conversion (62 images) | 82.7 MB | 39.1 MB | **43.6 MB** |
+| **Total** | **~133.5 MB** | **~39.1 MB** | **94.4 MB (71%)** |
+
+---
+
+## Files Deleted (unused, 7 files)
+
+| File | Size | Reason |
+|---|---|---|
+| `gb.ven_1.png` | 21.4 MB | Duplicate of `gb.ven_2.png`, not referenced |
+| `gb.backg.png` | 18.8 MB | Not referenced anywhere |
+| `Vod-3.png` | 4.0 MB | Superseded by `Vod-3- Nwe_Catch-up.png` etc. |
+| `Vod-4.png` | 3.0 MB | Superseded by `Vod-4_old_new_learnigPage.png` |
+| `Vod-oldHomewith.png` | 2.3 MB | Not referenced anywhere |
+| `cover_bg_1.jpg` | 1.1 MB | Not referenced anywhere |
+| `DJ.png` | 74 KB | `DJ1.png` is the one in use |
+
+---
+
+## WebP Conversion Rules
+
+All used PNG and JPG images were converted to WebP. Original files removed.
+
+### Profile / avatar images → resize + WebP
+Testimonial photos are displayed at 64–96 px; resized to **192×192 px** (3× retina).
+
+| Original | Converted | Saving |
+|---|---|---|
+| `1756901959970.jpg` | `1756901959970.webp` | -43% |
+| `1710886367232.jpg` | `1710886367232.webp` | -41% |
+| `1685965339196.jpg` | `1685965339196.webp` | -37% |
+| `1685897244209.jpg` | `1685897244209.webp` | -38% |
+| `1517687171761.jpg` | `1517687171761.webp` | -43% |
+
+### Portrait image → resize + WebP
+`gb.ven_2.png` displayed at 480×640 px; resized to **960×1280 px** (2× retina).
+
+| Original | Converted | Saving |
+|---|---|---|
+| `gb.ven_2.png` (19.4 MB) | `gb.ven_2.webp` (67 KB) | -100% |
+
+### Project / case study images → compress-only WebP
+Full resolution preserved. 85% quality for photos; lossless for PNGs with an alpha channel.
+
+Notable savings: `XP0-SaaS_Platform_Analysis` -70%, `mc-painPoints` -70%, `Vod_Redesing_Nav_Graf_Reason` -63%.
+
+---
+
+## Component Changes
+
+### `<img>` → `next/image <Image>`
+
+| Component | Strategy |
+|---|---|
+| `CaseStudyHero.tsx` | `fill` + `sizes="100vw"` + `priority` |
+| `ImageTextCard.tsx` | `fill` + `sizes="33vw"` inside `aspect-video` wrapper |
+| `ProjectCard.tsx` | `fill` + responsive `sizes` |
+| `ProjectIntroCard.tsx` | `fill` + `sizes="50vw"` + `priority` |
+| `ProjectGallery.tsx` (thumbnails) | `fill` + `sizes="320px"` |
+| `DowJones.tsx` (full-width diagram) | `fill` + `sizes="100vw"` in `aspect-video` wrapper |
+| `VODplatform.tsx` (comparison + full-width) | `fill` + responsive `sizes` |
+
+### Intentional `<img>` exceptions
+
+| Location | Reason |
+|---|---|
+| `ProjectGallery.tsx` lightbox modal | Needs fluid `max-h-[85vh]` — incompatible with `fill` |
+| `SGPVEvolution`, `TuPlanRedondo`, `VODplatform`, `XpuntoCero` modals | Same as above |
+| `LeadershipProfile.tsx` | Default `src` is an external Unsplash URL; would require `remotePatterns` config |
+
+---
+
+## Path Reference Updates
+
+78 image path strings updated across 9 files: all `.png` / `.jpg` extensions replaced with `.webp`.  
+Favicon and app-icon references in `layout.tsx` **kept as `.png`** (required for browser/manifest compatibility).
+
+**Last Updated:** 2026-06-02
 **Version:** 1.0.0

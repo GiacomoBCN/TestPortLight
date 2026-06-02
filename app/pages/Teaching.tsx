@@ -19,7 +19,7 @@ export default function Teaching() {
     {
       name: "Product Design (UX/UI)",
       program: "Master in Digital Marketing",
-      image: getImagePath("images/univerity/Product_D_GB.png"),
+      image: getImagePath("images/univerity/Product_D_GB.webp"),
       topics: [
         "User Research",
         "Information Architecture",
@@ -39,7 +39,7 @@ export default function Teaching() {
     {
       name: "Cross Cultural managment",
       program: "Master in International Business",
-      image: getImagePath("images/univerity/CCM.png"),
+      image: getImagePath("images/univerity/CCM.webp"),
       topics: [
         "Management Across Cultures",
         "Global Leadership",
@@ -60,7 +60,7 @@ export default function Teaching() {
     {
       name: "AI Workshop",
       program: "Executive Education",
-      image: getImagePath("images/univerity/AI_tools.png"),
+      image: getImagePath("images/univerity/AI_tools.webp"),
       topics: [
         "AI in Design Workflows",
         "Prompt Engineering",

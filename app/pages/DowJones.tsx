@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import {
@@ -171,7 +172,7 @@ export default function DowJones() {
       {/* Intro Card with your actual image */}
 
       <ProjectIntroCard
-        image={getImagePath("images/projects/brand-ds.png")}
+        image={getImagePath("images/projects/brand-ds.webp")}
         title="Building a Unified System at Scale"
         showGradient={false}
       >
@@ -268,15 +269,15 @@ export default function DowJones() {
         title="Project Gallery"
         images={[
           {
-            src: getImagePath("images/projects/token1-ds.png"),
+            src: getImagePath("images/projects/token1-ds.webp"),
             alt: "Design System",
           },
           {
-            src: getImagePath("images/projects/token2-ds.png"),
+            src: getImagePath("images/projects/token2-ds.webp"),
             alt: "Design Tokens",
           },
           {
-            src: getImagePath("images/projects/token3-ds.png"),
+            src: getImagePath("images/projects/token3-ds.webp"),
             alt: "Design System",
           },
         ]}
@@ -726,11 +727,13 @@ export default function DowJones() {
             </GlassCard>
           </div>
           {/* IMAGE 5: Multi-platform, multi-brand scale */}
-          <div className="mt-8 rounded-lg overflow-hidden">
-            <img
-              src={getImagePath("images/projects/brand-ds.png")}
+          <div className="mt-8 rounded-lg overflow-hidden relative w-full aspect-video">
+            <Image
+              src={getImagePath("images/projects/brand-ds.webp")}
               alt="Design system deployed across WSJ, Barron's, Factiva, and MarketWatch on multiple devices"
-              className="w-full"
+              fill
+              sizes="100vw"
+              className="object-contain"
             />
             <p className="text-sm text-gray-400 mt-3 text-center">
               The system in production across B2B & B2C brands and 3 platforms

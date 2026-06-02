@@ -289,7 +289,7 @@ export default function XpuntoCero() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={getImagePath("images/projects/XP0-old_new.png")}
+        image={getImagePath("images/projects/XP0-old_new.webp")}
         title="Revitalizing a SaaS Brand for Growth"
         showGradient={false}
       >
@@ -420,19 +420,19 @@ export default function XpuntoCero() {
         title="Design Evolution"
         images={[
           {
-            src: getImagePath("images/projects/XP0_Home_OldVsNew.png"),
+            src: getImagePath("images/projects/XP0_Home_OldVsNew.webp"),
             alt: "Home Before & After - Website Transformation",
           },
           {
-            src: getImagePath("images/projects/XP0_CorePageProd_OldVsNew.png"),
+            src: getImagePath("images/projects/XP0_CorePageProd_OldVsNew.webp"),
             alt: "Product page Before & After - Website Transformation",
           },
           {
-            src: getImagePath("images/projects/XP0_ProductCards_OldVsNew.png"),
+            src: getImagePath("images/projects/XP0_ProductCards_OldVsNew.webp"),
             alt: "Product cards Before & After - Website Transformation",
           },
           {
-            src: getImagePath("images/projects/XP0_Pwa.png"),
+            src: getImagePath("images/projects/XP0_Pwa.webp"),
             alt: "Progressive web App",
           },
         ]}
@@ -522,7 +522,7 @@ export default function XpuntoCero() {
               images={[
                 {
                   src: getImagePath(
-                    "images/projects/XP0-SaaS_Platform_Analysis.png"
+                    "images/projects/XP0-SaaS_Platform_Analysis.webp"
                   ),
                   alt: "Brand perception map positioning XpuntoCero as reliable but outdated in the SaaS landscape.",
                 },
@@ -553,7 +553,7 @@ export default function XpuntoCero() {
               images={[
                 {
                   src: getImagePath(
-                    "images/projects/XP0-ux_Issues_Stem_from_Deeper_Problems..png"
+                    "images/projects/XP0-ux_Issues_Stem_from_Deeper_Problems..webp"
                   ),
                   alt: "Iceberg diagram showing how surface usability issues stemmed from deeper UX and information architecture problems.",
                 },
@@ -583,7 +583,7 @@ export default function XpuntoCero() {
               ]}
               images={[
                 {
-                  src: getImagePath("images/projects/XP0-ux_laptop_mobile.png"),
+                  src: getImagePath("images/projects/XP0-ux_laptop_mobile.webp"),
                   alt: "Responsive redesign preview of XpuntoCero’s platform on laptop and smartphone screens.",
                 },
               ]}
@@ -660,7 +660,7 @@ export default function XpuntoCero() {
               images={[
                 {
                   src: getImagePath(
-                    "images/projects/XP0-logo-colors-icons.png"
+                    "images/projects/XP0-logo-colors-icons.webp"
                   ),
                   alt: "XpuntoCero Logo old vs, anchor colors, and core products icons/logos",
                 },
@@ -691,7 +691,7 @@ export default function XpuntoCero() {
               images={[
                 {
                   src: getImagePath(
-                    "images/projects/XP0-Custom_isometric_illustration.png"
+                    "images/projects/XP0-Custom_isometric_illustration.webp"
                   ),
                   alt: "Custom isometric illustration showing mobile, tablet, and retail environments linked through XpuntoCero’s Saas solution.",
                 },

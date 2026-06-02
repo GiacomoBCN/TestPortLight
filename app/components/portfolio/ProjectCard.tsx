@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 export default function ProjectCard({
@@ -34,10 +35,12 @@ export default function ProjectCard({
       {image && (
         <div className="mb-6 -mx-8 -mt-8 overflow-hidden rounded-t-xl">
           <div className="relative aspect-video overflow-hidden">
-            <img
+            <Image
               src={image}
               alt={title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-secondary)] via-transparent to-transparent opacity-60"></div>
           </div>

@@ -35,35 +35,35 @@ const testimonials = [
     quote: "Giacomo is a very good assets when it comes to build bridges between design and tech. Not only he has a very good understanding of both sides. His best characteristic is the ability to talk to both in their own languages and to be the medium across the two world, communicating efficiently needs, constraints and opportunities. Last but not least, he his a good team player, able to build boundaries with everyone in the office, which comes to a benefit to the design team. He is also very good in research and humanistic approach. His ability to capture requirements and information out of interviews and focus groups is fantastic. Something I really value from a person in his position.",
     name: "Antonella Sassu",
     title: "Senior Manager Product Design B2B • Tech Company",
-    image: "images/profile/1756901959970.jpg",
+    image: "images/profile/1756901959970.webp",
     alt: "Antonella Sassu",
   },
   {
     quote: "I had the pleasure of working closely with Giacomo as a Design Lead Technologist at Dow Jones, and I can confidently say he is an exceptional professional. Giacomo played a critical role as a bridge between engineering and UX, which was instrumental in driving the success of our projects and ensuring smooth handoffs between teams. Additionally, I had the opportunity to collaborate with Giacomo on improving the User Acceptance Testing (UAT), Quality Assurance (QA), and Design acceptance processes. During this collaboration, Giacomo demonstrated his meticulous attention to detail, problem-solving skills, and dedication to optimizing workflows.",
     name: "Oana Stroe",
     title: "Design Lead | Product | UX Advocate #impact • Tech Company",
-    image: "images/profile/1710886367232.jpg",
+    image: "images/profile/1710886367232.webp",
     alt: "Oana Stroe",
   },
   {
     quote: "I had the pleasure of working with Giacomo while teaching Intelligent Capital and Talent Management in the Master´s in International Business program at EAE Business School. He not only helped organize the course and structure content but also brought invaluable expertise in cross-cultural management, ensuring students gained a truly global perspective.\n\nHaving taught Inclusive Leadership, I can confidently say that Giacomo embodies its principles. He fosters diverse perspectives, builds trust, and creates space where all voices are heard. He doesn't just lead - he empowers, ensuring that learning and collaboration thrive.\n\nHis communication skills stand out -clear, engaging, and adaptable. Whether leading discussions, mentoring students, or working with colleagues, he knows how to connect with people, spark thoughtful conversations, and bring key insights to life. And when it comes to collaboration, Giacomo strengthens every team he's part of.\n\nHis leadership reflects the core values of global citizenship-inclusiveness, cultural competence, adaptability, and a genuine commitment to making a positive impact. I would highly recommend him for any role that values strong leadership, strategic management, and the ability to foster inclusive, cross-cultural collaboration. Any organization would be lucky to have him on board!",
     name: "Frank Longo",
     title: "Higher Education Leader • Universty",
-    image: "images/profile/1685965339196.jpg",
+    image: "images/profile/1685965339196.webp",
     alt: "Frank Longo",
   },
   {
     quote: "I had the opportunity to be instructed by Giacomo in UX/UI at EAE. Giacomo's extensive experience and insightful perspective in this field provided me a solid foundation to effectively prepare and manage digital products. He is truly a great professional.",
     name: "Ismael Ruiz Gutierrez",
     title: "Marketing Strategy & Business Consultant • Former Student",
-    image: "images/profile/1685897244209.jpg",
+    image: "images/profile/1685897244209.webp",
     alt: "Ismael Ruiz",
   },
   {
     quote: "Giacomo acted as consultant on a personal project that involved the design and implementation of a website. He mentored me and guided me through several difficult choices pointing at the direction to take for each of them. The project would not have been possible without his input. He is very professional and also fun to work with. Thanks, wish you all the best.",
     name: "Sergio D'Argenio",
     title: "Data Analyst • Tech Company",
-    image: "images/profile/1517687171761.jpg",
+    image: "images/profile/1517687171761.webp",
     alt: "Sergio D'Argenio",
   },
 ];
@@ -266,7 +266,7 @@ export default function Home() {
               company="Dow Jones"
               timeframe=""
               description="Co-led design system adoption across B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%."
-              image={getImagePath("images/projects/DJ1.png")}
+              image={getImagePath("images/projects/DJ1.webp")}
               metrics={[
                 { value: "60+", label: "Designers" },
                 { value: "200K+", label: "Component Refs" },
@@ -296,7 +296,7 @@ export default function Home() {
               company="Confidential Client"
               timeframe=""
               description="Redesigned cross-device VOD experience with 40% fewer interaction steps (calculated via click-path analysis) and WCAG AA compliance across TV, mobile, and in-car displays."
-              image={getImagePath("images/projects/Vod.png")}
+              image={getImagePath("images/projects/Vod.webp")}
               metrics={[
                 { value: "40%", label: "Less Friction" },
                 { value: "WCAG AA", label: "Compliant" },
@@ -322,7 +322,7 @@ export default function Home() {
               company="XpuntoCero -> SGPV"
               timeframe=""
               description="Multi-year product evolution from PhoneGap to Flutter, serving 15 B2B clients. Redesigned user flows and AI-powered features reduced task time by 25%."
-              image={getImagePath("images/projects/sgpv.png")}
+              image={getImagePath("images/projects/sgpv.webp")}
               metrics={[
                 { value: "15", label: "Global Brands" },
                 { value: "25%", label: "Faster" },
@@ -354,7 +354,7 @@ export default function Home() {
               company="XpuntoCero"
               timeframe=""
               description="Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, leads by 15%, and customer satisfaction by 30%."
-              image={getImagePath("images/projects/XP0.png")}
+              image={getImagePath("images/projects/XP0.webp")}
               metrics={[
                 { value: "40%", label: "Mobile Trafic" },
                 { value: "15%", label: "More Leads" },
@@ -398,7 +398,7 @@ export default function Home() {
             >
               <div className="overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-2xl max-w-sm">
                 <Image
-                  src={getImagePath("images/profile/gb.ven_2.png")}
+                  src={getImagePath("images/profile/gb.ven_2.webp")}
                   alt="Giacomo Bianchi portrait"
                   width={480}
                   height={640}

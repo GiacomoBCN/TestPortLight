@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function ProjectIntroCard({
@@ -27,10 +28,13 @@ export default function ProjectIntroCard({
             {/* Left: Image */}
 
             <div className="relative h-64 md:h-auto min-h-[400px] bg-[var(--color-surface-inverse)]">
-              <img
+              <Image
                 src={image}
                 alt={title}
-                className="absolute inset-0 w-full h-full object-contain"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain"
+                priority
               />
               {showGradient && (
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--color-surface-secondary)]/40"></div>

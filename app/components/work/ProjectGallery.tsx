@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface GalleryImage {
@@ -127,10 +128,12 @@ export default function ProjectGallery({
                   className="flex-shrink-0 w-80 h-48 bg-white backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group"
                   onClick={() => setSelectedIndex(index)}
                 >
-                  <img
+                  <Image
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-contain"
+                    fill
+                    sizes="320px"
+                    className="object-contain"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="text-white text-sm font-medium">Click to enlarge</span>

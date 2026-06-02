@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import GlassCard from "../portfolio/GlassCard";
 
 interface ImageTextCardProps {
@@ -41,11 +42,15 @@ export default function ImageTextCard({
             className="relative group cursor-pointer"
             onClick={() => onOpenGallery(imagesWithPath, index)}
           >
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="w-full h-auto object-contain"
-            />
+            <div className="relative w-full aspect-video">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-contain"
+              />
+            </div>
             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
               <span className="text-[var(--color-text-inverse)] text-sm font-medium">
                 Click to enlarge

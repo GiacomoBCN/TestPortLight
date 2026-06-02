@@ -250,7 +250,7 @@ export default function TuPlanRedondo() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={getImagePath("images/projects/mc-1.png")}
+        image={getImagePath("images/projects/mc-1.webp")}
         title="Digitizing Employee Evaluations for a McDonald’s Franchise"
       >
         <p className="text-gray-300 leading-relaxed">
@@ -396,15 +396,15 @@ export default function TuPlanRedondo() {
         title="Design & Development"
         images={[
           {
-            src: getImagePath("images/projects/mc-2.png"),
+            src: getImagePath("images/projects/mc-2.webp"),
             alt: "Different profiles of the PWA",
           },
           {
-            src: getImagePath("images/projects/mc-3.png"),
+            src: getImagePath("images/projects/mc-3.webp"),
             alt: "Mobile first design",
           },
           {
-            src: getImagePath("images/projects/mc-4.png"),
+            src: getImagePath("images/projects/mc-4.webp"),
             alt: "Different screens of the PWA",
           },
         ]}
@@ -500,7 +500,7 @@ export default function TuPlanRedondo() {
               images={[
                 {
                   src: getImagePath(
-                    "images/projects/mc-userflowEvol_Difprofiles.png"
+                    "images/projects/mc-userflowEvol_Difprofiles.webp"
                   ),
                   alt: "User flow boards showing administrator/restaurant manager/supervisors/crew paths",
                 },
@@ -544,7 +544,7 @@ export default function TuPlanRedondo() {
               ]}
               images={[
                 {
-                  src: getImagePath("images/projects/mc-painPoints.png"),
+                  src: getImagePath("images/projects/mc-painPoints.webp"),
                   alt: "Pain points in product development",
                 },
               ]}
@@ -618,7 +618,7 @@ export default function TuPlanRedondo() {
                 // replace with your real screenshots
                 {
                   src: getImagePath(
-                    "images/projects/mc-iconsVisualElements.png"
+                    "images/projects/mc-iconsVisualElements.webp"
                   ),
                   alt: "Brand-aligned components and icons",
                 },
@@ -654,7 +654,7 @@ export default function TuPlanRedondo() {
                 // replace with your real screenshots
                 {
                   src: getImagePath(
-                    "images/projects/mc-userflowEvol-restaurantManager.png"
+                    "images/projects/mc-userflowEvol-restaurantManager.webp"
                   ),
                   alt: "Mockup of evaluation flow of general restaurant manager",
                 },
@@ -686,7 +686,7 @@ export default function TuPlanRedondo() {
                 // replace with your real screenshots
                 {
                   src: getImagePath(
-                    "images/projects/mc-PerformanceEvaluation.png"
+                    "images/projects/mc-PerformanceEvaluation.webp"
                   ),
                   alt: "PWA screenshoot of pervormance evaluation page",
                 },

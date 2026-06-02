@@ -177,7 +177,7 @@ export default function OnlineBackOfficeCaseStudy() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={getImagePath("images/projects/OnlineBackOffice-1.png")}
+        image={getImagePath("images/projects/OnlineBackOffice-1.webp")}
         title="From Client Forks to a Unified Back Office System"
         showGradient={false}
       >
@@ -285,15 +285,15 @@ export default function OnlineBackOfficeCaseStudy() {
         title="Design Evolution"
         images={[
           {
-            src: getImagePath("images/projects/OnlineBackOffice-2.png"),
+            src: getImagePath("images/projects/OnlineBackOffice-2.webp"),
             alt: "Legacy vs New dashboards",
           },
           {
-            src: getImagePath("images/projects/OnlineBackOffice-3.png"),
+            src: getImagePath("images/projects/OnlineBackOffice-3.webp"),
             alt: "Tables and data views – old vs new",
           },
           {
-            src: getImagePath("images/projects/OnlineBackOffice-4.png"),
+            src: getImagePath("images/projects/OnlineBackOffice-4.webp"),
             alt: "Unified approach diagram & laptop",
           },
         ]}
