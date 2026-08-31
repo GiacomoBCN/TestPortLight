@@ -32,7 +32,7 @@ import TestimonialCarousel from "../components/TestimonialCarousel";
 // Testimonials data
 const testimonials = [
   {
-    quote: "Giacomo is a very good assets when it comes to build bridges between design and tech. Not only he has a very good understanding of both sides. His best characteristic is the ability to talk to both in their own languages and to be the medium across the two world, communicating efficiently needs, constraints and opportunities. Last but not least, he his a good team player, able to build boundaries with everyone in the office, which comes to a benefit to the design team. He is also very good in research and humanistic approach. His ability to capture requirements and information out of interviews and focus groups is fantastic. Something I really value from a person in his position.",
+    quote: "Giacomo is a very good asset when it comes to building bridges between design and tech. Not only does he have a very good understanding of both sides; his best characteristic is the ability to talk to both in their own languages and to be the medium across the two worlds, communicating needs, constraints and opportunities efficiently. Last but not least, he is a good team player, able to build bonds with everyone in the office, which is a benefit to the design team. He is also very good at research and brings a humanistic approach. His ability to capture requirements and information out of interviews and focus groups is fantastic. Something I really value in a person in his position.",
     name: "Antonella Sassu",
     title: "Senior Manager Product Design B2B • Tech Company",
     image: "images/profile/1756901959970.webp",
@@ -46,9 +46,9 @@ const testimonials = [
     alt: "Oana Stroe",
   },
   {
-    quote: "I had the pleasure of working with Giacomo while teaching Intelligent Capital and Talent Management in the Master´s in International Business program at EAE Business School. He not only helped organize the course and structure content but also brought invaluable expertise in cross-cultural management, ensuring students gained a truly global perspective.\n\nHaving taught Inclusive Leadership, I can confidently say that Giacomo embodies its principles. He fosters diverse perspectives, builds trust, and creates space where all voices are heard. He doesn't just lead - he empowers, ensuring that learning and collaboration thrive.\n\nHis communication skills stand out -clear, engaging, and adaptable. Whether leading discussions, mentoring students, or working with colleagues, he knows how to connect with people, spark thoughtful conversations, and bring key insights to life. And when it comes to collaboration, Giacomo strengthens every team he's part of.\n\nHis leadership reflects the core values of global citizenship-inclusiveness, cultural competence, adaptability, and a genuine commitment to making a positive impact. I would highly recommend him for any role that values strong leadership, strategic management, and the ability to foster inclusive, cross-cultural collaboration. Any organization would be lucky to have him on board!",
+    quote: "I had the pleasure of working with Giacomo while teaching Intelligent Capital and Talent Management in the Master's in International Business program at EAE Business School. He not only helped organize the course and structure content but also brought invaluable expertise in cross-cultural management, ensuring students gained a truly global perspective.\n\nHaving taught Inclusive Leadership, I can confidently say that Giacomo embodies its principles. He fosters diverse perspectives, builds trust, and creates space where all voices are heard. He doesn't just lead - he empowers, ensuring that learning and collaboration thrive.\n\nHis communication skills stand out - clear, engaging, and adaptable. Whether leading discussions, mentoring students, or working with colleagues, he knows how to connect with people, spark thoughtful conversations, and bring key insights to life. And when it comes to collaboration, Giacomo strengthens every team he's part of.\n\nHis leadership reflects the core values of global citizenship: inclusiveness, cultural competence, adaptability, and a genuine commitment to making a positive impact. I would highly recommend him for any role that values strong leadership, strategic management, and the ability to foster inclusive, cross-cultural collaboration. Any organization would be lucky to have him on board!",
     name: "Frank Longo",
-    title: "Higher Education Leader • Universty",
+    title: "Higher Education Leader • University",
     image: "images/profile/1685965339196.webp",
     alt: "Frank Longo",
   },
@@ -172,7 +172,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             title="Driving Measurable Impact"
-            subtitle="From From leading design systems at Dow Jones to teaching at EAE. 
+            subtitle="From leading design systems at Dow Jones to teaching at EAE.
             I focus on systems that scale and teams that succeed."
           />
 
@@ -356,9 +356,9 @@ export default function Home() {
               description="Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, leads by 15%, and customer satisfaction by 30%."
               image={getImagePath("images/projects/XP0.webp")}
               metrics={[
-                { value: "40%", label: "Mobile Trafic" },
+                { value: "40%", label: "Mobile Traffic" },
                 { value: "15%", label: "More Leads" },
-                { value: "2 X", label: "Demo Requests" },
+                { value: "2×", label: "Demo Requests" },
               ]}
               tags={[
                 "Branding",

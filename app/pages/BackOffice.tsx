@@ -317,9 +317,9 @@ export default function OnlineBackOfficeCaseStudy() {
             <GlassCard>
               <div className="p-6 space-y-4">
                 <p className="text-gray-300 leading-relaxed">
-                  These dashboards visualize field data such as sales,
-                  promotions, and store audits. These dashboards visualize field
-                  data such as sales, promotions, and store audits.
+                  XpuntoCero’s Back Office portals are the dashboards for the
+                  SGPV field app. They visualize field data such as sales,
+                  promotions, and store audits.
                 </p>
 
                 <p className="text-gray-300 leading-relaxed">
@@ -443,7 +443,7 @@ export default function OnlineBackOfficeCaseStudy() {
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Key Decisions & Trade‑offs
+                Key Decisions & Trade-offs
               </h2>
             </div>
           </div>
@@ -482,14 +482,14 @@ export default function OnlineBackOfficeCaseStudy() {
                 </p>
                 <p className="text-gray-300 leading-relaxed">
                   Each client’s theme now overrides only color tokens and logos,
-                  keeping 90% of the codebase identical.
+                  keeping 99% of the codebase identical.
                 </p>
               </div>
             </GlassCard>
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-3">
-                  Git‑Based Propagation
+                  Git-Based Propagation
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
                   Updates are committed to the shared core, merged through
@@ -523,7 +523,7 @@ export default function OnlineBackOfficeCaseStudy() {
             <GlassCard className="hidden lg:block">
               <div className="p-6">
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Centralization turned multi‑client maintenance into a
+                  Centralization turned multi-client maintenance into a
                   productized workflow. Below are representative changes in
                   effort/time to ship.
                 </p>
@@ -630,12 +630,12 @@ export default function OnlineBackOfficeCaseStudy() {
               <GlassCard>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-blue-400 mb-3">
-                    Front‑End
+                    Front-End
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
                     <li>• Unified CSS architecture with tokens</li>
                     <li>• Shared iconography & image library</li>
-                    <li>• Bootstrap‑based responsive components</li>
+                    <li>• Bootstrap-based responsive components</li>
                   </ul>
                 </div>
               </GlassCard>
@@ -645,7 +645,7 @@ export default function OnlineBackOfficeCaseStudy() {
                     Process & Governance
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
-                    <li>• Git release workflow for multi‑client rollouts</li>
+                    <li>• Git release workflow for multi-client rollouts</li>
                     <li>• Branching model for hotfixes and theming</li>
                     <li>• QA checklist and A/B testing framework</li>
                   </ul>
@@ -660,7 +660,7 @@ export default function OnlineBackOfficeCaseStudy() {
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm">
                   <li>
-                    → <strong>Scalability:</strong> Re‑styled and deployed
+                    → <strong>Scalability:</strong> Re-styled and deployed
                     across 15+ clients with centralized updates.
                   </li>
                   <li>
@@ -686,7 +686,7 @@ export default function OnlineBackOfficeCaseStudy() {
                   Want to see more work?
                 </h2>
                 <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                  This project shows how a design‑led front‑end refactor can
+                  This project shows how a design-led front-end refactor can
                   unlock scale and lower costs across a legacy estate.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

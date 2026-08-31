@@ -95,9 +95,9 @@ export default function ProductWork() {
       description:
         "Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, leads by 15%, and customer satisfaction by 30%.",
       metrics: [
-        { value: "40%", label: "Mobile Trafic" },
+        { value: "40%", label: "Mobile Traffic" },
         { value: "15%", label: "More Leads" },
-        { value: "2 x", label: "Demo Requests" },
+        { value: "2×", label: "Demo Requests" },
       ],
       tags: [
         "Branding",
@@ -154,7 +154,7 @@ export default function ProductWork() {
     // {
     //   category: "PRODUCT MANAGEMENT · PORTFOLIO",
     //   title: "E-Commerce Product Management",
-    //   role: "Project Managment & Product Design",
+    //   role: "Project Management & Product Design",
     //   year: "",
     //   description:
     //     "Managed multiple e-commerce projects with 95% client satisfaction, 90% on-time delivery, and 20% boost in team productivity.",

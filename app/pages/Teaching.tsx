@@ -32,12 +32,12 @@ export default function Teaching() {
       outcomes: [
         "End-to-End Design Process",
         "Practical Team Projects",
-        "Design Thinking & Toolsk",
+        "Design Thinking & Tools",
       ],
       tools: ["Figma", "Miro", "Maze", "Notion"],
     },
     {
-      name: "Cross Cultural managment",
+      name: "Cross-Cultural Management",
       program: "Master in International Business",
       image: getImagePath("images/univerity/CCM.webp"),
       topics: [
@@ -51,11 +51,11 @@ export default function Teaching() {
         "Ethics & Responsibility in Global Contexts",
       ],
       outcomes: [
-        "Cross-functional thinking",
-        "Business case development",
-        "Data-driven decisions",
+        "Managing global and multicultural teams",
+        "Cross-cultural negotiation and communication",
+        "Ethical decision-making in global contexts",
       ],
-      tools: ["Product Board", "JIRA", "Analytics", "SQL"],
+      tools: ["Case Studies", "Role-Play Simulations", "Miro", "Notion"],
     },
     {
       name: "AI Workshop",
@@ -71,7 +71,7 @@ export default function Teaching() {
         "Prompt Engineering for Design",
         "AI Integration in UX Workflows",
       ],
-      tools: ["Figma", "ChatGpt", "Midjourney"],
+      tools: ["Figma", "ChatGPT", "Midjourney"],
     },
   ];
 
@@ -212,7 +212,7 @@ export default function Teaching() {
                   </h4>
                   <p className="text-slate-300 text-sm leading-relaxed">
                     My teaching approach combines theory with real-world
-                    application. Students learn by doing designing,
+                    application. Students learn by doing - designing,
                     collaborating, and reflecting - through hands-on experiences
                     that connect academic concepts to professional practice.
                   </p>

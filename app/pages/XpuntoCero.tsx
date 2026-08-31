@@ -662,7 +662,7 @@ export default function XpuntoCero() {
                   src: getImagePath(
                     "images/projects/XP0-logo-colors-icons.webp"
                   ),
-                  alt: "XpuntoCero Logo old vs, anchor colors, and core products icons/logos",
+                  alt: "XpuntoCero logo old vs new, anchor colors, and core product icons/logos",
                 },
               ]}
               imagePosition="left"
@@ -693,7 +693,7 @@ export default function XpuntoCero() {
                   src: getImagePath(
                     "images/projects/XP0-Custom_isometric_illustration.webp"
                   ),
-                  alt: "Custom isometric illustration showing mobile, tablet, and retail environments linked through XpuntoCero’s Saas solution.",
+                  alt: "Custom isometric illustration showing mobile, tablet, and retail environments linked through XpuntoCero’s SaaS solution.",
                 },
               ]}
               imagePosition="right"

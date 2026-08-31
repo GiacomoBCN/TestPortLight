@@ -357,7 +357,7 @@ export default function VoDPlatform() {
         showGradient={false}
       >
         <p className="text-gray-300 leading-relaxed">
-          A MENA based client commissioned me to review and redesign the initial
+          A MENA-based client commissioned me to review and redesign the initial
           prototype of their VOD Platform. The platform needed to serve content
           across multiple contexts: traditional TV viewing, mobile on-the-go,
           tablet browsing, and in-car entertainment systems.
@@ -445,7 +445,7 @@ export default function VoDPlatform() {
           },
           {
             src: getImagePath("images/projects/Vod-3- Nwe_Catch-up.webp"),
-            alt: "New version of Chach-Up pagem",
+            alt: "New version of Catch-Up page",
           },
           {
             src: getImagePath("images/projects/Vod-3_old_new_gamePage.webp"),
@@ -476,7 +476,7 @@ export default function VoDPlatform() {
             <GlassCard>
               <div className="p-6">
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  A MENA based client was building a VOD platform to compete
+                  A MENA-based client was building a VOD platform to compete
                   with Netflix and Disney+ in the region. The prototype had a
                   lot of features, but users got lost in a three-layer
                   navigation system (icon belt, tab row, carousels). Light text
@@ -1261,7 +1261,7 @@ export default function VoDPlatform() {
                     <li className="flex items-start gap-2">
                       <span>
                         <strong>Quantify interaction costs:</strong> Mapping
-                        click-paths (9 taps → 6 taps = -33%) gave stakeholders
+                        click-paths (9 taps → 6 taps = –33%) gave stakeholders
                         concrete proof.
                       </span>
                     </li>
@@ -1275,13 +1275,13 @@ export default function VoDPlatform() {
           <div className="mt-8 rounded-lg overflow-hidden relative w-full aspect-video">
             <Image
               src={getImagePath("images/projects/Vod-NewGamePage.webp")}
-              alt="Resesign Game page"
+              alt="Redesign Game page"
               fill
               sizes="100vw"
               className="object-contain"
             />
             <p className="text-sm text-gray-400 mt-3 text-center">
-              Resesign game page
+              Redesign game page
             </p>
           </div>
         </div>

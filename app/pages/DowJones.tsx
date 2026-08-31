@@ -71,7 +71,7 @@ export default function DowJones() {
       icon: Users,
       metric: "60+",
       label: "Designers Aligned",
-      description: "Unified design teams across 8+ brands",
+      description: "Unified design teams across 8 brands",
     },
     {
       icon: Code,
@@ -88,7 +88,7 @@ export default function DowJones() {
     },
     {
       icon: Layers,
-      metric: "8+",
+      metric: "8",
       label: "Brands",
       description: "WSJ, Factiva, Barron's, MarketWatch, and more",
     },
@@ -206,8 +206,8 @@ export default function DowJones() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <OverviewCard icon={AlertCircle} title="The Challenge">
-              Multiple B2B and B2C, each with strong design identities. The
-              opportunity: create a unified foundation that accelerates
+              Multiple B2B and B2C brands, each with strong design identities.
+              The opportunity: create a unified foundation that accelerates
               development while preserving brand uniqueness.
             </OverviewCard>
 
@@ -433,7 +433,7 @@ export default function DowJones() {
 
                 <p className="text-gray-300 leading-relaxed mt-4">
                   Instead of 8 separate design systems, we had one flexible
-                  system expressing 8+ brand identities. The technical
+                  system expressing 8 brand identities. The technical
                   architecture made it possible; my role was ensuring adoption
                   and governance.
                 </p>
@@ -563,7 +563,7 @@ export default function DowJones() {
                   <li className="flex items-start gap-2">
                     <span className="text-blue-400 mt-1">•</span>
                     <span>
-                      Regular sync meetings across time zones to keep 8+ brands
+                      Regular sync meetings across time zones to keep 8 brands
                       aligned
                     </span>
                   </li>

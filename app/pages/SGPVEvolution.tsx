@@ -293,7 +293,7 @@ export default function SGPVEvolution() {
           Over time, versions 5 and 6 had split into multiple client-specific
           forks to meet unique branding and workflow needs. This fragmentation
           increased maintenance costs and created inconsistent user experiences.
-          I led a 18 months effort to modernize and consolidate SGPV while
+          I led an 18-month effort to modernize and consolidate SGPV while
           maintaining uninterrupted service for all 15 active clients.
         </p>
         <p className="text-gray-300 leading-relaxed">
@@ -396,7 +396,6 @@ export default function SGPVEvolution() {
                   versions that were hard to update and maintain. As smartphone
                   adoption grew among field merchandisers, the tablet-only
                   constraint became costly and inconvenient for clients.
-                  Approach
                 </p>
               </div>
             </GlassCard>
@@ -422,7 +421,7 @@ export default function SGPVEvolution() {
               description=""
               bulletPoints={[
                 {
-                  label: "-20 % hardware cost",
+                  label: "-20% hardware cost",
                   text: "Clients no longer needed tablets for field teams.",
                 },
                 {
@@ -431,17 +430,17 @@ export default function SGPVEvolution() {
                 },
                 {
                   label: "+15% user satisfaction",
-                  text: "The responsive interface improved clarity and reduced friction in daily use",
+                  text: "The responsive interface improved clarity and reduced friction in daily use.",
                 },
                 {
                   label: "25% faster future updates",
-                  text: '"Simplified front-end structure accelerated deployment.',
+                  text: "Simplified front-end structure accelerated deployment.",
                 },
               ]}
               images={[
                 {
                   src: getImagePath("images/projects/SGPV_V6_New_Diag.webp"),
-                  alt: "Diagram summarizing Phase 1 impact: centralized styling enabled scalability, 20 % lower hardware cost, 80 % higher deployment efficiency, and 15 % higher user satisfaction.",
+                  alt: "Diagram summarizing Phase 1 impact: centralized styling enabled scalability, 20% lower hardware cost, 80% higher deployment efficiency, and 15% higher user satisfaction.",
                 },
               ]}
               imagePosition="left"
@@ -456,12 +455,12 @@ export default function SGPVEvolution() {
                 </h3>
 
                 <p className="text-gray-300 leading-relaxed">
-                  SGPV began as a cross-platform B2B field app for tablets. Over
-                  time, client-specific customizations created many divergent
-                  versions that were hard to update and maintain. As smartphone
-                  adoption grew among field merchandisers, the tablet-only
-                  constraint became costly and inconvenient for clients.
-                  Approach
+                  Consolidating fifteen client versions without interrupting
+                  operations proved that centralizing the CSS, icon system, and
+                  shared assets was the real leverage point. Once updates could
+                  be deployed once and applied everywhere, delivery speed
+                  recovered and the responsive redesign became the technical and
+                  visual foundation for the Flutter migration in Phase 2.
                 </p>
               </div>
             </GlassCard>
@@ -517,7 +516,7 @@ export default function SGPVEvolution() {
               images={[
                 {
                   src: getImagePath("images/projects/SGPV_Research_01.webp"),
-                  alt: "Diagram summarizing all the process + output tech reasearch.",
+                  alt: "Diagram summarizing the process and output of the tech research.",
                 },
               ]}
               imagePosition="left"
@@ -896,7 +895,7 @@ export default function SGPVEvolution() {
                 },
                 {
                   label: "Offline reliability",
-                  text: '"Images processed locally and synced once online',
+                  text: "Images processed locally and synced once online.",
                 },
               ]}
               images={[

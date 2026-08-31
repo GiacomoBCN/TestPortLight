@@ -255,7 +255,7 @@ export default function TuPlanRedondo() {
       >
         <p className="text-gray-300 leading-relaxed">
           A McDonald’s franchise needed to replace its manual evaluation forms
-          with a centralized digital solution. While working at
+          with a centralized digital solution.
         </p>
 
         <p className="text-gray-300 leading-relaxed">
@@ -469,7 +469,7 @@ export default function TuPlanRedondo() {
             {/* --- User Research Process --- */}
 
             <ImageTextCard
-              title="  User Research Processs"
+              title="User Research Process"
               description="I conducted comprehensive research to understand both evaluator workflows and management reporting needs, combining qualitative interviews with iterative usability testing."
               bulletPoints={[
                 {
@@ -518,7 +518,7 @@ export default function TuPlanRedondo() {
               bulletPoints={[
                 {
                   label: "Time waste",
-                  text: "Selects restaurants, reviews reports, manages global data.",
+                  text: "Paper forms and manual data entry made each evaluation slow and reporting fragmented.",
                 },
                 {
                   label: "Transcription errors",
@@ -535,7 +535,7 @@ export default function TuPlanRedondo() {
 
                 {
                   label: "Connectivity",
-                  text: "no iusse with Connectivity",
+                  text: "No issues with connectivity.",
                 },
                 {
                   label: "User types",
@@ -688,7 +688,7 @@ export default function TuPlanRedondo() {
                   src: getImagePath(
                     "images/projects/mc-PerformanceEvaluation.webp"
                   ),
-                  alt: "PWA screenshoot of pervormance evaluation page",
+                  alt: "PWA screenshot of performance evaluation page",
                 },
               ]}
               imagePosition="left"
@@ -758,14 +758,14 @@ export default function TuPlanRedondo() {
                       codebase works on tablets, phones, and laptops.
                     </li>
                     <li>
-                      <strong>Zero update friction:</strong> Directly ralise, no
-                      app store approval delays.
+                      <strong>Zero update friction:</strong> Directly released,
+                      no app-store approval delays.
                     </li>
 
                     <li>
                       <strong>Zero installation friction:</strong> Users access
-                      via browser or they cand add to Home screen without app
-                      store, without use the device memory.
+                      via browser or can add it to the Home screen without an app
+                      store and without using device memory.
                     </li>
                   </ul>
                 </div>
