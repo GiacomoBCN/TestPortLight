@@ -22,4 +22,4 @@
 
 ## License
 
-© 2024 Giacomo Bianchi. All rights reserved.
+© 2026 Giacomo Bianchi. All rights reserved.
