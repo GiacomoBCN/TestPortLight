@@ -46,10 +46,9 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: Configure GitHub Pages
+        # niente static_site_generator: sovrascriverebbe next.config.ts (e trailingSlash),
+        # l'export statico è già configurato lì
         uses: actions/configure-pages@v5
-        with:
-          # Abilita export statico per Next (genera ./out)
-          static_site_generator: next
 
       - name: Restore Next cache
         uses: actions/cache@v4
