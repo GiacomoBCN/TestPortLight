@@ -100,6 +100,7 @@ Lighthouse mobile home con le fasce: Performance 53 (era 75) perché i 344 KB di
 - Fermi: il gruppo delle linee blu (`#lines`) e la forma di sfondo a tutta fascia. Si muovono solo le forme della fascia sotto il cursore.
 - Struttura: l'HTML e' identico a prima (`<symbol>` + `<use>` per fascia). Solo se il dispositivo ha un mouse (`hover: hover` e `pointer: fine`) e non c'e' `prefers-reduced-motion`, a pagina caricata (idle) ogni `<use>` viene sostituito da una copia inline identica del simbolo (`<svg class="fascia-inline">`, stesso viewBox, senza id duplicati), cosi' le forme di una fascia si muovono da sole. Su touch e con reduced-motion il DOM non cambia e non c'e' nessun listener attivo.
 - CSS (`globals.css`, FASCE LATERALI): le regole di posizione/specchiatura passano da `.side-band svg` a `.side-band > svg` (stesso effetto, ma non colpiscono l'svg annidato); la transizione di palette vale anche per `.fascia-inline path`.
+- Gli `<svg>` delle fasce e il simbolo sono creati una volta sola (`useMemo`): prima ogni re-render (scroll, cambio pagina) faceva riscrivere a React il loro contenuto, rimettendo il `<use>` al posto delle copie inline, e l'effetto funzionava solo fino al primo scroll. Per sicurezza, se le copie spariscono vengono ricreate al passaggio successivo del mouse.
 - Parametri in cima al componente: `RADIUS`, `MAX_SHIFT`, `DURATION`, `WAVE_DELAY`.
 
 Misure (build di produzione, Chromium headless, misurate dopo la sostituzione inline):

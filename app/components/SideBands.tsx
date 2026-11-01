@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { animate } from "framer-motion";
 import { FASCIA_SYMBOL } from "./fascia-symbol";
 
@@ -84,6 +84,10 @@ export default function SideBands({ inner = false }: { inner?: boolean }) {
         const band = s.parentElement!.getBoundingClientRect();
         return band.width > 0 && e.clientX >= band.left && e.clientX < band.right;
       });
+      if (svg && !svg.querySelector(".fascia-inline")) {
+        svg.innerHTML = INLINE; // il contenuto e' stato riscritto: nuova copia, nuove forme
+        shapesBySvg.delete(svg);
+      }
       const drawing = svg?.querySelector<SVGSVGElement>(".fascia-inline");
       const ctm = drawing?.getScreenCTM();
       if (!svg || !ctm) return;
@@ -127,34 +131,53 @@ export default function SideBands({ inner = false }: { inner?: boolean }) {
     };
   }, []);
 
+  // Gli <svg> sono creati una volta sola: ai re-render (scroll, cambio pagina) React non li
+  // tocca, quindi non riscrive il simbolo ne' rimette il <use> al posto delle copie inline.
+  const svgs = useMemo(
+    () => ({
+      symbol: (
+        <svg
+          width="0"
+          height="0"
+          style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }}
+          aria-hidden="true"
+          focusable="false"
+          dangerouslySetInnerHTML={{ __html: FASCIA_SYMBOL }}
+        />
+      ),
+      left: drawing(leftRef),
+      right: drawing(rightRef),
+    }),
+    [],
+  );
+
   const band = (side: "left" | "right") => (
     <div
       className={`side-band side-band-${side}`}
       style={inner ? { opacity: 0.7 } : undefined}
       aria-hidden="true"
     >
-      <svg
-        ref={side === "left" ? leftRef : rightRef}
-        viewBox="0 0 1912.5 3798"
-        preserveAspectRatio="xMidYMid meet"
-        focusable="false"
-        dangerouslySetInnerHTML={{ __html: USE }}
-      />
+      {svgs[side]}
     </div>
   );
 
   return (
     <>
-      <svg
-        width="0"
-        height="0"
-        style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }}
-        aria-hidden="true"
-        focusable="false"
-        dangerouslySetInnerHTML={{ __html: FASCIA_SYMBOL }}
-      />
+      {svgs.symbol}
       {band("left")}
       {band("right")}
     </>
+  );
+}
+
+function drawing(ref: React.RefObject<SVGSVGElement | null>) {
+  return (
+    <svg
+      ref={ref}
+      viewBox="0 0 1912.5 3798"
+      preserveAspectRatio="xMidYMid meet"
+      focusable="false"
+      dangerouslySetInnerHTML={{ __html: USE }}
+    />
   );
 }
