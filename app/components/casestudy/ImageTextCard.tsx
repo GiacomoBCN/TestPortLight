@@ -37,10 +37,12 @@ export default function ImageTextCard({
     <div className="md:w-1/3 flex-shrink-0 flex flex-col">
       <div className="rounded-lg overflow-hidden flex flex-col justify-evenly gap-4 flex-1">
         {imagesWithPath.map((image, index) => (
-          <div
+          <button
+            type="button"
             key={index}
-            className="relative group cursor-pointer"
+            className="block w-full relative group cursor-pointer"
             onClick={() => onOpenGallery(imagesWithPath, index)}
+            aria-label={`Enlarge image: ${image.alt}`}
           >
             <div className="relative w-full aspect-video">
               <Image
@@ -51,12 +53,12 @@ export default function ImageTextCard({
                 className="object-contain"
               />
             </div>
-            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
               <span className="text-[var(--color-text-inverse)] text-sm font-medium">
                 Click to enlarge
               </span>
             </div>
-          </div>
+          </button>
         ))}
       </div>
     </div>
@@ -73,7 +75,7 @@ export default function ImageTextCard({
       <ul className="space-y-2 text-[var(--card-text-meta)]">
         {bulletPoints.map((point, index) => (
           <li key={index} className="flex items-start gap-2">
-            <span className="text-[var(--color-text-link-default)] mt-1">•</span>
+            <span className="text-[var(--color-text-link-default)] mt-1" aria-hidden="true">•</span>
             <span>
               <strong>{point.label}:</strong> {point.text}
             </span>

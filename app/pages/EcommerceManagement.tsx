@@ -17,7 +17,7 @@ export default function EcommerceManagement() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="hidden md:inline">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">Back to Projects</span>
         </Link>
       </div>
 

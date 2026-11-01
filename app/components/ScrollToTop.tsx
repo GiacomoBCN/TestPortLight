@@ -38,6 +38,8 @@ export default function ScrollToTop() {
             aria-label="Scroll to top"
             title="Scroll to top"
             type="button"
+            tabIndex={isVisible ? 0 : -1}
+            aria-hidden={isVisible ? undefined : true}
           >
             <ChevronUp size={24} aria-hidden="true" />
           </button>

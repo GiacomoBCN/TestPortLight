@@ -127,7 +127,10 @@ export default function TestimonialCarousel({
                       {/* Read More Button */}
                       {isTruncated && (
                         <button
+                          type="button"
                           onClick={() => openModal(testimonial)}
+                          aria-label={`Read more: testimonial from ${testimonial.name}`}
+                          aria-haspopup="dialog"
                           className="mb-4 text-sm text-[var(--color-text-brand)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium underline underline-offset-2 text-left"
                         >
                           Read more
@@ -167,19 +170,22 @@ export default function TestimonialCarousel({
             {/* Navigation Arrows */}
             <div className="flex justify-center items-center gap-4 mt-8">
               <button
+                type="button"
                 onClick={() => paginate(-1)}
                 className="w-12 h-12 glass rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] transition-all duration-200 glow-blue hover:scale-110"
                 aria-label="Previous testimonials"
               >
-                <ChevronLeft size={24} />
+                <ChevronLeft size={24} aria-hidden="true" />
               </button>
 
               {/* Dots */}
               <div className="flex gap-2">
                 {Array.from({ length: maxIndex + 1 }).map((_, index) => (
                   <button
+                    type="button"
                     key={index}
                     onClick={() => goToSlide(index)}
+                    aria-current={index === currentIndex ? "true" : undefined}
                     className={`transition-all duration-300 rounded-full ${
                       index === currentIndex
                         ? "w-8 h-3 bg-[var(--color-surface-interactive-default)] glow-blue"
@@ -191,17 +197,18 @@ export default function TestimonialCarousel({
               </div>
 
               <button
+                type="button"
                 onClick={() => paginate(1)}
                 className="w-12 h-12 glass rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] transition-all duration-200 glow-blue hover:scale-110"
                 aria-label="Next testimonials"
               >
-                <ChevronRight size={24} />
+                <ChevronRight size={24} aria-hidden="true" />
               </button>
             </div>
 
             {/* Counter */}
             <div className="text-center mt-4">
-              <p className="text-sm text-[var(--color-text-tertiary)]">
+              <p className="text-sm text-[var(--color-text-tertiary)]" aria-live="polite" aria-atomic="true">
                 {currentIndex + 1} / {maxIndex + 1}
               </p>
             </div>

@@ -16,10 +16,8 @@ import {
   Eye,
   Zap,
   CheckCircle,
-  X,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
+import Lightbox from "../components/Lightbox";
 import OverviewCard from "../components/work/OverviewCard";
 import DecisionTable from "../components/work/DecisionTable";
 import GlassCard from "../components/portfolio/GlassCard";
@@ -35,8 +33,6 @@ export default function VoDPlatform() {
   const [galleryImages, setGalleryImages] = useState<
     { src: string; alt: string }[]
   >([]);
-  const [touchStart, setTouchStart] = React.useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = React.useState<number | null>(null);
 
   const openImageModal = (src: string) => {
     setModalImageSrc(src);
@@ -77,52 +73,6 @@ export default function VoDPlatform() {
     }
   };
 
-  // Minimum swipe distance (in px) to trigger navigation
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe) {
-      nextImage();
-    } else if (isRightSwipe) {
-      previousImage();
-    }
-  };
-
-  // Keyboard navigation
-  React.useEffect(() => {
-    if (!isImageModalOpen) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        previousImage();
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        nextImage();
-      } else if (e.key === 'Escape') {
-        e.preventDefault();
-        closeImageModal();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isImageModalOpen, currentImageIndex, galleryImages.length]);
 
   const keyDecisions = [
     {
@@ -300,7 +250,7 @@ export default function VoDPlatform() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="hidden md:inline">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">Back to Projects</span>
         </Link>
       </div>
 
@@ -383,19 +333,19 @@ export default function VoDPlatform() {
             <OverviewCard icon={User} title="My Role">
               <p className="font-semibold mb-2">Product Design Consultant</p>
               <ul className="space-y-1">
-                <li>• Heuristic evaluation & accessibility audit</li>
+                <li><span aria-hidden="true">•</span> Heuristic evaluation & accessibility audit</li>
                 <li>
-                  • Cross-platform design strategy (TV, mobile, tablet, car)
+                  <span aria-hidden="true">•</span> Cross-platform design strategy (TV, mobile, tablet, car)
                 </li>
               </ul>
             </OverviewCard>
 
             <OverviewCard icon={TrendingUp} title="Impact">
               <ul className="space-y-1">
-                <li>• 40% reduction in interaction steps</li>
-                <li>• WCAG AA compliant accessibility</li>
-                <li>• Unified design language across devices</li>
-                <li>• 60% faster profile switching</li>
+                <li><span aria-hidden="true">•</span> 40% reduction in interaction steps</li>
+                <li><span aria-hidden="true">•</span> WCAG AA compliant accessibility</li>
+                <li><span aria-hidden="true">•</span> Unified design language across devices</li>
+                <li><span aria-hidden="true">•</span> 60% faster profile switching</li>
               </ul>
             </OverviewCard>
           </div>
@@ -599,20 +549,20 @@ export default function VoDPlatform() {
 
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Vertical rail stays visible across all screens for
                       wayfinding
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Horizontal tabs filter content within each section
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Clear mental model: vertical for "where," horizontal for
                       "what"
@@ -630,17 +580,17 @@ export default function VoDPlatform() {
 
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>Instant access to content without gates</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Profile switcher in persistent top-right utility bar
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>Continue Watching is now the landing page</span>
                   </li>
                 </ul>
@@ -655,23 +605,23 @@ export default function VoDPlatform() {
 
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>Contrast ratios of 4.5:1+ for all text elements</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Bold focus states with 3:1+ contrast against backgrounds
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Color-blind safe iconography and information architecture
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Touch targets sized at 44x44px minimum for mobile
                     </span>
@@ -688,17 +638,17 @@ export default function VoDPlatform() {
 
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>Adaptive grid scales from 5" phones to 75" TVs</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Platform-specific interaction patterns (D-pad vs touch)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>Consistent visual language across all devices</span>
                   </li>
                 </ul>
@@ -725,9 +675,11 @@ export default function VoDPlatform() {
           <div className="pl-0 md:pl-24 mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div className="flex flex-col items-center">
-                <div
-                  className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
+                <button
+                  type="button"
+                  className="block aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
                   onClick={() => openGallery(navigationComparisonImages, 0)}
+                  aria-label="Enlarge image: Old Navigation (3-Axis)"
                 >
                   <Image
                     src={getImagePath("images/projects/Vod_old_navigation.webp")}
@@ -736,19 +688,21 @@ export default function VoDPlatform() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
                     <span className="text-ink-900 text-sm font-medium">Click to enlarge</span>
                   </div>
-                </div>
+                </button>
                 <p className="text-gray-400 text-sm mt-2">
                   🟥 Old Navigation (3-Axis)
                 </p>
               </div>
 
               <div className="flex flex-col items-center">
-                <div
-                  className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
+                <button
+                  type="button"
+                  className="block aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
                   onClick={() => openGallery(navigationComparisonImages, 1)}
+                  aria-label="Enlarge image: New Navigation (2-Axis)"
                 >
                   <Image
                     src={getImagePath("images/projects/Vod_New_navigarion.webp")}
@@ -757,10 +711,10 @@ export default function VoDPlatform() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
                     <span className="text-ink-900 text-sm font-medium">Click to enlarge</span>
                   </div>
-                </div>
+                </button>
                 <p className="text-gray-400 text-sm mt-2">
                   🟦 New Navigation (2-Axis)
                 </p>
@@ -1321,67 +1275,13 @@ export default function VoDPlatform() {
 
       {/* Image Gallery Modal */}
       {isImageModalOpen && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={closeImageModal}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          <button
-            onClick={closeImageModal}
-            className="absolute top-4 right-4 text-white hover:text-sand-200 transition-colors z-10"
-          >
-            <X size={32} />
-          </button>
-
-          {galleryImages.length > 1 && (
-            <>
-              {/* Navigation arrows - hidden on mobile, visible on desktop */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  previousImage();
-                }}
-                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
-                aria-label="Previous image"
-              >
-                <ChevronLeft size={32} />
-              </button>
-
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  nextImage();
-                }}
-                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
-                aria-label="Next image"
-              >
-                <ChevronRight size={32} />
-              </button>
-
-              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
-                {currentImageIndex + 1} / {galleryImages.length}
-              </div>
-            </>
-          )}
-
-          <div
-            className="flex flex-col items-center max-w-full max-h-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={modalImageSrc}
-              alt="Enlarged view"
-              className="max-w-full max-h-[85vh] object-contain"
-            />
-            {galleryImages.length > 0 && galleryImages[currentImageIndex] && (
-              <p className="text-white text-center mt-4 px-8 py-3 bg-black/70 rounded-lg max-w-3xl">
-                {galleryImages[currentImageIndex].alt}
-              </p>
-            )}
-          </div>
-        </div>
+        <Lightbox
+          images={galleryImages}
+          index={currentImageIndex}
+          onClose={closeImageModal}
+          onPrev={previousImage}
+          onNext={nextImage}
+        />
       )}
     </div>
   );

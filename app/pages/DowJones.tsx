@@ -115,7 +115,7 @@ export default function DowJones() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="hidden md:inline">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">Back to Projects</span>
         </Link>
       </div>
 
@@ -214,12 +214,12 @@ export default function DowJones() {
             <OverviewCard icon={User} title="My Role">
               <p className="font-semibold mb-2">Lead Design Technologist</p>
               <ul className="space-y-1">
-                <li>• Product roadmap co-ownership</li>
-                <li>• Design system governance</li>
-                <li>• Component architecture</li>
-                <li>• Stakeholder alignment & conflict resolution</li>
+                <li><span aria-hidden="true">•</span> Product roadmap co-ownership</li>
+                <li><span aria-hidden="true">•</span> Design system governance</li>
+                <li><span aria-hidden="true">•</span> Component architecture</li>
+                <li><span aria-hidden="true">•</span> Stakeholder alignment & conflict resolution</li>
                 <li>
-                  • Bridge between design vision and technical implementation
+                  <span aria-hidden="true">•</span> Bridge between design vision and technical implementation
                 </li>
               </ul>
             </OverviewCard>
@@ -320,21 +320,21 @@ export default function DowJones() {
                 <p className="text-gray-400 mb-2">What we needed:</p>
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       A governance model that brands would adopt voluntarily
                       (not mandated from above)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Technical architecture flexible enough to support B2C and
                       B2B contexts
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       A system that preserved brand identity while enabling
                       cross-brand efficiency
@@ -402,28 +402,28 @@ export default function DowJones() {
                 <p className="text-gray-400 mb-2">What this enabled:</p>
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Migrated to platform-agnostic Style Dictionary (one source
                       for web, iOS, and Android)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Automated token distribution via CI/CD (designers update
                       Figma, tokens flow to all platforms)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Single source of truth for visual properties (no more
                       "which blue?" debates)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       White-label theming and dark mode without rebuilding
                       components
@@ -467,27 +467,27 @@ export default function DowJones() {
                 <p className="text-gray-400 mb-2">Results:</p>
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Improved component organization and documentation
                       structure
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Streamlined contribution workflows and approval processes
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Facilitated handoff sessions as moderator, resolving
                       conflicts between brand needs and system goals
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Faster onboarding (new team members reached productivity
                       sooner)
@@ -546,7 +546,7 @@ export default function DowJones() {
                 <p className="text-gray-400 mb-2">What this looked like:</p>
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Collaborated with analytics teams using Google Analytics
                       and internal dashboards to inform product improvements and
@@ -554,14 +554,14 @@ export default function DowJones() {
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Demonstrated a "make things happen" mindset through
                       ownership and speed (no waiting for perfect conditions)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Regular sync meetings across time zones to keep 8 brands
                       aligned
@@ -585,21 +585,21 @@ export default function DowJones() {
                 <p className="text-gray-400 mb-2">How we validated:</p>
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Collaborated with the accessibility lead on validation
                       strategy and testing protocols
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Facilitated alignment between design, engineering, and
                       accessibility teams on component compliance
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-accent mt-1" aria-hidden="true">•</span>
                     <span>
                       Improved workflows for accessibility review and design
                       acceptance
@@ -671,15 +671,15 @@ export default function DowJones() {
                   </p>
                   <ul className="space-y-1 text-gray-400 text-sm">
                     <li>
-                      • Better Storybook organization makes component discovery
+                      <span aria-hidden="true">•</span> Better Storybook organization makes component discovery
                       faster
                     </li>
                     <li>
-                      • Token automation eliminates manual sync between design
+                      <span aria-hidden="true">•</span> Token automation eliminates manual sync between design
                       and code
                     </li>
                     <li>
-                      • Clear contribution guidelines reduce back-and-forth in
+                      <span aria-hidden="true">•</span> Clear contribution guidelines reduce back-and-forth in
                       reviews
                     </li>
                   </ul>
@@ -702,10 +702,10 @@ export default function DowJones() {
 
                   <p className="text-gray-400 text-sm mb-2">What changed:</p>
                   <ul className="space-y-1 text-gray-400 text-sm">
-                    <li>• Consolidated redundant components</li>
-                    <li>• Clearer component hierarchy in Storybook</li>
+                    <li><span aria-hidden="true">•</span> Consolidated redundant components</li>
+                    <li><span aria-hidden="true">•</span> Clearer component hierarchy in Storybook</li>
                     <li>
-                      • Platform-agnostic tokens reduced platform-specific code
+                      <span aria-hidden="true">•</span> Platform-agnostic tokens reduced platform-specific code
                     </li>
                   </ul>
                 </div>

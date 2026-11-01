@@ -162,8 +162,9 @@ export default function Home() {
               duration: 1.5,
             }}
             className="flex justify-center cursor-pointer"
+            aria-label="Scroll to Driving Measurable Impact"
           >
-            <ChevronDown size={32} className="text-[var(--color-icon-accent)] glow-blue" />
+            <ChevronDown size={32} className="text-[var(--color-icon-accent)] glow-blue" aria-hidden="true" />
           </motion.a>
         </motion.div>
       </section>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation"; // ← Add this line
 import Link from "next/link";
 import { createPageUrl } from "@/utils";
@@ -13,6 +13,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const wasMobileMenuOpen = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -26,12 +29,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     setIsProductDropdownOpen(false);
   }, [pathname]);
 
-  // Esc chiude il mobile menu
+  // Esc chiude il mobile menu e il dropdown
   useEffect(() => {
-    const onEsc = (e: KeyboardEvent) =>
-      e.key === "Escape" && setIsMobileMenuOpen(false);
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setIsMobileMenuOpen(false);
+      setIsProductDropdownOpen(false);
+    };
     document.addEventListener("keydown", onEsc);
     return () => document.removeEventListener("keydown", onEsc);
+  }, []);
+
+  // Menu mobile: focus sul primo link all'apertura, di nuovo sul bottone alla chiusura
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      mobileMenuRef.current?.querySelector<HTMLElement>("a")?.focus();
+    } else if (wasMobileMenuOpen.current) {
+      menuToggleRef.current?.focus();
+    }
+    wasMobileMenuOpen.current = isMobileMenuOpen;
   }, [isMobileMenuOpen]);
 
   // Lock scroll quando il mobile menu è aperto
@@ -92,7 +108,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Link
             href={createPageUrl("Home")}
             className="flex items-center gap-3"
-            aria-label="Giacomo Bianchi - Home"
           >
             <div className="w-10 h-10 glass rounded-full flex items-center justify-center glow-blue">
               <span
@@ -102,7 +117,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 GB
               </span>
             </div>
-            <span className="font-bold text-xl hidden md:block">
+            <span className="font-bold text-xl sr-only md:not-sr-only">
               Giacomo Bianchi
             </span>
           </Link>
@@ -113,10 +128,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="relative"
               onMouseEnter={() => setIsProductDropdownOpen(true)}
               onMouseLeave={() => setIsProductDropdownOpen(false)}
+              onFocus={() => setIsProductDropdownOpen(true)}
+              onBlur={(e) => {
+                if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                  setIsProductDropdownOpen(false);
+                }
+              }}
             >
               <Link
                 href={createPageUrl("ProductWork")}
                 className="flex items-center text-slate-300 hover:text-ink-900"
+                aria-haspopup="true"
+                aria-expanded={isProductDropdownOpen}
+                aria-controls="product-work-submenu"
               >
                 Product Work{" "}
                 <ChevronDown className="w-4 h-4 ml-1" aria-hidden="true" />
@@ -132,13 +156,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   backdropFilter: "blur(20px) saturate(180%)",
                   border: "1px solid rgba(28, 25, 23, 0.15)",
                 }}
-                role="menu"
-                aria-label="Product work submenu"
+                id="product-work-submenu"
               >
                 <Link
                   href={createPageUrl("ProductWork")}
                   className="block px-4 py-2 text-ink-900 font-semibold hover:bg-blue/20 hover:text-ink-900 rounded-lg transition-colors"
-                  role="menuitem"
                 >
                   All Projects
                 </Link>
@@ -148,7 +170,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     key={p.path}
                     href={createPageUrl(p.path)}
                     className="block px-4 py-2 text-sm text-gray-200 hover:bg-blue/20 hover:text-ink-900 rounded-lg transition-colors"
-                    role="menuitem"
                   >
                     {p.name}
                   </Link>
@@ -176,12 +197,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile toggle */}
           <button
+            ref={menuToggleRef}
+            type="button"
             className="md:hidden glass p-2 rounded-lg"
             onClick={() => setIsMobileMenuOpen((s) => !s)}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
 
@@ -195,14 +219,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             />
             <div
               id="mobile-menu"
-              className="md:hidden fixed top-[72px] left-0 right-0 max-h-[calc(100vh-72px)] overflow-y-auto mobile-menu-overlay border-t border-ink-900/10"
-              role="menu"
+              ref={mobileMenuRef}
+              className="md:hidden fixed top-[72px] left-0 right-0 max-h-[calc(100vh-72px)] overflow-y-auto overscroll-contain mobile-menu-overlay border-t border-ink-900/10"
             >
               <div className="flex flex-col p-6 gap-4 max-w-7xl mx-auto">
                 <Link
                   href={createPageUrl("ProductWork")}
                   className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 font-semibold text-lg"
-                  role="menuitem"
                 >
                   Product Work
                 </Link>
@@ -212,8 +235,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       key={p.path}
                       href={createPageUrl(p.path)}
                       className="block text-sm text-gray-300 hover:text-accent py-2 px-4 rounded hover:bg-ink-900/5"
-                      role="menuitem"
-                    >
+                        >
                       {p.name}
                     </Link>
                   ))}
@@ -221,14 +243,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link
                   href={createPageUrl("Teaching")}
                   className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 text-lg"
-                  role="menuitem"
                 >
                   Teaching
                 </Link>
                 <Link
                   href="/#about"
                   className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 text-lg"
-                  role="menuitem"
                 >
                   About
                 </Link>
@@ -236,7 +256,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <a
                   href="mailto:consulting@giacomobianchi.tech"
                   className="px-6 py-3 glass rounded-lg hover:bg-blue-600 hover:text-white text-center font-semibold mt-2"
-                  role="menuitem"
                   aria-label="Contact via email"
                 >
                   Contact

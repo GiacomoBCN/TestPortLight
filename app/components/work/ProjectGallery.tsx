@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Lightbox from "../Lightbox";
 
 interface GalleryImage {
   src: string;
@@ -19,8 +20,6 @@ export default function ProjectGallery({
 }: ProjectGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-  const [touchStart, setTouchStart] = React.useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = React.useState<number | null>(null);
 
   const nextImage = () => {
     if (selectedIndex !== null && selectedIndex < images.length - 1) {
@@ -46,53 +45,6 @@ export default function ProjectGallery({
     }
   };
 
-  // Minimum swipe distance (in px) to trigger navigation
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe) {
-      nextImage();
-    } else if (isRightSwipe) {
-      prevImage();
-    }
-  };
-
-  // Keyboard navigation
-  React.useEffect(() => {
-    if (selectedIndex === null) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        prevImage();
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        nextImage();
-      } else if (e.key === 'Escape') {
-        e.preventDefault();
-        setSelectedIndex(null);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIndex, images.length]);
-
   return (
     <>
       <section className="py-16 px-6">
@@ -104,10 +56,12 @@ export default function ProjectGallery({
             {/* Left Arrow - Only show if more than 3 images */}
             {images.length > 3 && (
               <button
+                type="button"
                 onClick={scrollLeft}
-                className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100"
+                className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
+                aria-label="Scroll images left"
               >
-                <ChevronLeft size={24} />
+                <ChevronLeft size={24} aria-hidden="true" />
               </button>
             )}
 
@@ -123,10 +77,12 @@ export default function ProjectGallery({
                 }
               `}</style>
               {images.map((image, index) => (
-                <div
+                <button
+                  type="button"
                   key={index}
-                  className="flex-shrink-0 w-80 h-48 bg-white backdrop-blur-xl border border-ink-900/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group"
+                  className="block flex-shrink-0 w-80 h-48 bg-white backdrop-blur-xl border border-ink-900/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group"
                   onClick={() => setSelectedIndex(index)}
+                  aria-label={`Enlarge image: ${image.alt}`}
                 >
                   <Image
                     src={image.src}
@@ -135,20 +91,22 @@ export default function ProjectGallery({
                     sizes="320px"
                     className="object-contain"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
                     <span className="text-ink-900 text-sm font-medium">Click to enlarge</span>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
 
             {/* Right Arrow - Only show if more than 3 images */}
             {images.length > 3 && (
               <button
+                type="button"
                 onClick={scrollRight}
-                className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100"
+                className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
+                aria-label="Scroll images right"
               >
-                <ChevronRight size={24} />
+                <ChevronRight size={24} aria-hidden="true" />
               </button>
             )}
           </div>
@@ -157,64 +115,13 @@ export default function ProjectGallery({
 
       {/* Gallery Modal */}
       {selectedIndex !== null && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedIndex(null)}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          <button
-            onClick={() => setSelectedIndex(null)}
-            className="absolute top-4 right-4 text-white hover:text-sand-200 transition-colors z-10"
-          >
-            <X size={32} />
-          </button>
-
-          {images.length > 1 && (
-            <>
-              {/* Navigation arrows - hidden on mobile, visible on desktop */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  prevImage();
-                }}
-                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
-                aria-label="Previous image"
-              >
-                <ChevronLeft size={32} />
-              </button>
-
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  nextImage();
-                }}
-                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
-                aria-label="Next image"
-              >
-                <ChevronRight size={32} />
-              </button>
-
-              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
-                {selectedIndex + 1} / {images.length}
-              </div>
-            </>
-          )}
-
-          <div className="flex flex-col items-center max-w-full max-h-full" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={images[selectedIndex].src}
-              alt="Enlarged view"
-              className="max-w-full max-h-[85vh] object-contain"
-            />
-            {images.length > 0 && images[selectedIndex] && (
-              <p className="text-white text-center mt-4 px-8 py-3 bg-black/70 rounded-lg max-w-3xl">
-                {images[selectedIndex].alt}
-              </p>
-            )}
-          </div>
-        </div>
+        <Lightbox
+          images={images}
+          index={selectedIndex}
+          onClose={() => setSelectedIndex(null)}
+          onPrev={prevImage}
+          onNext={nextImage}
+        />
       )}
     </>
   );

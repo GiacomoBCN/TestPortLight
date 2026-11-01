@@ -19,10 +19,8 @@ import {
   Users,
   Target,
   GitBranch,
-  X,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
+import Lightbox from "../components/Lightbox";
 import OverviewCard from "../components/work/OverviewCard";
 import DecisionTable from "../components/work/DecisionTable";
 import GlassCard from "../components/portfolio/GlassCard";
@@ -38,8 +36,6 @@ export default function XpuntoCero() {
   const [galleryImages, setGalleryImages] = useState<
     { src: string; alt: string }[]
   >([]);
-  const [touchStart, setTouchStart] = React.useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = React.useState<number | null>(null);
 
   const openImageModal = (src: string) => {
     setModalImageSrc(src);
@@ -80,52 +76,6 @@ export default function XpuntoCero() {
     }
   };
 
-  // Minimum swipe distance (in px) to trigger navigation
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe) {
-      nextImage();
-    } else if (isRightSwipe) {
-      previousImage();
-    }
-  };
-
-  // Keyboard navigation
-  React.useEffect(() => {
-    if (!isImageModalOpen) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        previousImage();
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        nextImage();
-      } else if (e.key === 'Escape') {
-        e.preventDefault();
-        closeImageModal();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isImageModalOpen, currentImageIndex, galleryImages.length]);
 
   // Add near the top with other arrays
   const keyDecisions = [
@@ -225,7 +175,7 @@ export default function XpuntoCero() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="hidden md:inline">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">Back to Projects</span>
         </Link>
       </div>
 
@@ -334,23 +284,23 @@ export default function XpuntoCero() {
                 Product Designer &amp; Front-End Developer
               </p>
               <ul className="space-y-1">
-                <li>• Led UX research and brand redesign strategy</li>
+                <li><span aria-hidden="true">•</span> Led UX research and brand redesign strategy</li>
                 <li>
-                  • Defined new information architecture and visual system
+                  <span aria-hidden="true">•</span> Defined new information architecture and visual system
                 </li>
                 <li>
-                  • Designed isometric illustrations and refined logo system
+                  <span aria-hidden="true">•</span> Designed isometric illustrations and refined logo system
                 </li>
-                <li>• Implemented PWA front-end with WordPress integration</li>
+                <li><span aria-hidden="true">•</span> Implemented PWA front-end with WordPress integration</li>
               </ul>
             </OverviewCard>
 
             <OverviewCard icon={GitBranch} title="Scope">
               <ul className="space-y-1">
-                <li>• Internal product rebrand across 8 SaaS solutions</li>
-                <li>• UX/UI modernization for web and mobile</li>
-                <li>• Logo and visual identity refresh</li>
-                <li>• PWA implementation and performance optimization</li>
+                <li><span aria-hidden="true">•</span> Internal product rebrand across 8 SaaS solutions</li>
+                <li><span aria-hidden="true">•</span> UX/UI modernization for web and mobile</li>
+                <li><span aria-hidden="true">•</span> Logo and visual identity refresh</li>
+                <li><span aria-hidden="true">•</span> PWA implementation and performance optimization</li>
               </ul>
             </OverviewCard>
           </div>
@@ -791,9 +741,9 @@ export default function XpuntoCero() {
                   </p>
 
                   <ul className="text-gray-400 text-sm space-y-1 pt-2">
-                    <li>• +40% mobile traffic</li>
-                    <li>• 20% faster loads</li>
-                    <li>• Higher satisfaction and engagement</li>
+                    <li><span aria-hidden="true">•</span> +40% mobile traffic</li>
+                    <li><span aria-hidden="true">•</span> 20% faster loads</li>
+                    <li><span aria-hidden="true">•</span> Higher satisfaction and engagement</li>
                   </ul>
                 </div>
               </GlassCard>
@@ -867,66 +817,13 @@ export default function XpuntoCero() {
 
       {/* Image Gallery Modal */}
       {isImageModalOpen && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={closeImageModal}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          <button
-            onClick={closeImageModal}
-            className="absolute top-4 right-4 text-white hover:text-sand-200 transition-colors z-10"
-          >
-            <X size={32} />
-          </button>
-
-          {galleryImages.length > 1 && (
-            <>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  previousImage();
-                }}
-                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
-                aria-label="Previous image"
-              >
-                <ChevronLeft size={32} />
-              </button>
-
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  nextImage();
-                }}
-                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
-                aria-label="Next image"
-              >
-                <ChevronRight size={32} />
-              </button>
-
-              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
-                {currentImageIndex + 1} / {galleryImages.length}
-              </div>
-            </>
-          )}
-
-          <div
-            className="flex flex-col items-center max-w-full max-h-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={modalImageSrc}
-              alt="Enlarged view"
-              className="max-w-full max-h-[85vh] object-contain"
-            />
-            {galleryImages.length > 0 && galleryImages[currentImageIndex] && (
-              <p className="text-white text-center mt-4 px-8 py-3 bg-black/70 rounded-lg max-w-3xl">
-                {galleryImages[currentImageIndex].alt}
-              </p>
-            )}
-          </div>
-        </div>
+        <Lightbox
+          images={galleryImages}
+          index={currentImageIndex}
+          onClose={closeImageModal}
+          onPrev={previousImage}
+          onNext={nextImage}
+        />
       )}
     </div>
   );

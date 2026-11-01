@@ -115,7 +115,7 @@ export default function OnlineBackOfficeCaseStudy() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="hidden md:inline">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">Back to Projects</span>
         </Link>
       </div>
 
@@ -220,23 +220,23 @@ export default function OnlineBackOfficeCaseStudy() {
               </p>
               <ul className="space-y-1 ">
                 <li>
-                  • Diagnosed fragmented client forks and unsustainable update
+                  <span aria-hidden="true">•</span> Diagnosed fragmented client forks and unsustainable update
                   cycles.
                 </li>
                 <li>
-                  • Led the back-office unification, built one shared core
+                  <span aria-hidden="true">•</span> Led the back-office unification, built one shared core
                   applied across 15+ client portals.
                 </li>
                 <li>
-                  • Reverse-engineered legacy CSS to identify patterns and
+                  <span aria-hidden="true">•</span> Reverse-engineered legacy CSS to identify patterns and
                   enable bulk front-end updates.
                 </li>
                 <li>
-                  • Created the Git-based release model to propagate
+                  <span aria-hidden="true">•</span> Created the Git-based release model to propagate
                   improvements from a single source.
                 </li>
                 <li>
-                  • Established the roadmap and process that made the unified
+                  <span aria-hidden="true">•</span> Established the roadmap and process that made the unified
                   approach maintainable at scale.
                 </li>
               </ul>
@@ -244,9 +244,9 @@ export default function OnlineBackOfficeCaseStudy() {
 
             <OverviewCard icon={TrendingUp} title="Impact">
               <ul className="space-y-1">
-                <li>• 99% core code reuse across all client portals</li>
-                <li>• 80% faster rollout of visual and UI updates</li>
-                <li>• Consistent UX and brand alignment for 15+ clients</li>
+                <li><span aria-hidden="true">•</span> 99% core code reuse across all client portals</li>
+                <li><span aria-hidden="true">•</span> 80% faster rollout of visual and UI updates</li>
+                <li><span aria-hidden="true">•</span> Consistent UX and brand alignment for 15+ clients</li>
               </ul>
             </OverviewCard>
           </div>
@@ -339,12 +339,12 @@ export default function OnlineBackOfficeCaseStudy() {
                       Challenges
                     </div>
                     <ul className="space-y-1">
-                      <li>• Duplicated assets and inconsistent portals </li>
+                      <li><span aria-hidden="true">•</span> Duplicated assets and inconsistent portals </li>
                       <li>
-                        • Manual updates breaking alignment with SGPV app data
+                        <span aria-hidden="true">•</span> Manual updates breaking alignment with SGPV app data
                       </li>
                       <li>
-                        • High QA and maintenance costs across 15+ clients
+                        <span aria-hidden="true">•</span> High QA and maintenance costs across 15+ clients
                       </li>
                     </ul>
                   </div>
@@ -353,10 +353,10 @@ export default function OnlineBackOfficeCaseStudy() {
                       Goals
                     </div>
                     <ul className="space-y-1">
-                      <li>• Shared core with CSS-based theming </li>
-                      <li>• Git-powered centralized release workflow </li>
+                      <li><span aria-hidden="true">•</span> Shared core with CSS-based theming </li>
+                      <li><span aria-hidden="true">•</span> Git-powered centralized release workflow </li>
                       <li>
-                        • Faster iteration aligned with SGPV product cycles
+                        <span aria-hidden="true">•</span> Faster iteration aligned with SGPV product cycles
                       </li>
                     </ul>
                   </div>
@@ -397,14 +397,14 @@ export default function OnlineBackOfficeCaseStudy() {
                 {/* Your original list */}
 
                 <p className="text-gray-300 leading-relaxed">
-                  • Inconsistent UI across portals due to heavy per-client
+                  <span aria-hidden="true">•</span> Inconsistent UI across portals due to heavy per-client
                   customization
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  • Increased development time and QA overhead
+                  <span aria-hidden="true">•</span> Increased development time and QA overhead
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  • Updates could not be applied uniformly
+                  <span aria-hidden="true">•</span> Updates could not be applied uniformly
                 </p>
               </div>
             </GlassCard>
@@ -633,9 +633,9 @@ export default function OnlineBackOfficeCaseStudy() {
                     Front-End
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
-                    <li>• Unified CSS architecture with tokens</li>
-                    <li>• Shared iconography & image library</li>
-                    <li>• Bootstrap-based responsive components</li>
+                    <li><span aria-hidden="true">•</span> Unified CSS architecture with tokens</li>
+                    <li><span aria-hidden="true">•</span> Shared iconography & image library</li>
+                    <li><span aria-hidden="true">•</span> Bootstrap-based responsive components</li>
                   </ul>
                 </div>
               </GlassCard>
@@ -645,9 +645,9 @@ export default function OnlineBackOfficeCaseStudy() {
                     Process & Governance
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
-                    <li>• Git release workflow for multi-client rollouts</li>
-                    <li>• Branching model for hotfixes and theming</li>
-                    <li>• QA checklist and A/B testing framework</li>
+                    <li><span aria-hidden="true">•</span> Git release workflow for multi-client rollouts</li>
+                    <li><span aria-hidden="true">•</span> Branching model for hotfixes and theming</li>
+                    <li><span aria-hidden="true">•</span> QA checklist and A/B testing framework</li>
                   </ul>
                 </div>
               </GlassCard>

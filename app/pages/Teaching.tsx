@@ -128,9 +128,9 @@ export default function Teaching() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left: Teaching Stats */}
             <GlassCard>
-              <h3 className="text-2xl font-bold text-ink-900 mb-6">
+              <h2 className="text-2xl font-bold text-ink-900 mb-6">
                 Teaching Experience
-              </h3>
+              </h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div
@@ -202,14 +202,14 @@ export default function Teaching() {
 
             {/* Right: Quick Facts */}
             <GlassCard delay={0.1}>
-              <h3 className="text-2xl font-bold text-ink-900 mb-6">
+              <h2 className="text-2xl font-bold text-ink-900 mb-6">
                 Teaching Approach
-              </h3>
+              </h2>
               <div className="space-y-4">
                 <div className="pb-4 border-b border-[rgba(28,25,23,0.10)]">
-                  <h4 className="font-semibold text-ink-900 mb-2">
+                  <h3 className="font-semibold text-ink-900 mb-2">
                     Experiential Learning
-                  </h4>
+                  </h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
                     My teaching approach combines theory with real-world
                     application. Students learn by doing - designing,
@@ -219,9 +219,9 @@ export default function Teaching() {
                 </div>
 
                 <div className="pb-4 border-b border-[rgba(28,25,23,0.10)]">
-                  <h4 className="font-semibold text-ink-900 mb-2">
+                  <h3 className="font-semibold text-ink-900 mb-2">
                     Collaborative Learning Environments
-                  </h4>
+                  </h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
                     Teamwork is central to both courses. In Product Design
                     (UX/UI), students work in design teams to deliver complete
@@ -233,9 +233,9 @@ export default function Teaching() {
                 </div>
 
                 <div className="pb-4 border-b border-[rgba(28,25,23,0.10)]">
-                  <h4 className="font-semibold text-ink-900 mb-2">
+                  <h3 className="font-semibold text-ink-900 mb-2">
                     Skill Development through Practice
-                  </h4>
+                  </h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
                     Through project-based and interactive activities, students
                     develop critical thinking, adaptability, and creative
@@ -246,9 +246,9 @@ export default function Teaching() {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-ink-900 mb-2">
+                  <h3 className="font-semibold text-ink-900 mb-2">
                     Mentorship & Reflection
-                  </h4>
+                  </h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
                     I guide students throughout their learning journey,
                     fostering awareness of their strengths and areas for growth.

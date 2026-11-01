@@ -178,7 +178,7 @@ export default function CaseStudyTemplate({
             <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.userProblems.map((problem, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-accent mt-1">•</span>
+                  <span className="text-accent mt-1" aria-hidden="true">•</span>
                   {problem}
                 </li>
               ))}
@@ -193,7 +193,7 @@ export default function CaseStudyTemplate({
             <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.businessConstraints.map((constraint, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-accent mt-1">•</span>
+                  <span className="text-accent mt-1" aria-hidden="true">•</span>
                   {constraint}
                 </li>
               ))}
@@ -208,7 +208,7 @@ export default function CaseStudyTemplate({
             <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.technicalComplexity.map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-accent mt-1">•</span>
+                  <span className="text-accent mt-1" aria-hidden="true">•</span>
                   {item}
                 </li>
               ))}

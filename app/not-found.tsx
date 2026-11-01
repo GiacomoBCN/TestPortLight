@@ -62,14 +62,14 @@ export default function NotFound() {
             >
               Product Work
             </Link>
-            <span className="text-[var(--color-text-secondary)]">•</span>
+            <span className="text-[var(--color-text-secondary)]" aria-hidden="true">•</span>
             <Link
               href={createPageUrl('Teaching')}
               className="text-[var(--color-text-link-default)] hover:text-[var(--color-text-link-hover)] transition-colors"
             >
               Teaching
             </Link>
-            <span className="text-[var(--color-text-secondary)]">•</span>
+            <span className="text-[var(--color-text-secondary)]" aria-hidden="true">•</span>
             <a
               href="mailto:consulting@giacomobianchi.tech"
               className="text-[var(--color-text-link-default)] hover:text-[var(--color-text-link-hover)] transition-colors"
