@@ -58,12 +58,12 @@ const out = paths.map(p => {
 });
 const lines = out.slice(-16), rest = out.slice(0, -16);
 const body = rest.join("\n") + `\n<g id="lines">\n${lines.join("\n")}\n</g>`;
-// viewBox del simbolo: solo la parte destra del disegno (x dal 45% al 100%), altezza intera
-const CUT = 0.45, W = 2550, H = 3798;
+// viewBox del simbolo: solo la parte destra del disegno (x dal 25% al 100%), altezza intera
+const CUT = 0.25, W = 2550, H = 3798;
 const vbX = Math.round(W * CUT * 100) / 100, vbW = Math.round((W - vbX) * 100) / 100;
 const symbol = `<symbol id="fascia-sx" viewBox="${vbX} 0 ${vbW} ${H}">\n${body}\n</symbol>`;
 const header = [
-  "// Illustrazione delle fasce laterali (lato-sinistro-linee.svg).",
+  "// Illustrazione delle fasce laterali (lato-sinistro-linee.svg), viewBox x dal 25% al 100%.",
   "// 490 path; i 9 colori originali sono variabili CSS --fascia-* (vedi globals.css);",
   "// ogni sfumatura è color-mix(in oklch, var(--fascia-x), white|black n%).",
   "// I 16 tratti blu #0D99FF stanno nel gruppo #lines.",

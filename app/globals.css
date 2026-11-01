@@ -302,20 +302,20 @@
 
 /* ============================================
    FASCE LATERALI (SideBands)
-   Il disegno ritagliato (viewBox x dal 45% al 100%,
-   1402.5 x 3798, rapporto 0.3693) sta a tutta altezza
-   con le proporzioni originali: larghezza fascia =
-   0.3693 x altezza finestra, minimo 220px, massimo 420px.
+   Il disegno ritagliato (viewBox x dal 25% al 100%,
+   1912.5 x 3798, rapporto 0.5036) sta intero a tutta
+   altezza, senza zoom e senza taglio ai lati:
+   larghezza fascia = 0.5036 x altezza finestra.
    La colonna prende lo spazio che resta.
-   Sotto i 1280px le fasce spariscono (--band: 0).
+   Sotto i 1440px le fasce spariscono (--band: 0).
    ============================================ */
 :root {
   --band: 0px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   :root {
-    --band: clamp(220px, calc(100vh * 0.3693), 420px);
+    --band: calc(100vh * 0.5036);
   }
 }
 
@@ -362,7 +362,7 @@ body[data-palette="b"] {
   transform: scaleX(-1);
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .side-band {
     display: block;
   }
