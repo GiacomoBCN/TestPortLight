@@ -5,7 +5,7 @@ import { createPageUrl } from "@/utils";
 import { getImagePath } from "@/utils/image";
 import {
   ChevronDown,
-  Layers,
+  ArrowUpRight,
   TrendingUp,
   GraduationCap,
   Users,
@@ -19,15 +19,7 @@ import {
   SquareDashedKanban,
 } from "lucide-react";
 
-import { motion } from "framer-motion";
-import SectionHeader from "../components/portfolio/SectionHeader";
-import MetricCard from "../components/portfolio/MetricCard";
-import LeadershipCard from "../components/portfolio/LeadershipCard";
-import ProjectCard from "../components/portfolio/ProjectCard";
-import GlassCard from "../components/portfolio/GlassCard";
-import ExpandableText from "../components/ExpandableText";
-import BeforeAfterImpactCard from "../components/portfolio/BeforeAfterImpactCard";
-import TestimonialCarousel from "../components/TestimonialCarousel";
+import HomeTestimonials from "../components/home/HomeTestimonials";
 
 // Testimonials data
 const testimonials = [
@@ -68,517 +60,540 @@ const testimonials = [
   },
 ];
 
+type IconType = React.ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean | "true" }>;
+
+const impact: {
+  icon: IconType;
+  headline: string;
+  subHeadline: string;
+  before: string;
+  after: string;
+  impact: string;
+}[] = [
+  {
+    icon: MonitorCog,
+    headline: "60 +",
+    subHeadline: "DOW JONES - 8 BRANDS ALIGNED",
+    before:
+      "8 brands with separate design and engineering teams. Each team had different processes, priorities, and platforms.",
+    after:
+      "Co-owned roadmap and led adoption across 60+ designers, 120+ stakeholders. Spearheaded token-first architecture. Reduced component complexity 20%.",
+    impact:
+      "200K+ components in production. 30% productivity increase through improved workflows. WCAG 2.2 compliant.",
+  },
+  {
+    icon: TrendingUp,
+    headline: "40 %",
+    subHeadline: "INTERACTION FRICTION",
+    before:
+      "VOD platform required 10+ button presses to switch profiles. 3-axis navigation confused users.",
+    after:
+      "Heuristic evaluation identified friction. Redesigned to 4 presses. Clear 2-axis structure.",
+    impact:
+      "60% faster profile switching. WCAG AA accessible. Scaled across TV, mobile, tablet, car.",
+  },
+  {
+    icon: GraduationCap,
+    headline: "1000 +",
+    subHeadline: "STUDENTS MENTORED",
+    before: "Theory-heavy lectures with limited real-world application.",
+    after: "Project-driven learning across design and management disciplines.",
+    impact:
+      "7 years teaching at EAE Business School. 2 master's programs. 19 project teams annually.",
+  },
+];
+
+const leadership: { icon: IconType; title: string; points: string[] }[] = [
+  {
+    icon: Users,
+    title: "Through People",
+    points: [
+      "Facilitated cross-brand collaboration and design critiques at Dow Jones",
+      "Bridged design-engineering gap through 1:1 key role relationships and problem-solving meetings",
+      "Taught 1000+ students across 2 official master's programs at EAE Business School",
+    ],
+  },
+  {
+    icon: Package,
+    title: "Through Product",
+    points: [
+      "Co-owned design system roadmap and sprint planning",
+      "Led SGPV product evolution over 18 months (PhoneGap → Flutter + AI) serving 15 FMCG clients",
+      "Balanced user value with technical constraints across B2B and B2C platforms",
+    ],
+  },
+  {
+    icon: Zap,
+    title: "Through Strategy",
+    points: [
+      "Improved UAT/QA workflows - 30% team productivity increase",
+      "Proposed removing VOD welcome screen despite stakeholder attachment - prioritized user value over internal preference",
+      "Managed feature backlog and prioritization for B2B platforms - balanced user value with technical constraints",
+    ],
+  },
+];
+
+const projects = [
+  {
+    role: "Enterprise Leadership",
+    title: "Dow Jones Design System",
+    company: "Dow Jones",
+    description:
+      "Co-led design system adoption across B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%.",
+    image: "images/projects/DJ1.webp",
+    metrics: [
+      { value: "60+", label: "Designers" },
+      { value: "200K+", label: "Component Refs" },
+      { value: "30%", label: "Efficiency" },
+    ],
+    tags: [
+      "Leadership",
+      "AI-Enhanced",
+      "Product Strategy",
+      "Design Systems",
+      "SAFe Agile",
+      "WCAG 2.2",
+      "CI/CD",
+      "Storybook",
+      "Style Dictionary",
+      "Design Tokens",
+      "React",
+      "Figma",
+    ],
+    link: createPageUrl("DowJones"),
+  },
+  {
+    role: "B2C Multi-platform",
+    title: "VOD Platform Redesign",
+    company: "Confidential Client",
+    description:
+      "Redesigned cross-device VOD experience with 40% fewer interaction steps (calculated via click-path analysis) and WCAG AA compliance across TV, mobile, and in-car displays.",
+    image: "images/projects/Vod.webp",
+    metrics: [
+      { value: "40%", label: "Less Friction" },
+      { value: "WCAG AA", label: "Compliant" },
+      { value: "5", label: "Platforms" },
+    ],
+    tags: [
+      "Consultant",
+      "Heuristic Evaluation",
+      "End-to-end UX/UI Process",
+      "Figma",
+      "Multi-platform Design",
+      "UX Strategy",
+      "WCAG 2.2 AA",
+      "TV/10-foot UI",
+    ],
+    link: createPageUrl("VODplatform"),
+  },
+  {
+    role: "B2B SaaS Long-term",
+    title: "SGPV Product Evolution",
+    company: "XpuntoCero -> SGPV",
+    description:
+      "Multi-year product evolution from PhoneGap to Flutter, serving 15 B2B clients. Redesigned user flows and AI-powered features reduced task time by 25%.",
+    image: "images/projects/sgpv.webp",
+    metrics: [
+      { value: "15", label: "Global Brands" },
+      { value: "25%", label: "Faster" },
+      { value: "30%", label: "Satisfaction ↑" },
+    ],
+    tags: [
+      "Product Strategy",
+      "End-to-end UX/UI Process",
+      "Design System",
+      "Figma",
+      "AI",
+      "Mobile",
+      "B2B",
+      "SaaS",
+      "Flutter",
+      "Dart",
+      "PhoneGap",
+      "JavaScript",
+      "Bootstrap",
+      "Agile/SCRUM",
+    ],
+    link: createPageUrl("SGPVEvolution"),
+  },
+  {
+    role: "Growth & Business Impact",
+    title: "XpuntoCero Digital Transformation",
+    company: "XpuntoCero",
+    description:
+      "Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, leads by 15%, and customer satisfaction by 30%.",
+    image: "images/projects/XP0.webp",
+    metrics: [
+      { value: "40%", label: "Mobile Traffic" },
+      { value: "15%", label: "More Leads" },
+      { value: "2×", label: "Demo Requests" },
+    ],
+    tags: [
+      "Branding",
+      "Strategy",
+      "End-to-end UX/UI Process",
+      "Figma",
+      "Front-End",
+      "PWA",
+      "WordPress",
+      "Elementor",
+    ],
+    link: createPageUrl("XpuntoCero"),
+  },
+];
+
+const howIWork: { icon: IconType; title: string; lead: string; text: string }[] = [
+  {
+    icon: DraftingCompass,
+    title: "Product Design",
+    lead: "Research → Strategy → Design → Testing → Delivery.",
+    text: "I run heuristic evaluations, user interviews, and usability tests to validate decisions before engineering builds.",
+  },
+  {
+    icon: SquareDashedKanban,
+    title: "Product Strategy",
+    lead: "Roadmaps, Prioritization, Stakeholder Alignment.",
+    text: "I co-own product roadmaps and prioritize features based on user research, business goals, and technical constraints. I have driven strategic decisions across design systems, mobile apps, and B2B platforms.",
+  },
+  {
+    icon: Code,
+    title: "Front-End Development",
+    lead: "React, Flutter, Dart, HTML5, CSS3, JavaScript, TypeScript, Tailwind.",
+    text: "I code functional prototypes to bridge design and engineering. This shared language helps me validate feasibility early and align teams on technical approach.",
+  },
+  {
+    icon: Sparkles,
+    title: "AI-Native Builder",
+    lead: "Cursor, Claude Code, Claude API, n8n, Vercel, Ollama, GitHub Copilot, Vertex AI, ChatGPT, Midjourney.",
+    text: "ML/AI certified (180h: Python, TensorFlow, Deep Learning). I build with Cursor, Claude Code, and local LLMs, shipping functional prototypes and AI-powered workflows, not just designing around them. Genuine technical fluency at the intersection of design craft and AI.",
+  },
+];
+
+/* Section heading row: rule on top, title left, subtitle right. */
+function SectionHead({
+  id,
+  title,
+  subtitle,
+}: {
+  id: string;
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <div className="m-rule-t grid grid-cols-1 gap-4 pt-6 md:grid-cols-12 md:gap-8">
+      <h2 id={id} className="m-title text-[2rem] md:col-span-5 md:text-[2.5rem]">
+        {title}
+      </h2>
+      {subtitle && (
+        <p className="max-w-[46ch] text-base leading-relaxed text-[var(--m-ink-2)] md:col-span-7 md:pt-2 md:text-lg">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="overflow-hidden">
+    <div className="px-5 md:px-8">
       {/* Hero Section */}
-      <section className="min-h-[85vh] md:min-h-screen flex items-center justify-center relative px-6">
-        {/* Animated Background Grid */}
-        <div className="absolute inset-0 overflow-hidden opacity-20">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(26, 122, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 122, 255, 0.1) 1px, transparent 1px)",
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
-
-        {/* Glow Effect */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] bg-[var(--color-surface-interactive-default)] rounded-full opacity-10 blur-3xl"></div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center relative z-10"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mb-3 md:mb-6"
-          >
-            <span className="inline-block px-6 py-3 glass rounded-full text-[var(--color-text-brand)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
-              Product & Design Leadership
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-5xl md:text-7xl font-bold text-[var(--color-text-inverse)] mb-6"
+      <section
+        aria-labelledby="hero-title"
+        className="flex min-h-[calc(100svh-4rem)] flex-col py-10 md:py-14"
+      >
+        <div>
+          <h1
+            id="hero-title"
+            className="m-display text-[clamp(2.75rem,8.4vw,6rem)]"
           >
             Giacomo Bianchi, PhD
-          </motion.h1>
+          </h1>
+          <p className="m-label m-label-mark mt-6 text-sm md:text-base">
+            Product &amp; Design Leadership
+          </p>
+        </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl text-[var(--color-text-primary)] mb-12 max-w-3xl mx-auto leading-relaxed"
-          >
+        <div className="mt-10 grid grid-cols-1 gap-8 pb-10 md:mt-14 md:grid-cols-12 md:pb-0">
+          <p className="text-[1.125rem] leading-relaxed md:col-span-8 md:text-[1.375rem] md:leading-[1.5]">
             I align designers and engineers to ship scalable systems. I reduce
-            friction in complex interfaces, unify fragmented codebases, and
-            establish governance that makes design systems work in production.{" "}
+            friction in complex interfaces, unify fragmented codebases, and{" "}
+            <mark className="m-hl">
+              establish governance that makes design systems work in production.
+            </mark>{" "}
             <br />
-            I've taught 1000+ students across UX/UI and cross-cultural
+            I&apos;ve taught 1000+ students across UX/UI and cross-cultural
             management.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-          >
-            <a
-              href="#work"
-              className="px-8 py-4 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105"
-            >
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:col-span-12 md:mt-2">
+            <a href="#work" className="m-btn m-btn-solid">
               View Product Work
             </a>
-            <Link
-              href={createPageUrl("Teaching")}
-              className="px-8 py-4 glass rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-default)] hover:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105"
-            >
+            <Link href={createPageUrl("Teaching")} className="m-btn m-btn-ghost">
               View Teaching Portfolio
             </Link>
-          </motion.div>
+          </div>
+        </div>
 
-          <motion.a
-            href="#impact"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: 0.8,
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 1.5,
-            }}
-            className="flex justify-center cursor-pointer"
-          >
-            <ChevronDown size={32} className="text-[var(--color-text-brand)] glow-blue" />
-          </motion.a>
-        </motion.div>
+        <a
+          href="#impact"
+          aria-label="Scroll to impact"
+          className="mt-auto hidden h-12 w-12 items-center justify-center self-start border border-[var(--m-rule-strong)] text-[var(--m-ink)] transition-colors duration-150 hover:border-[var(--m-ink)] hover:bg-[var(--m-ink)] hover:text-[var(--m-paper)] md:flex"
+        >
+          <ChevronDown size={22} aria-hidden="true" />
+        </a>
       </section>
 
       {/* Impact Metrics Section */}
-      <section id="impact" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            title="Driving Measurable Impact"
-            subtitle="From leading design systems at Dow Jones to teaching at EAE.
-            I focus on systems that scale and teams that succeed."
-          />
+      <section id="impact" aria-labelledby="impact-title" className="py-16 md:py-24">
+        <SectionHead
+          id="impact-title"
+          title="Driving Measurable Impact"
+          subtitle="From leading design systems at Dow Jones to teaching at EAE. I focus on systems that scale and teams that succeed."
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <BeforeAfterImpactCard
-              icon={MonitorCog}
-              headline="60 +"
-              subHeadline="DOW JONES - 8 BRANDS ALIGNED" // <- New sub-headline
-              before="8 brands with separate design and engineering teams. Each team had different processes, priorities, and platforms."
-              after="Co-owned roadmap and led adoption across 60+ designers, 120+ stakeholders. Spearheaded token-first architecture. Reduced component complexity 20%."
-              impact="200K+ components in production. 30% productivity increase through improved workflows. WCAG 2.2 compliant."
-              delay={0}
-            />
-            <BeforeAfterImpactCard
-              icon={TrendingUp}
-              headline="40 %"
-              subHeadline="INTERACTION FRICTION"
-              before="VOD platform required 10+ button presses to switch profiles. 3-axis navigation confused users."
-              after="Heuristic evaluation identified friction. Redesigned to 4 presses. Clear 2-axis structure."
-              impact="60% faster profile switching. WCAG AA accessible. Scaled across TV, mobile, tablet, car."
-              delay={0.1}
-            />
-            <BeforeAfterImpactCard
-              icon={GraduationCap}
-              headline="1000 +"
-              subHeadline="STUDENTS MENTORED" // <- New sub-headline
-              before="Theory-heavy lectures with limited real-world application."
-              after="Project-driven learning across design and management disciplines."
-              impact="7 years teaching at EAE Business School. 2 master's programs. 19 project teams annually."
-              delay={0.2}
-            />
-          </div>
-        </div>
+        <ol className="mt-12 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10 md:gap-y-0">
+          {impact.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <li
+                key={item.subHeadline}
+                className={`flex flex-col ${
+                  i > 0
+                    ? "border-t border-[var(--m-rule)] pt-8 md:border-l md:border-t-0 md:pl-10 md:pt-0"
+                    : ""
+                }`}
+              >
+                <p className="m-label flex items-center gap-2">
+                  <Icon size={18} aria-hidden="true" />
+                  {item.subHeadline}
+                </p>
+                <p className="m-display m-num mt-4 text-[3.5rem] md:text-[4rem]">
+                  {item.headline}
+                </p>
+                <dl className="mt-6 flex flex-col gap-4 text-[0.9375rem] leading-relaxed">
+                  <div className="m-rule-t pt-3">
+                    <dt className="m-label">Before</dt>
+                    <dd className="mt-1">{item.before}</dd>
+                  </div>
+                  <div className="m-rule-t pt-3">
+                    <dt className="m-label">After</dt>
+                    <dd className="mt-1">{item.after}</dd>
+                  </div>
+                  <div className="m-rule-t pt-3">
+                    <dt className="m-label m-label-mark">Impact</dt>
+                    <dd className="mt-1 font-bold">{item.impact}</dd>
+                  </div>
+                </dl>
+              </li>
+            );
+          })}
+        </ol>
       </section>
 
       {/* How I Lead Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            title="How I Lead"
-            subtitle="Through people, product, and strategy"
-          />
+      <section aria-labelledby="lead-title" className="py-16 md:py-24">
+        <SectionHead id="lead-title" title="How I Lead" subtitle="Through people, product, and strategy" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <LeadershipCard
-              icon={Users}
-              title="Through People"
-              points={[
-                "Facilitated cross-brand collaboration and design critiques at Dow Jones",
-                "Bridged design-engineering gap through 1:1 key role relationships and problem-solving meetings",
-                "Taught 1000+ students across 2 official master's programs at EAE Business School",
-              ]}
-              delay={0}
-            />
-            <LeadershipCard
-              icon={Package}
-              title="Through Product"
-              points={[
-                "Co-owned design system roadmap and sprint planning",
-                "Led SGPV product evolution over 18 months (PhoneGap → Flutter + AI) serving 15 FMCG clients",
-                "Balanced user value with technical constraints across B2B and B2C platforms",
-              ]}
-              delay={0.1}
-            />
-            <LeadershipCard
-              icon={Zap}
-              title="Through Strategy"
-              points={[
-                "Improved UAT/QA workflows - 30% team productivity increase",
-                "Proposed removing VOD welcome screen despite stakeholder attachment - prioritized user value over internal preference",
-                "Managed feature backlog and prioritization for B2B platforms - balanced user value with technical constraints",
-              ]}
-              delay={0.2}
-            />
-          </div>
+        <div className="mt-12 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10">
+          {leadership.map((col, i) => {
+            const Icon = col.icon;
+            return (
+              <div
+                key={col.title}
+                className={
+                  i > 0
+                    ? "border-t border-[var(--m-rule)] pt-8 md:border-l md:border-t-0 md:pl-10 md:pt-0"
+                    : ""
+                }
+              >
+                <h3 className="m-title flex items-center gap-3 text-2xl">
+                  <Icon size={22} aria-hidden="true" className="text-[var(--m-ink-2)]" />
+                  {col.title}
+                </h3>
+                <ul className="mt-6">
+                  {col.points.map((point) => (
+                    <li
+                      key={point}
+                      className="m-rule-t py-3 text-[0.9375rem] leading-relaxed"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </section>
 
       {/* Featured Work Section */}
-      <section id="work" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            title="Featured Work"
-            subtitle="Strategic product leadership with measurable impact"
-          />
+      <section id="work" aria-labelledby="work-title" className="py-16 md:py-24">
+        <SectionHead
+          id="work-title"
+          title="Featured Work"
+          subtitle="Strategic product leadership with measurable impact"
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <ProjectCard
-              role="Enterprise Leadership"
-              title="Dow Jones Design System"
-              company="Dow Jones"
-              timeframe=""
-              description="Co-led design system adoption across B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%."
-              image={getImagePath("images/projects/DJ1.webp")}
-              metrics={[
-                { value: "60+", label: "Designers" },
-                { value: "200K+", label: "Component Refs" },
-                { value: "30%", label: "Efficiency" },
-              ]}
-              tags={[
-                "Leadership",
-                "AI-Enhanced",
-                "Product Strategy",
-                "Design Systems",
-                "SAFe Agile",
-                "WCAG 2.2",
-                "CI/CD",
-                "Storybook",
-                "Style Dictionary",
-                "Design Tokens",
-                "React",
-                "Figma",
-              ]}
-              link={createPageUrl("DowJones")}
-              delay={0}
-            />
-
-            <ProjectCard
-              role="B2C Multi-platform"
-              title="VOD Platform Redesign"
-              company="Confidential Client"
-              timeframe=""
-              description="Redesigned cross-device VOD experience with 40% fewer interaction steps (calculated via click-path analysis) and WCAG AA compliance across TV, mobile, and in-car displays."
-              image={getImagePath("images/projects/Vod.webp")}
-              metrics={[
-                { value: "40%", label: "Less Friction" },
-                { value: "WCAG AA", label: "Compliant" },
-                { value: "5", label: "Platforms" },
-              ]}
-              tags={[
-                "Consultant",
-                "Heuristic Evaluation",
-                "End-to-end UX/UI Process",
-                "Figma",
-                "Multi-platform Design",
-                "UX Strategy",
-                "WCAG 2.2 AA",
-                "TV/10-foot UI",
-              ]}
-              link={createPageUrl("VODplatform")}
-              delay={0.1}
-            />
-
-            <ProjectCard
-              role="B2B SaaS Long-term"
-              title="SGPV Product Evolution"
-              company="XpuntoCero -> SGPV"
-              timeframe=""
-              description="Multi-year product evolution from PhoneGap to Flutter, serving 15 B2B clients. Redesigned user flows and AI-powered features reduced task time by 25%."
-              image={getImagePath("images/projects/sgpv.webp")}
-              metrics={[
-                { value: "15", label: "Global Brands" },
-                { value: "25%", label: "Faster" },
-                { value: "30%", label: "Satisfaction ↑" },
-              ]}
-              tags={[
-                "Product Strategy",
-                "End-to-end UX/UI Process",
-                "Design System",
-                "Figma",
-                "AI",
-                "Mobile",
-                "B2B",
-                "SaaS",
-                "Flutter",
-                "Dart",
-                "PhoneGap",
-                "JavaScript",
-                "Bootstrap",
-                "Agile/SCRUM",
-              ]}
-              link={createPageUrl("SGPVEvolution")}
-              delay={0.3}
-            />
-
-            <ProjectCard
-              role="Growth & Business Impact"
-              title="XpuntoCero Digital Transformation"
-              company="XpuntoCero"
-              timeframe=""
-              description="Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, leads by 15%, and customer satisfaction by 30%."
-              image={getImagePath("images/projects/XP0.webp")}
-              metrics={[
-                { value: "40%", label: "Mobile Traffic" },
-                { value: "15%", label: "More Leads" },
-                { value: "2×", label: "Demo Requests" },
-              ]}
-              tags={[
-                "Branding",
-                "Strategy",
-                "End-to-end UX/UI Process",
-                "Figma",
-                "Front-End",
-                "PWA",
-                "WordPress",
-                "Elementor",
-              ]}
-              link={createPageUrl("XpuntoCero")}
-              delay={0.2}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* How I Work Section (updated layout with portrait) */}
-      <section id="about" className="py-24 px-6 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-text-brand)]/5 to-transparent"></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <SectionHeader
-            title="How I Work"
-            subtitle="Merging strategy, design, and technology through empathy and clarity"
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Portrait */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="lg:col-span-5 flex justify-center"
-            >
-              <div className="overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-2xl max-w-sm">
-                <Image
-                  src={getImagePath("images/profile/gb.ven_2.webp")}
-                  alt="Giacomo Bianchi portrait"
-                  width={480}
-                  height={640}
-                  className="object-cover w-full h-auto grayscale"
-                />
-              </div>
-            </motion.div>
-
-            {/* Cards + Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="lg:col-span-7 space-y-8"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <GlassCard hover={false}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <DraftingCompass size={24} className="text-[var(--color-text-brand)]" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
-                        Product Design
-                      </h3>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        Research → Strategy → Design → Testing → Delivery.
-                      </p>
-                      <p className="text-sm text-[var(--color-text-tertiary)]">
-                        I run heuristic evaluations, user interviews, and
-                        usability tests to validate decisions before engineering
-                        builds.
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
-
-                <GlassCard hover={false} delay={0.1}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <SquareDashedKanban
-                        size={24}
-                        className="text-[var(--color-text-brand)]"
+        <ol className="mt-12 flex flex-col">
+          {projects.map((p, i) => {
+            const flip = i % 2 === 1;
+            return (
+              <li key={p.title}>
+                <article className="m-rule-t grid grid-cols-1 gap-6 py-10 md:grid-cols-12 md:gap-10 md:py-12">
+                  <Link
+                    href={p.link}
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    className={`block md:col-span-7 ${flip ? "md:order-2" : ""}`}
+                  >
+                    <div className="relative aspect-[16/10] w-full overflow-hidden border border-[var(--m-rule)] bg-[var(--m-paper-2)]">
+                      <Image
+                        src={getImagePath(p.image)}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 640px"
+                        loading="lazy"
+                        className="object-cover"
                       />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
-                        Product Strategy
-                      </h3>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        Roadmaps, Prioritization, Stakeholder Alignment.
-                      </p>
-                      <p className="text-sm text-[var(--color-text-tertiary)]">
-                        I co-own product roadmaps and prioritize features based
-                        on user research, business goals, and technical
-                        constraints. I have driven strategic decisions across design systems, mobile apps, and B2B platforms.
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
+                  </Link>
 
-                <GlassCard hover={false}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <Code size={24} className="text-[var(--color-text-brand)]" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
-                        Front-End Development
-                      </h3>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        React, Flutter, Dart, HTML5, CSS3, JavaScript,
-                        TypeScript, Tailwind.
-                      </p>
-                      <p className="text-sm text-[var(--color-text-tertiary)]">
-                        I code functional prototypes to bridge design and
-                        engineering. This shared language helps me validate
-                        feasibility early and align teams on technical approach.
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
+                  <div className={`flex flex-col md:col-span-5 ${flip ? "md:order-1" : ""}`}>
+                    <p className="m-label">{p.role}</p>
+                    <h3 className="m-title mt-3 text-[1.75rem] md:text-[2rem]">
+                      <Link href={p.link} className="hover:text-[var(--m-terracotta-deep)]">
+                        {p.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-1 text-sm text-[var(--m-ink-2)]">{p.company}</p>
+                    <p className="mt-4 text-[0.9375rem] leading-relaxed">{p.description}</p>
 
-                <GlassCard hover={false} delay={0.1}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <Sparkles size={24} className="text-[var(--color-text-brand)]" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">AI-Native Builder
-                      </h3>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        Cursor, Claude Code, Claude API, n8n, Vercel, Ollama, GitHub Copilot, Vertex AI, ChatGPT, Midjourney.
-                      </p>
-                      <p className="text-sm text-[var(--color-text-tertiary)]">
-                        ML/AI certified (180h: Python, TensorFlow, Deep Learning). I build with Cursor, Claude Code, and local LLMs, shipping functional prototypes and AI-powered workflows, not just designing around them. 
-                        Genuine technical fluency at the intersection of design craft and AI.
-                      </p>
-                    </div>
+                    <dl className="mt-6 grid grid-cols-3">
+                      {p.metrics.map((m, j) => (
+                        <div
+                          key={m.label}
+                          className={`m-rule-t flex flex-col-reverse pt-3 ${j > 0 ? "m-rule-l pl-4" : ""}`}
+                        >
+                          <dt className="mt-1 text-xs text-[var(--m-ink-2)]">{m.label}</dt>
+                          <dd className="m-title m-num text-xl md:text-2xl">{m.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+
+                    <ul
+                      aria-label="Skills and tools"
+                      className="m-inline-list mt-5 text-xs text-[var(--m-ink-2)]"
+                    >
+                      {p.tags.map((t) => (
+                        <li key={t}>{t}</li>
+                      ))}
+                    </ul>
+
+                    <Link
+                      href={p.link}
+                      className="m-link mt-6 inline-flex items-center gap-1 self-start text-sm font-bold"
+                    >
+                      View case study
+                      <ArrowUpRight size={16} aria-hidden="true" />
+                    </Link>
                   </div>
-                </GlassCard>
-              </div>
-              <GlassCard hover={false} delay={0.1}>
-                <p className="text-lg text-[var(--color-text-primary)] leading-relaxed ">
-                  My technical background allows me to bridge design and
-                  engineering - prototyping rapidly and participating in
-                  architecture discussions. I use AI tools to validate ideas in
-                  hours instead of weeks, building working prototypes that teams
-                  can react to instead of debating abstract specs.
-                </p>
-              </GlassCard>
-            </motion.div>
+                </article>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+
+      {/* How I Work Section */}
+      <section id="about" aria-labelledby="about-title" className="py-16 md:py-24">
+        <SectionHead
+          id="about-title"
+          title="How I Work"
+          subtitle="Merging strategy, design, and technology through empathy and clarity"
+        />
+
+        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-4">
+            <Image
+              src={getImagePath("images/profile/gb.ven_2.webp")}
+              alt="Giacomo Bianchi portrait"
+              width={480}
+              height={640}
+              loading="lazy"
+              className="h-auto w-full max-w-sm border border-[var(--m-rule)] object-cover"
+            />
+          </div>
+
+          <div className="lg:col-span-8">
+            <ul className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
+              {howIWork.map((w) => {
+                const Icon = w.icon;
+                return (
+                  <li key={w.title} className="m-rule-t pt-5">
+                    <h3 className="m-title flex items-center gap-3 text-xl">
+                      <Icon size={20} aria-hidden="true" className="text-[var(--m-ink-2)]" />
+                      {w.title}
+                    </h3>
+                    <p className="mt-3 text-sm font-bold leading-relaxed">{w.lead}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--m-ink-2)]">
+                      {w.text}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <p className="m-rule-t mt-10 pt-6 text-lg leading-relaxed md:text-xl">
+              My technical background allows me to bridge design and engineering
+              - prototyping rapidly and participating in architecture
+              discussions. I use AI tools to validate ideas in hours instead of
+              weeks, building working prototypes that teams can react to instead
+              of debating abstract specs.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Social Proof Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <SectionHeader title="What Colleagues Say" />
-          <TestimonialCarousel testimonials={testimonials} />
+      <section aria-labelledby="say-title" className="py-16 md:py-24">
+        <SectionHead id="say-title" title="What Colleagues Say" />
+        <div className="mt-12">
+          <HomeTestimonials testimonials={testimonials} />
         </div>
       </section>
 
       {/* Dual Path CTA Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden">
-            {/* Product & Design Leadership */}
-            <div className="glass p-12 relative group hover:bg-[rgba(0,102,255,0.1)] transition-all duration-300 border-r border-[rgba(255,255,255,0.08)]">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--color-text-brand)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <section aria-label="Two paths" className="-mx-5 pb-0 md:-mx-8">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {/* Product & Design Leadership */}
+          <div className="flex flex-col items-start bg-[var(--m-terracotta-deep)] px-5 py-12 text-[var(--m-paper)] md:px-10 md:py-16">
+            <Briefcase size={28} aria-hidden="true" />
+            <h3 className="m-title mt-6 text-[1.75rem] md:text-[2rem]">
+              Product &amp; Design Leadership
+            </h3>
+            <p className="mt-4 max-w-[40ch] leading-relaxed">
+              Explore my work leading cross-functional teams, building design
+              systems, and driving measurable business impact.
+            </p>
+            <Link href={createPageUrl("ProductWork")} className="m-btn m-btn-paper mt-8">
+              Explore Product Work
+            </Link>
+          </div>
 
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6 glow-blue">
-                  <Briefcase size={32} className="text-[var(--color-text-brand)]" />
-                </div>
-                <h3 className="text-3xl font-bold text-[var(--color-text-inverse)] mb-4">
-                  Product & Design Leadership
-                </h3>
-                <p className="text-[var(--color-text-primary)] mb-8 leading-relaxed">
-                  Explore my work leading cross-functional teams, building
-                  design systems, and driving measurable business impact.
-                </p>
-                <Link
-                  href={createPageUrl("ProductWork")}
-                  className="inline-block px-8 py-4 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105"
-                >
-                  Explore Product Work
-                </Link>
-              </div>
-            </div>
-
-            {/* Teaching & Research */}
-            <div className="glass p-12 relative group hover:bg-[rgba(0,212,255,0.1)] transition-all duration-300">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--color-text-teaching)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div
-                  className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6"
-                  style={{ boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)" }}
-                >
-                  <GraduationCap size={32} className="text-[var(--color-text-teaching)]" />
-                </div>
-                <h3 className="text-3xl font-bold text-[var(--color-text-inverse)] mb-4">
-                  Teaching & Research
-                </h3>
-                <p className="text-[var(--color-text-primary)] mb-8 leading-relaxed">
-                  Discover my experience teaching 1000+ students and bridging
-                  academic research with industry practice.
-                </p>
-                <Link
-                  href={createPageUrl("Teaching")}
-                  className="inline-block px-8 py-4 glass rounded-xl text-[var(--button-primary-text)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--color-text-teaching)] transition-all duration-200 hover:scale-105"
-                  style={{ boxShadow: "0 0 20px rgba(16, 185, 129, 0.2)" }}
-                >
-                  View Teaching Portfolio{" "}
-                </Link>
-              </div>
-            </div>
+          {/* Teaching & Research */}
+          <div className="flex flex-col items-start bg-[var(--m-green)] px-5 py-12 text-[var(--m-paper)] md:px-10 md:py-16">
+            <GraduationCap size={28} aria-hidden="true" />
+            <h3 className="m-title mt-6 text-[1.75rem] md:text-[2rem]">
+              Teaching &amp; Research
+            </h3>
+            <p className="mt-4 max-w-[40ch] leading-relaxed">
+              Discover my experience teaching 1000+ students and bridging
+              academic research with industry practice.
+            </p>
+            <Link href={createPageUrl("Teaching")} className="m-btn m-btn-paper mt-8">
+              View Teaching Portfolio
+            </Link>
           </div>
         </div>
       </section>

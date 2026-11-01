@@ -256,3 +256,240 @@
     animation: fade-in 0.6s ease-out forwards;
   }
 }
+
+/* ============================================
+   MANIFESTO THEME (home redesign, phase 1)
+   Scoped to [data-theme="manifesto"]; the other pages keep the tokens above.
+   Contrast measured on cream #F5EEDF: ink 14.2:1, ink-2 7.7:1,
+   cream on terracotta-deep 5.4:1, cream on green 6.1:1.
+   ============================================ */
+[data-theme="manifesto"] {
+  --m-paper: #f5eedf;
+  --m-paper-2: #ede3cf;
+  --m-ink: #2a1d15;
+  --m-ink-2: #5a463a;
+  --m-rule: rgba(42, 29, 21, 0.16);
+  --m-rule-strong: rgba(42, 29, 21, 0.45);
+  --m-sand: #e3cfa6;
+  --m-ochre: #e9c77a;
+  --m-terracotta: #c2552a;
+  --m-terracotta-deep: #a63f1a;
+  --m-green: #45603d;
+  --m-blue-dust: #9db1bf;
+
+  color: var(--m-ink);
+  background: var(--m-paper);
+  color-scheme: light;
+  font-family: var(--font-archivo), "Archivo", system-ui, -apple-system, sans-serif;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  accent-color: var(--m-terracotta-deep);
+  -webkit-tap-highlight-color: rgba(166, 63, 26, 0.2);
+}
+
+body:has([data-theme="manifesto"]) {
+  background: #f5eedf;
+  color: #2a1d15;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:has([data-theme="manifesto"]) {
+    scroll-behavior: smooth;
+  }
+}
+
+[data-theme="manifesto"] ::selection {
+  background: var(--m-ochre);
+  color: var(--m-ink);
+}
+
+[data-theme="manifesto"] :focus-visible {
+  outline: 2px solid var(--m-ink);
+  outline-offset: 3px;
+}
+
+[data-theme="manifesto"] a,
+[data-theme="manifesto"] button {
+  touch-action: manipulation;
+}
+
+[data-theme="manifesto"] [id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Display type: Archivo semi-expanded, heavy, tight */
+.m-display {
+  font-weight: 700;
+  font-stretch: 112%;
+  letter-spacing: -0.025em;
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.m-title {
+  font-weight: 700;
+  font-stretch: 106%;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.m-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--m-ink-2);
+}
+
+.m-label-mark::before {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.6em;
+  background: var(--m-terracotta);
+  vertical-align: 0.05em;
+}
+
+.m-label-mark-green::before {
+  background: var(--m-green);
+}
+
+.m-rule-t {
+  border-top: 1px solid var(--m-rule);
+}
+
+.m-rule-b {
+  border-bottom: 1px solid var(--m-rule);
+}
+
+.m-rule-l {
+  border-left: 1px solid var(--m-rule);
+}
+
+.m-num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Buttons */
+.m-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  border: 1px solid var(--m-ink);
+  transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out;
+}
+
+.m-btn-solid {
+  background: var(--m-ink);
+  color: var(--m-paper);
+}
+
+.m-btn-solid:hover {
+  background: var(--m-terracotta-deep);
+  border-color: var(--m-terracotta-deep);
+}
+
+.m-btn-ghost {
+  background: transparent;
+  color: var(--m-ink);
+}
+
+.m-btn-ghost:hover {
+  background: var(--m-ink);
+  color: var(--m-paper);
+}
+
+.m-btn-paper {
+  background: var(--m-paper);
+  color: var(--m-ink);
+  border-color: var(--m-paper);
+}
+
+.m-btn-paper:hover {
+  background: var(--m-ink);
+  color: var(--m-paper);
+  border-color: var(--m-ink);
+}
+
+/* Text links */
+.m-link {
+  color: var(--m-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--m-rule-strong);
+  transition: text-decoration-color 150ms ease-out, color 150ms ease-out;
+}
+
+.m-link:hover {
+  color: var(--m-terracotta-deep);
+  text-decoration-color: currentColor;
+}
+
+.m-nav-link {
+  color: var(--m-ink);
+  font-weight: 400;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 150ms ease-out, color 150ms ease-out;
+}
+
+.m-nav-link:hover,
+.m-nav-link[aria-current="page"] {
+  border-bottom-color: var(--m-ink);
+}
+
+/* Ochre highlighter: field with dark text on top, never ochre as text */
+.m-hl {
+  background: var(--m-ochre);
+  color: var(--m-ink);
+  padding: 0 0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Inline metadata list "a · b · c" */
+.m-inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0;
+}
+
+.m-inline-list li + li::before {
+  content: "·";
+  margin: 0 0.5em;
+  color: var(--m-rule-strong);
+}
+
+/* Skip link */
+.m-skip {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--m-ink);
+  color: var(--m-paper);
+  font-weight: 700;
+}
+
+.m-skip:focus {
+  top: 1rem;
+}
+
+/* Home only: the cookie banner (frozen component) reads --color-text-tertiary
+   for its "Decline" button; on the home that token is raised so the button
+   passes 4.5:1. No change to the component or its logic. */
+body:has([data-theme="manifesto"]) {
+  --color-text-tertiary: #cbd5e1;
+}

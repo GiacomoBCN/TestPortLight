@@ -51,6 +51,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     // { name: "E-Commerce Management", path: "EcommerceManagement" },
   ];
 
+  // The home page ships its own shell (redesign, phase 1): see app/page.tsx.
+  if (pathname === "/") return <>{children}</>;
+
   return (
     <div className="min-h-screen bg-[#050810] text-white">
       <style>{`

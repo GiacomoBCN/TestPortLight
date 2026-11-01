@@ -51,3 +51,5 @@ next-env.d.ts
 sw-precache-config.js
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
+# Impeccable review captures (regenerated each run)
+.impeccable/review/
