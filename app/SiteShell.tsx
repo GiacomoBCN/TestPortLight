@@ -57,14 +57,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-white text-ink-900">
       <SideBands inner={!isHome} />
-      {/* Filtro "mano incerta" per le cornici .sketch (non per le fasce) */}
-      <svg width="0" height="0" style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }} aria-hidden="true" focusable="false">
-        <filter id="sketch-hand" x="-5%" y="-5%" width="110%" height="110%" colorInterpolationFilters="sRGB">
-          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" result="wobble" />
-          <feGaussianBlur in="wobble" stdDeviation="0.4" />
-        </filter>
-      </svg>
       <style>{`
         :root { --bg-base:#F7F3EE; --bg-dark:#ffffff; }
         * { scroll-behavior: smooth; }
