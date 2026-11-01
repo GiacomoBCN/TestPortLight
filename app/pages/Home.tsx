@@ -79,7 +79,7 @@ export default function Home() {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(26, 122, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 122, 255, 0.1) 1px, transparent 1px)",
+                "linear-gradient(rgba(242, 140, 40, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 140, 40, 0.1) 1px, transparent 1px)",
               backgroundSize: "50px 50px",
             }}
           />
@@ -144,7 +144,7 @@ export default function Home() {
             </a>
             <Link
               href={createPageUrl("Teaching")}
-              className="px-8 py-4 glass rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-default)] hover:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105"
+              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-default)] hover:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105"
             >
               View Teaching Portfolio
             </Link>
@@ -162,7 +162,7 @@ export default function Home() {
             }}
             className="flex justify-center cursor-pointer"
           >
-            <ChevronDown size={32} className="text-[var(--color-text-brand)] glow-blue" />
+            <ChevronDown size={32} className="text-[var(--color-icon-accent)] glow-blue" />
           </motion.a>
         </motion.div>
       </section>
@@ -379,7 +379,7 @@ export default function Home() {
 
       {/* How I Work Section (updated layout with portrait) */}
       <section id="about" className="py-24 px-6 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-text-brand)]/5 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-surface-interactive-default)]/5 to-transparent"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionHeader
@@ -396,7 +396,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="lg:col-span-5 flex justify-center"
             >
-              <div className="overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-2xl max-w-sm">
+              <div className="overflow-hidden rounded-2xl ring-1 ring-ink-900/10 shadow-2xl max-w-sm">
                 <Image
                   src={getImagePath("images/profile/gb.ven_2.webp")}
                   alt="Giacomo Bianchi portrait"
@@ -419,7 +419,7 @@ export default function Home() {
                 <GlassCard hover={false}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <DraftingCompass size={24} className="text-[var(--color-text-brand)]" />
+                      <DraftingCompass size={24} className="text-[var(--color-icon-accent)]" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
@@ -442,7 +442,7 @@ export default function Home() {
                     <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
                       <SquareDashedKanban
                         size={24}
-                        className="text-[var(--color-text-brand)]"
+                        className="text-[var(--color-icon-accent)]"
                       />
                     </div>
                     <div>
@@ -464,7 +464,7 @@ export default function Home() {
                 <GlassCard hover={false}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <Code size={24} className="text-[var(--color-text-brand)]" />
+                      <Code size={24} className="text-[var(--color-icon-accent)]" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
@@ -486,7 +486,7 @@ export default function Home() {
                 <GlassCard hover={false} delay={0.1}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <Sparkles size={24} className="text-[var(--color-text-brand)]" />
+                      <Sparkles size={24} className="text-[var(--color-icon-accent)]" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">AI-Native Builder
@@ -529,12 +529,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden">
             {/* Product & Design Leadership */}
-            <div className="glass p-12 relative group hover:bg-[rgba(0,102,255,0.1)] transition-all duration-300 border-r border-[rgba(255,255,255,0.08)]">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--color-text-brand)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="glass p-12 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300 border-r border-[rgba(28,25,23,0.10)]">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--color-surface-interactive-default)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6 glow-blue">
-                  <Briefcase size={32} className="text-[var(--color-text-brand)]" />
+                  <Briefcase size={32} className="text-[var(--color-icon-accent)]" />
                 </div>
                 <h3 className="text-3xl font-bold text-[var(--color-text-inverse)] mb-4">
                   Product & Design Leadership
@@ -553,13 +553,13 @@ export default function Home() {
             </div>
 
             {/* Teaching & Research */}
-            <div className="glass p-12 relative group hover:bg-[rgba(0,212,255,0.1)] transition-all duration-300">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--color-text-teaching)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="glass p-12 relative group hover:bg-[rgba(63,122,82,0.1)] transition-all duration-300">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--teaching-accent-border)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div
                   className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6"
-                  style={{ boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)" }}
+                  style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
                 >
                   <GraduationCap size={32} className="text-[var(--color-text-teaching)]" />
                 </div>
@@ -572,8 +572,8 @@ export default function Home() {
                 </p>
                 <Link
                   href={createPageUrl("Teaching")}
-                  className="inline-block px-8 py-4 glass rounded-xl text-[var(--button-primary-text)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--color-text-teaching)] transition-all duration-200 hover:scale-105"
-                  style={{ boxShadow: "0 0 20px rgba(16, 185, 129, 0.2)" }}
+                  className="inline-block px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--button-primary-text)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--color-text-teaching)] transition-all duration-200 hover:scale-105"
+                  style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.2)" }}
                 >
                   View Teaching Portfolio{" "}
                 </Link>

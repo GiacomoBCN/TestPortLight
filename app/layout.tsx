@@ -8,7 +8,7 @@ import { Suspense } from "react";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export const viewport: Viewport = {
-  themeColor: "#050810",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,

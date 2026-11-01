@@ -106,7 +106,7 @@ export default function CaseStudyTemplate({
       <div className="fixed top-24 left-6 z-40">
         <Link
         href={createPageUrl("Home")}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-white hover:border-blue transition-all"
+          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
           <span className="hidden md:inline">Back to Portfolio</span>
@@ -145,7 +145,7 @@ export default function CaseStudyTemplate({
       {/* Leadership Profile */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-3xl font-bold text-ink-900 mb-8 text-center">
             Project Leadership
           </h2>
           <LeadershipProfile
@@ -171,14 +171,14 @@ export default function CaseStudyTemplate({
       <CaseStudySection number="02" title="The Challenge">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <GlassCard>
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-ink-900 mb-4 flex items-center gap-2">
               <span className="text-2xl">👥</span>
               User Problems
             </h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.userProblems.map((problem, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-blue mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   {problem}
                 </li>
               ))}
@@ -186,14 +186,14 @@ export default function CaseStudyTemplate({
           </GlassCard>
 
           <GlassCard delay={0.1}>
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-ink-900 mb-4 flex items-center gap-2">
               <span className="text-2xl">💼</span>
               Business Constraints
             </h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.businessConstraints.map((constraint, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-blue mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   {constraint}
                 </li>
               ))}
@@ -201,14 +201,14 @@ export default function CaseStudyTemplate({
           </GlassCard>
 
           <GlassCard delay={0.2}>
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-ink-900 mb-4 flex items-center gap-2">
               <span className="text-2xl">⚙️</span>
               Technical Complexity
             </h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.technicalComplexity.map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-blue mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   {item}
                 </li>
               ))}
@@ -246,24 +246,24 @@ export default function CaseStudyTemplate({
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-[rgba(255,255,255,0.08)]">
-                  <th className="text-left py-4 px-4 text-white font-semibold">Decision Point</th>
-                  <th className="text-left py-4 px-4 text-white font-semibold">Options Considered</th>
-                  <th className="text-left py-4 px-4 text-white font-semibold">Why We Chose</th>
-                  <th className="text-left py-4 px-4 text-white font-semibold">Impact</th>
+                <tr className="border-b border-[rgba(28,25,23,0.10)]">
+                  <th className="text-left py-4 px-4 text-ink-900 font-semibold">Decision Point</th>
+                  <th className="text-left py-4 px-4 text-ink-900 font-semibold">Options Considered</th>
+                  <th className="text-left py-4 px-4 text-ink-900 font-semibold">Why We Chose</th>
+                  <th className="text-left py-4 px-4 text-ink-900 font-semibold">Impact</th>
                 </tr>
               </thead>
               <tbody className="text-sm">
                 {keyDecisions.map((decision, index) => (
-                  <tr key={index} className="border-b border-[rgba(255,255,255,0.05)]">
-                    <td className="py-4 px-4 text-white font-medium">{decision.point}</td>
+                  <tr key={index} className="border-b border-[rgba(74,59,50,0.05)]">
+                    <td className="py-4 px-4 text-ink-900 font-medium">{decision.point}</td>
                     <td className="py-4 px-4 text-slate-300">
                       {decision.options.map((option, i) => (
                         <div key={i}>{i + 1}. {option}</div>
                       ))}
                     </td>
                     <td className="py-4 px-4 text-slate-300">{decision.rationale}</td>
-                    <td className="py-4 px-4 text-blue font-semibold">{decision.impact}</td>
+                    <td className="py-4 px-4 text-accent font-semibold">{decision.impact}</td>
                   </tr>
                 ))}
               </tbody>
@@ -278,10 +278,10 @@ export default function CaseStudyTemplate({
 
         <div className="mt-12">
           <GlassCard>
-            <h3 className="text-2xl font-bold text-white mb-6">Before → After</h3>
+            <h3 className="text-2xl font-bold text-ink-900 mb-6">Before → After</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                <h4 className="text-lg font-semibold text-ink-900 mb-3 flex items-center gap-2">
                   <span className="text-red-400">❌</span> Before
                 </h4>
                 <ul className="space-y-2 text-slate-300 text-sm">
@@ -291,7 +291,7 @@ export default function CaseStudyTemplate({
                 </ul>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                <h4 className="text-lg font-semibold text-ink-900 mb-3 flex items-center gap-2">
                   <span className="text-green-400">✅</span> After
                 </h4>
                 <ul className="space-y-2 text-slate-300 text-sm">
@@ -311,7 +311,7 @@ export default function CaseStudyTemplate({
           <div className="space-y-6">
             {learnings.map((learning, index) => (
               <div key={index}>
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-xl font-bold text-ink-900 mb-3">
                   {learning.title}
                 </h3>
                 <p className="text-slate-300 leading-relaxed">
@@ -326,7 +326,7 @@ export default function CaseStudyTemplate({
       {/* Tech Stack */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">Tech Stack</h2>
+          <h2 className="text-3xl font-bold text-ink-900 mb-8 text-center">Tech Stack</h2>
           <GlassCard>
             <div className="flex flex-wrap justify-center gap-3">
               {techStack.map((tech, index) => (
@@ -347,7 +347,7 @@ export default function CaseStudyTemplate({
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-ink-900 mb-4">
                 Want to see more work?
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
@@ -363,7 +363,7 @@ export default function CaseStudyTemplate({
                 </Link>
                 <a
                   href="mailto:consulting@giacomobianchi.tech"
-                  className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all"
+                  className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
                 >
                   Let's Talk
                 </a>

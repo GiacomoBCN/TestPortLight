@@ -97,7 +97,7 @@ export default function ProjectGallery({
     <>
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-3xl font-bold text-ink-900 mb-8 text-center">
             {title}
           </h2>
           <div className="relative group px-12">
@@ -125,7 +125,7 @@ export default function ProjectGallery({
               {images.map((image, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-80 h-48 bg-white backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group"
+                  className="flex-shrink-0 w-80 h-48 bg-white backdrop-blur-xl border border-ink-900/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group"
                   onClick={() => setSelectedIndex(index)}
                 >
                   <Image
@@ -136,7 +136,7 @@ export default function ProjectGallery({
                     className="object-contain"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="text-white text-sm font-medium">Click to enlarge</span>
+                    <span className="text-ink-900 text-sm font-medium">Click to enlarge</span>
                   </div>
                 </div>
               ))}
@@ -166,7 +166,7 @@ export default function ProjectGallery({
         >
           <button
             onClick={() => setSelectedIndex(null)}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+            className="absolute top-4 right-4 text-white hover:text-sand-200 transition-colors z-10"
           >
             <X size={32} />
           </button>
@@ -179,7 +179,7 @@ export default function ProjectGallery({
                   e.stopPropagation();
                   prevImage();
                 }}
-                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={32} />
@@ -190,7 +190,7 @@ export default function ProjectGallery({
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Next image"
               >
                 <ChevronRight size={32} />

@@ -80,7 +80,7 @@ export default function Teaching() {
       {/* Hero Section */}
       <section className="min-h-[70vh] flex items-center justify-center relative px-6 pt-20">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] bg-[#10b981] rounded-full opacity-10 blur-3xl"></div>
+          <div className="w-[600px] h-[600px] bg-[#B5DDC0] rounded-full opacity-10 blur-3xl"></div>
         </div>
 
         <motion.div
@@ -95,7 +95,7 @@ export default function Teaching() {
             transition={{ delay: 0.2 }}
             className="mb-6"
           >
-            <span className="inline-block px-6 py-3 glass rounded-full text-[#10b981] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
+            <span className="inline-block px-6 py-3 glass rounded-full text-[#3F7A52] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
               Academic Leadership
             </span>
           </motion.div>
@@ -104,7 +104,7 @@ export default function Teaching() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className="text-5xl md:text-6xl font-bold text-ink-900 mb-6"
           >
             Teaching & Research
           </motion.h1>
@@ -128,19 +128,19 @@ export default function Teaching() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left: Teaching Stats */}
             <GlassCard>
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-2xl font-bold text-ink-900 mb-6">
                 Teaching Experience
               </h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
+                    style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
                   >
-                    <GraduationCap size={24} className="text-[#10b981]" />
+                    <GraduationCap size={24} className="text-[#3F7A52]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#10b981]">
+                    <div className="text-3xl font-bold text-[#3F7A52]">
                       7 years
                     </div>
                     <div className="text-sm text-slate-400">
@@ -152,12 +152,12 @@ export default function Teaching() {
                 <div className="flex items-start gap-4">
                   <div
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
+                    style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
                   >
-                    <Users size={24} className="text-[#10b981]" />
+                    <Users size={24} className="text-[#3F7A52]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#10b981]">
+                    <div className="text-3xl font-bold text-[#3F7A52]">
                       1000+
                     </div>
                     <div className="text-sm text-slate-400">
@@ -169,12 +169,12 @@ export default function Teaching() {
                 <div className="flex items-start gap-4">
                   <div
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
+                    style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
                   >
-                    <BookOpen size={24} className="text-[#10b981]" />
+                    <BookOpen size={24} className="text-[#3F7A52]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#10b981]">2</div>
+                    <div className="text-3xl font-bold text-[#3F7A52]">2</div>
                     <div className="text-sm text-slate-400">
                       Master's courses across official programs
                     </div>
@@ -184,12 +184,12 @@ export default function Teaching() {
                 <div className="flex items-start gap-4">
                   <div
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
+                    style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
                   >
-                    <TrendingUp size={24} className="text-[#10b981]" />
+                    <TrendingUp size={24} className="text-[#3F7A52]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#10b981]">
+                    <div className="text-3xl font-bold text-[#3F7A52]">
                       19 teams
                     </div>
                     <div className="text-sm text-slate-400">
@@ -202,12 +202,12 @@ export default function Teaching() {
 
             {/* Right: Quick Facts */}
             <GlassCard delay={0.1}>
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-2xl font-bold text-ink-900 mb-6">
                 Teaching Approach
               </h3>
               <div className="space-y-4">
-                <div className="pb-4 border-b border-[rgba(255,255,255,0.08)]">
-                  <h4 className="font-semibold text-white mb-2">
+                <div className="pb-4 border-b border-[rgba(28,25,23,0.10)]">
+                  <h4 className="font-semibold text-ink-900 mb-2">
                     Experiential Learning
                   </h4>
                   <p className="text-slate-300 text-sm leading-relaxed">
@@ -218,8 +218,8 @@ export default function Teaching() {
                   </p>
                 </div>
 
-                <div className="pb-4 border-b border-[rgba(255,255,255,0.08)]">
-                  <h4 className="font-semibold text-white mb-2">
+                <div className="pb-4 border-b border-[rgba(28,25,23,0.10)]">
+                  <h4 className="font-semibold text-ink-900 mb-2">
                     Collaborative Learning Environments
                   </h4>
                   <p className="text-slate-300 text-sm leading-relaxed">
@@ -232,8 +232,8 @@ export default function Teaching() {
                   </p>
                 </div>
 
-                <div className="pb-4 border-b border-[rgba(255,255,255,0.08)]">
-                  <h4 className="font-semibold text-white mb-2">
+                <div className="pb-4 border-b border-[rgba(28,25,23,0.10)]">
+                  <h4 className="font-semibold text-ink-900 mb-2">
                     Skill Development through Practice
                   </h4>
                   <p className="text-slate-300 text-sm leading-relaxed">
@@ -246,7 +246,7 @@ export default function Teaching() {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-white mb-2">
+                  <h4 className="font-semibold text-ink-900 mb-2">
                     Mentorship & Reflection
                   </h4>
                   <p className="text-slate-300 text-sm leading-relaxed">
@@ -284,25 +284,25 @@ export default function Teaching() {
                         height={300}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e27] via-transparent to-transparent opacity-60"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#F7F3EE] via-transparent to-transparent opacity-60"></div>
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className="text-2xl font-bold text-ink-900 mb-2">
                     {course.name}
                   </h3>
-                  <p className="text-sm text-[#10b981]">{course.program}</p>
+                  <p className="text-sm text-[#3F7A52]">{course.program}</p>
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">
+                  <h4 className="text-sm font-semibold text-ink-900 mb-3 uppercase tracking-wider">
                     Key Topics
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {course.topics.map((topic, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-xs glass rounded-full border border-[rgba(255,255,255,0.1)] text-slate-300"
+                        className="px-3 py-1 text-xs glass rounded-full border border-[rgba(28,25,23,0.12)] text-slate-300"
                       >
                         {topic}
                       </span>
@@ -311,7 +311,7 @@ export default function Teaching() {
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">
+                  <h4 className="text-sm font-semibold text-ink-900 mb-3 uppercase tracking-wider">
                     Learning Outcomes
                   </h4>
                   <ul className="space-y-2">
@@ -321,9 +321,9 @@ export default function Teaching() {
                         className="flex items-start gap-2 text-slate-300 text-sm"
                       >
                         <span
-                          className="w-1.5 h-1.5 rounded-full bg-[#10b981] mt-1.5 flex-shrink-0"
+                          className="w-1.5 h-1.5 rounded-full bg-[#B5DDC0] mt-1.5 flex-shrink-0"
                           style={{
-                            boxShadow: "0 0 8px rgba(0, 212, 255, 0.5)",
+                            boxShadow: "0 0 8px rgba(63, 122, 82, 0.5)",
                           }}
                         ></span>
                         {outcome}
@@ -333,14 +333,14 @@ export default function Teaching() {
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">
+                  <h4 className="text-sm font-semibold text-ink-900 mb-3 uppercase tracking-wider">
                     Tools & Technologies
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {course.tools.map((tool, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-xs glass rounded-full border border-[#10b981] text-[#10b981]"
+                        className="px-3 py-1 text-xs glass rounded-full border border-[#B5DDC0] text-[#3F7A52]"
                       >
                         {tool}
                       </span>
@@ -398,13 +398,13 @@ export default function Teaching() {
             <div className="flex items-start gap-6">
               <div
                 className="w-16 h-16 glass rounded-full flex items-center justify-center flex-shrink-0 hidden md:flex"
-                style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
+                style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
               >
-                <Award size={32} className="text-[#10b981]" />
+                <Award size={32} className="text-[#3F7A52]" />
               </div>
 
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="text-2xl font-bold text-ink-900 mb-2">
                   PhD in Human Capital Formation and Labour Relations
                 </h3>
                 <p className="text-slate-300 mb-4">
@@ -414,7 +414,7 @@ export default function Teaching() {
 
                 <div className="space-y-4 mt-6">
                   <div>
-                    <h4 className="font-semibold text-white mb-2">
+                    <h4 className="font-semibold text-ink-900 mb-2">
                       Research Focus
                     </h4>
                     <p className="text-slate-300 text-sm leading-relaxed">
@@ -438,7 +438,7 @@ export default function Teaching() {
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-white mb-2">
+                    <h4 className="font-semibold text-ink-900 mb-2">
                       Applied to Practice and Teaching
                     </h4>
                     <p className="text-slate-300 text-sm leading-relaxed">

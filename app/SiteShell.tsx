@@ -52,20 +52,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050810] text-white">
+    <div className="min-h-screen bg-white text-ink-900">
       <style>{`
-        :root { --bg-base:#0a0e27; --bg-dark:#050810; }
+        :root { --bg-base:#F7F3EE; --bg-dark:#ffffff; }
         * { scroll-behavior: smooth; }
         body {
           font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
           background: linear-gradient(135deg, var(--bg-base) 0%, var(--bg-dark) 100%);
           background-attachment: fixed;
         }
-        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px) saturate(180%); border:1px solid rgba(255,255,255,0.08); }
-        .glow-blue { box-shadow: 0 0 20px rgba(26,122,255,0.3); }
-        .mobile-menu-overlay { background: rgba(5,8,16,0.95); backdrop-filter: blur(20px) saturate(180%); }
-        a:focus-visible, button:focus-visible { outline:2px solid #1a7aff; outline-offset:2px; border-radius:4px; }
-        .skip-link { position:absolute; top:-40px; left:0; background:#086efd; color:#fff; padding:8px 16px; z-index:100; }
+        .glass { background: rgba(74,59,50,0.05); backdrop-filter: blur(20px) saturate(180%); border:1px solid rgba(28,25,23,0.10); }
+        .glow-blue { box-shadow: 0 0 20px rgba(242,140,40,0.3); }
+        .mobile-menu-overlay { background: rgba(255,255,255,0.96); backdrop-filter: blur(20px) saturate(180%); }
+        a:focus-visible, button:focus-visible { outline:2px solid #C73E13; outline-offset:2px; border-radius:4px; }
+        .skip-link { position:absolute; top:-40px; left:0; background:#1C1917; color:#fff; padding:8px 16px; z-index:100; }
         .skip-link:focus { top:0; }
       `}</style>
 
@@ -89,7 +89,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           >
             <div className="w-10 h-10 glass rounded-full flex items-center justify-center glow-blue">
               <span
-                className="text-blue font-bold text-lg"
+                className="text-accent font-bold text-lg"
                 aria-hidden="true"
               >
                 GB
@@ -109,7 +109,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             >
               <Link
                 href={createPageUrl("ProductWork")}
-                className="flex items-center text-slate-300 hover:text-white"
+                className="flex items-center text-slate-300 hover:text-ink-900"
               >
                 Product Work{" "}
                 <ChevronDown className="w-4 h-4 ml-1" aria-hidden="true" />
@@ -121,26 +121,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     : "opacity-0 invisible"
                 }`}
                 style={{
-                  background: "rgba(10, 14, 39, 0.95)",
+                  background: "rgba(255, 255, 255, 0.97)",
                   backdropFilter: "blur(20px) saturate(180%)",
-                  border: "1px solid rgba(255, 255, 255, 0.15)",
+                  border: "1px solid rgba(28, 25, 23, 0.15)",
                 }}
                 role="menu"
                 aria-label="Product work submenu"
               >
                 <Link
                   href={createPageUrl("ProductWork")}
-                  className="block px-4 py-2 text-white font-semibold hover:bg-blue/20 hover:text-white rounded-lg transition-colors"
+                  className="block px-4 py-2 text-ink-900 font-semibold hover:bg-blue/20 hover:text-ink-900 rounded-lg transition-colors"
                   role="menuitem"
                 >
                   All Projects
                 </Link>
-                <div className="h-px bg-white/20 my-2" />
+                <div className="h-px bg-ink-900/20 my-2" />
                 {projectLinks.map((p) => (
                   <Link
                     key={p.path}
                     href={createPageUrl(p.path)}
-                    className="block px-4 py-2 text-sm text-gray-200 hover:bg-blue/20 hover:text-white rounded-lg transition-colors"
+                    className="block px-4 py-2 text-sm text-gray-200 hover:bg-blue/20 hover:text-ink-900 rounded-lg transition-colors"
                     role="menuitem"
                   >
                     {p.name}
@@ -151,16 +151,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             <Link
               href={createPageUrl("Teaching")}
-              className="text-slate-300 hover:text-white"
+              className="text-slate-300 hover:text-ink-900"
             >
               Teaching
             </Link>
-            <Link href="/#about" className="text-slate-300 hover:text-white">
+            <Link href="/#about" className="text-slate-300 hover:text-ink-900">
               About
             </Link>
             <a
               href="mailto:consulting@giacomobianchi.tech"
-              className="px-6 py-2 glass rounded-lg hover:bg-blue-600"
+              className="px-6 py-2 glass rounded-lg hover:bg-blue-600 hover:text-white"
               aria-label="Contact via email"
             >
               Contact
@@ -188,23 +188,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             />
             <div
               id="mobile-menu"
-              className="md:hidden fixed top-[72px] left-0 right-0 max-h-[calc(100vh-72px)] overflow-y-auto mobile-menu-overlay border-t border-white/10"
+              className="md:hidden fixed top-[72px] left-0 right-0 max-h-[calc(100vh-72px)] overflow-y-auto mobile-menu-overlay border-t border-ink-900/10"
               role="menu"
             >
               <div className="flex flex-col p-6 gap-4 max-w-7xl mx-auto">
                 <Link
                   href={createPageUrl("ProductWork")}
-                  className="text-slate-300 hover:text-white py-3 px-4 rounded-lg hover:bg-white/5 font-semibold text-lg"
+                  className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 font-semibold text-lg"
                   role="menuitem"
                 >
                   Product Work
                 </Link>
-                <div className="pl-4 space-y-2 border-l-2 border-white/10">
+                <div className="pl-4 space-y-2 border-l-2 border-ink-900/10">
                   {projectLinks.map((p) => (
                     <Link
                       key={p.path}
                       href={createPageUrl(p.path)}
-                      className="block text-sm text-gray-300 hover:text-blue-400 py-2 px-4 rounded hover:bg-white/5"
+                      className="block text-sm text-gray-300 hover:text-accent py-2 px-4 rounded hover:bg-ink-900/5"
                       role="menuitem"
                     >
                       {p.name}
@@ -213,14 +213,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
                 <Link
                   href={createPageUrl("Teaching")}
-                  className="text-slate-300 hover:text-white py-3 px-4 rounded-lg hover:bg-white/5 text-lg"
+                  className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 text-lg"
                   role="menuitem"
                 >
                   Teaching
                 </Link>
                 <Link
                   href="/#about"
-                  className="text-slate-300 hover:text-white py-3 px-4 rounded-lg hover:bg-white/5 text-lg"
+                  className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 text-lg"
                   role="menuitem"
                 >
                   About
@@ -228,7 +228,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
                 <a
                   href="mailto:consulting@giacomobianchi.tech"
-                  className="px-6 py-3 glass rounded-lg hover:bg-blue-600 text-center font-semibold mt-2"
+                  className="px-6 py-3 glass rounded-lg hover:bg-blue-600 hover:text-white text-center font-semibold mt-2"
                   role="menuitem"
                   aria-label="Contact via email"
                 >
@@ -245,7 +245,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       <footer
-        className="glass mt-32 py-12 border-t border-white/10"
+        className="glass mt-32 py-12 border-t border-ink-900/10"
         role="contentinfo"
       >
         <div className="max-w-7xl mx-auto px-6">
@@ -262,7 +262,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-4">
               <a
                 href="mailto:consulting@giacomobianchi.tech"
-                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600 glow-blue"
+                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white glow-blue"
                 aria-label="Email"
               >
                 <Mail size={20} />
@@ -272,7 +272,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 href="https://www.linkedin.com/in/giacomobianchi00/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600 glow-blue"
+                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white glow-blue"
                 aria-label="LinkedIn"
               >
                 <svg
@@ -288,7 +288,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
               {/* GitHub */}
               {/*
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600 glow-blue" aria-label="GitHub">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white glow-blue" aria-label="GitHub">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
               </a>*/}
             </div>

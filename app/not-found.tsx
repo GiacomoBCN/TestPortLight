@@ -18,7 +18,7 @@ export default function NotFound() {
       <div className="max-w-2xl w-full text-center">
         {/* 404 Number */}
         <div className="mb-8 animate-fade-in">
-          <h1 className={`${militaryFont.className} text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-text-link-default)] to-[var(--color-surface-interactive-default)] animate-float`}>
+          <h1 className={`${militaryFont.className} text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-text-link-default)] to-[var(--color-text-link-hover)] animate-float`}>
             404
           </h1>
         </div>

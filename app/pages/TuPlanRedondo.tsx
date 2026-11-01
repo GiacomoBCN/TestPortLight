@@ -188,7 +188,7 @@ export default function TuPlanRedondo() {
       <div className="fixed top-24 left-6 z-40">
         <Link
           href={createPageUrl("ProductWork")}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-white hover:border-blue transition-all"
+          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
           <span className="hidden md:inline">Back to Projects</span>
@@ -204,12 +204,12 @@ export default function TuPlanRedondo() {
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-blue-400">
+            <span className="text-xs uppercase tracking-wider text-accent">
               FULL-STACK DESIGN · RESEARCH → DESIGN → BUILD
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-ink-900 mb-4">
             TuPlanRedondo PWA
           </h1>
 
@@ -220,9 +220,9 @@ export default function TuPlanRedondo() {
             paper-based employee evaluation process across multiple McDonald’s
             restaurants. <br />
             The new system reduced manual work by{" "}
-            <span className="text-white font-semibold">30%</span>
+            <span className="text-ink-900 font-semibold">30%</span>
             and cut delivery costs by{" "}
-            <span className="text-white font-semibold">45%</span>.
+            <span className="text-ink-900 font-semibold">45%</span>.
           </p>
 
           <div className="flex flex-wrap gap-2">
@@ -319,7 +319,7 @@ export default function TuPlanRedondo() {
       {/* Metrics Showcase */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
             Project Impact
           </h2>
 
@@ -327,10 +327,10 @@ export default function TuPlanRedondo() {
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-blue-400" />
+                  <Zap className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">30%</div>
-                <div className="text-sm font-semibold text-blue-400 mb-2">
+                <div className="text-4xl font-bold text-ink-900 mb-2">30%</div>
+                <div className="text-sm font-semibold text-accent mb-2">
                   Faster Evaluations
                 </div>
                 <div className="text-xs text-gray-400">
@@ -342,10 +342,10 @@ export default function TuPlanRedondo() {
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <SmilePlus className="w-6 h-6 text-blue-400" />
+                  <SmilePlus className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">25%</div>
-                <div className="text-sm font-semibold text-blue-400 mb-2">
+                <div className="text-4xl font-bold text-ink-900 mb-2">25%</div>
+                <div className="text-sm font-semibold text-accent mb-2">
                   Higher Satisfaction
                 </div>
                 <div className="text-xs text-gray-400">
@@ -358,10 +358,10 @@ export default function TuPlanRedondo() {
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <CircleDollarSign className="w-6 h-6 text-blue-400" />
+                  <CircleDollarSign className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">45%</div>
-                <div className="text-sm font-semibold text-blue-400 mb-2">
+                <div className="text-4xl font-bold text-ink-900 mb-2">45%</div>
+                <div className="text-sm font-semibold text-accent mb-2">
                   Lower Dev Cost
                 </div>
                 <div className="text-xs text-gray-400">
@@ -373,12 +373,12 @@ export default function TuPlanRedondo() {
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <BarChart3 className="w-6 h-6 text-blue-400" />
+                  <BarChart3 className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">
+                <div className="text-4xl font-bold text-ink-900 mb-2">
                   Real-time
                 </div>
-                <div className="text-sm font-semibold text-blue-400 mb-2">
+                <div className="text-sm font-semibold text-accent mb-2">
                   Insights
                 </div>
                 <div className="text-xs text-gray-400">
@@ -413,11 +413,11 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               01
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Business Context
               </h2>
             </div>
@@ -455,11 +455,11 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               02
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Research & Definition
               </h2>
             </div>
@@ -560,11 +560,11 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               03
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Key Decisions & Trade-offs
               </h2>
             </div>
@@ -581,11 +581,11 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               04
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Design & Implementation
               </h2>
             </div>
@@ -703,11 +703,11 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               05
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Business Impact & Results
               </h2>
             </div>
@@ -723,7 +723,7 @@ export default function TuPlanRedondo() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                  <h3 className="text-lg font-semibold text-accent mb-3">
                     Operational Efficiency & User Experience
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
@@ -745,7 +745,7 @@ export default function TuPlanRedondo() {
 
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                  <h3 className="text-lg font-semibold text-accent mb-3">
                     Cost
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
@@ -781,7 +781,7 @@ export default function TuPlanRedondo() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-ink-900 mb-4">
                 Want to see more work?
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
@@ -798,7 +798,7 @@ export default function TuPlanRedondo() {
                 </Link>
                 <a
                   href="mailto:consulting@giacomobianchi.tech"
-                  className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all"
+                  className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
                 >
                   Let's Talk
                 </a>
@@ -819,7 +819,7 @@ export default function TuPlanRedondo() {
         >
           <button
             onClick={closeImageModal}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+            className="absolute top-4 right-4 text-white hover:text-sand-200 transition-colors z-10"
           >
             <X size={32} />
           </button>
@@ -831,7 +831,7 @@ export default function TuPlanRedondo() {
                   e.stopPropagation();
                   previousImage();
                 }}
-                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={32} />
@@ -842,7 +842,7 @@ export default function TuPlanRedondo() {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Next image"
               >
                 <ChevronRight size={32} />

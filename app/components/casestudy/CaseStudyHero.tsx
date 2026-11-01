@@ -45,7 +45,7 @@ export default function CaseStudyHero({
             className="object-cover opacity-20"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/50 to-white/80" />
         </div>
       )}
 

@@ -112,7 +112,7 @@ export default function OnlineBackOfficeCaseStudy() {
       <div className="fixed top-24 left-6 z-40">
         <Link
           href={createPageUrl("ProductWork")}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-white hover:border-blue transition-all"
+          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
           <span className="hidden md:inline">Back to Projects</span>
@@ -129,12 +129,12 @@ export default function OnlineBackOfficeCaseStudy() {
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-blue-400">
+            <span className="text-xs uppercase tracking-wider text-accent">
               PLATFORM ARCHITECTURE · FRONT-END SCALABILITY
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-ink-900 mb-4">
             Back Office Unification
           </h1>
 
@@ -147,10 +147,10 @@ export default function OnlineBackOfficeCaseStudy() {
             platform. <br />
             Built a shared CSS architecture, centralized assets, and Git-based
             rollout model achieving{" "}
-            <span className="text-white font-semibold">99%</span> code reuse,
-            <span className="text-white font-semibold"> 80%</span> faster
+            <span className="text-ink-900 font-semibold">99%</span> code reuse,
+            <span className="text-ink-900 font-semibold"> 80%</span> faster
             deployments, and consistent UX across
-            <span className="text-white font-semibold"> 15+</span> FMCG clients.
+            <span className="text-ink-900 font-semibold"> 15+</span> FMCG clients.
           </p>
 
           <div className="flex flex-wrap gap-2">
@@ -256,7 +256,7 @@ export default function OnlineBackOfficeCaseStudy() {
       {/* Metrics Showcase */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
             Program Outcomes
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -264,12 +264,12 @@ export default function OnlineBackOfficeCaseStudy() {
               <GlassCard key={i}>
                 <div className="flex flex-col items-center text-center p-6">
                   <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                    <a.icon className="w-6 h-6 text-blue-400" />
+                    <a.icon className="w-6 h-6 text-accent-icon" />
                   </div>
-                  <div className="text-4xl font-bold text-white mb-2">
+                  <div className="text-4xl font-bold text-ink-900 mb-2">
                     {a.metric}
                   </div>
-                  <div className="text-sm font-semibold text-blue-400 mb-2">
+                  <div className="text-sm font-semibold text-accent mb-2">
                     {a.label}
                   </div>
                   <div className="text-xs text-gray-400">{a.description}</div>
@@ -303,11 +303,11 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               01
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Business Context
               </h2>
             </div>
@@ -335,7 +335,7 @@ export default function OnlineBackOfficeCaseStudy() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
                   <div className="text-gray-400 text-sm">
-                    <div className="font-semibold text-blue-400 mb-1">
+                    <div className="font-semibold text-accent mb-1">
                       Challenges
                     </div>
                     <ul className="space-y-1">
@@ -349,7 +349,7 @@ export default function OnlineBackOfficeCaseStudy() {
                     </ul>
                   </div>
                   <div className="text-gray-400 text-sm">
-                    <div className="font-semibold text-blue-400 mb-1">
+                    <div className="font-semibold text-accent mb-1">
                       Goals
                     </div>
                     <ul className="space-y-1">
@@ -371,11 +371,11 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               02
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Problem & Hypothesis
               </h2>
             </div>
@@ -389,7 +389,7 @@ export default function OnlineBackOfficeCaseStudy() {
                   <div className="w-9 h-9 rounded-full bg-red-500/15 flex items-center justify-center">
                     <AlertCircle className="w-5 h-5 text-red-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-ink-900">
                     The Problem
                   </h3>
                 </div>
@@ -416,7 +416,7 @@ export default function OnlineBackOfficeCaseStudy() {
                   <div className="w-9 h-9 rounded-full bg-green-500/15 flex items-center justify-center">
                     <Wrench className="w-5 h-5 text-green-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-ink-900">
                     Hypothesis
                   </h3>
                 </div>
@@ -438,11 +438,11 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               03
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Key Decisions & Trade-offs
               </h2>
             </div>
@@ -457,11 +457,11 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               04
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 The Unified Solution
               </h2>
             </div>
@@ -469,7 +469,7 @@ export default function OnlineBackOfficeCaseStudy() {
           <div className="pl-0 md:pl-24 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-ink-900 mb-3">
                   Single CSS + Shared Assets
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -488,7 +488,7 @@ export default function OnlineBackOfficeCaseStudy() {
             </GlassCard>
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-ink-900 mb-3">
                   Git-Based Propagation
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -510,11 +510,11 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               05
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Operational Improvements
               </h2>
             </div>
@@ -531,16 +531,16 @@ export default function OnlineBackOfficeCaseStudy() {
                   <table className="w-full text-left">
                     <thead>
                       <tr className="border-b border-gray-700">
-                        <th className="pb-4 pr-4 text-blue-400 font-semibold">
+                        <th className="pb-4 pr-4 text-accent font-semibold">
                           Task
                         </th>
-                        <th className="pb-4 pr-4 text-blue-400 font-semibold">
+                        <th className="pb-4 pr-4 text-accent font-semibold">
                           Before
                         </th>
-                        <th className="pb-4 pr-4 text-blue-400 font-semibold">
+                        <th className="pb-4 pr-4 text-accent font-semibold">
                           After
                         </th>
-                        <th className="pb-4 text-blue-400 font-semibold">
+                        <th className="pb-4 text-accent font-semibold">
                           Improvement
                         </th>
                       </tr>
@@ -570,15 +570,15 @@ export default function OnlineBackOfficeCaseStudy() {
                 {rolloutImprovements.map((item, index) => (
                   <div
                     key={index}
-                    className="bg-white/[0.05] border border-white/10 rounded-lg p-4"
+                    className="bg-ink-900/[0.05] border border-ink-900/10 rounded-lg p-4"
                   >
-                    <h3 className="text-white font-semibold text-base mb-4">
+                    <h3 className="text-ink-900 font-semibold text-base mb-4">
                       {item.task}
                     </h3>
 
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
                           Before
                         </div>
                         <div className="text-gray-300 text-sm font-semibold">
@@ -587,7 +587,7 @@ export default function OnlineBackOfficeCaseStudy() {
                       </div>
 
                       <div className="flex justify-between items-center">
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
                           After
                         </div>
                         <div className="text-gray-300 text-sm font-semibold">
@@ -595,8 +595,8 @@ export default function OnlineBackOfficeCaseStudy() {
                         </div>
                       </div>
 
-                      <div className="flex justify-between items-center pt-2 border-t border-white/10">
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide">
+                      <div className="flex justify-between items-center pt-2 border-t border-ink-900/10">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
                           Improvement
                         </div>
                         <div className="text-green-400 text-base font-bold">
@@ -616,11 +616,11 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               06
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Outcomes & Deliverables
               </h2>
             </div>
@@ -629,7 +629,7 @@ export default function OnlineBackOfficeCaseStudy() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                  <h3 className="text-lg font-semibold text-accent mb-3">
                     Front-End
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
@@ -641,7 +641,7 @@ export default function OnlineBackOfficeCaseStudy() {
               </GlassCard>
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                  <h3 className="text-lg font-semibold text-accent mb-3">
                     Process & Governance
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
@@ -655,7 +655,7 @@ export default function OnlineBackOfficeCaseStudy() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                <h3 className="text-lg font-semibold text-accent mb-3">
                   Results
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm">
@@ -682,7 +682,7 @@ export default function OnlineBackOfficeCaseStudy() {
           <div className="max-w-5xl mx-auto">
             <GlassCard>
               <div className="text-center py-8">
-                <h2 className="text-3xl font-bold text-white mb-4">
+                <h2 className="text-3xl font-bold text-ink-900 mb-4">
                   Want to see more work?
                 </h2>
                 <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
@@ -698,7 +698,7 @@ export default function OnlineBackOfficeCaseStudy() {
                   </Link>
                   <a
                     href="mailto:consulting@giacomobianchi.tech"
-                    className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all"
+                    className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
                   >
                     Let's Talk
                   </a>

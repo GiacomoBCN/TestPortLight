@@ -183,7 +183,7 @@ export default function TestimonialCarousel({
                     className={`transition-all duration-300 rounded-full ${
                       index === currentIndex
                         ? "w-8 h-3 bg-[var(--color-surface-interactive-default)] glow-blue"
-                        : "w-3 h-3 bg-[#94a3b8] hover:bg-[#cbd5e1]"
+                        : "w-3 h-3 bg-[#D9CFC4] hover:bg-[#C9BDB0]"
                     }`}
                     aria-label={`Go to page ${index + 1}`}
                   />

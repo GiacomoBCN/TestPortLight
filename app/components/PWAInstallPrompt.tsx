@@ -80,12 +80,12 @@ export default function PWAInstallPrompt() {
         className="fixed top-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-50"
       >
         <div
-          className="rounded-xl bg-[#0a0a0a]/80 backdrop-blur-xl shadow-2xl border border-white/20 p-4"
-          style={{ boxShadow: "0 8px 32px 0 rgba(26, 122, 255, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1)" }}
+          className="rounded-xl bg-[#ffffff]/80 backdrop-blur-xl shadow-2xl border border-ink-900/20 p-4"
+          style={{ boxShadow: "0 8px 32px 0 rgba(242, 140, 40, 0.15), 0 0 0 1px rgba(28, 25, 23, 0.12)" }}
         >
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 glass rounded-lg flex items-center justify-center flex-shrink-0">
-              <Download size={20} className="text-[var(--color-text-brand)]" />
+              <Download size={20} className="text-[var(--color-icon-accent)]" />
             </div>
             <div className="flex-1">
               <h3 className="text-sm font-semibold text-[var(--color-text-inverse)] mb-1">

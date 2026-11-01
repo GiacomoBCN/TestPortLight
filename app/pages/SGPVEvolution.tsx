@@ -212,7 +212,7 @@ export default function SGPVEvolution() {
       <div className="fixed top-24 left-6 z-40">
         <Link
           href={createPageUrl("ProductWork")}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-white hover:border-blue transition-all"
+          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
           <span className="hidden md:inline">Back to Projects</span>
@@ -227,12 +227,12 @@ export default function SGPVEvolution() {
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-blue-400">
+            <span className="text-xs uppercase tracking-wider text-accent">
               MULTI-CLIENT PLATFORM · UX &amp; PRODUCT EVOLUTION
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-ink-900 mb-4">
             SGPV Product Evolution
           </h1>
 
@@ -246,11 +246,11 @@ export default function SGPVEvolution() {
             platform and later migrated to Flutter, introducing AI-based data
             capture.
             <br /> The evolution cut hardware costs by{" "}
-            <span className="text-white font-semibold">20%</span>, improved
+            <span className="text-ink-900 font-semibold">20%</span>, improved
             deployment efficiency by{" "}
-            <span className="text-white font-semibold">80%</span>, and raised
+            <span className="text-ink-900 font-semibold">80%</span>, and raised
             user satisfaction by{" "}
-            <span className="text-white font-semibold">30%</span>.
+            <span className="text-ink-900 font-semibold">30%</span>.
           </p>
 
           <div className="flex flex-wrap gap-2">
@@ -344,7 +344,7 @@ export default function SGPVEvolution() {
       {/* Metrics Showcase */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
             Project Impact Snapshot
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -352,12 +352,12 @@ export default function SGPVEvolution() {
               <GlassCard key={index}>
                 <div className="flex flex-col items-center text-center p-6">
                   <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                    <achievement.icon className="w-6 h-6 text-blue-400" />
+                    <achievement.icon className="w-6 h-6 text-accent-icon" />
                   </div>
-                  <div className="text-4xl font-bold text-white mb-2">
+                  <div className="text-4xl font-bold text-ink-900 mb-2">
                     {achievement.metric}
                   </div>
-                  <div className="text-sm font-semibold text-blue-400 mb-2">
+                  <div className="text-sm font-semibold text-accent mb-2">
                     {achievement.label}
                   </div>
                   <div className="text-xs text-gray-400">
@@ -373,11 +373,11 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               01
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Phase 1 (v5→v6): Responsive Redesign
               </h2>
             </div>
@@ -386,7 +386,7 @@ export default function SGPVEvolution() {
           <div className="pl-0 md:pl-24 space-y-6">
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-ink-900 mb-3">
                   Context
                 </h3>
 
@@ -450,7 +450,7 @@ export default function SGPVEvolution() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-ink-900 mb-3">
                   Reflection
                 </h3>
 
@@ -490,11 +490,11 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               02
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Phase 2 (v6→v7): Research & Flutter Migration Strategy
               </h2>
             </div>
@@ -526,7 +526,7 @@ export default function SGPVEvolution() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-ink-900 mb-3">
                   Research Workflow
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-6">
@@ -540,16 +540,16 @@ export default function SGPVEvolution() {
                   <table className="w-full text-left">
                     <thead>
                       <tr className="border-b border-gray-700">
-                        <th className="pb-4 pr-4 text-blue-400 font-semibold">
+                        <th className="pb-4 pr-4 text-accent font-semibold">
                           Phase
                         </th>
-                        <th className="pb-4 pr-4 text-blue-400 font-semibold">
+                        <th className="pb-4 pr-4 text-accent font-semibold">
                           Methods
                         </th>
-                        <th className="pb-4 pr-4 text-blue-400 font-semibold">
+                        <th className="pb-4 pr-4 text-accent font-semibold">
                           Purpose
                         </th>
-                        <th className="pb-4 text-blue-400 font-semibold">
+                        <th className="pb-4 text-accent font-semibold">
                           Key Outputs
                         </th>
                       </tr>
@@ -639,13 +639,13 @@ export default function SGPVEvolution() {
 
                 {/* Mobile Card View - visible only on mobile */}
                 <div className="lg:hidden space-y-4">
-                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-5">
-                    <h4 className="text-white font-semibold text-base mb-4">
+                  <div className="bg-ink-900/[0.03] backdrop-blur-xl border border-ink-900/10 rounded-xl p-5">
+                    <h4 className="text-ink-900 font-semibold text-base mb-4">
                       Discover
                     </h4>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Methods
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -653,7 +653,7 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Purpose
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -662,23 +662,23 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Key Outputs
                         </div>
-                        <div className="text-blue-400 text-sm">
+                        <div className="text-accent text-sm">
                           Landscape scan, risk assessment, success metrics
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-5">
-                    <h4 className="text-white font-semibold text-base mb-4">
+                  <div className="bg-ink-900/[0.03] backdrop-blur-xl border border-ink-900/10 rounded-xl p-5">
+                    <h4 className="text-ink-900 font-semibold text-base mb-4">
                       Define
                     </h4>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Methods
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -686,7 +686,7 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Purpose
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -695,10 +695,10 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Key Outputs
                         </div>
-                        <div className="text-blue-400 text-sm">
+                        <div className="text-accent text-sm">
                           Personas, empathy maps, journey maps, problem
                           statements
                         </div>
@@ -706,13 +706,13 @@ export default function SGPVEvolution() {
                     </div>
                   </div>
 
-                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-5">
-                    <h4 className="text-white font-semibold text-base mb-4">
+                  <div className="bg-ink-900/[0.03] backdrop-blur-xl border border-ink-900/10 rounded-xl p-5">
+                    <h4 className="text-ink-900 font-semibold text-base mb-4">
                       Design
                     </h4>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Methods
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -720,7 +720,7 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Purpose
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -729,23 +729,23 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Key Outputs
                         </div>
-                        <div className="text-blue-400 text-sm">
+                        <div className="text-accent text-sm">
                           Interaction models, clickable prototypes
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-5">
-                    <h4 className="text-white font-semibold text-base mb-4">
+                  <div className="bg-ink-900/[0.03] backdrop-blur-xl border border-ink-900/10 rounded-xl p-5">
+                    <h4 className="text-ink-900 font-semibold text-base mb-4">
                       Systemize
                     </h4>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Methods
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -753,7 +753,7 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Purpose
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -762,23 +762,23 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Key Outputs
                         </div>
-                        <div className="text-blue-400 text-sm">
+                        <div className="text-accent text-sm">
                           Component library, design tokens, usage guidelines
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-5">
-                    <h4 className="text-white font-semibold text-base mb-4">
+                  <div className="bg-ink-900/[0.03] backdrop-blur-xl border border-ink-900/10 rounded-xl p-5">
+                    <h4 className="text-ink-900 font-semibold text-base mb-4">
                       Validate
                     </h4>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Methods
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -786,7 +786,7 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Purpose
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -795,23 +795,23 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Key Outputs
                         </div>
-                        <div className="text-blue-400 text-sm">
+                        <div className="text-accent text-sm">
                           Task completion benchmarks, issue log, refinements
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-5">
-                    <h4 className="text-white font-semibold text-base mb-4">
+                  <div className="bg-ink-900/[0.03] backdrop-blur-xl border border-ink-900/10 rounded-xl p-5">
+                    <h4 className="text-ink-900 font-semibold text-base mb-4">
                       Deliver
                     </h4>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Methods
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -819,7 +819,7 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Purpose
                         </div>
                         <div className="text-gray-300 text-sm">
@@ -828,10 +828,10 @@ export default function SGPVEvolution() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-1">
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">
                           Key Outputs
                         </div>
-                        <div className="text-blue-400 text-sm">
+                        <div className="text-accent text-sm">
                           Production Flutter app, training materials, rollout
                           plan
                         </div>
@@ -849,11 +849,11 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               03
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 AI-Powered Data Capture
               </h2>
             </div>
@@ -942,11 +942,11 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               04
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Key Decisions & Trade-offs
               </h2>
             </div>
@@ -963,11 +963,11 @@ export default function SGPVEvolution() {
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               05
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Business Impact & Results
               </h2>
             </div>
@@ -984,7 +984,7 @@ export default function SGPVEvolution() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                  <h3 className="text-lg font-semibold text-accent mb-3">
                     Product Performance
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
@@ -1011,7 +1011,7 @@ export default function SGPVEvolution() {
 
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                  <h3 className="text-lg font-semibold text-accent mb-3">
                     Operational & Financial Outcomes
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
@@ -1041,7 +1041,7 @@ export default function SGPVEvolution() {
             {/* Long-Term Value */}
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                <h3 className="text-lg font-semibold text-accent mb-3">
                   Long-Term Platform Value
                 </h3>
                 <p className="text-gray-300 text-sm mb-3">
@@ -1050,14 +1050,14 @@ export default function SGPVEvolution() {
                 </p>
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">→</span>
+                    <span className="text-accent mt-1">→</span>
                     <span>
                       <strong>Scalable growth:</strong> New clients can be
                       onboarded through configuration instead of new code forks.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">→</span>
+                    <span className="text-accent mt-1">→</span>
                     <span>
                       <strong>AI-ready architecture:</strong> The
                       image-recognition module established a foundation for
@@ -1065,14 +1065,14 @@ export default function SGPVEvolution() {
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">→</span>
+                    <span className="text-accent mt-1">→</span>
                     <span>
                       <strong>Reduced technical debt:</strong> Legacy hybrid
                       layers were replaced with a sustainable native stack.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">→</span>
+                    <span className="text-accent mt-1">→</span>
                     <span>
                       <strong>Competitive differentiation:</strong> Native
                       performance and AI automation positioned SGPV ahead of
@@ -1092,11 +1092,11 @@ export default function SGPVEvolution() {
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               06
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Key Learnings
               </h2>
             </div>
@@ -1113,7 +1113,7 @@ export default function SGPVEvolution() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-ink-900 mb-3">
                     1. Governance Beats Heroics
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -1127,7 +1127,7 @@ export default function SGPVEvolution() {
 
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-ink-900 mb-3">
                     2. User Research Drives Executive Buy-In
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -1140,7 +1140,7 @@ export default function SGPVEvolution() {
 
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-ink-900 mb-3">
                     3. Standardization with Client Freedom
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -1153,7 +1153,7 @@ export default function SGPVEvolution() {
 
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-ink-900 mb-3">
                     4. Change Management Is Part of Design
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -1173,7 +1173,7 @@ export default function SGPVEvolution() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-ink-900 mb-4">
                 Want to see more work?
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
@@ -1190,7 +1190,7 @@ export default function SGPVEvolution() {
                 </Link>
                 <a
                   href="mailto:consulting@giacomobianchi.tech"
-                  className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all"
+                  className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
                 >
                   Let's Talk
                 </a>
@@ -1210,7 +1210,7 @@ export default function SGPVEvolution() {
         >
           <button
             onClick={closeImageModal}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+            className="absolute top-4 right-4 text-white hover:text-sand-200 transition-colors z-10"
           >
             <X size={32} />
           </button>
@@ -1222,7 +1222,7 @@ export default function SGPVEvolution() {
                   e.stopPropagation();
                   previousImage();
                 }}
-                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={32} />
@@ -1233,7 +1233,7 @@ export default function SGPVEvolution() {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Next image"
               >
                 <ChevronRight size={32} />

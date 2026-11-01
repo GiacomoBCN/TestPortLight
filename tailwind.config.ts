@@ -11,14 +11,14 @@ const config: Config = {
       colors: {
         // Improved colors for WCAG AA compliance (4.5:1 minimum contrast ratio)
         slate: {
-          // Override slate-500 with improved contrast (4.52:1)
-          500: '#697990',
+          // Warm secondary text (5.51:1 on white)
+          500: '#75665B',
         },
         blue: {
-          // Custom accessible blue shades
-          DEFAULT: '#1a7aff',  // Primary blue for text (4.85:1 on dark bg)
-          600: '#086efd',      // Darker blue for button backgrounds (4.51:1 with white text)
-          hover: '#2375ef',    // Hover state with 4.64:1 contrast
+          // Legacy "blue" slots now hold the warm accent set
+          DEFAULT: '#F28C28',  // Orange for borders and fills
+          600: '#1C1917',      // Warm black for button backgrounds (17.5:1 with white text)
+          hover: '#2E2925',    // Button hover
         },
       },
     },

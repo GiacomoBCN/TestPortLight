@@ -14,7 +14,7 @@ export default function EcommerceManagement() {
       <div className="fixed top-24 left-6 z-40">
         <Link
           href={createPageUrl("ProductWork")}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-white transition-all"
+          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 transition-all"
         >
           <ArrowLeft size={20} />
           <span className="hidden md:inline">Back to Projects</span>
@@ -27,11 +27,11 @@ export default function EcommerceManagement() {
             Home &gt; Product Work &gt; E-Commerce Product Management
           </p>
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-blue-400">
+            <span className="text-xs uppercase tracking-wider text-accent">
               PRODUCT MANAGEMENT · PORTFOLIO
             </span>
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-ink-900 mb-4">
             E-Commerce Product Management
           </h1>
           <p className="text-lg text-gray-400 mb-4">

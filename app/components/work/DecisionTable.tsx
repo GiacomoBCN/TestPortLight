@@ -69,7 +69,7 @@ export default function DecisionTable({
 
             <div className="space-y-4">
               <div>
-                <div className="text-[var(--color-text-inverse)]/60 text-xs font-semibold uppercase tracking-wide mb-2">
+                <div className="text-[var(--color-text-inverse)]/70 text-xs font-semibold uppercase tracking-wide mb-2">
                   Options Considered
                 </div>
                 <div className="text-[var(--color-text-primary)] text-sm space-y-1">
@@ -80,7 +80,7 @@ export default function DecisionTable({
               </div>
 
               <div>
-                <div className="text-[var(--color-text-inverse)]/60 text-xs font-semibold uppercase tracking-wide mb-2">
+                <div className="text-[var(--color-text-inverse)]/70 text-xs font-semibold uppercase tracking-wide mb-2">
                   Why We Chose
                 </div>
                 <div className="text-[var(--color-text-primary)] text-sm">
@@ -89,7 +89,7 @@ export default function DecisionTable({
               </div>
 
               <div>
-                <div className="text-[var(--color-text-inverse)]/60 text-xs font-semibold uppercase tracking-wide mb-2">
+                <div className="text-[var(--color-text-inverse)]/70 text-xs font-semibold uppercase tracking-wide mb-2">
                   Impact
                 </div>
                 <div className="text-[var(--color-text-link-default)] font-semibold text-sm">

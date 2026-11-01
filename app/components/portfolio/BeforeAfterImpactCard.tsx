@@ -60,7 +60,7 @@ export default function BeforeAfterImpactCard({
     >
       <div className="flex flex-col items-center text-center h-full">
         <div className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6 glow-blue">
-          <Icon size={32} className="text-[var(--metric-value-text)]" />
+          <Icon size={32} className="text-[var(--color-icon-accent)]" />
         </div>
 
         <h3 className="text-5xl font-bold text-[var(--metric-value-text)] mb-6">

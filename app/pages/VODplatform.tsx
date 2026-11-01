@@ -297,7 +297,7 @@ export default function VoDPlatform() {
       <div className="fixed top-24 left-6 z-40">
         <Link
           href={createPageUrl("ProductWork")}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-white hover:border-blue transition-all"
+          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
           <span className="hidden md:inline">Back to Projects</span>
@@ -312,11 +312,11 @@ export default function VoDPlatform() {
             Home &gt; Product Work &gt; VOD Platform Redesign
           </p>
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-blue-400">
+            <span className="text-xs uppercase tracking-wider text-accent">
               PRODUCT CONSULTING · MULTI-PLATFORM
             </span>
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-ink-900 mb-4">
             VOD Platform Redesign
           </h1>
           <p className="text-lg text-gray-400 mb-4">
@@ -405,7 +405,7 @@ export default function VoDPlatform() {
       {/* Metrics Showcase */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
             Redesign Impact
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -413,12 +413,12 @@ export default function VoDPlatform() {
               <GlassCard key={index}>
                 <div className="flex flex-col items-center text-center p-6">
                   <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                    <achievement.icon className="w-6 h-6 text-blue-400" />
+                    <achievement.icon className="w-6 h-6 text-accent-icon" />
                   </div>
-                  <div className="text-4xl font-bold text-white mb-2">
+                  <div className="text-4xl font-bold text-ink-900 mb-2">
                     {achievement.metric}
                   </div>
-                  <div className="text-sm font-semibold text-blue-400 mb-2">
+                  <div className="text-sm font-semibold text-accent mb-2">
                     {achievement.label}
                   </div>
                   <div className="text-xs text-gray-400">
@@ -463,11 +463,11 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               01
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Business Context
               </h2>
             </div>
@@ -503,11 +503,11 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               02
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 The Problem & Evaluation
               </h2>
             </div>
@@ -561,11 +561,11 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               03
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Key Decisions & Trade-offs
               </h2>
             </div>
@@ -580,11 +580,11 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               04
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 The Redesign Solution
               </h2>
             </div>
@@ -593,26 +593,26 @@ export default function VoDPlatform() {
           <div className="pl-0 md:pl-24 grid grid-cols-1 md:grid-cols-2 gap-6">
             <GlassCard>
               <div className="p-3">
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-ink-900 mb-3">
                   2-Axis Navigation System
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>
                       Vertical rail stays visible across all screens for
                       wayfinding
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>
                       Horizontal tabs filter content within each section
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>
                       Clear mental model: vertical for "where," horizontal for
                       "what"
@@ -624,23 +624,23 @@ export default function VoDPlatform() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-ink-900 mb-3">
                   Removed Welcome Screen Friction
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>Instant access to content without gates</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>
                       Profile switcher in persistent top-right utility bar
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>Continue Watching is now the landing page</span>
                   </li>
                 </ul>
@@ -649,29 +649,29 @@ export default function VoDPlatform() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-ink-900 mb-3">
                   WCAG AA Compliance
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>Contrast ratios of 4.5:1+ for all text elements</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>
                       Bold focus states with 3:1+ contrast against backgrounds
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>
                       Color-blind safe iconography and information architecture
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>
                       Touch targets sized at 44x44px minimum for mobile
                     </span>
@@ -682,23 +682,23 @@ export default function VoDPlatform() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-ink-900 mb-3">
                   Box-First Component Grid
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>Adaptive grid scales from 5" phones to 75" TVs</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>
                       Platform-specific interaction patterns (D-pad vs touch)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     <span>Consistent visual language across all devices</span>
                   </li>
                 </ul>
@@ -712,7 +712,7 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="pl-0 md:pl-24 mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+            <h3 className="text-2xl md:text-3xl font-bold text-ink-900 mb-2">
               Navigation System Deep Dive
             </h3>
             <p className="text-gray-400">
@@ -737,7 +737,7 @@ export default function VoDPlatform() {
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="text-white text-sm font-medium">Click to enlarge</span>
+                    <span className="text-ink-900 text-sm font-medium">Click to enlarge</span>
                   </div>
                 </div>
                 <p className="text-gray-400 text-sm mt-2">
@@ -758,7 +758,7 @@ export default function VoDPlatform() {
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="text-white text-sm font-medium">Click to enlarge</span>
+                    <span className="text-ink-900 text-sm font-medium">Click to enlarge</span>
                   </div>
                 </div>
                 <p className="text-gray-400 text-sm mt-2">
@@ -776,13 +776,13 @@ export default function VoDPlatform() {
                 <table className="w-full text-left align-top">
                   <thead>
                     <tr className="border-b border-gray-700">
-                      <th className="pb-4 pr-4 text-blue-400 font-semibold w-[18%]">
+                      <th className="pb-4 pr-4 text-accent font-semibold w-[18%]">
                         Category
                       </th>
-                      <th className="pb-4 pr-4 text-blue-400 font-semibold w-[41%]">
+                      <th className="pb-4 pr-4 text-accent font-semibold w-[41%]">
                         🟥 OLD NAVIGATION (3-Axis)
                       </th>
-                      <th className="pb-4 pr-4 text-blue-400 font-semibold w-[41%]">
+                      <th className="pb-4 pr-4 text-accent font-semibold w-[41%]">
                         🟦 NEW NAVIGATION (2-Axis)
                       </th>
                     </tr>
@@ -885,7 +885,7 @@ export default function VoDPlatform() {
               {/* Structure Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-white font-semibold text-lg mb-4">
+                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
                     Structure
                   </h3>
 
@@ -911,7 +911,7 @@ export default function VoDPlatform() {
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
-                      <div className="text-blue-400 text-xs font-semibold uppercase tracking-wide mb-2 flex items-center gap-2">
+                      <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2 flex items-center gap-2">
                         🟦 NEW (2-Axis)
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
@@ -932,7 +932,7 @@ export default function VoDPlatform() {
               {/* Movement Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-white font-semibold text-lg mb-4">
+                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
                     Movement
                   </h3>
 
@@ -952,7 +952,7 @@ export default function VoDPlatform() {
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
-                      <div className="text-blue-400 text-xs font-semibold uppercase tracking-wide mb-2">
+                      <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2">
                         🟦 NEW (2-Axis)
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
@@ -970,7 +970,7 @@ export default function VoDPlatform() {
               {/* Focus & Legibility Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-white font-semibold text-lg mb-4">
+                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
                     Focus & Legibility
                   </h3>
 
@@ -986,7 +986,7 @@ export default function VoDPlatform() {
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
-                      <div className="text-blue-400 text-xs font-semibold uppercase tracking-wide mb-2">
+                      <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2">
                         🟦 NEW (2-Axis)
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
@@ -1003,7 +1003,7 @@ export default function VoDPlatform() {
               {/* Utility & Feedback Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-white font-semibold text-lg mb-4">
+                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
                     Utility & Feedback
                   </h3>
 
@@ -1018,7 +1018,7 @@ export default function VoDPlatform() {
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
-                      <div className="text-blue-400 text-xs font-semibold uppercase tracking-wide mb-2">
+                      <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2">
                         🟦 NEW (2-Axis)
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
@@ -1038,7 +1038,7 @@ export default function VoDPlatform() {
               {/* Outcome Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-white font-semibold text-lg mb-4">
+                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
                     Outcome
                   </h3>
 
@@ -1053,7 +1053,7 @@ export default function VoDPlatform() {
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
-                      <div className="text-blue-400 text-xs font-semibold uppercase tracking-wide mb-2">
+                      <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2">
                         🟦 NEW (2-Axis)
                       </div>
                       <div className="text-gray-300 text-sm">
@@ -1075,11 +1075,11 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               05
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Measured Interaction Improvements
               </h2>
             </div>
@@ -1097,16 +1097,16 @@ export default function VoDPlatform() {
                   <table className="w-full text-left">
                     <thead>
                       <tr className="border-b border-gray-700">
-                        <th className="pb-4 pr-4 text-blue-400 font-semibold">
+                        <th className="pb-4 pr-4 text-accent font-semibold">
                           Task (TV Example)
                         </th>
-                        <th className="pb-4 pr-4 text-blue-400 font-semibold">
+                        <th className="pb-4 pr-4 text-accent font-semibold">
                           Original Prototype
                         </th>
-                        <th className="pb-4 pr-4 text-blue-400 font-semibold">
+                        <th className="pb-4 pr-4 text-accent font-semibold">
                           Redesigned Flow
                         </th>
-                        <th className="pb-4 text-blue-400 font-semibold">
+                        <th className="pb-4 text-accent font-semibold">
                           Improvement
                         </th>
                       </tr>
@@ -1133,15 +1133,15 @@ export default function VoDPlatform() {
                   {interactionImprovements.map((item, index) => (
                     <div
                       key={index}
-                      className="bg-white/[0.05] border border-white/10 rounded-lg p-4"
+                      className="bg-ink-900/[0.05] border border-ink-900/10 rounded-lg p-4"
                     >
-                      <h3 className="text-white font-semibold text-base mb-4">
+                      <h3 className="text-ink-900 font-semibold text-base mb-4">
                         {item.task}
                       </h3>
 
                       <div className="space-y-3">
                         <div className="flex justify-between items-center">
-                          <div className="text-white/60 text-xs font-semibold uppercase tracking-wide">
+                          <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
                             Original Prototype
                           </div>
                           <div className="text-gray-300 text-sm font-semibold">
@@ -1150,7 +1150,7 @@ export default function VoDPlatform() {
                         </div>
 
                         <div className="flex justify-between items-center">
-                          <div className="text-white/60 text-xs font-semibold uppercase tracking-wide">
+                          <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
                             Redesigned Flow
                           </div>
                           <div className="text-gray-300 text-sm font-semibold">
@@ -1158,8 +1158,8 @@ export default function VoDPlatform() {
                           </div>
                         </div>
 
-                        <div className="flex justify-between items-center pt-2 border-t border-white/10">
-                          <div className="text-white/60 text-xs font-semibold uppercase tracking-wide">
+                        <div className="flex justify-between items-center pt-2 border-t border-ink-900/10">
+                          <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
                             Improvement
                           </div>
                           <div className="text-green-400 text-base font-bold">
@@ -1180,11 +1180,11 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               06
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Outcomes & Deliverables
               </h2>
             </div>
@@ -1200,7 +1200,7 @@ export default function VoDPlatform() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                  <h3 className="text-lg font-semibold text-accent mb-3">
                     Constraints & Trade-offs
                   </h3>
 
@@ -1231,7 +1231,7 @@ export default function VoDPlatform() {
 
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                  <h3 className="text-lg font-semibold text-accent mb-3">
                     Key Learnings
                   </h3>
                   <ul className="space-y-3 text-gray-300 text-sm">
@@ -1292,7 +1292,7 @@ export default function VoDPlatform() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-ink-900 mb-4">
                 Want to see more work?
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
@@ -1309,7 +1309,7 @@ export default function VoDPlatform() {
                 </Link>
                 <a
                   href="mailto:consulting@giacomobianchi.tech"
-                  className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all"
+                  className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
                 >
                   Let's Talk
                 </a>
@@ -1330,7 +1330,7 @@ export default function VoDPlatform() {
         >
           <button
             onClick={closeImageModal}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+            className="absolute top-4 right-4 text-white hover:text-sand-200 transition-colors z-10"
           >
             <X size={32} />
           </button>
@@ -1343,7 +1343,7 @@ export default function VoDPlatform() {
                   e.stopPropagation();
                   previousImage();
                 }}
-                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={32} />
@@ -1354,7 +1354,7 @@ export default function VoDPlatform() {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Next image"
               >
                 <ChevronRight size={32} />

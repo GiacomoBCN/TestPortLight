@@ -222,7 +222,7 @@ export default function XpuntoCero() {
       <div className="fixed top-24 left-6 z-40">
         <Link
           href={createPageUrl("ProductWork")}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-white hover:border-blue transition-all"
+          className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
           <span className="hidden md:inline">Back to Projects</span>
@@ -238,12 +238,12 @@ export default function XpuntoCero() {
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-blue-400">
+            <span className="text-xs uppercase tracking-wider text-accent">
               BRAND TRANSFORMATION · VISUAL DESIGN
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-5xl font-bold text-ink-900 mb-4">
             XpuntoCero Digital Transformation
           </h1>
 
@@ -256,11 +256,11 @@ export default function XpuntoCero() {
             visual redesign and partnered with engineering to ship a fast PWA.
             <br />
             Results:
-            <span className="text-white font-semibold"> +40%</span> mobile
+            <span className="text-ink-900 font-semibold"> +40%</span> mobile
             traffic,
-            <span className="text-white font-semibold"> +15%</span> qualified
+            <span className="text-ink-900 font-semibold"> +15%</span> qualified
             leads, and
-            <span className="text-white font-semibold"> 2×</span> demo requests,
+            <span className="text-ink-900 font-semibold"> 2×</span> demo requests,
             proving how a refreshed brand and faster UX directly improved
             conversions.
           </p>
@@ -313,7 +313,7 @@ export default function XpuntoCero() {
         <p className="text-gray-300 leading-relaxed">
           The result was a cohesive brand presence that felt faster, clearer,
           and more credible, driving measurable results such as
-          <span className="text-white font-semibold"> 2× </span> more demo
+          <span className="text-ink-900 font-semibold"> 2× </span> more demo
           requests and stronger lead conversion.
         </p>
       </ProjectIntroCard>
@@ -360,7 +360,7 @@ export default function XpuntoCero() {
       {/* Project Impact */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
             Project Impact
           </h2>
 
@@ -368,10 +368,10 @@ export default function XpuntoCero() {
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <Smartphone className="w-6 h-6 text-blue-400" />
+                  <Smartphone className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">+40%</div>
-                <div className="text-sm font-semibold text-blue-400 mb-2">
+                <div className="text-4xl font-bold text-ink-900 mb-2">+40%</div>
+                <div className="text-sm font-semibold text-accent mb-2">
                   Mobile Traffic
                 </div>
                 <div className="text-xs text-gray-400">
@@ -384,10 +384,10 @@ export default function XpuntoCero() {
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <Target className="w-6 h-6 text-blue-400" />
+                  <Target className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">+15%</div>
-                <div className="text-sm font-semibold text-blue-400 mb-2">
+                <div className="text-4xl font-bold text-ink-900 mb-2">+15%</div>
+                <div className="text-sm font-semibold text-accent mb-2">
                   Qualified Leads
                 </div>
                 <div className="text-xs text-gray-400">
@@ -400,10 +400,10 @@ export default function XpuntoCero() {
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <CheckCircle className="w-6 h-6 text-blue-400" />
+                  <CheckCircle className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">2×</div>
-                <div className="text-sm font-semibold text-blue-400 mb-2">
+                <div className="text-4xl font-bold text-ink-900 mb-2">2×</div>
+                <div className="text-sm font-semibold text-accent mb-2">
                   Demo Requests
                 </div>
                 <div className="text-xs text-gray-400">
@@ -442,11 +442,11 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               01
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Business Context
               </h2>
             </div>
@@ -459,7 +459,7 @@ export default function XpuntoCero() {
                   XpuntoCero is a B2B SaaS company providing point-of-sale and
                   marketing platforms for clients in the FMCG and Out-of-Home
                   sectors. The company also develops{" "}
-                  <span className="text-white font-semibold">SGPV</span>, a
+                  <span className="text-ink-900 font-semibold">SGPV</span>, a
                   field operations app used by merchandisers from major consumer
                   brands across Southern Europe. After more than a decade
                   without a redesign, XpuntoCero’s visual identity no longer
@@ -490,11 +490,11 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               02
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Research & Design Approach
               </h2>
             </div>
@@ -599,11 +599,11 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               03
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Key Design Decisions & Trade-offs
               </h2>
             </div>
@@ -619,11 +619,11 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               04
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Visual & Brand Identity
               </h2>
             </div>
@@ -708,11 +708,11 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-blue-400 opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20">
               05
             </div>
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
                 Outcomes & Business Impact
               </h2>
             </div>
@@ -735,22 +735,22 @@ export default function XpuntoCero() {
               {/* Lead Generation & Marketing */}
               <GlassCard>
                 <div className="p-6 space-y-4">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-2">
+                  <h3 className="text-lg font-semibold text-accent mb-2">
                     Lead Generation & Marketing
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
                     Clearer messaging and improved visual hierarchy increased
                     qualified leads by
-                    <span className="text-white font-semibold"> +15%</span> and
+                    <span className="text-ink-900 font-semibold"> +15%</span> and
                     doubled demo interest.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                     <div className="text-center">
-                      <div className="text-4xl font-bold text-white mb-1">
+                      <div className="text-4xl font-bold text-ink-900 mb-1">
                         +15%
                       </div>
-                      <div className="text-sm font-semibold text-blue-400">
+                      <div className="text-sm font-semibold text-accent">
                         Qualified Leads
                       </div>
                       <div className="text-xs text-gray-400">
@@ -760,10 +760,10 @@ export default function XpuntoCero() {
                     </div>
 
                     <div className="text-center">
-                      <div className="text-4xl font-bold text-white mb-1">
+                      <div className="text-4xl font-bold text-ink-900 mb-1">
                         2×
                       </div>
-                      <div className="text-sm font-semibold text-blue-400">
+                      <div className="text-sm font-semibold text-accent">
                         Demo Requests
                       </div>
                       <div className="text-xs text-gray-400">
@@ -778,14 +778,14 @@ export default function XpuntoCero() {
               {/* UX & Performance */}
               <GlassCard>
                 <div className="p-6 space-y-4">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-2">
+                  <h3 className="text-lg font-semibold text-accent mb-2">
                     UX & Performance
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
                     PWA architecture boosted mobile traffic by
-                    <span className="text-white font-semibold"> 40%</span> and
+                    <span className="text-ink-900 font-semibold"> 40%</span> and
                     reduced load times by
-                    <span className="text-white font-semibold"> 20%</span>.
+                    <span className="text-ink-900 font-semibold"> 20%</span>.
                     Users experienced smoother navigation and a more consistent
                     brand across devices.
                   </p>
@@ -802,7 +802,7 @@ export default function XpuntoCero() {
             {/* Key Learnings */}
             <GlassCard>
               <div className="p-6 space-y-3">
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">
+                <h3 className="text-lg font-semibold text-accent mb-2">
                   Key Learnings
                 </h3>
                 <ul className="text-gray-300 text-sm space-y-2 leading-relaxed">
@@ -838,7 +838,7 @@ export default function XpuntoCero() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-ink-900 mb-4">
                 Want to see more work?
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
@@ -855,7 +855,7 @@ export default function XpuntoCero() {
                 </Link>
                 <a
                   href="mailto:consulting@giacomobianchi.tech"
-                  className="px-8 py-4 glass rounded-xl text-white font-semibold hover:bg-blue-600 hover:border-blue transition-all"
+                  className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
                 >
                   Let's Talk
                 </a>
@@ -876,7 +876,7 @@ export default function XpuntoCero() {
         >
           <button
             onClick={closeImageModal}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+            className="absolute top-4 right-4 text-white hover:text-sand-200 transition-colors z-10"
           >
             <X size={32} />
           </button>
@@ -888,7 +888,7 @@ export default function XpuntoCero() {
                   e.stopPropagation();
                   previousImage();
                 }}
-                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={32} />
@@ -899,7 +899,7 @@ export default function XpuntoCero() {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+                className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
                 aria-label="Next image"
               >
                 <ChevronRight size={32} />
