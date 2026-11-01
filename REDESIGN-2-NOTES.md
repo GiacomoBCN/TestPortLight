@@ -93,7 +93,7 @@ Lighthouse mobile home con le fasce: Performance 53 (era 75) perché i 344 KB di
 
 ---
 
-## 4. Fasce: interazione al mouse
+## 4. Fasce: interazione al mouse (commit `c5a500a`, `0fd5407`)
 
 - `app/components/SideBands.tsx`: col mouse sopra una fascia, le forme entro 140 px dal cursore si spostano **via dal cursore** e tornano al loro posto. Spostamento massimo 7 px (forma sotto il cursore), che decresce col quadrato della distanza; andata e ritorno in 350 ms (picco al 35%); onda: ritardo fino a 80 ms per le forme lontane. Ogni forma non riparte finche' non e' tornata. Mouse fermo o fuori dalle fasce: niente si muove.
 - Libreria: `framer-motion` (`animate()`), gia' nel progetto. Niente GSAP.
@@ -122,7 +122,7 @@ Prestazioni (5 s di mouse sulle due fasce, 1920 × 1080, mediana di 3 run; Chrom
 
 ---
 
-## 5. Google Analytics: tutti i clic
+## 5. Google Analytics: tutti i clic (commit `e2dff7a`)
 
 - `app/components/ClickTracking.tsx`: un solo listener sul documento manda a GA un evento per ogni clic su qualcosa di cliccabile (link, bottoni, immagini ingrandibili, card con `cursor-pointer`). Nessun componente del sito modificato, tranne `data-track-area="cookie"` sul banner cookie. Montato dentro `GoogleAnalytics.tsx`: senza `NEXT_PUBLIC_GA_MEASUREMENT_ID` non gira. I clic sul testo normale non vengono registrati.
 
@@ -146,8 +146,34 @@ Provato in locale con un ID di test: cookie, menu, email, LinkedIn, CTA della he
 
 ---
 
+## 6. Skill e diagnostica (1 novembre 2026)
+
+- Skill copiate identiche dalla branch `redesign` (commit `7d98e78`) in `.claude/skills/`: `impeccable`, `web-design-guidelines`, `playwright-cli`, piu' `skills-lock.json` (commit `bc81e8f`). Cosi' arrivano in main insieme a questa branch.
+- Diagnostica completa, **solo lettura, nessuna modifica al sito**, fatta su `bc81e8f` (prima del tracciamento clic):
+  - `DIAGNOSTICA.md`: audit impeccable (voto 11/20, "accettabile") + sintesi, rilievi P1/P2/P3 e ordine consigliato degli interventi. Il punto sul consenso di Google Analytics e' stato tolto su richiesta.
+  - `WEB-DESIGN-GUIDELINES.md`: revisione file per file con le regole Vercel Web Interface Guidelines (118 rilievi, `file:riga`).
+- Lighthouse mobile in quella diagnostica: home 68, teaching 68, case study 85-89; desktop home 88, case study 100.
+
+## 7. Riepilogo della giornata (1 novembre 2026)
+
+1. Fasce laterali: interazione al mouse (sezione 4).
+2. Correzione: l'effetto si spegneva dopo il primo scroll o cambio pagina (React riscriveva le fasce); ora no.
+3. Skill aggiunte a questa branch (sezione 6).
+4. Diagnostica completa senza modifiche (`DIAGNOSTICA.md`, `WEB-DESIGN-GUIDELINES.md`).
+5. Google Analytics: in GA le pagine si distinguono gia' per percorso (`/` = home, `/dowjones/`, `/teaching/`, ...): Report -> Coinvolgimento -> Pagine e schermate, vista "Percorso pagina". Il titolo e' "Giacomo Bianchi" su tutte le pagine.
+6. Tracciamento di tutti i clic in GA (sezione 5).
+
+Branch di servizio `claude/zen-faraday-vvpx4t` su GitHub: e' una copia di `redesign-2` a `c5a500a`, non contiene niente di diverso. Da qui non e' stato possibile cancellarla: va cancellata a mano da GitHub (pagina Branches).
+
+---
+
 ## Aperti
 
 - I 4 punti Accessibility non di colore (sopra).
 - Performance mobile delle fasce (import dinamico).
 - Scegliere se tenere le opacità 30/20/30 delle cornici.
+- Interventi consigliati dalla diagnostica, in ordine: vedi fondo di `DIAGNOSTICA.md`.
+- Titoli corti per ogni pagina ("Dow Jones", "Teaching", ...) per leggerli in GA: proposti, non fatti.
+- In GA: creare le dimensioni personalizzate `label`, `area`, `project` (ambito Evento) e verificare in Tempo reale dopo il deploy.
+- Facoltativo: Microsoft Clarity per le mappe di calore di tutti i clic (serve un account).
+- Cancellare la branch `claude/zen-faraday-vvpx4t` da GitHub.
