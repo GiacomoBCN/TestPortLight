@@ -6,8 +6,9 @@ import { FASCIA_SYMBOL } from "./fascia-symbol";
  * Fasce laterali fisse a tutta altezza con l'illustrazione lato-sinistro-linee.svg.
  * L'SVG è inline una sola volta come <symbol> ritagliato sulla parte destra del disegno
  * (x dal 45% al 100%); la fascia destra riusa il simbolo specchiato.
- * Il disegno si adatta alla larghezza della fascia, allineato in alto; la fascia taglia ciò che sborda in basso.
- * Larghezza: var(--band) (globals.css); sotto i 1024px le fasce non sono renderizzate.
+ * Il disegno ritagliato sta a tutta altezza con le proporzioni originali; la fascia è larga
+ * 0.3693 x altezza finestra (min 220px, max 420px), vedi --band in globals.css.
+ * Larghezza: var(--band) (globals.css); sotto i 1280px le fasce non sono renderizzate.
  * Palette: variabili --fascia-* sul body, cambiate con l'attributo data-palette.
  */
 export default function SideBands({ inner = false }: { inner?: boolean }) {
@@ -19,9 +20,10 @@ export default function SideBands({ inner = false }: { inner?: boolean }) {
     >
       <svg
         viewBox="0 0 1402.5 3798"
-        preserveAspectRatio="xMidYMin meet"
+        preserveAspectRatio="xMidYMid slice"
         width="100%"
-        style={{ display: "block", width: "100%", height: "auto" }}
+        height="100%"
+        style={{ display: "block" }}
         focusable="false"
       >
         <use href="#fascia-sx" width="1402.5" height="3798" />
