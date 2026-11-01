@@ -302,15 +302,15 @@
 
 /* ============================================
    FASCE LATERALI (SideBands)
-   La colonna centrale comanda: tra 900px e 1000px
-   (1000px quando c'e' spazio per il disegno intero,
-   altrimenti scende fino a 900px). Le fasce prendono
-   lo spazio che resta ai lati.
+   La colonna centrale e' larga almeno 1280px (la
+   larghezza originale del sito). Se c'e' piu' spazio
+   del disegno intero ai due lati, la colonna si
+   espande e comincia dove finisce il disegno: mai
+   spazio vuoto. Le fasce prendono il resto.
    Il disegno ritagliato (viewBox x dal 25% al 100%,
    rapporto 0.5036) sta a tutta altezza, ancorato al
-   bordo verso il contenuto: se la fascia e' piu' larga
-   del disegno si vede intero, se e' piu' stretta la
-   fascia taglia la parte esterna.
+   bordo verso il contenuto: se la fascia e' piu'
+   stretta del disegno taglia la parte esterna.
    Sotto i 1280px le fasce spariscono (--band: 0).
    ============================================ */
 :root {
@@ -321,7 +321,7 @@
 
 @media (min-width: 1280px) {
   :root {
-    --colonna: clamp(900px, calc(100vw - 2 * 100vh * var(--fascia-ratio)), 1000px);
+    --colonna: max(1280px, calc(100vw - 2 * 100vh * var(--fascia-ratio)));
     --band: calc((100vw - var(--colonna)) / 2);
   }
 }

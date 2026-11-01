@@ -6,9 +6,9 @@ import { FASCIA_SYMBOL } from "./fascia-symbol";
  * Fasce laterali fisse a tutta altezza con l'illustrazione lato-sinistro-linee.svg.
  * L'SVG è inline una sola volta come <symbol> ritagliato sulla parte destra del disegno
  * (x dal 25% al 100%); la fascia destra riusa il simbolo specchiato.
- * La colonna centrale sta tra 900 e 1000px e le fasce prendono il resto (--colonna, --band in globals.css).
- * Il disegno sta a tutta altezza, ancorato al bordo verso il contenuto: intero se la fascia e' larga
- * abbastanza, altrimenti la fascia ne taglia la parte esterna.
+ * La colonna centrale e' larga almeno 1280px e si espande fino a dove finisce il disegno (--colonna,
+ * --band in globals.css). Il disegno sta a tutta altezza, ancorato al bordo verso il contenuto:
+ * intero se la fascia e' larga abbastanza, altrimenti la fascia ne taglia la parte esterna.
  * Sotto i 1280px le fasce non sono renderizzate.
  * Palette: variabili --fascia-* sul body, cambiate con l'attributo data-palette.
  */
