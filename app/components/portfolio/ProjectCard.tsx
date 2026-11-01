@@ -114,7 +114,7 @@ export default function ProjectCard({
       >
         <Link
           href={link}
-          className="block h-full glass rounded-xl p-8 transition-all duration-300 cursor-pointer group
+          className="block h-full glass sketch rounded-xl p-8 transition-all duration-300 cursor-pointer group
                      hover:scale-[1.02] hover:border-[var(--card-border-hover)] hover:shadow-[0_0_30px_rgba(242,140,40,0.3)]
                      focus:outline-none focus:ring-2 focus:ring-[var(--color-border-interactive)] focus:ring-offset-2 focus:ring-offset-[var(--color-surface-secondary)]"
           aria-label={`View case study: ${title}`}
@@ -132,7 +132,7 @@ export default function ProjectCard({
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay }}
-      className="glass rounded-xl p-8"
+      className="glass sketch rounded-xl p-8"
     >
       {cardContent}
     </motion.div>

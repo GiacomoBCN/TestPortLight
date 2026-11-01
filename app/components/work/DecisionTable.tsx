@@ -13,7 +13,8 @@ export default function DecisionTable({
   return (
     <>
       {/* Desktop Table View - hidden on mobile */}
-      <div className="hidden lg:block bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-xl overflow-hidden">
+      <div className="hidden lg:block sketch">
+      <div className="bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -55,13 +56,14 @@ export default function DecisionTable({
           </table>
         </div>
       </div>
+      </div>
 
       {/* Mobile Card View - visible only on mobile */}
       <div className="lg:hidden space-y-4">
         {decisions.map((decision, index) => (
           <div
             key={index}
-            className="bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-xl p-5"
+            className="sketch bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-xl p-5"
           >
             <h3 className="text-[var(--color-text-inverse)] font-semibold text-base mb-4">
               {decision.point}

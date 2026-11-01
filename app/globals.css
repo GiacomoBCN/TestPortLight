@@ -398,3 +398,48 @@ body[data-palette="b"] {
     transition: none;
   }
 }
+
+/* ============================================
+   LINEE DI COSTRUZIONE (classe .sketch)
+   Cornice a filetti blu come le linee dell'SVG
+   (#0D99FF, 1px, dritte), 6px fuori dal box, con
+   le linee che proseguono 14px oltre gli angoli.
+   Il box sotto tiene il suo border-radius.
+   Solo su superfici grandi e medie.
+   ============================================ */
+:root {
+  --sketch-off: 6px;
+  --sketch-over: 14px;
+}
+
+.sketch {
+  position: relative;
+}
+
+.sketch::before,
+.sketch::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* linee orizzontali, sopra e sotto */
+.sketch::before {
+  top: calc(-1 * var(--sketch-off));
+  bottom: calc(-1 * var(--sketch-off));
+  left: calc(-1 * var(--sketch-over));
+  right: calc(-1 * var(--sketch-over));
+  border-top: 1px solid var(--fascia-linee);
+  border-bottom: 1px solid var(--fascia-linee);
+}
+
+/* linee verticali, sinistra e destra */
+.sketch::after {
+  top: calc(-1 * var(--sketch-over));
+  bottom: calc(-1 * var(--sketch-over));
+  left: calc(-1 * var(--sketch-off));
+  right: calc(-1 * var(--sketch-off));
+  border-left: 1px solid var(--fascia-linee);
+  border-right: 1px solid var(--fascia-linee);
+}

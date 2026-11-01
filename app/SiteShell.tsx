@@ -80,7 +80,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Nav */}
       <nav
-        className={`fixed top-0 inset-x-0 z-50 transition-all ${
+        className={`sketch fixed top-0 inset-x-0 z-50 transition-all ${
           isScrolled ? "glass py-4" : "bg-transparent py-6"
         }`}
         aria-label="Main navigation"
@@ -251,7 +251,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       <footer
-        className="glass mt-32 py-12 border-t border-ink-900/10"
+        className="glass sketch mt-32 py-12 border-t border-ink-900/10"
         role="contentinfo"
       >
         <div className="max-w-7xl mx-auto px-6">
