@@ -28,6 +28,7 @@ import GlassCard from "../components/portfolio/GlassCard";
 import ExpandableText from "../components/ExpandableText";
 import BeforeAfterImpactCard from "../components/portfolio/BeforeAfterImpactCard";
 import TestimonialCarousel from "../components/TestimonialCarousel";
+import SketchFrame from "../components/SketchFrame";
 
 // Testimonials data
 const testimonials = [
@@ -527,6 +528,7 @@ export default function Home() {
       {/* Dual Path CTA Section */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto sketch">
+          <SketchFrame />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden">
             {/* Product & Design Leadership */}
             <div className="glass p-12 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300 border-r border-[rgba(28,25,23,0.10)]">

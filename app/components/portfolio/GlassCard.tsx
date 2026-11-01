@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, useInView } from "framer-motion";
+import SketchFrame from "../SketchFrame";
 
 export default function GlassCard({
   children,
@@ -33,6 +34,7 @@ export default function GlassCard({
         hover ? "glass-hover cursor-pointer" : ""
       } ${className}`}
     >
+      <SketchFrame />
       {children}
     </motion.div>
   );

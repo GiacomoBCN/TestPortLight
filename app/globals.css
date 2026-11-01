@@ -400,18 +400,23 @@ body[data-palette="b"] {
 }
 
 /* ============================================
-   LINEE DI COSTRUZIONE (classe .sketch)
-   Copiate dalle linee blu dell'SVG: filetto 1px
-   #0D99FF al 60%, banda azzurra pallida affiancata, puntino
-   tondo agli incroci. Le linee stanno 6px DENTRO il
-   bordo del box e sporgono 10px oltre gli angoli;
-   il box tiene il suo border-radius.
-   Solo su superfici grandi e medie.
+   LINEE DI COSTRUZIONE (.sketch + <SketchFrame/>)
+   Copiate dalle linee blu dell'SVG: filetto 1px,
+   banda pallida 4px affiancata, puntino agli incroci.
+   Tutto #0D99FF (--fascia-linee), estremita' arrotondate.
+   Le linee stanno 6px DENTRO il bordo del box e sporgono
+   10px oltre gli angoli; il box tiene il suo border-radius.
+   Ogni elemento ha la sua classe: regolabile dall'ispettore.
    ============================================ */
 :root {
-  --sketch-in: 6px;      /* distanza dal bordo, verso l'interno */
-  --sketch-over: 10px;   /* quanto la linea prosegue oltre l'angolo */
-  --sketch-pad: 5px;     /* spazio per il puntino (raggio 4px) */
+  --sketch-in: 6px;              /* distanza dal bordo, verso l'interno */
+  --sketch-over: 10px;           /* quanto la linea prosegue oltre l'angolo */
+  --sketch-pad: 5px;             /* margine per i puntini */
+  --sketch-line-opacity: 0.3;    /* filetto 1px */
+  --sketch-band-opacity: 0.2;    /* banda pallida 4px */
+  --sketch-dot-opacity: 0.3;     /* puntini */
+  --sk-ext: calc(var(--sketch-over) + var(--sketch-pad) - var(--sketch-in)); /* 9px fuori dal box */
+  --sk-l: calc(var(--sketch-pad) + var(--sketch-over));                       /* 15px: posizione del filetto nell'SVG */
 }
 
 @layer base {
@@ -420,55 +425,35 @@ body[data-palette="b"] {
   }
 }
 
-.sketch::before {
-  /* i colori derivano da --fascia-linee (definita sul body), quindi vanno risolti qui */
-  --sketch-line: color-mix(in srgb, var(--fascia-linee) 60%, transparent);
-  --sketch-pale: color-mix(in srgb, var(--fascia-linee) 22%, transparent);
-  --sketch-dot: color-mix(in srgb, var(--fascia-linee) 70%, transparent);
-  --sk-l: calc(var(--sketch-pad) + var(--sketch-over)); /* posizione delle linee nel pseudo-elemento */
-  content: "";
+.sketch-frame {
   position: absolute;
+  top: calc(-1 * var(--sk-ext));
+  left: calc(-1 * var(--sk-ext));
+  width: calc(100% + 2 * var(--sk-ext));
+  height: calc(100% + 2 * var(--sk-ext));
+  overflow: visible;
   pointer-events: none;
   z-index: 1;
-  inset: calc(var(--sketch-in) - var(--sketch-over) - var(--sketch-pad));
-  background-repeat: no-repeat;
-  background-image:
-    /* filetti: sopra, sotto, sinistra, destra */
-    linear-gradient(var(--sketch-line), var(--sketch-line)),
-    linear-gradient(var(--sketch-line), var(--sketch-line)),
-    linear-gradient(var(--sketch-line), var(--sketch-line)),
-    linear-gradient(var(--sketch-line), var(--sketch-line)),
-    /* bande pallide, subito fuori dal filetto */
-    linear-gradient(var(--sketch-pale), var(--sketch-pale)),
-    linear-gradient(var(--sketch-pale), var(--sketch-pale)),
-    linear-gradient(var(--sketch-pale), var(--sketch-pale)),
-    linear-gradient(var(--sketch-pale), var(--sketch-pale)),
-    /* puntini ai quattro incroci */
-    radial-gradient(circle, var(--sketch-dot) 3.5px, transparent 4px),
-    radial-gradient(circle, var(--sketch-dot) 3.5px, transparent 4px),
-    radial-gradient(circle, var(--sketch-dot) 3.5px, transparent 4px),
-    radial-gradient(circle, var(--sketch-dot) 3.5px, transparent 4px);
-  background-size:
-    calc(100% - 2 * var(--sketch-pad)) 1px,
-    calc(100% - 2 * var(--sketch-pad)) 1px,
-    1px calc(100% - 2 * var(--sketch-pad)),
-    1px calc(100% - 2 * var(--sketch-pad)),
-    calc(100% - 2 * var(--sketch-pad)) 4px,
-    calc(100% - 2 * var(--sketch-pad)) 4px,
-    4px calc(100% - 2 * var(--sketch-pad)),
-    4px calc(100% - 2 * var(--sketch-pad)),
-    10px 10px, 10px 10px, 10px 10px, 10px 10px;
-  background-position:
-    var(--sketch-pad) var(--sk-l),
-    var(--sketch-pad) calc(100% - var(--sk-l)),
-    var(--sk-l) var(--sketch-pad),
-    calc(100% - var(--sk-l)) var(--sketch-pad),
-    var(--sketch-pad) calc(var(--sk-l) - 5px),
-    var(--sketch-pad) calc(100% - var(--sk-l) + 5px),
-    calc(var(--sk-l) - 5px) var(--sketch-pad),
-    calc(100% - var(--sk-l) + 5px) var(--sketch-pad),
-    calc(var(--sk-l) - 5px) calc(var(--sk-l) - 5px),
-    calc(100% - var(--sk-l) + 5px) calc(var(--sk-l) - 5px),
-    calc(var(--sk-l) - 5px) calc(100% - var(--sk-l) + 5px),
-    calc(100% - var(--sk-l) + 5px) calc(100% - var(--sk-l) + 5px);
+  fill: var(--fascia-linee);
 }
+
+/* filetti 1px */
+.sketch-line { opacity: var(--sketch-line-opacity); rx: 0.5px; }
+.sketch-line-top    { x: var(--sketch-pad); y: var(--sk-l); width: calc(100% - 2 * var(--sketch-pad)); height: 1px; }
+.sketch-line-bottom { x: var(--sketch-pad); y: calc(100% - var(--sk-l) - 1px); width: calc(100% - 2 * var(--sketch-pad)); height: 1px; }
+.sketch-line-left   { x: var(--sk-l); y: var(--sketch-pad); width: 1px; height: calc(100% - 2 * var(--sketch-pad)); }
+.sketch-line-right  { x: calc(100% - var(--sk-l) - 1px); y: var(--sketch-pad); width: 1px; height: calc(100% - 2 * var(--sketch-pad)); }
+
+/* bande pallide 4px, subito fuori dal filetto */
+.sketch-band { opacity: var(--sketch-band-opacity); rx: 2px; }
+.sketch-band-top    { x: var(--sketch-pad); y: calc(var(--sk-l) - 5px); width: calc(100% - 2 * var(--sketch-pad)); height: 4px; }
+.sketch-band-bottom { x: var(--sketch-pad); y: calc(100% - var(--sk-l) + 1px); width: calc(100% - 2 * var(--sketch-pad)); height: 4px; }
+.sketch-band-left   { x: calc(var(--sk-l) - 5px); y: var(--sketch-pad); width: 4px; height: calc(100% - 2 * var(--sketch-pad)); }
+.sketch-band-right  { x: calc(100% - var(--sk-l) + 1px); y: var(--sketch-pad); width: 4px; height: calc(100% - 2 * var(--sketch-pad)); }
+
+/* puntini agli incroci dei filetti */
+.sketch-dot { opacity: var(--sketch-dot-opacity); r: 4px; }
+.sketch-dot-tl { cx: calc(var(--sk-l) + 0.5px); cy: calc(var(--sk-l) + 0.5px); }
+.sketch-dot-tr { cx: calc(100% - var(--sk-l) - 0.5px); cy: calc(var(--sk-l) + 0.5px); }
+.sketch-dot-bl { cx: calc(var(--sk-l) + 0.5px); cy: calc(100% - var(--sk-l) - 0.5px); }
+.sketch-dot-br { cx: calc(100% - var(--sk-l) - 0.5px); cy: calc(100% - var(--sk-l) - 0.5px); }

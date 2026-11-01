@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { createPageUrl } from "@/utils";
+import SketchFrame from "../SketchFrame";
 
 interface ProjectListingCardProps {
   category: string;
@@ -26,6 +27,7 @@ export default function ProjectListingCard({
 }: ProjectListingCardProps) {
   return (
     <div className="sketch bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-2xl p-8 transition-all duration-300 hover:bg-[var(--color-text-inverse)]/[0.05] hover:border-[var(--color-border-interactive)]/30 hover:shadow-[0_20px_60px_-15px_var(--color-surface-glow)] hover:-translate-y-2 flex flex-col min-h-[480px] max-h-[600px]">
+      <SketchFrame />
       {/* TOP SECTION - Header (flexible height) */}
       <div className="mb-4 flex-shrink-0">
         <div className="text-xs uppercase tracking-wider text-[var(--color-text-link-default)] mb-2">

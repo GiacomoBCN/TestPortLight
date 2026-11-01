@@ -1,4 +1,5 @@
 import React from "react";
+import SketchFrame from "../SketchFrame";
 
 export default function DecisionTable({
   decisions
@@ -14,6 +15,7 @@ export default function DecisionTable({
     <>
       {/* Desktop Table View - hidden on mobile */}
       <div className="hidden lg:block sketch">
+      <SketchFrame />
       <div className="bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -65,6 +67,7 @@ export default function DecisionTable({
             key={index}
             className="sketch bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-xl p-5"
           >
+            <SketchFrame />
             <h3 className="text-[var(--color-text-inverse)] font-semibold text-base mb-4">
               {decision.point}
             </h3>

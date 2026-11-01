@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import SketchFrame from "../SketchFrame";
 
 export default function ProjectCard({
   role,
@@ -119,6 +120,7 @@ export default function ProjectCard({
                      focus:outline-none focus:ring-2 focus:ring-[var(--color-border-interactive)] focus:ring-offset-2 focus:ring-offset-[var(--color-surface-secondary)]"
           aria-label={`View case study: ${title}`}
         >
+          <SketchFrame />
           {cardContent}
         </Link>
       </motion.div>
@@ -134,6 +136,7 @@ export default function ProjectCard({
       transition={{ duration: 0.5, delay }}
       className="glass sketch rounded-xl p-8"
     >
+      <SketchFrame />
       {cardContent}
     </motion.div>
   );

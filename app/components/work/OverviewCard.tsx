@@ -1,4 +1,5 @@
 import React from "react";
+import SketchFrame from "../SketchFrame";
 
 export default function OverviewCard({ 
   icon: Icon, 
@@ -11,6 +12,7 @@ export default function OverviewCard({
 }) {
   return (
     <div className="sketch bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-xl p-6">
+      <SketchFrame />
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-10 rounded-lg bg-[var(--color-surface-interactive-hover)]/10 flex items-center justify-center">
           <Icon className="w-5 h-5 text-[var(--color-text-link-default)]" />

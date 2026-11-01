@@ -6,6 +6,7 @@ import { createPageUrl } from "@/utils";
 import { Menu, X, Mail, ChevronDown } from "lucide-react";
 import ScrollToTop from "./components/ScrollToTop";
 import SideBands from "./components/SideBands";
+import SketchFrame from "./components/SketchFrame";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -86,6 +87,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         aria-label="Main navigation"
         style={{ left: "var(--band)", right: "var(--band)" }}
       >
+        <SketchFrame />
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link
             href={createPageUrl("Home")}
@@ -254,6 +256,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         className="glass sketch mt-32 py-12 border-t border-ink-900/10"
         role="contentinfo"
       >
+        <SketchFrame />
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
