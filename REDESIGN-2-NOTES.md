@@ -122,6 +122,30 @@ Prestazioni (5 s di mouse sulle due fasce, 1920 × 1080, mediana di 3 run; Chrom
 
 ---
 
+## 5. Google Analytics: tutti i clic
+
+- `app/components/ClickTracking.tsx`: un solo listener sul documento manda a GA un evento per ogni clic su qualcosa di cliccabile (link, bottoni, immagini ingrandibili, card con `cursor-pointer`). Nessun componente del sito modificato, tranne `data-track-area="cookie"` sul banner cookie. Montato dentro `GoogleAnalytics.tsx`: senza `NEXT_PUBLIC_GA_MEASUREMENT_ID` non gira. I clic sul testo normale non vengono registrati.
+
+| Evento | Quando |
+|---|---|
+| `click_email` | link email |
+| `click_linkedin` | link LinkedIn |
+| `click_external` | altri siti esterni |
+| `open_case_study` | link a una case study (`project`: dowjones, vodplatform, ...) |
+| `click_nav` | link o bottoni nella barra di navigazione |
+| `click_link` | altri link interni (es. "View Product Work") |
+| `open_image` | immagine ingrandibile (`label` = testo alternativo dell'immagine) |
+| `cookie_choice` | Accept / Decline (`choice`) |
+| `click_button` | tutti gli altri bottoni (Read more, frecce, chiudi, ...) |
+
+Parametri: `label` (cosa e' stato cliccato), `area` (nav, footer, lightbox, cookie o il titolo della sezione, es. "Featured Work"), `link_url` per i link, `project` per le case study. La pagina la aggiunge GA da sola.
+
+Per vedere `label`, `area` e `project` nei report: GA → Amministrazione → Definizioni personalizzate → Crea dimensione personalizzata (ambito Evento) per ciascuno. Gli eventi compaiono in Report → Coinvolgimento → Eventi (in tempo reale subito, nei report standard entro 24-48 h).
+
+Provato in locale con un ID di test: cookie, menu, email, LinkedIn, CTA della hero, card case study, Read more, frecce testimonianze, immagini e lightbox mandano l'evento giusto; testo normale nessun evento.
+
+---
+
 ## Aperti
 
 - I 4 punti Accessibility non di colore (sopra).

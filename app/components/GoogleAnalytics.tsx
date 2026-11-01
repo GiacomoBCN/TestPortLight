@@ -3,6 +3,7 @@
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import ClickTracking from "./ClickTracking";
 
 interface GoogleAnalyticsProps {
   measurementId: string;
@@ -33,6 +34,7 @@ export default function GoogleAnalytics({
 
   return (
     <>
+      <ClickTracking />
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}

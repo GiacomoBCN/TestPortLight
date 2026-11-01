@@ -60,6 +60,7 @@ export default function CookieConsent() {
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-50"
+          data-track-area="cookie"
         style={{ right: "calc(var(--band) + 1.5rem)" }}
         >
           <div
