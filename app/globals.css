@@ -401,45 +401,74 @@ body[data-palette="b"] {
 
 /* ============================================
    LINEE DI COSTRUZIONE (classe .sketch)
-   Cornice a filetti blu come le linee dell'SVG
-   (#0D99FF, 1px, dritte), 6px fuori dal box, con
-   le linee che proseguono 14px oltre gli angoli.
-   Il box sotto tiene il suo border-radius.
+   Copiate dalle linee blu dell'SVG: filetto 1px
+   #0D99FF, banda azzurra pallida affiancata, puntino
+   tondo agli incroci. Le linee stanno 6px DENTRO il
+   bordo del box e sporgono 10px oltre gli angoli;
+   il box tiene il suo border-radius.
    Solo su superfici grandi e medie.
    ============================================ */
 :root {
-  --sketch-off: 6px;
-  --sketch-over: 14px;
+  --sketch-in: 6px;      /* distanza dal bordo, verso l'interno */
+  --sketch-over: 10px;   /* quanto la linea prosegue oltre l'angolo */
+  --sketch-pad: 5px;     /* spazio per il puntino (raggio 4px) */
 }
 
-.sketch {
-  position: relative;
+@layer base {
+  .sketch {
+    position: relative;
+  }
 }
 
-.sketch::before,
-.sketch::after {
+.sketch::before {
+  /* i colori derivano da --fascia-linee (definita sul body), quindi vanno risolti qui */
+  --sketch-line: var(--fascia-linee);
+  --sketch-pale: color-mix(in srgb, var(--fascia-linee) 22%, transparent);
+  --sketch-dot: color-mix(in srgb, var(--fascia-linee) 70%, transparent);
+  --sk-l: calc(var(--sketch-pad) + var(--sketch-over)); /* posizione delle linee nel pseudo-elemento */
   content: "";
   position: absolute;
   pointer-events: none;
   z-index: 1;
-}
-
-/* linee orizzontali, sopra e sotto */
-.sketch::before {
-  top: calc(-1 * var(--sketch-off));
-  bottom: calc(-1 * var(--sketch-off));
-  left: calc(-1 * var(--sketch-over));
-  right: calc(-1 * var(--sketch-over));
-  border-top: 1px solid var(--fascia-linee);
-  border-bottom: 1px solid var(--fascia-linee);
-}
-
-/* linee verticali, sinistra e destra */
-.sketch::after {
-  top: calc(-1 * var(--sketch-over));
-  bottom: calc(-1 * var(--sketch-over));
-  left: calc(-1 * var(--sketch-off));
-  right: calc(-1 * var(--sketch-off));
-  border-left: 1px solid var(--fascia-linee);
-  border-right: 1px solid var(--fascia-linee);
+  inset: calc(var(--sketch-in) - var(--sketch-over) - var(--sketch-pad));
+  background-repeat: no-repeat;
+  background-image:
+    /* filetti: sopra, sotto, sinistra, destra */
+    linear-gradient(var(--sketch-line), var(--sketch-line)),
+    linear-gradient(var(--sketch-line), var(--sketch-line)),
+    linear-gradient(var(--sketch-line), var(--sketch-line)),
+    linear-gradient(var(--sketch-line), var(--sketch-line)),
+    /* bande pallide, subito fuori dal filetto */
+    linear-gradient(var(--sketch-pale), var(--sketch-pale)),
+    linear-gradient(var(--sketch-pale), var(--sketch-pale)),
+    linear-gradient(var(--sketch-pale), var(--sketch-pale)),
+    linear-gradient(var(--sketch-pale), var(--sketch-pale)),
+    /* puntini ai quattro incroci */
+    radial-gradient(circle, var(--sketch-dot) 3.5px, transparent 4px),
+    radial-gradient(circle, var(--sketch-dot) 3.5px, transparent 4px),
+    radial-gradient(circle, var(--sketch-dot) 3.5px, transparent 4px),
+    radial-gradient(circle, var(--sketch-dot) 3.5px, transparent 4px);
+  background-size:
+    calc(100% - 2 * var(--sketch-pad)) 1px,
+    calc(100% - 2 * var(--sketch-pad)) 1px,
+    1px calc(100% - 2 * var(--sketch-pad)),
+    1px calc(100% - 2 * var(--sketch-pad)),
+    calc(100% - 2 * var(--sketch-pad)) 4px,
+    calc(100% - 2 * var(--sketch-pad)) 4px,
+    4px calc(100% - 2 * var(--sketch-pad)),
+    4px calc(100% - 2 * var(--sketch-pad)),
+    10px 10px, 10px 10px, 10px 10px, 10px 10px;
+  background-position:
+    var(--sketch-pad) var(--sk-l),
+    var(--sketch-pad) calc(100% - var(--sk-l)),
+    var(--sk-l) var(--sketch-pad),
+    calc(100% - var(--sk-l)) var(--sketch-pad),
+    var(--sketch-pad) calc(var(--sk-l) - 5px),
+    var(--sketch-pad) calc(100% - var(--sk-l) + 5px),
+    calc(var(--sk-l) - 5px) var(--sketch-pad),
+    calc(100% - var(--sk-l) + 5px) var(--sketch-pad),
+    calc(var(--sk-l) - 5px) calc(var(--sk-l) - 5px),
+    calc(100% - var(--sk-l) + 5px) calc(var(--sk-l) - 5px),
+    calc(var(--sk-l) - 5px) calc(100% - var(--sk-l) + 5px),
+    calc(100% - var(--sk-l) + 5px) calc(100% - var(--sk-l) + 5px);
 }
