@@ -19,7 +19,7 @@ import {
   SquareDashedKanban,
 } from "lucide-react";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import SectionHeader from "../components/portfolio/SectionHeader";
 import MetricCard from "../components/portfolio/MetricCard";
 import LeadershipCard from "../components/portfolio/LeadershipCard";
@@ -70,6 +70,7 @@ const testimonials = [
 ];
 
 export default function Home() {
+  const reduceMotion = useReducedMotion();
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -91,37 +92,24 @@ export default function Home() {
           <div className="w-[600px] h-[600px] bg-[var(--color-surface-interactive-default)] rounded-full opacity-10 blur-3xl"></div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center relative z-10"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mb-3 md:mb-6"
-          >
+        {/* Entrata della hero in CSS: parte al primo paint, senza aspettare il JS */}
+        <div className="hero-in hero-in-container max-w-4xl mx-auto text-center relative z-10">
+          <div className="hero-in hero-in-fade mb-3 md:mb-6" style={{ animationDelay: "0.2s" }}>
             <span className="inline-block px-6 py-3 glass rounded-full text-[var(--color-text-brand)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
               Product & Design Leadership
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-5xl md:text-7xl font-bold text-[var(--color-text-inverse)] mb-6"
+          <h1
+            className="hero-in text-5xl md:text-7xl font-bold text-[var(--color-text-inverse)] mb-6"
+            style={{ animationDelay: "0.3s" }}
           >
             Giacomo Bianchi, PhD
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl text-[var(--color-text-primary)] mb-12 max-w-3xl mx-auto leading-relaxed"
+          <p
+            style={{ animationDelay: "0.4s" }}
+            className="hero-in text-xl md:text-2xl text-[var(--color-text-primary)] mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             I align designers and engineers to ship scalable systems. I reduce
             friction in complex interfaces, unify fragmented codebases, and
@@ -129,13 +117,11 @@ export default function Home() {
             <br />
             I've taught 1000+ students across UX/UI and cross-cultural
             management.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+          <div
+            style={{ animationDelay: "0.5s" }}
+            className="hero-in flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
             <a
               href="#work"
@@ -149,7 +135,7 @@ export default function Home() {
             >
               View Teaching Portfolio
             </Link>
-          </motion.div>
+          </div>
 
           <motion.a
             href="#impact"
@@ -157,7 +143,8 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{
               delay: 0.8,
-              repeat: Infinity,
+              // con prefers-reduced-motion la freccia compare e resta ferma
+              repeat: reduceMotion ? 0 : Infinity,
               repeatType: "reverse",
               duration: 1.5,
             }}
@@ -166,7 +153,7 @@ export default function Home() {
           >
             <ChevronDown size={32} className="text-[var(--color-icon-accent)] glow-blue" aria-hidden="true" />
           </motion.a>
-        </motion.div>
+        </div>
       </section>
 
       {/* Impact Metrics Section */}

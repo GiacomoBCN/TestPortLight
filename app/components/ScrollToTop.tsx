@@ -20,9 +20,10 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: reduce ? "auto" : "smooth",
     });
   };
 

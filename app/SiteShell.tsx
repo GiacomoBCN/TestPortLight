@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"; // ← Add this line
 import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import { Menu, X, Mail, ChevronDown } from "lucide-react";
+import { MotionConfig } from "framer-motion";
 import ScrollToTop from "./components/ScrollToTop";
 import SideBands from "./components/SideBands";
 import SketchFrame from "./components/SketchFrame";
@@ -72,6 +73,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const isHome = pathname === "/";
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-white text-ink-900">
       <SideBands inner={!isHome} />
       <style>{`
@@ -328,5 +330,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Scroll to top button */}
       <ScrollToTop />
     </div>
+    </MotionConfig>
   );
 }

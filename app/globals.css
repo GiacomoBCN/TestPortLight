@@ -301,6 +301,66 @@
 }
 
 /* ============================================
+   ENTRATA DELLA HERO (home, teaching)
+   In CSS invece che framer-motion: l'animazione parte al primo
+   paint, quindi il testo principale non resta a opacity 0 finche'
+   il JavaScript non e' caricato. Tempi uguali a prima: contenitore
+   0.8s con salita di 30px, figli con ritardo 0.2-0.5s (style inline).
+   Fill 'backwards': finita l'animazione non resta applicata (se
+   restasse, il backdrop-filter dei bottoni glass non vedrebbe piu'
+   l'alone dietro la hero).
+   ============================================ */
+@keyframes hero-in-fade { from { opacity: 0; } }
+@keyframes hero-in-rise { from { transform: translateY(20px); } }
+@keyframes hero-in-rise-30 { from { transform: translateY(30px); } }
+
+.hero-in {
+  animation:
+    hero-in-fade 0.3s cubic-bezier(0.25, 0.1, 0.35, 1) backwards,
+    hero-in-rise 0.5s cubic-bezier(0.34, 1.25, 0.64, 1) backwards;
+}
+.hero-in-container {
+  animation:
+    hero-in-fade 0.8s ease-out backwards,
+    hero-in-rise-30 0.8s ease-out backwards;
+}
+.hero-in-fade {
+  animation: hero-in-fade 0.3s cubic-bezier(0.25, 0.1, 0.35, 1) backwards;
+}
+
+/* ============================================
+   PREFERS-REDUCED-MOTION
+   framer-motion: <MotionConfig reducedMotion="user"> in SiteShell
+   (niente spostamenti, solo dissolvenze). Qui il resto: scroll
+   fluido, animazioni CSS infinite, salita della hero.
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  * {
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float,
+  .animate-fade-in {
+    animation: none;
+  }
+
+  .hero-in,
+  .hero-in-container {
+    animation-name: hero-in-fade, none;
+  }
+
+  /* transition-all / transition-transform animerebbero anche gli spostamenti
+     (entrata delle card, hover scale): restano solo colori, ombre e opacita' */
+  .transition-all,
+  .transition-transform {
+    transition-property: color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, filter,
+      backdrop-filter !important;
+  }
+}
+
+/* ============================================
    FASCE LATERALI (SideBands)
    La colonna centrale e' larga almeno 1280px (la
    larghezza originale del sito). Se c'e' piu' spazio

@@ -29,6 +29,12 @@ export default function BeforeAfterImpactCard({
     if (!match) return;
 
     const targetValue = parseInt(match[1].replace(/[^\d]/g, ""));
+
+    // Con prefers-reduced-motion niente conteggio: subito il valore finale
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCount(targetValue);
+      return;
+    }
     const duration = 1500; // 1.5 seconds
     const steps = 60;
     const increment = targetValue / steps;
@@ -64,7 +70,9 @@ export default function BeforeAfterImpactCard({
         </div>
 
         <h3 className="text-5xl font-bold text-[var(--metric-value-text)] mb-6">
-          {displayHeadline}
+          {/* Lo screen reader legge solo il valore finale, non i numeri intermedi */}
+          <span aria-hidden="true">{displayHeadline}</span>
+          <span className="sr-only">{headline}</span>
         </h3>
 
         {subHeadline && (

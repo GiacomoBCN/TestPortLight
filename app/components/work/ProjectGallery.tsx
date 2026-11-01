@@ -33,17 +33,12 @@ export default function ProjectGallery({
     }
   };
 
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -320, behavior: 'smooth' });
-    }
+  const scrollByPx = (left: number) => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    scrollContainerRef.current?.scrollBy({ left, behavior: reduce ? "auto" : "smooth" });
   };
-
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 320, behavior: 'smooth' });
-    }
-  };
+  const scrollLeft = () => scrollByPx(-320);
+  const scrollRight = () => scrollByPx(320);
 
   return (
     <>
