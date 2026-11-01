@@ -93,6 +93,34 @@ Lighthouse mobile home con le fasce: Performance 53 (era 75) perché i 344 KB di
 
 ---
 
+## 4. Fasce: interazione al mouse
+
+- `app/components/SideBands.tsx`: col mouse sopra una fascia, le forme entro 140 px dal cursore si spostano **via dal cursore** e tornano al loro posto. Spostamento massimo 7 px (forma sotto il cursore), che decresce col quadrato della distanza; andata e ritorno in 350 ms (picco al 35%); onda: ritardo fino a 80 ms per le forme lontane. Ogni forma non riparte finche' non e' tornata. Mouse fermo o fuori dalle fasce: niente si muove.
+- Libreria: `framer-motion` (`animate()`), gia' nel progetto. Niente GSAP.
+- Fermi: il gruppo delle linee blu (`#lines`) e la forma di sfondo a tutta fascia. Si muovono solo le forme della fascia sotto il cursore.
+- Struttura: l'HTML e' identico a prima (`<symbol>` + `<use>` per fascia). Solo se il dispositivo ha un mouse (`hover: hover` e `pointer: fine`) e non c'e' `prefers-reduced-motion`, a pagina caricata (idle) ogni `<use>` viene sostituito da una copia inline identica del simbolo (`<svg class="fascia-inline">`, stesso viewBox, senza id duplicati), cosi' le forme di una fascia si muovono da sole. Su touch e con reduced-motion il DOM non cambia e non c'e' nessun listener attivo.
+- CSS (`globals.css`, FASCE LATERALI): le regole di posizione/specchiatura passano da `.side-band svg` a `.side-band > svg` (stesso effetto, ma non colpiscono l'svg annidato); la transizione di palette vale anche per `.fascia-inline path`.
+- Parametri in cima al componente: `RADIUS`, `MAX_SHIFT`, `DURATION`, `WAVE_DELAY`.
+
+Misure (build di produzione, Chromium headless, misurate dopo la sostituzione inline):
+
+| Finestra | Colonna | Fascia sx | Fascia dx |
+|---|---|---|---|
+| 1440 × 900 | 1280 | 80 | 80 |
+| 1920 × 1080 | 1280 | 320 | 320 |
+| 2560 × 1440 | 1280 | 640 | 640 |
+| 3440 × 1440 | 1990 (1989,63) | 725 (725,17) | 725 (725,17) |
+
+Identiche a prima, home e pagine interne. Screenshot delle fasce prima/dopo a riposo: identici al pixel (differenza 0) a tutte e quattro le misure.
+
+Prestazioni (5 s di mouse sulle due fasce, 1920 × 1080, mediana di 3 run; Chromium headless senza GPU in container cloud, quindi indicative):
+- FPS: 60 durante il movimento (prima: 60).
+- CPU main thread: ~17% durante il movimento (prima: ~2%). A mouse fermo: 0, non gira niente.
+- Lighthouse desktop home, 3 run: Performance 88 / Accessibility 96 / Best Practices 100 / SEO 100, identici a prima. TBT 0 ms, CLS 0, LCP 2,31 s (prima 2,31 s).
+- Peso: HTML invariato; JS condiviso +10 kB (`animate` di framer-motion entra nel bundle comune).
+
+---
+
 ## Aperti
 
 - I 4 punti Accessibility non di colore (sopra).
