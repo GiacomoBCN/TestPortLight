@@ -78,6 +78,7 @@ export default function PWAInstallPrompt() {
         exit={{ y: -100, opacity: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
         className="fixed top-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-50"
+        style={{ right: "calc(var(--band) + 1.5rem)" }}
       >
         <div
           className="rounded-xl bg-[#ffffff]/80 backdrop-blur-xl shadow-2xl border border-ink-900/20 p-4"

@@ -299,3 +299,79 @@
     animation: fade-in 0.6s ease-out forwards;
   }
 }
+
+/* ============================================
+   FASCE LATERALI (SideBands)
+   Larghezza fascia: lo spazio che avanza ai lati
+   della colonna da 1280px, tra 140px e 420px.
+   Sotto i 1024px le fasce spariscono (--band: 0).
+   ============================================ */
+:root {
+  --band: 0px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --band: clamp(140px, calc((100vw - 1280px) / 2), 420px);
+  }
+}
+
+/* Palette A: i colori originali dell'SVG */
+body {
+  --fascia-nero: #07090B;
+  --fascia-rosso-arancio: #F75212;
+  --fascia-oro: #FAC741;
+  --fascia-arancio: #F0930C;
+  --fascia-bianco: #F3F2EF;
+  --fascia-ardesia: #5E6D73;
+  --fascia-beige: #EFCB85;
+  --fascia-oliva: #454031;
+  --fascia-linee: #0D99FF; /* gruppo #lines, non cambia con la palette */
+}
+
+/* Palette B: versione sobria */
+body[data-palette="b"] {
+  --fascia-rosso-arancio: #C9A24A;
+  --fascia-arancio: #E6D3AF;
+}
+
+.side-band {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: var(--band);
+  height: 100vh;
+  z-index: 30;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.side-band-left {
+  left: 0;
+}
+
+.side-band-right {
+  right: 0;
+}
+
+.side-band-right svg {
+  transform: scaleX(-1);
+}
+
+@media (min-width: 1024px) {
+  .side-band {
+    display: block;
+  }
+}
+
+/* Transizione tra palette: 600 ms sui colori dell'illustrazione */
+#fascia-sx path {
+  transition: fill 600ms ease, stroke 600ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #fascia-sx path {
+    transition: none;
+  }
+}

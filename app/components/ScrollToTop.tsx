@@ -27,7 +27,7 @@ export default function ScrollToTop() {
   };
 
   return (
-    <div className="fixed bottom-6 left-0 right-0 z-40 pointer-events-none">
+    <div className="fixed bottom-6 left-0 right-0 z-40 pointer-events-none" style={{ left: "var(--band)", right: "var(--band)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-end">
           <button

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import { Menu, X, Mail, ChevronDown } from "lucide-react";
 import ScrollToTop from "./components/ScrollToTop";
+import SideBands from "./components/SideBands";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -51,8 +52,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     // { name: "E-Commerce Management", path: "EcommerceManagement" },
   ];
 
+  const isHome = pathname === "/";
+
   return (
     <div className="min-h-screen bg-white text-ink-900">
+      <SideBands inner={!isHome} />
       <style>{`
         :root { --bg-base:#F7F3EE; --bg-dark:#ffffff; }
         * { scroll-behavior: smooth; }
@@ -80,6 +84,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           isScrolled ? "glass py-4" : "bg-transparent py-6"
         }`}
         aria-label="Main navigation"
+        style={{ left: "var(--band)", right: "var(--band)" }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link
@@ -240,6 +245,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </nav>
 
+      <div style={{ paddingLeft: "var(--band)", paddingRight: "var(--band)" }}>
       <main id="main-content" className="pt-20">
         {children}
       </main>
@@ -295,6 +301,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+      </div>
 
       {/* Scroll to top button */}
       <ScrollToTop />
