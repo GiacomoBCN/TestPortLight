@@ -109,7 +109,7 @@ export default function OnlineBackOfficeCaseStudy() {
   return (
     <div className="min-h-screen">
       {/* Back Button */}
-      <div className="fixed top-24 left-6 z-40">
+      <div className="fixed top-24 left-6 z-40" style={{ left: "calc(var(--band) + 1.5rem)" }}>
         <Link
           href={createPageUrl("ProductWork")}
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
