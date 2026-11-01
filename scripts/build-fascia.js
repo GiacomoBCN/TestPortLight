@@ -58,7 +58,10 @@ const out = paths.map(p => {
 });
 const lines = out.slice(-16), rest = out.slice(0, -16);
 const body = rest.join("\n") + `\n<g id="lines">\n${lines.join("\n")}\n</g>`;
-const symbol = `<symbol id="fascia-sx" viewBox="0 0 2550 3798">\n${body}\n</symbol>`;
+// viewBox del simbolo: solo la parte destra del disegno (x dal 45% al 100%), altezza intera
+const CUT = 0.45, W = 2550, H = 3798;
+const vbX = Math.round(W * CUT * 100) / 100, vbW = Math.round((W - vbX) * 100) / 100;
+const symbol = `<symbol id="fascia-sx" viewBox="${vbX} 0 ${vbW} ${H}">\n${body}\n</symbol>`;
 const header = [
   "// Illustrazione delle fasce laterali (lato-sinistro-linee.svg).",
   "// 490 path; i 9 colori originali sono variabili CSS --fascia-* (vedi globals.css);",
