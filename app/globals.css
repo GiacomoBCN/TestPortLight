@@ -302,20 +302,27 @@
 
 /* ============================================
    FASCE LATERALI (SideBands)
+   La colonna centrale comanda: tra 900px e 1000px
+   (1000px quando c'e' spazio per il disegno intero,
+   altrimenti scende fino a 900px). Le fasce prendono
+   lo spazio che resta ai lati.
    Il disegno ritagliato (viewBox x dal 25% al 100%,
-   1912.5 x 3798, rapporto 0.5036) sta intero a tutta
-   altezza, senza zoom e senza taglio ai lati:
-   larghezza fascia = 0.5036 x altezza finestra.
-   La colonna prende lo spazio che resta.
-   Sotto i 1440px le fasce spariscono (--band: 0).
+   rapporto 0.5036) sta a tutta altezza, ancorato al
+   bordo verso il contenuto: se la fascia e' piu' larga
+   del disegno si vede intero, se e' piu' stretta la
+   fascia taglia la parte esterna.
+   Sotto i 1280px le fasce spariscono (--band: 0).
    ============================================ */
 :root {
   --band: 0px;
+  --fascia-ratio: 0.5036;
+  --colonna: 100vw;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   :root {
-    --band: calc(100vh * 0.5036);
+    --colonna: clamp(900px, calc(100vw - 2 * 100vh * var(--fascia-ratio)), 1000px);
+    --band: calc((100vw - var(--colonna)) / 2);
   }
 }
 
@@ -358,11 +365,24 @@ body[data-palette="b"] {
   right: 0;
 }
 
+/* Il disegno: tutta altezza, larghezza dalla sua proporzione, ancorato verso il contenuto */
+.side-band svg {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: calc(100vh * var(--fascia-ratio));
+}
+
+.side-band-left svg {
+  right: 0;
+}
+
 .side-band-right svg {
+  left: 0;
   transform: scaleX(-1);
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   .side-band {
     display: block;
   }
