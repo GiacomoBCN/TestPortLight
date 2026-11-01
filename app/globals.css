@@ -276,6 +276,7 @@
   --m-terracotta-deep: #a63f1a;
   --m-green: #45603d;
   --m-blue-dust: #9db1bf;
+  --m-radius: 10px;
 
   color: var(--m-ink);
   background: var(--m-paper);
@@ -314,6 +315,10 @@ body:has([data-theme="manifesto"]) {
   touch-action: manipulation;
 }
 
+html:has([data-theme="manifesto"]) {
+  scrollbar-color: var(--m-rule-strong) var(--m-paper);
+}
+
 [data-theme="manifesto"] [id] {
   scroll-margin-top: 5rem;
 }
@@ -341,6 +346,21 @@ body:has([data-theme="manifesto"]) {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--m-ink-2);
+}
+
+/* Role line under the name: small caps, never a kicker above the heading */
+.m-role {
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.06em;
+  color: var(--m-ink);
+}
+
+@media (min-width: 768px) {
+  .m-role {
+    font-size: 1.375rem;
+  }
 }
 
 .m-label-mark::before {
@@ -385,6 +405,7 @@ body:has([data-theme="manifesto"]) {
   font-size: 1rem;
   letter-spacing: -0.01em;
   border: 1px solid var(--m-ink);
+  border-radius: var(--m-radius);
   transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out;
 }
 
@@ -408,17 +429,8 @@ body:has([data-theme="manifesto"]) {
   color: var(--m-paper);
 }
 
-.m-btn-paper {
-  background: var(--m-paper);
-  color: var(--m-ink);
-  border-color: var(--m-paper);
-}
 
-.m-btn-paper:hover {
-  background: var(--m-ink);
-  color: var(--m-paper);
-  border-color: var(--m-ink);
-}
+
 
 /* Text links */
 .m-link {
@@ -431,8 +443,8 @@ body:has([data-theme="manifesto"]) {
 }
 
 .m-link:hover {
-  color: var(--m-terracotta-deep);
   text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
 }
 
 .m-nav-link {
@@ -454,6 +466,7 @@ body:has([data-theme="manifesto"]) {
   background: var(--m-ochre);
   color: var(--m-ink);
   padding: 0 0.15em;
+  border-radius: 4px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -472,7 +485,14 @@ body:has([data-theme="manifesto"]) {
 }
 
 /* Skip link */
+.m-box {
+  border: 1px solid var(--m-rule);
+  border-radius: var(--m-radius);
+  overflow: hidden;
+}
+
 .m-skip {
+  border-radius: var(--m-radius);
   position: absolute;
   top: -100%;
   left: 1rem;

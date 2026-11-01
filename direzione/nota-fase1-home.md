@@ -2,9 +2,11 @@
 
 Branch: `redesign-home` (da `redesign`). `main` non toccato. Contenuti della home identici: testi, sezioni, ordine, link, pagine collegate.
 
+Seconda versione (1/11, dopo la tua correzione): linee rifatte sulla struttura dello schizzo e dipinte ad acquerello, fasce fisse per tutto lo scroll, angoli arrotondati (10 px) su bottoni, immagini, riquadri e avatar, via i due blocchi colorati: chiusura leggera su crema.
+
 ## Misure
 
-Lighthouse mobile (build statica, `out/`): Performance 98 · Accessibility 100 · Best practices 100 · SEO 100. FCP 1,8 s, LCP 1,8 s, TBT 50 ms, CLS 0.
+Lighthouse mobile (build statica, `out/`): Performance 98 · Accessibility 100 · Best practices 100 · SEO 100. FCP 1,8 s, LCP 1,8 s, TBT 40 ms, CLS 0.
 
 ## Font
 
@@ -25,25 +27,25 @@ Lighthouse mobile (build statica, `out/`): Performance 98 · Accessibility 100 �
 | Linee: sabbia (fasce larghe) | `#E3CFA6` | decorativo |
 | Linee: azzurro polvere (fasce medie) | `#9DB1BF` | decorativo |
 | Linee: terracotta (fasce sottili) e quadratino delle etichette | `#C2552A` | decorativo |
-| Campo Product (blocco finale, hover bottoni) | `#A63F1A` | crema sopra 5,4:1 |
-| Campo Teaching (blocco finale) | `#45603D` | crema sopra 6,1:1 |
+| Terracotta scura: hover del bottone pieno, icona Product | `#A63F1A` | crema sopra 5,4:1 |
+| Verde muschio: icona Teaching | `#45603D` | decorativo |
 | Evidenziatore ocra nel hero | `#E9C77A` | bruno sopra 10:1 |
 
-Arancio, ocra e giallo mai come testo: solo campi pieni con testo scuro sopra. Nessun blu navy, nessun gradiente, nessuna ombra, nessun glow.
+Arancio, ocra e giallo mai come testo: solo campi pieni con testo scuro sopra. Nessun blu navy, nessun gradiente, nessuna ombra, nessun glow. Raggio unico `--m-radius: 10px` su bottoni, immagini, riquadri, menu, avatar; le linee restano dure.
 
 ## Come sono costruite le linee
 
-- File: `app/components/home/PerspectiveWalls.tsx`. Un solo SVG fisso a tutto schermo, `aria-hidden`, disegnato solo da 1280 px in su dopo il caricamento (sotto, resta la colonna chiara).
-- Ogni fascia è un triangolo: base sul bordo inferiore della finestra, vertice nel **punto di fuga** a (56 % della larghezza, −55 % dell'altezza), cioè in alto e spostato a destra. Tutte le fasce dei due lati puntano allo stesso punto: non sono righe parallele.
-- Le fasce sono ritagliate alle due fasce laterali (fuori dalla colonna di 1120 px); la colonna ha un filetto verticale su ogni lato.
-- Ritmo irregolare da una sequenza pseudo-casuale con seme fisso (stesso disegno a ogni caricamento): 30 % filetti 2–6 px, 42 % fasce medie 10–32 px, 28 % fasce larghe 44–134 px, vuoti 10–66 px. Tre toni: larghe → sabbia, medie → azzurro polvere (18 % terracotta), sottili → terracotta o azzurro.
+- File: `app/components/home/PerspectiveWalls.tsx`. Un solo SVG **fisso** a tutto schermo (`position: fixed`), `aria-hidden`: le due fasce accompagnano tutto lo scroll. Disegnato solo da 1280 px in su, dopo il caricamento; sotto resta la colonna chiara.
+- **Struttura dello schizzo:** ogni parete è una colonna Déco di fasce verticali che convergono verso il suo **punto di fuga in alto**, all'angolo interno della fascia laterale (22 % della larghezza della fascia dentro dal bordo della colonna, 10 % dell'altezza della finestra sopra il bordo superiore). Vicino al contenuto le fasce sono quasi verticali, verso l'esterno si aprono a ventaglio; in alto si addensano, in basso si diradano. Le due pareti sono speculari. Ogni fascia è un triangolo (base sul bordo inferiore, vertice nel punto di fuga): tutte le fasce di una parete passano per lo stesso punto, non sono parallele.
+- **Ritmo Déco:** un motivo fisso di 22 passi letto dal bordo della colonna verso l'esterno (in px alla base): filetto terracotta 5, vuoto 16, campo sabbia 96, vuoto 10, filetto azzurro 3, vuoto 7, filetto azzurro 3, vuoto 28, fascia azzurra 44, vuoto 12, campo sabbia 130, vuoto 22, filetto terracotta 6, vuoto 34, campo sabbia 72, vuoto 9, fascia azzurra 18, vuoto 46, filetto terracotta 4, vuoto 8, filetto terracotta 4, vuoto 60; poi si ripete. Ogni passo ha una variazione ±25 % da una sequenza con seme fisso (stesso disegno a ogni caricamento) e cresce con la distanza dalla colonna, perché le fasce lontane si vedono compresse.
+- **Acquerello:** un filtro SVG applicato a ogni parete: (1) i bordi sono deformati da un rumore (`feTurbulence` + `feDisplacementMap`, 16 px), così la linea tremola come un pennello; (2) la densità del colore varia dentro ogni fascia con un secondo rumore (alfa fra 0,35 e 1), come una campitura non uniforme; (3) un orlo di 2,5 px più scuro (pigmento che si raccoglie sul bordo). Le fasce sono in `mix-blend-mode: multiply` sulla crema.
 - Ferme. Il movimento, se si farà, sarà l'ultimo passo e spento con `prefers-reduced-motion`.
 
 ## Struttura
 
 - Colonna centrale 1120 px allineata a sinistra; header sticky 64 px con filetto sotto; ogni sezione parte da un filetto, titolo a sinistra (5/12), sottotitolo a destra (7/12).
 - Niente card: colonne separate da filetti verticali; i lavori sono righe grandi alternate (immagine 7/12, testo 5/12).
-- Chiusura con due blocchi di colore pieno, Product (terracotta) e Teaching (verde), alla pari.
+- Chiusura leggera su crema: le due strade, Product e Teaching, in due colonne con icona, titolo, testo e link, separate da un filetto; sotto, il piede con © , email e LinkedIn.
 - Mobile: colonna sola, bottoni a tutta larghezza, menu a pannello sotto l'header.
 
 ## Decisioni prese da solo (da confermare)
@@ -58,9 +60,11 @@ Arancio, ocra e giallo mai come testo: solo campi pieni con testo scuro sopra. N
 8. **Ritratto a colori** con cornice sottile (prima era in bianco e nero).
 9. **Footer:** Email e LinkedIn con icona e parola (prima solo icone).
 10. **Banner cookie:** componente e logica intoccati. Solo nella home ho alzato la variabile di colore del bottone «Decline» (`--color-text-tertiary`), perché il suo contrasto 3,96:1 impediva Accessibility 100. Si fa in `globals.css`, non nel componente. Se preferisci, lo tolgo e Accessibility resta 96.
-11. **Punto di fuga** a (56 %, −55 %): scelto a occhio sui 1440 e 1920. Si cambia con due numeri in cima a `PerspectiveWalls.tsx` (`VP_X`, `VP_Y`).
+11. **Punto di fuga:** uno per parete (speculari), all'angolo interno alto. Si cambia con due numeri in cima a `PerspectiveWalls.tsx` (`VP_INSET`, `VP_Y`); il motivo delle fasce è la lista `MOTIF` nello stesso file.
 12. **Larghezza minima per le linee:** 1280 px. Sotto, niente linee.
 13. Nessuna roll di direzioni Impeccable: la direzione era già fissata dal brief. Scritti `PRODUCT.md` (dal brief) e `DESIGN.md` (dal risultato) in radice.
+14. **Acquerello con filtro SVG:** Impeccable sconsiglia `feTurbulence` come grana decorativa; qui serve all'effetto pennellata che hai chiesto, quindi l'ho usato. Se a schermo risulta troppo «matita», si abbassa l'orlo scuro (alfa 0,55) o la deformazione (16 px).
+15. **Revisione indipendente** (agente Impeccable a contesto pulito) sulla prima versione: disposizione «fix», 8 punti materiali, tutti applicati (riga del ruolo più grande, vuoti nel hero ridotti, etichette non più sopra i titoli, immagini bianche fuse sulla crema con `multiply`, bottone «torna su» spostato a sinistra e solo desktop, celle metriche, testimonianza orfana a tutta larghezza, ritmo fra sezioni). Lasciati per dopo: titoli OpenGraph in `layout.tsx` (fuori fase 1), linee disegnate solo dopo il caricamento JS, menu a tendina senza chiusura con Esc.
 
 ## File toccati
 

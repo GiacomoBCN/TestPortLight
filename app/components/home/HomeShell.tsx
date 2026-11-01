@@ -45,7 +45,7 @@ function ScrollTop() {
       aria-label="Scroll to top"
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
-      className={`fixed bottom-5 right-5 z-40 flex h-11 w-11 items-center justify-center border border-[var(--m-ink)] bg-[var(--m-paper)] text-[var(--m-ink)] transition-opacity duration-200 hover:bg-[var(--m-ink)] hover:text-[var(--m-paper)] ${
+      className={`fixed bottom-5 left-5 z-40 hidden h-11 w-11 md:flex items-center justify-center rounded-[var(--m-radius)] border border-[var(--m-ink)] bg-[var(--m-paper)] text-[var(--m-ink)] transition-opacity duration-200 hover:bg-[var(--m-ink)] hover:text-[var(--m-paper)] ${
         visible ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
@@ -86,7 +86,7 @@ export default function HomeShell({ children }: { children: React.ReactNode }) {
             <Link href={createPageUrl("Home")} className="flex items-center gap-3">
               <span
                 aria-hidden="true"
-                className="m-title flex h-9 w-9 items-center justify-center bg-[var(--m-ink)] text-sm text-[var(--m-paper)]"
+                className="m-title flex h-9 w-9 items-center justify-center rounded-[var(--m-radius)] bg-[var(--m-ink)] text-sm text-[var(--m-paper)]"
               >
                 GB
               </span>
@@ -107,12 +107,12 @@ export default function HomeShell({ children }: { children: React.ReactNode }) {
                 </Link>
                 <ul
                   aria-label="Product work submenu"
-                  className="invisible absolute left-0 top-full z-50 mt-2 w-72 border border-[var(--m-rule-strong)] bg-[var(--m-paper)] py-2 opacity-0 transition-opacity duration-150 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"
+                  className="invisible absolute left-0 top-full z-50 mt-2 w-72 rounded-[var(--m-radius)] border border-[var(--m-rule-strong)] bg-[var(--m-paper)] py-2 opacity-0 transition-opacity duration-150 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"
                 >
                   <li>
                     <Link
                       href={createPageUrl("ProductWork")}
-                      className="block px-4 py-2 font-bold hover:bg-[var(--m-paper-2)]"
+                      className="mx-2 block rounded-[6px] px-3 py-2 font-bold hover:bg-[var(--m-paper-2)]"
                     >
                       All Projects
                     </Link>
@@ -122,7 +122,7 @@ export default function HomeShell({ children }: { children: React.ReactNode }) {
                     <li key={p.path}>
                       <Link
                         href={createPageUrl(p.path)}
-                        className="block px-4 py-2 text-sm hover:bg-[var(--m-paper-2)]"
+                        className="mx-2 block rounded-[6px] px-3 py-2 text-sm hover:bg-[var(--m-paper-2)]"
                       >
                         {p.name}
                       </Link>
@@ -149,7 +149,7 @@ export default function HomeShell({ children }: { children: React.ReactNode }) {
             {/* Mobile toggle */}
             <button
               type="button"
-              className="flex h-11 w-11 items-center justify-center border border-[var(--m-ink)] md:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-[var(--m-radius)] border border-[var(--m-ink)] md:hidden"
               onClick={() => setMenuOpen((s) => !s)}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
@@ -172,7 +172,7 @@ export default function HomeShell({ children }: { children: React.ReactNode }) {
                 <li>
                   <Link
                     href={createPageUrl("ProductWork")}
-                    className="block py-3 text-lg font-bold"
+                    className="block py-3 text-lg"
                   >
                     Product Work
                   </Link>

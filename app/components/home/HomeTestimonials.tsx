@@ -27,7 +27,7 @@ function Quote({ t }: { t: Testimonial }) {
   const { short, truncated } = truncate(t.quote);
 
   return (
-    <li className="m-rule-t pt-6">
+    <li className="m-rule-t pt-6 md:last:col-span-2 md:last:max-w-[64ch]">
       <figure className="flex h-full flex-col gap-5">
       <blockquote className="flex-1">
         <p
@@ -55,7 +55,7 @@ function Quote({ t }: { t: Testimonial }) {
           width={44}
           height={44}
           loading="lazy"
-          className="h-11 w-11 object-cover"
+          className="h-11 w-11 rounded-[var(--m-radius)] object-cover"
         />
         <div className="min-w-0">
           <p className="text-sm font-bold">{t.name}</p>

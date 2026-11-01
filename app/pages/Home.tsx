@@ -299,7 +299,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         aria-labelledby="hero-title"
-        className="flex min-h-[calc(100svh-4rem)] flex-col py-10 md:py-14"
+        className="flex flex-col py-10 md:min-h-[80vh] md:py-14"
       >
         <div>
           <h1
@@ -308,12 +308,10 @@ export default function Home() {
           >
             Giacomo Bianchi, PhD
           </h1>
-          <p className="m-label m-label-mark mt-6 text-sm md:text-base">
-            Product &amp; Design Leadership
-          </p>
+          <p className="m-role m-label-mark mt-6">Product &amp; Design Leadership</p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 pb-10 md:mt-14 md:grid-cols-12 md:pb-0">
+        <div className="mt-10 grid grid-cols-1 gap-8 md:mt-14 md:grid-cols-12">
           <p className="text-[1.125rem] leading-relaxed md:col-span-8 md:text-[1.375rem] md:leading-[1.5]">
             I align designers and engineers to ship scalable systems. I reduce
             friction in complex interfaces, unify fragmented codebases, and{" "}
@@ -338,21 +336,21 @@ export default function Home() {
         <a
           href="#impact"
           aria-label="Scroll to impact"
-          className="mt-auto hidden h-12 w-12 items-center justify-center self-start border border-[var(--m-rule-strong)] text-[var(--m-ink)] transition-colors duration-150 hover:border-[var(--m-ink)] hover:bg-[var(--m-ink)] hover:text-[var(--m-paper)] md:flex"
+          className="mt-auto hidden h-12 w-12 md:mt-16 lg:mt-auto items-center justify-center self-start rounded-[var(--m-radius)] border border-[var(--m-rule-strong)] text-[var(--m-ink)] transition-colors duration-150 hover:border-[var(--m-ink)] hover:bg-[var(--m-ink)] hover:text-[var(--m-paper)] md:flex"
         >
           <ChevronDown size={22} aria-hidden="true" />
         </a>
       </section>
 
       {/* Impact Metrics Section */}
-      <section id="impact" aria-labelledby="impact-title" className="py-16 md:py-24">
+      <section id="impact" aria-labelledby="impact-title" className="py-16 md:py-20">
         <SectionHead
           id="impact-title"
           title="Driving Measurable Impact"
           subtitle="From leading design systems at Dow Jones to teaching at EAE. I focus on systems that scale and teams that succeed."
         />
 
-        <ol className="mt-12 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10 md:gap-y-0">
+        <ol className="mt-10 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10 md:gap-y-0">
           {impact.map((item, i) => {
             const Icon = item.icon;
             return (
@@ -364,12 +362,12 @@ export default function Home() {
                     : ""
                 }`}
               >
-                <p className="m-label flex items-center gap-2">
+                <p className="m-display m-num text-[3.5rem] md:text-[4rem]">
+                  {item.headline}
+                </p>
+                <p className="m-label mt-3 flex items-center gap-2">
                   <Icon size={18} aria-hidden="true" />
                   {item.subHeadline}
-                </p>
-                <p className="m-display m-num mt-4 text-[3.5rem] md:text-[4rem]">
-                  {item.headline}
                 </p>
                 <dl className="mt-6 flex flex-col gap-4 text-[0.9375rem] leading-relaxed">
                   <div className="m-rule-t pt-3">
@@ -392,10 +390,10 @@ export default function Home() {
       </section>
 
       {/* How I Lead Section */}
-      <section aria-labelledby="lead-title" className="py-16 md:py-24">
+      <section aria-labelledby="lead-title" className="py-16 md:py-20">
         <SectionHead id="lead-title" title="How I Lead" subtitle="Through people, product, and strategy" />
 
-        <div className="mt-12 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10">
+        <div className="mt-10 grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10">
           {leadership.map((col, i) => {
             const Icon = col.icon;
             return (
@@ -428,14 +426,14 @@ export default function Home() {
       </section>
 
       {/* Featured Work Section */}
-      <section id="work" aria-labelledby="work-title" className="py-16 md:py-24">
+      <section id="work" aria-labelledby="work-title" className="py-16 md:py-20">
         <SectionHead
           id="work-title"
           title="Featured Work"
           subtitle="Strategic product leadership with measurable impact"
         />
 
-        <ol className="mt-12 flex flex-col">
+        <ol className="mt-10 flex flex-col">
           {projects.map((p, i) => {
             const flip = i % 2 === 1;
             return (
@@ -447,36 +445,40 @@ export default function Home() {
                     aria-hidden="true"
                     className={`block md:col-span-7 ${flip ? "md:order-2" : ""}`}
                   >
-                    <div className="relative aspect-[16/10] w-full overflow-hidden border border-[var(--m-rule)] bg-[var(--m-paper-2)]">
+                    <div className="m-box relative aspect-[16/10] w-full bg-[var(--m-paper-2)]">
                       <Image
                         src={getImagePath(p.image)}
                         alt=""
                         fill
                         sizes="(max-width: 768px) 100vw, 640px"
                         loading="lazy"
-                        className="object-cover"
+                        className="object-cover mix-blend-multiply"
                       />
                     </div>
                   </Link>
 
                   <div className={`flex flex-col md:col-span-5 ${flip ? "md:order-1" : ""}`}>
-                    <p className="m-label">{p.role}</p>
-                    <h3 className="m-title mt-3 text-[1.75rem] md:text-[2rem]">
-                      <Link href={p.link} className="hover:text-[var(--m-terracotta-deep)]">
+                    <h3 className="m-title text-[1.75rem] md:text-[2rem]">
+                      <Link
+                        href={p.link}
+                        className="decoration-[var(--m-rule-strong)] underline-offset-[0.12em] hover:underline"
+                      >
                         {p.title}
                       </Link>
                     </h3>
-                    <p className="mt-1 text-sm text-[var(--m-ink-2)]">{p.company}</p>
+                    <p className="mt-2 text-sm text-[var(--m-ink-2)]">
+                      <span className="font-bold">{p.role}</span> · {p.company}
+                    </p>
                     <p className="mt-4 text-[0.9375rem] leading-relaxed">{p.description}</p>
 
                     <dl className="mt-6 grid grid-cols-3">
                       {p.metrics.map((m, j) => (
                         <div
                           key={m.label}
-                          className={`m-rule-t flex flex-col-reverse pt-3 ${j > 0 ? "m-rule-l pl-4" : ""}`}
+                          className={`m-rule-t flex min-w-0 flex-col-reverse pr-3 pt-3 ${j > 0 ? "m-rule-l pl-3" : ""}`}
                         >
                           <dt className="mt-1 text-xs text-[var(--m-ink-2)]">{m.label}</dt>
-                          <dd className="m-title m-num text-xl md:text-2xl">{m.value}</dd>
+                          <dd className="m-title m-num whitespace-nowrap text-xl">{m.value}</dd>
                         </div>
                       ))}
                     </dl>
@@ -506,14 +508,14 @@ export default function Home() {
       </section>
 
       {/* How I Work Section */}
-      <section id="about" aria-labelledby="about-title" className="py-16 md:py-24">
+      <section id="about" aria-labelledby="about-title" className="py-16 md:py-20">
         <SectionHead
           id="about-title"
           title="How I Work"
           subtitle="Merging strategy, design, and technology through empathy and clarity"
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4">
             <Image
               src={getImagePath("images/profile/gb.ven_2.webp")}
@@ -521,7 +523,7 @@ export default function Home() {
               width={480}
               height={640}
               loading="lazy"
-              className="h-auto w-full max-w-sm border border-[var(--m-rule)] object-cover"
+              className="h-auto w-full max-w-sm rounded-[var(--m-radius)] border border-[var(--m-rule)] object-cover"
             />
           </div>
 
@@ -556,43 +558,51 @@ export default function Home() {
       </section>
 
       {/* Social Proof Section */}
-      <section aria-labelledby="say-title" className="py-16 md:py-24">
+      <section aria-labelledby="say-title" className="py-16 md:py-20">
         <SectionHead id="say-title" title="What Colleagues Say" />
-        <div className="mt-12">
+        <div className="mt-10">
           <HomeTestimonials testimonials={testimonials} />
         </div>
       </section>
 
       {/* Dual Path CTA Section */}
-      <section aria-label="Two paths" className="-mx-5 pb-0 md:-mx-8">
-        <div className="grid grid-cols-1 md:grid-cols-2">
+      <section aria-label="Two paths" className="m-rule-t py-16 md:py-20">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-10">
           {/* Product & Design Leadership */}
-          <div className="flex flex-col items-start bg-[var(--m-terracotta-deep)] px-5 py-12 text-[var(--m-paper)] md:px-10 md:py-16">
-            <Briefcase size={28} aria-hidden="true" />
-            <h3 className="m-title mt-6 text-[1.75rem] md:text-[2rem]">
+          <div className="flex flex-col items-start">
+            <Briefcase size={26} aria-hidden="true" className="text-[var(--m-terracotta-deep)]" />
+            <h3 className="m-title mt-4 text-[1.75rem] md:text-[2rem]">
               Product &amp; Design Leadership
             </h3>
-            <p className="mt-4 max-w-[40ch] leading-relaxed">
+            <p className="mt-4 max-w-[44ch] leading-relaxed text-[var(--m-ink-2)]">
               Explore my work leading cross-functional teams, building design
               systems, and driving measurable business impact.
             </p>
-            <Link href={createPageUrl("ProductWork")} className="m-btn m-btn-paper mt-8">
+            <Link
+              href={createPageUrl("ProductWork")}
+              className="m-link mt-6 inline-flex items-center gap-1 font-bold"
+            >
               Explore Product Work
+              <ArrowUpRight size={18} aria-hidden="true" />
             </Link>
           </div>
 
           {/* Teaching & Research */}
-          <div className="flex flex-col items-start bg-[var(--m-green)] px-5 py-12 text-[var(--m-paper)] md:px-10 md:py-16">
-            <GraduationCap size={28} aria-hidden="true" />
-            <h3 className="m-title mt-6 text-[1.75rem] md:text-[2rem]">
+          <div className="flex flex-col items-start md:border-l md:border-[var(--m-rule)] md:pl-10">
+            <GraduationCap size={26} aria-hidden="true" className="text-[var(--m-green)]" />
+            <h3 className="m-title mt-4 text-[1.75rem] md:text-[2rem]">
               Teaching &amp; Research
             </h3>
-            <p className="mt-4 max-w-[40ch] leading-relaxed">
+            <p className="mt-4 max-w-[44ch] leading-relaxed text-[var(--m-ink-2)]">
               Discover my experience teaching 1000+ students and bridging
               academic research with industry practice.
             </p>
-            <Link href={createPageUrl("Teaching")} className="m-btn m-btn-paper mt-8">
+            <Link
+              href={createPageUrl("Teaching")}
+              className="m-link mt-6 inline-flex items-center gap-1 font-bold"
+            >
               View Teaching Portfolio
+              <ArrowUpRight size={18} aria-hidden="true" />
             </Link>
           </div>
         </div>
