@@ -49,3 +49,8 @@ next-env.d.ts
 **/public/workbox-*.js.map
 **/public/worker-*.js.map
 sw-precache-config.js
+
+# Documenti privati: restano solo in locale, mai su GitHub
+DIAGNOSTICA.md
+WEB-DESIGN-GUIDELINES.md
+SITE_CONTENT.md
