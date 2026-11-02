@@ -3,22 +3,15 @@
 import Link from 'next/link';
 import { createPageUrl } from '@/utils';
 import { Home, ArrowLeft } from 'lucide-react';
-
-// Import military stencil font
-import { Black_Ops_One } from 'next/font/google';
-
-const militaryFont = Black_Ops_One({
-  weight: '400',
-  subsets: ['latin'],
-});
+import CopyEmailLink from '@/app/components/CopyEmailLink';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6">
+    <div className="min-h-[70vh] flex items-center justify-center px-6 py-16">
       <div className="max-w-2xl w-full text-center">
         {/* 404 Number */}
         <div className="mb-8 animate-fade-in">
-          <h1 className={`${militaryFont.className} text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-text-link-default)] to-[var(--color-text-link-hover)] animate-float`}>
+          <h1 className="text-8xl md:text-9xl font-bold text-accent tracking-tight">
             404
           </h1>
         </div>
@@ -70,12 +63,9 @@ export default function NotFound() {
               Teaching
             </Link>
             <span className="text-[var(--color-text-secondary)]" aria-hidden="true">•</span>
-            <a
-              href="mailto:consulting@giacomobianchi.tech"
-              className="text-[var(--color-text-link-default)] hover:text-[var(--color-text-link-hover)] transition-colors"
-            >
+            <CopyEmailLink className="text-[var(--color-text-link-default)] hover:text-[var(--color-text-link-hover)] transition-colors">
               Contact
-            </a>
+            </CopyEmailLink>
           </div>
         </div>
       </div>
