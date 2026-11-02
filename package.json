@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "images": "node scripts/build-image-sizes.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.0.1",

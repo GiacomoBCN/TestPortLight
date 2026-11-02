@@ -1,7 +1,15 @@
 "use client";
 import React, { useEffect, useMemo, useRef } from "react";
 import { animate } from "framer-motion";
-import { FASCIA_SYMBOL } from "./fascia-symbol";
+
+// Il simbolo (344 KB) serve solo nell'HTML generato dal server: nel bundle JS non entra.
+// `typeof window` e' sostituito in fase di build, quindi nel bundle client il require sparisce.
+// All'idratazione React non riscrive il contenuto di dangerouslySetInnerHTML: resta quello dell'HTML.
+const FASCIA_SYMBOL: string =
+  typeof window === "undefined"
+    ? // eslint-disable-next-line @typescript-eslint/no-require-imports
+      (require("./fascia-symbol") as typeof import("./fascia-symbol")).FASCIA_SYMBOL
+    : "";
 
 /**
  * Fasce laterali fisse a tutta altezza con l'illustrazione lato-sinistro-linee.svg.
@@ -22,14 +30,22 @@ import { FASCIA_SYMBOL } from "./fascia-symbol";
  */
 
 const USE = '<use href="#fascia-sx" width="1912.5" height="3798" />';
-const VIEWBOX = FASCIA_SYMBOL.match(/viewBox="([^"]+)"/)![1];
-// Stesso effetto del <use>: un <svg> annidato con il viewBox del simbolo, senza id duplicati
-const INLINE = FASCIA_SYMBOL.replace(
-  /^<symbol[^>]*>/,
-  `<svg class="fascia-inline" viewBox="${VIEWBOX}" width="1912.5" height="3798">`,
-)
-  .replace(/<\/symbol>\s*$/, "</svg>")
-  .replace('<g id="lines">', '<g data-fascia-lines="">');
+
+// Stesso effetto del <use>: un <svg> annidato con il viewBox del simbolo, senza id duplicati.
+// Costruito nel browser a partire dal simbolo gia' presente nella pagina.
+let inlineCache: { html: string; viewBox: string } | null = null;
+function inlineCopy() {
+  if (inlineCache) return inlineCache;
+  const symbol = document.getElementById("fascia-sx");
+  if (!symbol) return null;
+  const viewBox = symbol.getAttribute("viewBox") || "";
+  const html =
+    `<svg class="fascia-inline" viewBox="${viewBox}" width="1912.5" height="3798">` +
+    symbol.innerHTML.replace('<g id="lines">', '<g data-fascia-lines="">') +
+    "</svg>";
+  inlineCache = { html, viewBox };
+  return inlineCache;
+}
 
 // Parametri dell'onda (px a schermo, secondi)
 const RADIUS = 140; // raggio d'influenza attorno al cursore
@@ -54,9 +70,13 @@ export default function SideBands({ inner = false }: { inner?: boolean }) {
     let last: PointerEvent | null = null;
 
     // Copie inline al primo momento libero dopo il caricamento
-    const inline = () => svgs.forEach((s) => {
-      if (!s.querySelector(".fascia-inline")) s.innerHTML = INLINE;
-    });
+    const inline = () => {
+      const copy = inlineCopy();
+      if (!copy) return;
+      svgs.forEach((s) => {
+        if (!s.querySelector(".fascia-inline")) s.innerHTML = copy.html;
+      });
+    };
     const idle = window.requestIdleCallback
       ? window.requestIdleCallback(inline, { timeout: 2000 })
       : window.setTimeout(inline, 200);
@@ -65,7 +85,7 @@ export default function SideBands({ inner = false }: { inner?: boolean }) {
     const shapesOf = (svg: SVGSVGElement) => {
       let shapes = shapesBySvg.get(svg);
       if (shapes) return shapes;
-      const [, , vbW, vbH] = VIEWBOX.split(/\s+/).map(Number);
+      const [, , vbW, vbH] = (inlineCopy()?.viewBox || "0 0 0 0").split(/\s+/).map(Number);
       shapes = [];
       svg.querySelectorAll<SVGGraphicsElement>(".fascia-inline > path").forEach((el) => {
         const b = el.getBBox();
@@ -84,8 +104,9 @@ export default function SideBands({ inner = false }: { inner?: boolean }) {
         const band = s.parentElement!.getBoundingClientRect();
         return band.width > 0 && e.clientX >= band.left && e.clientX < band.right;
       });
-      if (svg && !svg.querySelector(".fascia-inline")) {
-        svg.innerHTML = INLINE; // il contenuto e' stato riscritto: nuova copia, nuove forme
+      const copy = inlineCopy();
+      if (svg && copy && !svg.querySelector(".fascia-inline")) {
+        svg.innerHTML = copy.html; // il contenuto e' stato riscritto: nuova copia, nuove forme
         shapesBySvg.delete(svg);
       }
       const drawing = svg?.querySelector<SVGSVGElement>(".fascia-inline");
