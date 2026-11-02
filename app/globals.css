@@ -499,6 +499,31 @@ body[data-palette="b"] {
   fill: var(--fascia-linee);
 }
 
+/* Sotto i 1280px nav e footer sono larghi quanto lo schermo: le linee che
+   proseguono oltre l'angolo uscirebbero di 9px a destra e allargherebbero la
+   pagina (scroll orizzontale, viewport iPhone 398px invece di 390).
+   Si taglia solo cio' che sta fuori dallo schermo (overflow-clip-margin = fascia);
+   sopra e sotto restano visibili. Fino a 1298px la fascia e' piu' stretta dei
+   9px di sporgenza, quindi la regola vale fin li'. */
+@media (max-width: 1297.98px) {
+  nav.sketch,
+  footer.sketch {
+    overflow-x: clip;
+    overflow-clip-margin: var(--band);
+  }
+}
+
+/* Parole lunghe nei titoli e negli elenchi ("TuPlanRedondo", "Collaboration",
+   "administrator/crew/...") che su telefoni stretti non entrano nello schermo:
+   vanno a capo solo se da sole sono piu' larghe della riga. Dove ci stanno,
+   niente cambia. */
+main h1,
+main h2,
+main h3,
+main li {
+  overflow-wrap: anywhere;
+}
+
 /* filetti 1px */
 .sketch-line { opacity: var(--sketch-line-opacity); rx: 0.5px; }
 .sketch-line-top    { x: var(--sketch-pad); y: var(--sk-l); width: calc(100% - 2 * var(--sketch-pad)); height: 1px; }

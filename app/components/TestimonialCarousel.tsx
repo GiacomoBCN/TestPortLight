@@ -178,21 +178,28 @@ export default function TestimonialCarousel({
                 <ChevronLeft size={24} aria-hidden="true" />
               </button>
 
-              {/* Dots */}
-              <div className="flex gap-2">
+              {/* Dots: puntino visibile invariato dentro un'area cliccabile di 24px
+                  (6px attorno); -mx-1.5 compensa il margine esterno, cosi' la
+                  distanza dalle frecce resta 16px e tra i puntini diventa 12px */}
+              <div className="flex -mx-1.5">
                 {Array.from({ length: maxIndex + 1 }).map((_, index) => (
                   <button
                     type="button"
                     key={index}
                     onClick={() => goToSlide(index)}
                     aria-current={index === currentIndex ? "true" : undefined}
-                    className={`transition-all duration-300 rounded-full ${
-                      index === currentIndex
-                        ? "w-8 h-3 bg-[var(--color-surface-interactive-default)] glow-blue"
-                        : "w-3 h-3 bg-[#D9CFC4] hover:bg-[#C9BDB0]"
-                    }`}
+                    className="group h-6 px-1.5 flex items-center justify-center"
                     aria-label={`Go to page ${index + 1}`}
-                  />
+                  >
+                    <span
+                      aria-hidden="true"
+                      className={`block transition-all duration-300 rounded-full ${
+                        index === currentIndex
+                          ? "w-8 h-3 bg-[var(--color-surface-interactive-default)] glow-blue"
+                          : "w-3 h-3 bg-[#D9CFC4] group-hover:bg-[#C9BDB0]"
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
 

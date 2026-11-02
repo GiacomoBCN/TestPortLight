@@ -125,14 +125,14 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Lig
 
       {images.length > 1 && (
         <>
-          {/* Frecce: nascoste su mobile, visibili su desktop */}
+          {/* Frecce: anche su mobile (alternativa allo swipe), piu' vicine ai bordi */}
           <button
             type="button"
             onClick={(e) => {
               e.stopPropagation();
               onPrev();
             }}
-            className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+            className="flex absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
             aria-label="Previous image"
           >
             <ChevronLeft size={32} aria-hidden="true" />
@@ -144,7 +144,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Lig
               e.stopPropagation();
               onNext();
             }}
-            className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
+            className="flex absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
             aria-label="Next image"
           >
             <ChevronRight size={32} aria-hidden="true" />
