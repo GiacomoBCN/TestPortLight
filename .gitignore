@@ -53,3 +53,7 @@ sw-precache-config.js
 .playwright-cli/
 # Impeccable review captures (regenerated each run)
 .impeccable/review/
+
+# Documenti privati: restano solo in locale, mai su GitHub
+PRODUCT.md
+.impeccable/surfaces/
