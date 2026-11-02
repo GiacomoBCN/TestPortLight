@@ -7,6 +7,10 @@ import { Suspense } from "react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
+const SITE_TITLE = "Giacomo Bianchi · Product Builder & Design Engineer";
+const SITE_DESCRIPTION =
+  "I build AI products end to end. Product Builder and Design Engineer, former Lead Design Technologist at Dow Jones. Based in Barcelona.";
+
 export const viewport: Viewport = {
   themeColor: "#ffffff",
   width: "device-width",
@@ -16,16 +20,16 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://giacomobianchi.tech'),
-  title: "Giacomo Bianchi",
-  description: "Italian by birth. Product leader by craft. Global by vocation.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   keywords: [
-    "UX Designer",
-    "UI Designer",
-    "Product Design",
+    "Product Builder",
+    "Design Engineer",
     "Design Systems",
-    "Front-End Developer",
-    "Teacher",
-    "Portfolio",
+    "AI products",
+    "UX",
+    "Dow Jones",
+    "Barcelona",
   ],
   authors: [{ name: "Giacomo Bianchi" }],
   creator: "Giacomo Bianchi",
@@ -44,8 +48,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://giacomobianchi.tech",
     siteName: "Giacomo Bianchi",
-    title: "Giacomo Bianchi",
-    description: "Italian by birth. Product leader by craft. Global by vocation.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: `${basePath}/android-chrome-512x512.png`,
@@ -57,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Giacomo Bianchi",
-    description: "Italian by birth. Product leader by craft. Global by vocation.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [`${basePath}/android-chrome-512x512.png`],
   },
   icons: {

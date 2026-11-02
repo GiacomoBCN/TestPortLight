@@ -3,11 +3,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation"; // ← Add this line
 import Link from "next/link";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Mail, ChevronDown } from "lucide-react";
+import { Menu, X, Mail, ChevronDown, Check } from "lucide-react";
 import { MotionConfig } from "framer-motion";
 import ScrollToTop from "./components/ScrollToTop";
 import SideBands from "./components/SideBands";
 import SketchFrame from "./components/SketchFrame";
+import CopyEmailLink, { CONTACT_EMAIL } from "./components/CopyEmailLink";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -188,13 +189,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/#about" className="text-slate-300 hover:text-ink-900">
               About
             </Link>
-            <a
-              href="mailto:consulting@giacomobianchi.tech"
-              className="px-6 py-2 glass rounded-lg hover:bg-blue-600 hover:text-white"
-              aria-label="Contact via email"
+            <CopyEmailLink
+              className="px-6 py-2 glass rounded-lg hover:bg-blue-600! hover:text-white"
+              ariaLabel="Contact via email"
             >
               Contact
-            </a>
+            </CopyEmailLink>
           </div>
 
           {/* Mobile toggle */}
@@ -255,13 +255,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   About
                 </Link>
 
-                <a
-                  href="mailto:consulting@giacomobianchi.tech"
-                  className="px-6 py-3 glass rounded-lg hover:bg-blue-600 hover:text-white text-center font-semibold mt-2"
-                  aria-label="Contact via email"
+                <CopyEmailLink
+                  className="px-6 py-3 glass rounded-lg hover:bg-blue-600! hover:text-white text-center font-semibold mt-2"
+                  ariaLabel="Contact via email"
                 >
                   Contact
-                </a>
+                </CopyEmailLink>
               </div>
             </div>
           </>
@@ -291,19 +290,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4">
               {/* Indirizzo in chiaro: si puo' selezionare e copiare anche dove mailto non apre nulla */}
-              <a
-                href="mailto:consulting@giacomobianchi.tech"
-                className="text-sm text-slate-300 hover:text-ink-900 underline underline-offset-4 decoration-ink-900/30 select-all break-all"
-              >
-                consulting@giacomobianchi.tech
-              </a>
-              <a
-                href="mailto:consulting@giacomobianchi.tech"
-                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white glow-blue"
-                aria-label="Email"
+              <CopyEmailLink className="text-sm text-slate-300 hover:text-ink-900 underline underline-offset-4 decoration-ink-900/30 break-all">
+                {CONTACT_EMAIL}
+              </CopyEmailLink>
+              <CopyEmailLink
+                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600! hover:text-white glow-blue"
+                ariaLabel="Email"
+                copiedLabel={<Check size={20} aria-hidden="true" />}
               >
                 <Mail size={20} />
-              </a>
+              </CopyEmailLink>
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/giacomobianchi00/"

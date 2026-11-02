@@ -74,7 +74,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="min-h-[85vh] md:min-h-screen flex items-center justify-center relative px-6">
+      <section className="min-h-[85vh] md:min-h-screen flex items-center justify-center relative px-6 pt-12 md:pt-0">
         {/* Animated Background Grid */}
         <div className="absolute inset-0 overflow-hidden opacity-20">
           <div
@@ -96,7 +96,7 @@ export default function Home() {
         <div className="hero-in hero-in-container max-w-4xl mx-auto text-center relative z-10">
           <div className="hero-in hero-in-fade mb-3 md:mb-6" style={{ animationDelay: "0.2s" }}>
             <span className="inline-block px-6 py-3 glass rounded-full text-[var(--color-text-brand)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
-              Product Builder · Design Engineer · ex Lead Design Technologist at Dow Jones
+              Product Builder · Design Engineer
             </span>
           </div>
 

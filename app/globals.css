@@ -499,6 +499,14 @@ body[data-palette="b"] {
   fill: var(--fascia-linee);
 }
 
+/* Sotto i 1280px (niente fasce laterali) le cornici non si mostrano da nessuna parte:
+   nav, footer, card. Da 1280px in su restano come sono. */
+@media (max-width: 1279.98px) {
+  .sketch-frame {
+    display: none;
+  }
+}
+
 /* Sotto i 1280px nav e footer sono larghi quanto lo schermo: le linee che
    proseguono oltre l'angolo uscirebbero di 9px a destra e allargherebbero la
    pagina (scroll orizzontale, viewport iPhone 398px invece di 390).
