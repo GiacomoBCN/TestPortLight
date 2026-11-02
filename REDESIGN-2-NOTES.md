@@ -167,12 +167,64 @@ Branch di servizio `claude/zen-faraday-vvpx4t` su GitHub: e' una copia di `redes
 
 ---
 
+## 8. Correzioni tecniche dalla diagnostica (2 novembre 2026)
+
+Branch di lavoro `claude/exciting-turing-xq8dq6`, creata da `redesign-2` (`27ba45e`). Un commit per blocco, nell'ordine di `DIAGNOSTICA.md`. Vincoli: nessun testo visibile cambiato, layout/colori/font/fasce/cornici identici tranne i punti concordati (contrasto e overflow mobile); punti di gusto non toccati (aloni arancio, card dentro card, Inter, lunghezza righe, bordo laterale, testo sfumato della 404).
+
+| Blocco | Commit | Cosa |
+|---|---|---|
+| 1 harden | `0b05d04` | Lightbox unica (`app/components/Lightbox.tsx`) al posto delle 5 copie: `role="dialog"`, focus spostato/intrappolato/restituito, scroll bloccato, Esc/frecce/swipe, alt vero. Immagini ingrandibili come `<button>` con nome. Modale testimonianze accessibile. Menu mobile con `aria-label` e focus gestito; dropdown "Product Work" apribile da tastiera, Esc lo chiude; tolti `role="menu"`. "Back to Projects" leggibile su mobile (`sr-only`). Nomi accessibili a freccia hero, frecce galleria, controlli carosello; contatore `aria-live`. ScrollToTop fuori dal Tab quando invisibile. Gerarchia titoli h1→h2 (Product Work, Teaching). Pallini "•" `aria-hidden`; banner cookie come regione con nome. |
+| 2 animate | `580843f` | `<MotionConfig reducedMotion="user">` su tutto il sito; con reduced-motion: niente scroll fluido, niente float infinito della 404, niente spostamenti delle card (le `transition-all` tengono solo colori/ombre), freccia hero ferma, contatori subito al valore finale. Entrata della hero di home e teaching in CSS (stessi tempi): il testo non resta a opacity 0 finche' non parte il JS, e si vede anche senza JS. |
+| 3 adapt | `3501afc` | Cornici di nav e footer non escono piu' dallo schermo (`overflow-x: clip` + `overflow-clip-margin: var(--band)` sotto i 1298 px). Parole lunghe nei titoli a capo solo se da sole non entrano (`overflow-wrap: anywhere`). Frecce della lightbox anche su mobile. Pallini del carosello con area di tocco 24 px. |
+| 4 colorize | `e0481d7` | Solo i 3 colori concordati, locali (token globali invariati) + numeri 01–06 `aria-hidden`. Correzione al blocco 3: negli elenchi la regola delle parole lunghe vale solo sotto i 340 px. |
+| 5 optimize | `4371342` | Disegno delle fasce (344 KB) fuori dal bundle JS (resta nell'HTML come prima): JS condiviso 309 → 188 kB. Immagini responsive: versioni 128–1920 px in `public/images/_w`, loader `utils/image-loader.ts` per il srcset di `next/image`; originali intatti (lightbox). |
+
+### Cambiamenti visibili (tutti concordati prima)
+- Etichette "Before: / After: / Impact:" nelle card della home: `#C73E13` → `#A33210` (3,96 → 5,41:1 sullo sfondo glass reale).
+- Badge "Academic Leadership" (hero Teaching): `#3F7A52` → `#3A7049` (4,49 → 5,14:1).
+- "Click to enlarge" sull'overlay nero (solo hover/focus): da marrone scuro (illeggibile) a bianco.
+- Pallini del carosello: stessi pallini, distanza 8 → 12 px (frecce spostate di 2 px verso l'esterno).
+- Lightbox su mobile: frecce precedente/successiva visibili (prima solo swipe).
+- Su telefoni stretti alcune parole lunghe nei titoli vanno a capo invece di uscire dallo schermo: h1 "TuPlanRedondo PWA" fino a 390 px ("TuPlanRedond / o PWA"), h1 "XpuntoCero..." fino a 375 px, alcuni h2 a 320–340 px, due voci di elenco solo sotto 340 px.
+- Pagina non piu' larga dello schermo sotto i 1298 px: su iPhone la viewport e' 390 px (era 398, la pagina era leggermente rimpicciolita).
+- Nuovi stati solo da tastiera: l'overlay "Click to enlarge" compare anche col focus; frecce della galleria visibili col focus.
+- Con reduced-motion attivo: niente movimento (era il bug).
+
+### Verifica
+- Screenshot prima/dopo a pagina intera (scorrendo la pagina, cosi' le card animate sono visibili), 11 pagine, 390 e 1440 px: identici al pixel tranne i punti sopra e, nel blocco 5, il ricampionamento delle immagini (identiche a vista). A 1920/2560/3440: parte visibile identica; le fasce a riposo identiche al pixel.
+- Misure (build finale): 1440×900 → colonna 1280, fascia 80; 1920×1080 → 1280 / 320; 2560×1440 → 1280 / 640; 3440×1440 → 1989,66 / 725,17. Invariate.
+- Overflow: nessuna pagina piu' larga dello schermo a 320, 390, 768, 1024, 1279, 1280 px; iPhone 13 emulato 390 px.
+- Tastiera (Playwright, 20 controlli, tutti passati): menu mobile, dropdown, modale, lightbox (focus, Tab intrappolato, Esc, frecce, alt), ScrollToTop.
+- Reduced-motion: elementi che si spostano sulla home 29 → 0. Senza JS: h1 della hero visibile (prima opacity 0).
+- axe-core (WCAG 2.2 AA + best practice), 11 pagine a 390 e 1440: restano solo i numeri decorativi 01–06 al 20% (vedi Aperti). Prima: button-name, link-name, label-content-name-mismatch, heading-order, region, scrollable-region-focusable, target-size.
+- Pesi immagini (pagina scorsa fino in fondo): Dow Jones 3,9 MB → 0,2–0,4 MB; VOD 16,7 MB → 3,9 MB (desktop) / 10 MB (telefono 3x); Teaching desktop 1,3 MB → 0,15 MB.
+
+Lighthouse (mediana di 3 run, build statica servita in locale senza gzip, Chromium headless; Perf / A11y / BP / SEO, LCP):
+
+| Pagina | Mobile prima | Mobile dopo | Desktop prima | Desktop dopo |
+|---|---|---|---|---|
+| Home | 63 / 86 / 100 / 100, 9,9 s | 64 / 100 / 100 / 100, 8,3 s | 87 / 96 / 100 / 100, 2,4 s | 91 / 100 / 100 / 100, 2,0 s |
+| Product Work | 71 / 91, 6,8 s | 71 / 100, 7,0 s | 95 / 98, 1,5 s | 97 / 100, 1,3 s |
+| Dow Jones | 69 / 86, 7,8 s | 69 / 96, 7,6 s | 80 / 96, 3,7 s | 95 / 96, 1,5 s |
+| VOD Platform | 68 / 86, 7,8 s | 69 / 96, 7,8 s | 92 / 91, 1,8 s | 93 / 96, 1,7 s |
+| Teaching | 69 / 92, 11,2 s | 70 / 100, 8,8 s | 86 / 98, 2,5 s | 91 / 100, 1,9 s |
+
+Best Practices e SEO 100 ovunque, CLS 0 ovunque.
+
+### Da sapere
+- Immagini: dopo aver aggiunto o cambiato un'immagine in `public/images`, lanciare `npm run images` (rigenera `public/images/_w` e `utils/image-widths.json`). Se non lo si fa, quell'immagine usa l'originale: niente si rompe.
+- Il disegno delle fasce si rigenera sempre con `node scripts/build-fascia.js`; ora entra solo nell'HTML.
+- Google Analytics: alcune etichette (`label`) cambiano perche' ora i controlli hanno un nome: menu mobile "Open menu" (era "menu"), chiudi lightbox "Close image" (era "x"), freccia hero "Scroll to Driving Measurable Impact" (era "chevron-down"), frecce galleria "Scroll images left/right", "Read more: testimonial from <nome>" (era "Read more"), "View Case Study: <titolo>". Le card della home usano il testo della card. Eventi e parametri `area`/`project`/`choice` invariati.
+
+---
+
 ## Aperti
 
-- I 4 punti Accessibility non di colore (sopra).
-- Performance mobile delle fasce (import dinamico).
-- Scegliere se tenere le opacità 30/20/30 delle cornici.
-- Interventi consigliati dalla diagnostica, in ordine: vedi fondo di `DIAGNOSTICA.md`.
+- Numeri decorativi 01–06 delle case study al 20% (1,34:1): ora `aria-hidden`, quindi gli screen reader non li leggono e per WCAG sono decorazione (esenti). axe/Lighthouse li segnalano comunque (case study ferme ad Accessibility 96). Per azzerare l'avviso servirebbe cambiarne l'aspetto o spostarli in CSS (`::before`): da decidere.
+- Performance mobile (64–71): il ritardo dell'LCP nella simulazione di Lighthouse viene ora dal runtime React/Next + framer-motion (~320 kB di JS) e dai 344 KB del disegno delle fasce, che restano nell'HTML di ogni pagina anche sotto i 1280 px. Toglierli dall'HTML vuol dire caricarli dopo (file esterno da 1280 px in su): su desktop le fasce comparirebbero un attimo dopo il resto. Da decidere.
+- Puntini del carosello: contrasto 1,5:1 (inattivo) / 2,45:1 (attivo), freccia hero arancio 2,45:1: lasciati per scelta (le frecce del carosello fanno la stessa cosa dei puntini).
+- Non fatti perche' fuori perimetro o di gusto: rinomina dei token colore e `COLOR_TOKENS.md`/`check-contrast.js` (blocco 6), aloni arancio e `GlassCard` con `cursor-pointer` su card non cliccabili (blocco 7), lunghezza righe e `text-wrap` (blocco 8), breadcrumb come link, bottone "Back to Projects" fisso sopra il contenuto su mobile, emoji di legenda nella VOD.
+- Scegliere se tenere le opacita' 30/20/30 delle cornici.
 - Titoli corti per ogni pagina ("Dow Jones", "Teaching", ...) per leggerli in GA: proposti, non fatti.
 - In GA: creare le dimensioni personalizzate `label`, `area`, `project` (ambito Evento) e verificare in Tempo reale dopo il deploy.
 - Facoltativo: Microsoft Clarity per le mappe di calore di tutti i clic (serve un account).
