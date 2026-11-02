@@ -413,7 +413,7 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               01
             </div>
             <div className="flex-1 pt-2">
@@ -453,7 +453,7 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               02
             </div>
             <div className="flex-1 pt-2">
@@ -511,7 +511,7 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               03
             </div>
             <div className="flex-1 pt-2">
@@ -530,7 +530,7 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               04
             </div>
             <div className="flex-1 pt-2">
@@ -689,7 +689,7 @@ export default function VoDPlatform() {
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                    <span className="text-ink-900 text-sm font-medium">Click to enlarge</span>
+                    <span className="text-white text-sm font-medium">Click to enlarge</span>
                   </div>
                 </button>
                 <p className="text-gray-400 text-sm mt-2">
@@ -712,7 +712,7 @@ export default function VoDPlatform() {
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                    <span className="text-ink-900 text-sm font-medium">Click to enlarge</span>
+                    <span className="text-white text-sm font-medium">Click to enlarge</span>
                   </div>
                 </button>
                 <p className="text-gray-400 text-sm mt-2">
@@ -1029,7 +1029,7 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               05
             </div>
             <div className="flex-1 pt-2">
@@ -1134,7 +1134,7 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               06
             </div>
             <div className="flex-1 pt-2">

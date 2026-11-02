@@ -516,12 +516,18 @@ body[data-palette="b"] {
 /* Parole lunghe nei titoli e negli elenchi ("TuPlanRedondo", "Collaboration",
    "administrator/crew/...") che su telefoni stretti non entrano nello schermo:
    vanno a capo solo se da sole sono piu' larghe della riga. Dove ci stanno,
-   niente cambia. */
+   niente cambia. Negli elenchi solo sotto i 340px: piu' su le parole lunghe
+   sforano un po' nel padding della card ma restano dentro lo schermo. */
 main h1,
 main h2,
-main h3,
-main li {
+main h3 {
   overflow-wrap: anywhere;
+}
+
+@media (max-width: 339.98px) {
+  main li {
+    overflow-wrap: anywhere;
+  }
 }
 
 /* filetti 1px */

@@ -28,7 +28,6 @@ export default function ProjectCard({
   delay?: number;
 }) {
   const ref = React.useRef(null);
-  const titleId = React.useId();
   const isInView = useInView(ref, { once: true });
 
   const cardContent = (
@@ -54,7 +53,7 @@ export default function ProjectCard({
         <span className="text-xs uppercase tracking-wider text-[var(--project-card-role-text)] font-semibold block">
           {role}
         </span>
-        <h3 id={titleId} className="text-2xl font-bold text-[var(--project-card-title-default)] mt-2 mb-1 transition-colors duration-300 group-hover:text-[var(--project-card-title-hover)] min-h-[64px]">
+        <h3 className="text-2xl font-bold text-[var(--project-card-title-default)] mt-2 mb-1 transition-colors duration-300 group-hover:text-[var(--project-card-title-hover)] min-h-[64px]">
           {title}
         </h3>
         <p className="text-sm text-[var(--project-card-company-text)]">
@@ -119,7 +118,6 @@ export default function ProjectCard({
           className="block h-full glass sketch rounded-xl p-8 transition-all duration-300 cursor-pointer group
                      hover:scale-[1.02] hover:border-[var(--card-border-hover)] hover:shadow-[0_0_30px_rgba(242,140,40,0.3)]
                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-interactive)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-secondary)]"
-          aria-labelledby={titleId}
         >
           <SketchFrame />
           {cardContent}

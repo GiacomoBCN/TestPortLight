@@ -303,7 +303,7 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               01
             </div>
             <div className="flex-1 pt-2">
@@ -371,7 +371,7 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               02
             </div>
             <div className="flex-1 pt-2">
@@ -438,7 +438,7 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               03
             </div>
             <div className="flex-1 pt-2">
@@ -457,7 +457,7 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               04
             </div>
             <div className="flex-1 pt-2">
@@ -510,7 +510,7 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               05
             </div>
             <div className="flex-1 pt-2">
@@ -616,7 +616,7 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
               06
             </div>
             <div className="flex-1 pt-2">

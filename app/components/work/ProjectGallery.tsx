@@ -87,7 +87,7 @@ export default function ProjectGallery({
                     className="object-contain"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                    <span className="text-ink-900 text-sm font-medium">Click to enlarge</span>
+                    <span className="text-white text-sm font-medium">Click to enlarge</span>
                   </div>
                 </button>
               ))}
