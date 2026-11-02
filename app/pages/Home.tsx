@@ -96,7 +96,10 @@ export default function Home() {
         <div className="hero-in hero-in-container max-w-4xl mx-auto text-center relative z-10">
           <div className="hero-in hero-in-fade mb-3 md:mb-6" style={{ animationDelay: "0.2s" }}>
             <span className="inline-block px-6 py-3 glass rounded-full text-[var(--color-text-brand)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
-              Product Builder · Design Engineer
+              {/* Mobile: una qualifica per riga, senza puntino. Da md in su: una riga sola */}
+              <span className="block md:inline">Product Builder</span>
+              <span className="hidden md:inline" aria-hidden="true"> · </span>
+              <span className="block md:inline">Design Engineer</span>
             </span>
           </div>
 
