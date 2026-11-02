@@ -169,7 +169,7 @@ Branch di servizio `claude/zen-faraday-vvpx4t` su GitHub: e' una copia di `redes
 
 ## 8. Correzioni tecniche dalla diagnostica (2 novembre 2026)
 
-Branch di lavoro `claude/exciting-turing-xq8dq6`, creata da `redesign-2` (`27ba45e`). Un commit per blocco, nell'ordine di `DIAGNOSTICA.md`. Vincoli: nessun testo visibile cambiato, layout/colori/font/fasce/cornici identici tranne i punti concordati (contrasto e overflow mobile); punti di gusto non toccati (aloni arancio, card dentro card, Inter, lunghezza righe, bordo laterale, testo sfumato della 404).
+Tutto su `redesign-2` (partendo da `27ba45e`). Un commit per blocco, nell'ordine di `DIAGNOSTICA.md`. Vincoli: nessun testo visibile cambiato, layout/colori/font/fasce/cornici identici tranne i punti concordati (contrasto e overflow mobile); punti di gusto non toccati (aloni arancio, card dentro card, Inter, lunghezza righe, bordo laterale, testo sfumato della 404).
 
 | Blocco | Commit | Cosa |
 |---|---|---|
@@ -189,6 +189,11 @@ Branch di lavoro `claude/exciting-turing-xq8dq6`, creata da `redesign-2` (`27ba4
 - Pagina non piu' larga dello schermo sotto i 1298 px: su iPhone la viewport e' 390 px (era 398, la pagina era leggermente rimpicciolita).
 - Nuovi stati solo da tastiera: l'overlay "Click to enlarge" compare anche col focus; frecce della galleria visibili col focus.
 - Con reduced-motion attivo: niente movimento (era il bug).
+
+### Stato dei rilievi
+Lo stato di ogni rilievo e' scritto direttamente nei due report: in `DIAGNOSTICA.md` (ogni P1/P2/P3 e le "Azioni consigliate") e in `WEB-DESIGN-GUIDELINES.md` (in fondo a ognuno dei 118 rilievi e nella Top 10): **✅ FATTO**, **🟡 IN PARTE** o **⏸ NON FATTO** con il motivo. Rilievi del report Vercel: 45 fatti, 19 in parte, 56 non fatti (testo visibile, gusto, layout, componenti non usati o fuori perimetro).
+
+Blocchi di `DIAGNOSTICA.md` non eseguiti: 6 document (rinomina token, `COLOR_TOKENS.md`), 7 quieter (aloni, segnali di click: punti di gusto), 8 typeset fatto solo per la gerarchia dei titoli, 9 polish sostituito dalle verifiche qui sotto.
 
 ### Verifica
 - Screenshot prima/dopo a pagina intera (scorrendo la pagina, cosi' le card animate sono visibili), 11 pagine, 390 e 1440 px: identici al pixel tranne i punti sopra e, nel blocco 5, il ricampionamento delle immagini (identiche a vista). A 1920/2560/3440: parte visibile identica; le fasce a riposo identiche al pixel.
@@ -210,6 +215,8 @@ Lighthouse (mediana di 3 run, build statica servita in locale senza gzip, Chromi
 | Teaching | 69 / 92, 11,2 s | 70 / 100, 8,8 s | 86 / 98, 2,5 s | 91 / 100, 1,9 s |
 
 Best Practices e SEO 100 ovunque, CLS 0 ovunque.
+
+Correzione sul metodo: a meta' lavoro e' emerso che lo script degli screenshot non scorreva la pagina, quindi le card che compaiono allo scroll erano invisibili sia prima che dopo. I commit dei blocchi 1 e 2 dicono "identici al pixel" sulla base di quella prima verifica, parziale. Lo script e' stato corretto e il confronto rifatto a pagina intera a 390 e 1440 px su tutte le 11 pagine (risultati sopra); ha trovato un effetto non voluto (a 390 px la regola sulle parole lunghe mandava a capo "administrator/crew/supervisors" in un elenco), corretto nel blocco 4. A 1920/2560/3440 px confrontata solo la parte visibile senza scroll e le fasce.
 
 ### Da sapere
 - Immagini: dopo aver aggiunto o cambiato un'immagine in `public/images`, lanciare `npm run images` (rigenera `public/images/_w` e `utils/image-widths.json`). Se non lo si fa, quell'immagine usa l'originale: niente si rompe.

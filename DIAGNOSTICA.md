@@ -2,6 +2,22 @@
 
 Branch `redesign-2` @ `bc81e8f`, 1 novembre 2026. **Solo diagnosi: nessun file del sito modificato.**
 
+> **Aggiornamento 2 novembre 2026 — correzioni fatte** (branch `redesign-2`, commit `0b05d04` → `4371342`, dettagli in `REDESIGN-2-NOTES.md` sezione 8).
+> Ogni rilievo qui sotto ha lo stato: **✅ FATTO**, **🟡 IN PARTE** o **⏸ NON FATTO** (con il motivo).
+> Blocchi eseguiti: 1 harden, 2 animate, 3 adapt, 4 colorize, 5 optimize. Non eseguiti: 6 document, 7 quieter (punti di gusto), 8 typeset (fatta solo la gerarchia dei titoli), 9 polish (sostituito dalle verifiche finali).
+>
+> | | Prima | Dopo |
+> |---|---|---|
+> | Lighthouse Accessibility | 86–98 | 96–100 |
+> | Lighthouse Performance desktop | 80–95 | 91–97 |
+> | Lighthouse Performance mobile | 63–71 | 64–71 |
+> | Elementi in movimento con reduced-motion (home) | 29 | 0 |
+> | Pagine piu' larghe dello schermo (320–1280 px) | tutte | nessuna |
+> | JS condiviso (gzip) | 309 kB | 188 kB |
+> | Immagini scaricate, Dow Jones | 3,9 MB | 0,2–0,4 MB |
+>
+> (Mediana di 3 run, build statica servita in locale: i numeri assoluti differiscono un po' da quelli della diagnostica qui sotto, il confronto prima/dopo e' fatto nelle stesse condizioni.)
+
 Come è stata fatta:
 - **impeccable audit** (skill v4.8.0, motore 0.1.18): detector automatico su sorgente (`app/`) e su 4 pagine renderizzate (home, product-work, dowjones, teaching) a 1920×1080 e 390×844; Lighthouse mobile + desktop su 5 pagine; test Playwright su overflow (320/390/768/1024 px, 10 pagine), navigazione da tastiera, reduced-motion, iPhone 13 emulato.
 - **web-design-guidelines** (regole Vercel `command.md` scaricate oggi): revisione file per file, 118 rilievi verificati sul codice. Report completo: `WEB-DESIGN-GUIDELINES.md` nella stessa cartella.
@@ -47,21 +63,25 @@ Best Practices e SEO 100 ovunque. CLS 0 ovunque.
 ### P1 — da risolvere prima di andare in main
 
 **[P1] Le animazioni ignorano `prefers-reduced-motion`**
+- **✅ FATTO** (blocco 2, `580843f`): `MotionConfig reducedMotion="user"`, CSS per smooth-scroll, float 404, `transition-all`; freccia hero ferma, contatori al valore finale. Con reduced-motion: 29 → 0 elementi in movimento.
 - Dove: 16 file importano framer-motion, nessuno usa `MotionConfig`/`useReducedMotion`. Peggiori: freccia hero che lampeggia all'infinito (`Home.tsx:154`), float della 404, `scroll-behavior: smooth` globale (`SiteShell.tsx:64`), contatori animati.
 - Verificato: con reduced-motion attivo, 27 elementi della home animano ancora opacità + spostamento.
 - WCAG 2.3.3 / 2.2.2. Consiglio: `<MotionConfig reducedMotion="user">` in `SiteShell` + blocco `@media (prefers-reduced-motion: reduce)` per smooth-scroll e loop infiniti. (Le fasce laterali lo rispettano già.)
 
 **[P1] Contenuto nascosto finché il JS non parte (LCP mobile 9–11 s)**
+- **🟡 IN PARTE** (blocco 2): entrata della hero di home e teaching in CSS, il testo si vede subito e anche senza JS. Lighthouse mobile resta ~8 s di LCP: ora il ritardo viene dal peso del JS di React/Next/framer-motion e dal disegno delle fasce nell'HTML (vedi P2 fasce).
 - Dove: animazioni di ingresso framer-motion renderizzate dal server con `style="opacity:0"`: 29 elementi in home, 19 dowjones, 16 teaching. L'elemento LCP mobile è il paragrafo della hero, fermo ~1 s in "render delay" anche a rete veloce.
 - Impatto: con rete lenta o JS bloccato il testo principale non si vede; Performance mobile 68.
 - Consiglio: hero visibile subito (niente `initial={{opacity:0}}` sopra la piega, o fade solo da 0.6 a 1); animare solo ciò che è sotto la piega.
 
 **[P1] Pagina più larga dello schermo su mobile e tablet**
+- **✅ FATTO** (blocco 3, `3501afc`): `overflow-x: clip` + `overflow-clip-margin` su nav/footer, e parole lunghe nei titoli che vanno a capo. Nessuna pagina piu' larga dello schermo a 320/390/768/1024/1279/1280; iPhone 13 a 390 px.
 - Dove: `SketchFrame` dentro `nav` e `footer` (`app/SiteShell.tsx`), geometria `--sketch-over: 10px` in `globals.css:415`. Le linee che proseguono oltre l'angolo escono di 8 px dal bordo destro.
 - Verificato a 320, 390, 768, 1024 px su tutte le 10 pagine: `scrollWidth` = larghezza + 8. Su iPhone 13 emulato la viewport di layout passa da 390 a 398 px (la pagina si rimpicciolisce o si sposta di lato col dito).
 - Consiglio: per nav e footer a tutta larghezza, cornice che non sborda (o `overflow-x: clip` su `html`).
 
 **[P1] Controlli senza nome accessibile**
+- **✅ FATTO** (blocco 1, `0b05d04`): tutti e quattro.
 - Bottone menu mobile senza `aria-label` (noto) — `SiteShell.tsx`
 - Freccia "scorri giù" della hero: link vuoto (noto) — `Home.tsx:154`
 - "Back to Projects" su mobile: il testo è `hidden md:inline`, il link resta vuoto — tutte e 6 le case study
@@ -69,18 +89,22 @@ Best Practices e SEO 100 ovunque. CLS 0 ovunque.
 - WCAG 4.1.2. Consiglio: `aria-label`, oppure `sr-only md:not-sr-only` sul testo.
 
 **[P1] Immagini cliccabili non utilizzabili da tastiera**
+- **✅ FATTO** (blocco 1): `<button>` con `aria-label="Enlarge image: …"`, overlay visibile anche col focus.
 - Dove: `ImageTextCard.tsx:40`, `ProjectGallery.tsx:126`, `VODplatform.tsx:728/749` — sono `<div onClick>`.
 - WCAG 2.1.1. Consiglio: `<button aria-label="Ingrandisci …">`.
 
 **[P1] Lightbox e modali non accessibili**
+- **✅ FATTO** (blocco 1): un solo `app/components/Lightbox.tsx` (div con `role="dialog"`, non `<dialog>` nativo, per tenere identico l'aspetto) + modale testimonianze. Focus spostato, intrappolato e restituito; alt vero.
 - Dove: 5 copie di lightbox nelle case study + `TestimonialModal.tsx:60`. Niente `role="dialog"`/`aria-modal`, focus non spostato né intrappolato, bottone chiudi senza label, alt "Enlarged view".
 - Consiglio: un solo componente `<Lightbox>` basato su `<dialog>` nativo, riusato ovunque.
 
 **[P1] Navigazione principale in parte solo-mouse**
+- **✅ FATTO** (blocco 1): dropdown aperto da focus, Esc lo chiude; `role="menu"` tolto; focus gestito nel menu mobile.
 - Dove: dropdown "Product Work" si apre solo con hover (`SiteShell.tsx:114`); `role="menu"` usato per semplici link; focus non gestito nel menu mobile.
 - WCAG 2.1.1. Consiglio: apertura con click/Enter, togliere `role="menu"`, focus sul primo link all'apertura del menu mobile.
 
 **[P1] Contrasto testi**
+- **✅ FATTO** (blocco 4, `e0481d7`), colori concordati: etichette Before/After/Impact `#A33210`, badge Teaching `#3A7049`, "Click to enlarge" bianco, numeri 01–06 `aria-hidden`. Il verde dei tag Teaching su fondo bianco passa gia' (4,69:1). I numeri al 20% restano segnalati da axe (decorativi, esenti WCAG).
 - "Click to enlarge": testo scuro su overlay nero al 50% (`ImageTextCard.tsx:55`, `ProjectGallery.tsx:139`, `VODplatform.tsx:740/761`) — illeggibile, residuo della ricolorazione (`--color-text-inverse` oggi è marrone).
 - Etichette rosso-arancio `#C73E13` su `#EDECEB` nelle card Before/After: 4,3:1 (serve 4,5). Verde `#3F7A52` sui tag di Teaching: 4,3:1.
 - Numeri di sezione "01–06" al 20%: 1,34:1 (decorativi, ma vengono letti dagli screen reader: vanno `aria-hidden`).
@@ -89,26 +113,38 @@ Best Practices e SEO 100 ovunque. CLS 0 ovunque.
 ### P2 — prossimo giro
 
 **[P2] Fasce laterali pesano anche su mobile** — `fascia-symbol.ts` (344 KB) sta nell'HTML di ogni pagina e nel chunk JS da 363 KB, anche sotto i 1280 px dove le fasce non si vedono. Già annotato nei punti aperti. Consiglio: caricare il simbolo solo da 1280 px in su (import dinamico + `matchMedia`).
+  - **🟡 IN PARTE** (blocco 5, `4371342`): il simbolo non e' piu' nel bundle JS (309 → 188 kB condivisi); resta nell'HTML. Toglierlo anche da li' farebbe comparire le fasce un attimo dopo su desktop: da decidere.
 
 **[P2] Immagini troppo pesanti** — `Vod-01.webp` 2,6 MB, `brand-ds.webp` 1,8 MB, `CCM.webp` 702 KB; 11 `<img>` senza `loading="lazy"` né `width/height`. Consiglio: ridimensionare a 2× della larghezza mostrata, `loading="lazy"` sotto la piega.
+  - **✅ FATTO** (blocco 5): versioni 128–1920 px in `public/images/_w` + loader per il srcset (`npm run images`); originali intatti per la lightbox. Gli `<img>` rimasti sono quelli della lightbox (caricati al clic).
 
 **[P2] Galleria solo swipe su mobile** — frecce `hidden md:flex`, scrollbar nascosta, frecce di scroll visibili solo in hover (`ProjectGallery.tsx:107/148`).
+  - **🟡 IN PARTE** (blocchi 1 e 3): frecce della lightbox anche su mobile; frecce delle miniature con nome e visibili col focus. Su touch le frecce delle miniature restano nascoste (scelta concordata).
 
 **[P2] Puntini del carosello testimonianze** — 12×12 px (WCAG 2.5.8 vuole 24), contrasto 1,5:1 e 2,2:1, cambio slide non annunciato, layout che salta da 1 a 3 card dopo il caricamento. "Read more" generico (×3).
+  - **🟡 IN PARTE** (blocchi 1 e 3): area di tocco 24 px (distanza 8 → 12 px), `aria-current`, contatore annunciato, "Read more" con nome. Contrasto dei puntini e salto 1→3 card non toccati.
 
 **[P2] Ordine dei titoli** — h1 → h3 senza h2 in `ProductWork.tsx:182` e `Teaching.tsx:131`.
+  - **✅ FATTO** (blocco 1): card di Product Work e panoramica di Teaching passano a h2/h3 con le stesse classi.
 
 **[P2] ScrollToTop raggiungibile col Tab quando è invisibile** — a inizio pagina ha `opacity:0` ma riceve il focus; il banner cookie lo copre.
+  - **✅ FATTO** (blocco 1): `tabIndex=-1` + `aria-hidden` quando invisibile. La sovrapposizione col banner cookie non e' stata toccata (layout).
 
 **[P2] Segnali di click falsi** — `GlassCard` mette `cursor-pointer` + hover su card statiche (`GlassCard.tsx:34`); `ProjectListingCard` anima tutta la card ma è cliccabile solo un piccolo link ("View Case Study" alto 20 px).
+  - **⏸ NON FATTO**: cambia l'hover visibile (blocco 7, punto di gusto). Fatto solo il nome dei link "View Case Study: <titolo>".
 
 **[P2] Nomi delle classi colore fuorvianti** — 126 `text-gray-300`, 62 `text-gray-400`, 46 `text-slate-300`, 20 `bg-blue-600` rimappati nel `@theme` a marroni/nero; 28 hex scritti a mano (`CookieConsent`, `PWAInstallPrompt`, `TestimonialCarousel`, `SiteShell`, `layout`, `XpuntoCero`, `Teaching`). Chi tocca il codice legge "blu" e ottiene nero. `COLOR_TOKENS.md` e `check-contrast.js` sono ancora sulla palette vecchia.
+  - **⏸ NON FATTO**: blocco 6 (documentazione/rinomina token), fuori dal perimetro tecnico richiesto.
 
 **[P2] Aloni arancio** — `glow-blue` / shadow `0 0 20px rgba(242,140,40,.3)` su 34 elementi (icone, CTA, freccia hero): era un effetto pensato per il fondo nero, su crema sembra una sbavatura. Il detector lo classifica come stereotipo "AI".
+  - **⏸ NON FATTO**: punto di gusto, da non toccare.
 
 **[P2] Logo: label diversa dal testo visibile** (noto) — `aria-label="Giacomo Bianchi - Home"` mentre il testo visibile è diverso: chi usa i comandi vocali non lo trova.
+  - **✅ FATTO** (blocco 1): il nome e' il testo visibile "Giacomo Bianchi" (su mobile `sr-only`).
 
 ### P3 — rifinitura
+
+- **⏸ NON FATTO** tutto il P3: righe lunghe, card dentro card, Inter, `border-l-4`, testo sfumato della 404 sono punti di gusto da non toccare; i componenti morti sono rimasti (pulizia del codice, non un problema tecnico visibile).
 
 - **Righe troppo lunghe**: 105–116 caratteri nei paragrafi di Dow Jones e Teaching (ideale < 80). Parole orfane in fondo ai paragrafi: `text-wrap: pretty`.
 - **Card dentro card**: box Before/After/Impact dentro `GlassCard` in home (9 casi).
@@ -130,6 +166,8 @@ Falso positivo scartato: "griglia di sfondo" sul body — è un solo gradiente d
 ---
 
 ## Azioni consigliate (in ordine)
+
+> Stato al 2 novembre 2026: 1 ✅ · 2 ✅ · 3 ✅ · 4 ✅ · 5 🟡 (fasce ancora nell'HTML) · 6 ⏸ · 7 ⏸ (gusto) · 8 🟡 (solo gerarchia titoli) · 9 ⏸ (sostituito da verifiche: screenshot prima/dopo, axe, Lighthouse, tastiera, misure fasce).
 
 1. **[P1] `$impeccable harden`** — nomi accessibili, immagini cliccabili come `<button>`, un `<Lightbox>` unico su `<dialog>`, dropdown da tastiera, focus nel menu mobile, ScrollToTop non focusabile quando invisibile.
 2. **[P1] `$impeccable animate`** — `MotionConfig reducedMotion="user"`, niente loop infiniti, hero visibile senza aspettare il JS.
