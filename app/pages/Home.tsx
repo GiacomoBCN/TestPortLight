@@ -35,14 +35,14 @@ const testimonials = [
   {
     quote: "Giacomo is a very good asset when it comes to building bridges between design and tech. Not only does he have a very good understanding of both sides; his best characteristic is the ability to talk to both in their own languages and to be the medium across the two worlds, communicating needs, constraints and opportunities efficiently. Last but not least, he is a good team player, able to build bonds with everyone in the office, which is a benefit to the design team. He is also very good at research and brings a humanistic approach. His ability to capture requirements and information out of interviews and focus groups is fantastic. Something I really value in a person in his position.",
     name: "Antonella Sassu",
-    title: "Senior Manager Product Design B2B • Tech Company",
+    title: "Senior Design Manager • Dow Jones",
     image: "images/profile/1756901959970.webp",
     alt: "Antonella Sassu",
   },
   {
     quote: "I had the pleasure of working closely with Giacomo as a Design Lead Technologist at Dow Jones, and I can confidently say he is an exceptional professional. Giacomo played a critical role as a bridge between engineering and UX, which was instrumental in driving the success of our projects and ensuring smooth handoffs between teams. Additionally, I had the opportunity to collaborate with Giacomo on improving the User Acceptance Testing (UAT), Quality Assurance (QA), and Design acceptance processes. During this collaboration, Giacomo demonstrated his meticulous attention to detail, problem-solving skills, and dedication to optimizing workflows.",
     name: "Oana Stroe",
-    title: "Design Lead | Product | UX Advocate #impact • Tech Company",
+    title: "Product Design Lead • UX Mentor",
     image: "images/profile/1710886367232.webp",
     alt: "Oana Stroe",
   },
@@ -56,7 +56,7 @@ const testimonials = [
   {
     quote: "I had the opportunity to be instructed by Giacomo in UX/UI at EAE. Giacomo's extensive experience and insightful perspective in this field provided me a solid foundation to effectively prepare and manage digital products. He is truly a great professional.",
     name: "Ismael Ruiz Gutierrez",
-    title: "Marketing Strategy & Business Consultant • Former Student",
+    title: "Marketing Manager • Former Student",
     image: "images/profile/1685897244209.webp",
     alt: "Ismael Ruiz",
   },
@@ -96,7 +96,7 @@ export default function Home() {
         <div className="hero-in hero-in-container max-w-4xl mx-auto text-center relative z-10">
           <div className="hero-in hero-in-fade mb-3 md:mb-6" style={{ animationDelay: "0.2s" }}>
             <span className="inline-block px-6 py-3 glass rounded-full text-[var(--color-text-brand)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
-              Product & Design Leadership
+              Product Builder · Design Engineer · ex Lead Design Technologist at Dow Jones
             </span>
           </div>
 
@@ -111,12 +111,10 @@ export default function Home() {
             style={{ animationDelay: "0.4s" }}
             className="hero-in text-xl md:text-2xl text-[var(--color-text-primary)] mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            I align designers and engineers to ship scalable systems. I reduce
-            friction in complex interfaces, unify fragmented codebases, and
-            establish governance that makes design systems work in production.{" "}
-            <br />
-            I've taught 1000+ students across UX/UI and cross-cultural
-            management.
+            I build AI products end to end. When something matters and I
+            don't know it yet, I learn it, cross-check it and prove it with
+            tests. Before that, I co-led the Dow Jones design system across 8
+            brands and taught product design to 1,000+ students.
           </p>
 
           <div
@@ -181,7 +179,7 @@ export default function Home() {
               subHeadline="INTERACTION FRICTION"
               before="VOD platform required 10+ button presses to switch profiles. 3-axis navigation confused users."
               after="Heuristic evaluation identified friction. Redesigned to 4 presses. Clear 2-axis structure."
-              impact="60% faster profile switching. WCAG AA accessible. Scaled across TV, mobile, tablet, car."
+              impact="60% fewer presses to switch profiles. WCAG AA accessible. Scaled across TV, mobile, tablet, car."
               delay={0.1}
             />
             <BeforeAfterImpactCard
@@ -231,7 +229,7 @@ export default function Home() {
               title="Through Strategy"
               points={[
                 "Improved UAT/QA workflows - 30% team productivity increase",
-                "Proposed removing VOD welcome screen despite stakeholder attachment - prioritized user value over internal preference",
+                "Proposed removing the VOD welcome screen, prioritizing user value over convention",
                 "Managed feature backlog and prioritization for B2B platforms - balanced user value with technical constraints",
               ]}
               delay={0.2}
@@ -282,17 +280,16 @@ export default function Home() {
             <ProjectCard
               role="B2C Multi-platform"
               title="VOD Platform Redesign"
-              company="Confidential Client"
+              company="Design Challenge"
               timeframe=""
               description="Redesigned cross-device VOD experience with 40% fewer interaction steps (calculated via click-path analysis) and WCAG AA compliance across TV, mobile, and in-car displays."
               image={getImagePath("images/projects/Vod.webp")}
               metrics={[
                 { value: "40%", label: "Less Friction" },
                 { value: "WCAG AA", label: "Compliant" },
-                { value: "5", label: "Platforms" },
+                { value: "4", label: "Platforms" },
               ]}
               tags={[
-                "Consultant",
                 "Heuristic Evaluation",
                 "End-to-end UX/UI Process",
                 "Figma",
@@ -342,7 +339,7 @@ export default function Home() {
               title="XpuntoCero Digital Transformation"
               company="XpuntoCero"
               timeframe=""
-              description="Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, leads by 15%, and customer satisfaction by 30%."
+              description="Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, qualified leads by 15% and doubling demo requests."
               image={getImagePath("images/projects/XP0.webp")}
               metrics={[
                 { value: "40%", label: "Mobile Traffic" },

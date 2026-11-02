@@ -170,7 +170,7 @@ export default function TuPlanRedondo() {
             paper-based employee evaluation process across multiple McDonald’s
             restaurants. <br />
             The new system reduced manual work by{" "}
-            <span className="text-ink-900 font-semibold">30%</span>
+            <span className="text-ink-900 font-semibold">30%</span>{" "}
             and cut delivery costs by{" "}
             <span className="text-ink-900 font-semibold">45%</span>.
           </p>

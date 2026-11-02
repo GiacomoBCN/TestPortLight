@@ -36,17 +36,16 @@ export default function ProductWork() {
     {
       category: "B2C Multi-platform",
       title: "VOD Platform Redesign",
-      role: "Product Consultant",
+      role: "Design Challenge",
       year: "",
       description:
         "Redesigned cross-device VOD experience with 40% fewer interaction steps (calculated via click-path analysis) and WCAG AA compliance across TV, mobile, and in-car displays.",
       metrics: [
         { value: "40%", label: "Steps Reduced" },
         { value: "WCAG AA", label: "Compliant" },
-        { value: "5", label: "Platforms" },
+        { value: "4", label: "Platforms" },
       ],
       tags: [
-        "Consultant",
         "Heuristic Evaluation",
         "End-to-end UX/UI Process",
         "Figma",
@@ -93,7 +92,7 @@ export default function ProductWork() {
       role: "Product Design & Development",
       year: "",
       description:
-        "Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, leads by 15%, and customer satisfaction by 30%.",
+        "Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, qualified leads by 15% and doubling demo requests.",
       metrics: [
         { value: "40%", label: "Mobile Traffic" },
         { value: "15%", label: "More Leads" },
@@ -188,7 +187,7 @@ export default function ProductWork() {
           </p>
 
           <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
-            Over 8+ years, I've led digital product initiatives across B2B, B2C,
+            Over 8 years, I've led digital product initiatives across B2B, B2C,
             and enterprise environments - from design systems to SaaS
             transformations. Each project reflects hands-on leadership, clear
             strategy, and tangible results.

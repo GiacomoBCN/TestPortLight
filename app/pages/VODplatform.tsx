@@ -95,7 +95,7 @@ export default function VoDPlatform() {
       ],
       rationale:
         "Profile switching happens 10x less than browsing, so I moved it to the utility bar and removed the welcome gate. Users now land directly on Continue Watching",
-      impact: "60% faster profile access",
+      impact: "60% fewer presses to reach profiles",
     },
     {
       point: "Accessibility Standards",
@@ -131,7 +131,7 @@ export default function VoDPlatform() {
     {
       icon: Eye,
       metric: "60%",
-      label: "Faster Profile Switch",
+      label: "Fewer Presses to Switch Profile",
       description: "From ≥10 taps to just 4 taps",
     },
     {
@@ -263,14 +263,14 @@ export default function VoDPlatform() {
           </p>
           <div className="mb-4">
             <span className="text-xs uppercase tracking-wider text-accent">
-              PRODUCT CONSULTING · MULTI-PLATFORM
+              DESIGN CHALLENGE · MULTI-PLATFORM
             </span>
           </div>
           <h1 className="text-5xl font-bold text-ink-900 mb-4">
             VOD Platform Redesign
           </h1>
           <p className="text-lg text-gray-400 mb-4">
-            Product Consultant · Confidential Client (MENA)
+            Design Challenge · MENA streaming platform
           </p>
           <p className="text-xl text-gray-300 mb-8">
             Redesigned a VOD platform for the MENA region. Reduced interaction
@@ -280,7 +280,6 @@ export default function VoDPlatform() {
           </p>
           <div className="flex flex-wrap gap-2">
             {[
-              "Consultant",
               "Heuristic Evaluation",
               "End-to-end UX/UI Process",
               "Figma",
@@ -307,8 +306,8 @@ export default function VoDPlatform() {
         showGradient={false}
       >
         <p className="text-gray-300 leading-relaxed">
-          A MENA-based client commissioned me to review and redesign the initial
-          prototype of their VOD Platform. The platform needed to serve content
+          As a design challenge in a hiring process, I reviewed and redesigned
+          the initial prototype of a MENA-based VOD platform. The platform needed to serve content
           across multiple contexts: traditional TV viewing, mobile on-the-go,
           tablet browsing, and in-car entertainment systems.
         </p>
@@ -345,7 +344,7 @@ export default function VoDPlatform() {
                 <li><span aria-hidden="true">•</span> 40% reduction in interaction steps</li>
                 <li><span aria-hidden="true">•</span> WCAG AA compliant accessibility</li>
                 <li><span aria-hidden="true">•</span> Unified design language across devices</li>
-                <li><span aria-hidden="true">•</span> 60% faster profile switching</li>
+                <li><span aria-hidden="true">•</span> 60% fewer presses to switch profiles</li>
               </ul>
             </OverviewCard>
           </div>
@@ -426,7 +425,7 @@ export default function VoDPlatform() {
             <GlassCard>
               <div className="p-6">
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  A MENA-based client was building a VOD platform to compete
+                  The company was building a VOD platform to compete
                   with Netflix and Disney+ in the region. The prototype had a
                   lot of features, but users got lost in a three-layer
                   navigation system (icon belt, tab row, carousels). Light text
@@ -1145,7 +1144,7 @@ export default function VoDPlatform() {
           </div>
           <div className="pl-0 md:pl-24 space-y-6">
             <p className="text-gray-300 leading-relaxed">
-              This was a consulting engagement focused on evaluation and design
+              This was a design challenge focused on evaluation and design
               recommendations. I delivered mid-fidelity Figma mockups across TV,
               mobile, tablet, and in-car contexts, plus click-path analysis
               documentation.

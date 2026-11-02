@@ -163,6 +163,9 @@ export default function SideBands({ inner = false }: { inner?: boolean }) {
           style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }}
           aria-hidden="true"
           focusable="false"
+          // Il contenuto e' volutamente diverso tra server e client (vedi FASCIA_SYMBOL):
+          // React tiene quello dell'HTML, qui si spegne solo l'avviso di idratazione in dev.
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: FASCIA_SYMBOL }}
         />
       ),

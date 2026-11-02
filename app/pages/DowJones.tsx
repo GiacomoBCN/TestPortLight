@@ -51,7 +51,7 @@ export default function DowJones() {
       point: "Component Complexity",
       options: ["Simple atoms only", "Complex compositions", "Tiered system"],
       rationale:
-        "Tiered system with reorganized Storybook architecture provided flexibility while maintaining consistency. Improved discoverability for 60+ designers and 120+ engineers.",
+        "Tiered system with reorganized Storybook architecture provided flexibility while maintaining consistency. Improved discoverability for 60+ designers and 120+ stakeholders.",
       impact: "20% complexity reduction",
     },
     {
@@ -196,7 +196,7 @@ export default function DowJones() {
           We succeeded by reorganizing the architecture (20% less complexity),
           streamlining workflows (30% productivity boost), and embedding
           accessibility (WCAG 2.2) from day one. Today, the system powers 200K+
-          component instances used by 60+ designers and 120+ engineers across
+          component instances used by 60+ designers and 120+ stakeholders across
           web, iOS, and Android.
         </p>
       </ProjectIntroCard>
