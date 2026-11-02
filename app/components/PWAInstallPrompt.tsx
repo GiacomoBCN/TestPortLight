@@ -77,7 +77,7 @@ export default function PWAInstallPrompt() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -100, opacity: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="fixed top-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-50"
+        className="fixed top-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-[70]"
         style={{ right: "calc(var(--band) + 1.5rem)" }}
       >
         <div

@@ -80,11 +80,11 @@ export default function TestimonialModal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[70]"
           />
 
           {/* Modal */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6">
+          <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 md:p-6">
             <motion.div
               ref={dialogRef}
               role="dialog"

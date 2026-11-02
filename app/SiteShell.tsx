@@ -99,7 +99,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Nav */}
       <nav
-        className={`sketch fixed top-0 inset-x-0 z-50 transition-all ${
+        className={`sketch fixed top-0 inset-x-0 z-[60] transition-all ${
           isScrolled ? "glass py-4" : "bg-transparent py-6"
         }`}
         aria-label="Main navigation"
@@ -289,7 +289,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Barcelona • Open to MENA, Europe & Remote
               </p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              {/* Indirizzo in chiaro: si puo' selezionare e copiare anche dove mailto non apre nulla */}
+              <a
+                href="mailto:consulting@giacomobianchi.tech"
+                className="text-sm text-slate-300 hover:text-ink-900 underline underline-offset-4 decoration-ink-900/30 select-all break-all"
+              >
+                consulting@giacomobianchi.tech
+              </a>
               <a
                 href="mailto:consulting@giacomobianchi.tech"
                 className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white glow-blue"

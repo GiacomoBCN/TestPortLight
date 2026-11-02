@@ -106,7 +106,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Lig
       role="dialog"
       aria-modal="true"
       aria-label={`Image ${index + 1} of ${images.length}: ${image.alt}`}
-      className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overscroll-contain"
+      className="fixed inset-0 bg-black/90 z-[70] flex items-center justify-center p-4 overscroll-contain"
       data-track-area="lightbox"
       onClick={onClose}
       onTouchStart={onTouchStart}

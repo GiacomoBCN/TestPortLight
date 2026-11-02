@@ -330,7 +330,7 @@ export default function VoDPlatform() {
             </OverviewCard>
 
             <OverviewCard icon={User} title="My Role">
-              <p className="font-semibold mb-2">Product Design Consultant</p>
+              <p className="font-semibold mb-2">Product Designer</p>
               <ul className="space-y-1">
                 <li><span aria-hidden="true">•</span> Heuristic evaluation & accessibility audit</li>
                 <li>
