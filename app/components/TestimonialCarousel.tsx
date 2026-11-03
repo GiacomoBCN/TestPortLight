@@ -196,7 +196,7 @@ export default function TestimonialCarousel({
                       className={`block transition-all duration-300 rounded-full ${
                         index === currentIndex
                           ? "w-8 h-3 bg-[var(--color-surface-interactive-default)] glow-blue"
-                          : "w-3 h-3 bg-[#D9CFC4] group-hover:bg-[#C9BDB0]"
+                          : "w-3 h-3 bg-[#C9CED2] group-hover:bg-[#9AA3AA]"
                       }`}
                     />
                   </button>

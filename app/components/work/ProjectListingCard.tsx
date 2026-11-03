@@ -103,7 +103,7 @@ export default function ProjectListingCard({
       <div className="mt-auto pt-2 border-t border-[var(--color-text-inverse)]/5 flex-shrink-0">
         <Link
           href={createPageUrl(slug)}
-          className="inline-flex items-center text-[var(--color-text-link-default)] hover:text-[var(--color-text-link-hover)] transition-colors text-sm"
+          className="inline-flex items-center text-[var(--color-text-link-default)] underline decoration-[var(--primitive-orange-500)] decoration-2 underline-offset-4 hover:text-[var(--color-text-link-hover)] transition-colors text-sm"
           aria-label={`View Case Study: ${title}`}
         >
           View Case Study

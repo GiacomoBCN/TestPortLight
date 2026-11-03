@@ -79,13 +79,13 @@ export default function Teaching() {
       {/* Hero Section */}
       <section className="min-h-[70vh] flex items-center justify-center relative px-6 pt-20">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] bg-[#B5DDC0] rounded-full opacity-10 blur-3xl"></div>
+          <div className="w-[600px] h-[600px] bg-transparent rounded-full opacity-10 blur-3xl"></div>
         </div>
 
         {/* Entrata della hero in CSS: parte al primo paint, senza aspettare il JS */}
         <div className="hero-in hero-in-container max-w-4xl mx-auto text-center relative z-10">
           <div className="hero-in hero-in-fade mb-6" style={{ animationDelay: "0.2s" }}>
-            <span className="inline-block px-6 py-3 glass rounded-full text-[#3A7049] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
+            <span className="inline-block px-6 py-3 glass rounded-full text-[var(--color-text-teaching)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
               Academic Leadership
             </span>
           </div>
@@ -121,12 +121,12 @@ export default function Teaching() {
                 <div className="flex items-start gap-4">
                   <div
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
+                    style={{ boxShadow: "0 0 20px rgba(245, 195, 59, 0.3)" }}
                   >
-                    <GraduationCap size={24} className="text-[#3F7A52]" />
+                    <GraduationCap size={24} className="text-[var(--color-text-teaching)]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#3F7A52]">
+                    <div className="text-3xl font-bold text-[var(--color-text-teaching)]">
                       7 years
                     </div>
                     <div className="text-sm text-slate-400">
@@ -138,12 +138,12 @@ export default function Teaching() {
                 <div className="flex items-start gap-4">
                   <div
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
+                    style={{ boxShadow: "0 0 20px rgba(245, 195, 59, 0.3)" }}
                   >
-                    <Users size={24} className="text-[#3F7A52]" />
+                    <Users size={24} className="text-[var(--color-text-teaching)]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#3F7A52]">
+                    <div className="text-3xl font-bold text-[var(--color-text-teaching)]">
                       1000+
                     </div>
                     <div className="text-sm text-slate-400">
@@ -155,12 +155,12 @@ export default function Teaching() {
                 <div className="flex items-start gap-4">
                   <div
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
+                    style={{ boxShadow: "0 0 20px rgba(245, 195, 59, 0.3)" }}
                   >
-                    <BookOpen size={24} className="text-[#3F7A52]" />
+                    <BookOpen size={24} className="text-[var(--color-text-teaching)]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#3F7A52]">2</div>
+                    <div className="text-3xl font-bold text-[var(--color-text-teaching)]">2</div>
                     <div className="text-sm text-slate-400">
                       Master's courses across official programs
                     </div>
@@ -170,12 +170,12 @@ export default function Teaching() {
                 <div className="flex items-start gap-4">
                   <div
                     className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
+                    style={{ boxShadow: "0 0 20px rgba(245, 195, 59, 0.3)" }}
                   >
-                    <TrendingUp size={24} className="text-[#3F7A52]" />
+                    <TrendingUp size={24} className="text-[var(--color-text-teaching)]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#3F7A52]">
+                    <div className="text-3xl font-bold text-[var(--color-text-teaching)]">
                       19 teams
                     </div>
                     <div className="text-sm text-slate-400">
@@ -192,7 +192,7 @@ export default function Teaching() {
                 Teaching Approach
               </h2>
               <div className="space-y-4">
-                <div className="pb-4 border-b border-[rgba(28,25,23,0.10)]">
+                <div className="pb-4 border-b border-[rgba(7, 9, 11, 0.10)]">
                   <h3 className="font-semibold text-ink-900 mb-2">
                     Experiential Learning
                   </h3>
@@ -204,7 +204,7 @@ export default function Teaching() {
                   </p>
                 </div>
 
-                <div className="pb-4 border-b border-[rgba(28,25,23,0.10)]">
+                <div className="pb-4 border-b border-[rgba(7, 9, 11, 0.10)]">
                   <h3 className="font-semibold text-ink-900 mb-2">
                     Collaborative Learning Environments
                   </h3>
@@ -218,7 +218,7 @@ export default function Teaching() {
                   </p>
                 </div>
 
-                <div className="pb-4 border-b border-[rgba(28,25,23,0.10)]">
+                <div className="pb-4 border-b border-[rgba(7, 9, 11, 0.10)]">
                   <h3 className="font-semibold text-ink-900 mb-2">
                     Skill Development through Practice
                   </h3>
@@ -270,14 +270,14 @@ export default function Teaching() {
                         height={300}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#F7F3EE] via-transparent to-transparent opacity-60"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#F4F5F6] via-transparent to-transparent opacity-60"></div>
                     </div>
                   </div>
 
                   <h3 className="text-2xl font-bold text-ink-900 mb-2">
                     {course.name}
                   </h3>
-                  <p className="text-sm text-[#3F7A52]">{course.program}</p>
+                  <p className="text-sm text-[var(--color-text-teaching)]">{course.program}</p>
                 </div>
 
                 <div className="mb-6">
@@ -288,7 +288,7 @@ export default function Teaching() {
                     {course.topics.map((topic, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-xs glass rounded-full border border-[rgba(28,25,23,0.12)] text-slate-300"
+                        className="px-3 py-1 text-xs glass rounded-full border border-[rgba(7, 9, 11, 0.12)] text-slate-300"
                       >
                         {topic}
                       </span>
@@ -307,9 +307,9 @@ export default function Teaching() {
                         className="flex items-start gap-2 text-slate-300 text-sm"
                       >
                         <span
-                          className="w-1.5 h-1.5 rounded-full bg-[#B5DDC0] mt-1.5 flex-shrink-0"
+                          className="w-1.5 h-1.5 rounded-full bg-[var(--teaching-accent-border)] mt-1.5 flex-shrink-0"
                           style={{
-                            boxShadow: "0 0 8px rgba(63, 122, 82, 0.5)",
+                            boxShadow: "0 0 8px rgba(245, 195, 59, 0.5)",
                           }}
                         ></span>
                         {outcome}
@@ -326,7 +326,7 @@ export default function Teaching() {
                     {course.tools.map((tool, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-xs glass rounded-full border border-[#B5DDC0] text-[#3F7A52]"
+                        className="px-3 py-1 text-xs glass rounded-full border border-[var(--teaching-accent-border)] text-[var(--color-text-teaching)]"
                       >
                         {tool}
                       </span>
@@ -384,9 +384,9 @@ export default function Teaching() {
             <div className="flex items-start gap-6">
               <div
                 className="w-16 h-16 glass rounded-full flex items-center justify-center flex-shrink-0 hidden md:flex"
-                style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
+                style={{ boxShadow: "0 0 20px rgba(245, 195, 59, 0.3)" }}
               >
-                <Award size={32} className="text-[#3F7A52]" />
+                <Award size={32} className="text-[var(--color-text-teaching)]" />
               </div>
 
               <div className="flex-1">

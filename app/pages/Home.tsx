@@ -81,7 +81,7 @@ export default function Home() {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(242, 140, 40, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 140, 40, 0.1) 1px, transparent 1px)",
+                "linear-gradient(transparent 1px, transparent 1px), linear-gradient(90deg, transparent 1px, transparent 1px)",
               backgroundSize: "50px 50px",
             }}
           />
@@ -89,7 +89,7 @@ export default function Home() {
 
         {/* Glow Effect */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] bg-[var(--color-surface-interactive-default)] rounded-full opacity-10 blur-3xl"></div>
+          <div className="w-[600px] h-[600px] bg-transparent rounded-full opacity-10 blur-3xl"></div>
         </div>
 
         {/* Entrata della hero in CSS: parte al primo paint, senza aspettare il JS */}
@@ -132,7 +132,7 @@ export default function Home() {
             </a>
             <Link
               href={createPageUrl("Teaching")}
-              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-default)] hover:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105"
+              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-default)] hover:border-[var(--button-primary-background-default)] transition-all duration-200 hover:scale-105"
             >
               View Teaching Portfolio
             </Link>
@@ -519,7 +519,7 @@ export default function Home() {
           <SketchFrame />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden">
             {/* Product & Design Leadership */}
-            <div className="glass p-12 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300 border-r border-[rgba(28,25,23,0.10)]">
+            <div className="glass p-12 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300 border-r border-[rgba(7, 9, 11, 0.10)]">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--color-surface-interactive-default)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center">
@@ -543,13 +543,13 @@ export default function Home() {
             </div>
 
             {/* Teaching & Research */}
-            <div className="glass p-12 relative group hover:bg-[rgba(63,122,82,0.1)] transition-all duration-300">
+            <div className="glass p-12 relative group hover:bg-[rgba(245, 195, 59, 0.1)] transition-all duration-300">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--teaching-accent-border)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div
                   className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6"
-                  style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.3)" }}
+                  style={{ boxShadow: "0 0 20px rgba(245, 195, 59, 0.3)" }}
                 >
                   <GraduationCap size={32} className="text-[var(--color-text-teaching)]" />
                 </div>
@@ -562,8 +562,7 @@ export default function Home() {
                 </p>
                 <Link
                   href={createPageUrl("Teaching")}
-                  className="inline-block px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--button-primary-text)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--color-text-teaching)] transition-all duration-200 hover:scale-105"
-                  style={{ boxShadow: "0 0 20px rgba(63, 122, 82, 0.2)" }}
+                  className="inline-block px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
                 >
                   View Teaching Portfolio{" "}
                 </Link>

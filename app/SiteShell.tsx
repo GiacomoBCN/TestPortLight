@@ -78,18 +78,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-white text-ink-900">
       <SideBands inner={!isHome} />
       <style>{`
-        :root { --bg-base:#F3F2EF; --bg-dark:#ffffff; }
+        :root { --bg-base:#FFFFFF; --bg-dark:#ffffff; }
         * { scroll-behavior: smooth; }
         body {
           font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
-          background: linear-gradient(135deg, var(--bg-base) 0%, var(--bg-dark) 100%);
-          background-attachment: fixed;
+          background: #FFFFFF;
         }
-        .glass { background: rgba(74,59,50,0.05); backdrop-filter: blur(20px) saturate(180%); border:1px solid rgba(28,25,23,0.10); }
         .glow-blue { box-shadow: 0 0 20px rgba(242,140,40,0.3); }
         .mobile-menu-overlay { background: rgba(255,255,255,0.96); backdrop-filter: blur(20px) saturate(180%); }
         a:focus-visible, button:focus-visible { outline:2px solid #A8500A; outline-offset:2px; border-radius:4px; }
-        .skip-link { position:absolute; top:-40px; left:0; background:#07090B; color:#fff; padding:8px 16px; z-index:100; }
+        .skip-link { position:absolute; top:-40px; left:0; background:#111418; color:#fff; padding:8px 16px; z-index:100; }
         .skip-link:focus { top:0; }
       `}</style>
 
@@ -157,7 +155,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 style={{
                   background: "rgba(255, 255, 255, 0.97)",
                   backdropFilter: "blur(20px) saturate(180%)",
-                  border: "1px solid rgba(28, 25, 23, 0.15)",
+                  border: "1px solid rgba(7, 9, 11, 0.15)",
                 }}
                 id="product-work-submenu"
               >

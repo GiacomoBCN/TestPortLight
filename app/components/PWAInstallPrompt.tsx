@@ -82,7 +82,7 @@ export default function PWAInstallPrompt() {
       >
         <div
           className="rounded-xl bg-[#ffffff]/80 backdrop-blur-xl shadow-2xl border border-ink-900/20 p-4"
-          style={{ boxShadow: "0 8px 32px 0 rgba(242, 140, 40, 0.15), 0 0 0 1px rgba(28, 25, 23, 0.12)" }}
+          style={{ boxShadow: "0 8px 32px 0 rgba(242, 140, 40, 0.15), 0 0 0 1px rgba(7, 9, 11, 0.12)" }}
         >
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 glass rounded-lg flex items-center justify-center flex-shrink-0">
