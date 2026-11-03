@@ -27,6 +27,7 @@ import ProjectGallery from "../components/work/ProjectGallery";
 import ImageTextCard from "../components/casestudy/ImageTextCard";
 
 import { getImagePath } from "@/utils/image";
+import CopyEmailLink from "@/app/components/CopyEmailLink";
 
 export default function TuPlanRedondo() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -746,12 +747,9 @@ export default function TuPlanRedondo() {
                 >
                   View All Projects
                 </Link>
-                <a
-                  href="mailto:consulting@giacomobianchi.tech"
-                  className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
-                >
+                <CopyEmailLink className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all">
                   Let's Talk
-                </a>
+                </CopyEmailLink>
               </div>
             </div>
           </GlassCard>

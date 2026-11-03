@@ -173,7 +173,7 @@ export default function ProductWork() {
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-6">
-            <span className="inline-block px-6 py-3 glass rounded-full text-accent text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
+            <span className="inline-block text-accent text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
               All Projects
             </span>
           </div>

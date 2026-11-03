@@ -95,7 +95,7 @@ export default function Home() {
         {/* Entrata della hero in CSS: parte al primo paint, senza aspettare il JS */}
         <div className="hero-in hero-in-container max-w-4xl mx-auto text-center relative z-10">
           <div className="hero-in hero-in-fade mb-3 md:mb-6" style={{ animationDelay: "0.2s" }}>
-            <span className="inline-block px-6 py-3 glass rounded-full text-[var(--color-text-brand)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
+            <span className="inline-block text-[var(--color-text-brand)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
               {/* Mobile: una qualifica per riga, senza puntino. Da md in su: una riga sola */}
               <span className="block md:inline">Product Builder</span>
               <span className="hidden md:inline" aria-hidden="true"> · </span>
@@ -132,7 +132,7 @@ export default function Home() {
             </a>
             <Link
               href={createPageUrl("Teaching")}
-              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-default)] hover:border-[var(--button-primary-background-default)] transition-all duration-200 hover:scale-105"
+              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold hover:bg-[var(--teaching-accent-border)] hover:border-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
             >
               View Teaching Portfolio
             </Link>
