@@ -192,7 +192,7 @@ export default function Teaching() {
                 Teaching Approach
               </h2>
               <div className="space-y-4">
-                <div className="pb-4 border-b border-[rgba(7, 9, 11, 0.10)]">
+                <div className="pb-4 border-b border-[rgba(7,9,11,0.10)]">
                   <h3 className="font-semibold text-ink-900 mb-2">
                     Experiential Learning
                   </h3>
@@ -204,7 +204,7 @@ export default function Teaching() {
                   </p>
                 </div>
 
-                <div className="pb-4 border-b border-[rgba(7, 9, 11, 0.10)]">
+                <div className="pb-4 border-b border-[rgba(7,9,11,0.10)]">
                   <h3 className="font-semibold text-ink-900 mb-2">
                     Collaborative Learning Environments
                   </h3>
@@ -218,7 +218,7 @@ export default function Teaching() {
                   </p>
                 </div>
 
-                <div className="pb-4 border-b border-[rgba(7, 9, 11, 0.10)]">
+                <div className="pb-4 border-b border-[rgba(7,9,11,0.10)]">
                   <h3 className="font-semibold text-ink-900 mb-2">
                     Skill Development through Practice
                   </h3>
@@ -288,7 +288,7 @@ export default function Teaching() {
                     {course.topics.map((topic, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-xs glass rounded-full border border-[rgba(7, 9, 11, 0.12)] text-slate-300"
+                        className="px-3 py-1 text-xs glass rounded-full border border-[rgba(7,9,11,0.12)] text-slate-300"
                       >
                         {topic}
                       </span>

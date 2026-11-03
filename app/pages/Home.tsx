@@ -515,27 +515,28 @@ export default function Home() {
 
       {/* Dual Path CTA Section */}
       <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto sketch">
-          <SketchFrame />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden">
+        {/* Due box separate, ognuna con la sua cornice */}
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Product & Design Leadership */}
-            <div className="glass p-12 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300 border-r border-[rgba(7, 9, 11, 0.10)]">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--color-surface-interactive-default)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="glass sketch rounded-2xl p-8 md:p-10 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300">
+              <SketchFrame />
+              <div className="absolute top-0 left-0 w-full h-full rounded-2xl bg-gradient-to-br from-[var(--color-surface-interactive-default)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6 glow-blue">
-                  <Briefcase size={32} className="text-[var(--color-icon-accent)]" />
+                <div className="w-14 h-14 glass rounded-full flex items-center justify-center mb-5 glow-blue">
+                  <Briefcase size={28} className="text-[var(--color-icon-accent)]" />
                 </div>
-                <h3 className="text-3xl font-bold text-[var(--color-text-inverse)] mb-4">
+                <h3 className="text-2xl md:text-[1.75rem] font-bold text-[var(--color-text-inverse)] mb-3">
                   Product & Design Leadership
                 </h3>
-                <p className="text-[var(--color-text-primary)] mb-8 leading-relaxed">
+                <p className="text-[var(--color-text-primary)] mb-6 leading-relaxed">
                   Explore my work leading cross-functional teams, building
                   design systems, and driving measurable business impact.
                 </p>
                 <Link
                   href={createPageUrl("ProductWork")}
-                  className="inline-block px-8 py-4 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105"
+                  className="inline-block px-7 py-3.5 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105"
                 >
                   Explore Product Work
                 </Link>
@@ -543,26 +544,27 @@ export default function Home() {
             </div>
 
             {/* Teaching & Research */}
-            <div className="glass p-12 relative group hover:bg-[rgba(245, 195, 59, 0.1)] transition-all duration-300">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--teaching-accent-border)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="glass sketch rounded-2xl p-8 md:p-10 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300">
+              <SketchFrame />
+              <div className="absolute top-0 left-0 w-full h-full rounded-2xl bg-gradient-to-br from-[var(--teaching-accent-border)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div
-                  className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6"
+                  className="w-14 h-14 glass rounded-full flex items-center justify-center mb-5"
                   style={{ boxShadow: "0 0 20px rgba(245, 195, 59, 0.3)" }}
                 >
-                  <GraduationCap size={32} className="text-[var(--color-text-teaching)]" />
+                  <GraduationCap size={28} className="text-[var(--color-text-teaching)]" />
                 </div>
-                <h3 className="text-3xl font-bold text-[var(--color-text-inverse)] mb-4">
+                <h3 className="text-2xl md:text-[1.75rem] font-bold text-[var(--color-text-inverse)] mb-3">
                   Teaching & Research
                 </h3>
-                <p className="text-[var(--color-text-primary)] mb-8 leading-relaxed">
+                <p className="text-[var(--color-text-primary)] mb-6 leading-relaxed">
                   Discover my experience teaching 1000+ students and bridging
                   academic research with industry practice.
                 </p>
                 <Link
                   href={createPageUrl("Teaching")}
-                  className="inline-block px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
+                  className="inline-block px-7 py-3.5 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
                 >
                   View Teaching Portfolio{" "}
                 </Link>

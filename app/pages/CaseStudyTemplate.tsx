@@ -247,7 +247,7 @@ export default function CaseStudyTemplate({
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-[rgba(7, 9, 11, 0.10)]">
+                <tr className="border-b border-[rgba(7,9,11,0.10)]">
                   <th className="text-left py-4 px-4 text-ink-900 font-semibold">Decision Point</th>
                   <th className="text-left py-4 px-4 text-ink-900 font-semibold">Options Considered</th>
                   <th className="text-left py-4 px-4 text-ink-900 font-semibold">Why We Chose</th>
@@ -256,7 +256,7 @@ export default function CaseStudyTemplate({
               </thead>
               <tbody className="text-sm">
                 {keyDecisions.map((decision, index) => (
-                  <tr key={index} className="border-b border-[rgba(7, 9, 11, 0.05)]">
+                  <tr key={index} className="border-b border-[rgba(7,9,11,0.05)]">
                     <td className="py-4 px-4 text-ink-900 font-medium">{decision.point}</td>
                     <td className="py-4 px-4 text-slate-300">
                       {decision.options.map((option, i) => (
