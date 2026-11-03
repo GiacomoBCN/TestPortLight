@@ -566,8 +566,8 @@ export default function OnlineBackOfficeCaseStudy() {
             </GlassCard>
 
             {/* Mobile Card View - visible only on mobile (adopted from VoDCaseStudy.tsx) */}
-            <GlassCard>
-              <div className="lg:hidden space-y-4">
+            <GlassCard className="lg:hidden">
+              <div className="space-y-4">
                 {rolloutImprovements.map((item, index) => (
                   <div
                     key={index}
