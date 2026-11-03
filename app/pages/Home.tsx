@@ -132,7 +132,7 @@ export default function Home() {
             </a>
             <Link
               href={createPageUrl("Teaching")}
-              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold hover:bg-[var(--teaching-accent-border)] hover:border-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
+              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold hover:bg-[var(--teaching-accent-border)] active:bg-[var(--teaching-accent-border)] active:text-[var(--color-text-inverse)] active:border-[var(--teaching-accent-border)] hover:border-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
             >
               View Teaching Portfolio
             </Link>
@@ -564,7 +564,7 @@ export default function Home() {
                 </p>
                 <Link
                   href={createPageUrl("Teaching")}
-                  className="inline-block px-7 py-3.5 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
+                  className="inline-block px-7 py-3.5 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--teaching-accent-border)] active:bg-[var(--teaching-accent-border)] active:text-[var(--color-text-inverse)] active:border-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
                 >
                   View Teaching Portfolio{" "}
                 </Link>
