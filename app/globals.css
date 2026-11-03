@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #4A3B32;
+  --foreground: #1C1F22;
 
   /* ============================================
      THREE-TIER COLOR TOKEN SYSTEM
@@ -23,28 +23,28 @@
      ============================================ */
 
   /* Blue Palette */
-  --primitive-blue-400: #A33210;    /* Accent text hover - deep red-orange (6.95:1 on white) */
-  --primitive-blue-500: #C73E13;    /* Accent text - deep red-orange (5.09:1 on white) */
+  --primitive-blue-400: #8A4207;    /* Accent text hover - darker orange (7.3:1 on white) */
+  --primitive-blue-500: #A8500A;    /* Accent text / links - dark orange (5.5:1 on white) */
   --primitive-blue-600: #F28C28;    /* Accent fill - orange (icons, borders, dots, glow) */
 
   /* Slate/Neutral Palette */
-  --primitive-slate-300: #4A3B32;   /* Body text - warm brown (10.7:1 on white) */
-  --primitive-slate-400: #6B5C52;   /* Tertiary text (6.41:1 on white) */
-  --primitive-slate-500: #75665B;   /* Secondary text (5.51:1 on white) */
+  --primitive-slate-300: #1C1F22;   /* Body text - near black (16.6:1 on white) */
+  --primitive-slate-400: #5E6D73;   /* Tertiary text - slate gray (5.4:1 on white) */
+  --primitive-slate-500: #5E6D73;   /* Secondary text - slate gray (5.4:1 on white) */
 
   /* Emerald/Success Palette */
   --primitive-emerald-500: #3F7A52; /* Teaching accent text - dark green (5.1:1 on white) */
 
   /* Dark/Background Palette */
   --primitive-dark-900: #FFFFFF;    /* Main background - white */
-  --primitive-dark-800: #F7F3EE;    /* Card backgrounds - warm off-white */
-  --primitive-dark-700: #EFE9E2;    /* Elevated surfaces - warm light */
+  --primitive-dark-800: #F3F2EF;    /* Card backgrounds - neutral off-white */
+  --primitive-dark-700: #E9E8E4;    /* Elevated surfaces - neutral light */
 
   /* Base Monochrome */
-  --primitive-white: #2B1D16;        /* Heading / strongest text - warm dark brown (16.3:1) */
-  --primitive-black: #1C1917;        /* Warm black - buttons, overlays */
-  --primitive-gray-900: #2E2925;     /* Button hover */
-  --primitive-gray-100: #E6DED4;     /* Warm light gray */
+  --primitive-white: #07090B;        /* Heading / strongest text - black (19.9:1 on white) */
+  --primitive-black: #07090B;        /* Black - primary buttons, overlays (white text 19.9:1) */
+  --primitive-gray-900: #1F2428;     /* Button hover (white text 15.7:1) */
+  --primitive-gray-100: #E4E3DF;     /* Neutral light gray */
   --primitive-pure-white: #ffffff;   /* Text on dark fills, image backgrounds */
   --primitive-orange-500: #F28C28;   /* Accent fill - orange */
   --primitive-yellow-400: #F5C33B;   /* Accent fill - yellow */
@@ -93,7 +93,7 @@
   --color-surface-glow: rgba(242, 140, 40, 0.1); /* Orange glow effects */
 
   /* Border Colors */
-  --color-border-default: rgba(28, 25, 23, 0.10);  /* Subtle borders */
+  --color-border-default: rgba(7, 9, 11, 0.10);  /* Subtle borders */
   --color-border-interactive: var(--primitive-orange-500);   /* Active/interactive borders - orange */
   --color-border-interactive-hover: var(--primitive-yellow-400); /* Hover state borders - yellow */
   --color-border-emphasis: var(--primitive-orange-500);      /* Emphasized borders */
@@ -103,8 +103,8 @@
   --color-decoration-accent: var(--primitive-orange-500);    /* Accent decorations */
 
   /* Glass Morphism */
-  --color-glass-border: rgba(28, 25, 23, 0.10);
-  --color-glass-background: rgba(74, 59, 50, 0.05);
+  --color-glass-border: rgba(7, 9, 11, 0.10);
+  --color-glass-background: rgba(7, 9, 11, 0.05);
 
   /* ============================================
      TIER 3: COMPONENT TOKENS
@@ -196,38 +196,39 @@
 /* Tailwind utility palette remap: legacy classes (text-gray-300, border-gray-800,
    bg-blue-500/20, border-blue, …) resolve to the new warm palette. */
 @theme {
-  --color-black: #1C1917;          /* overlays on images - warm black */
+  /* Colori collegati ai primitive del :root: una sola fonte */
+  --color-black: var(--primitive-black);          /* overlays on images */
 
-  --color-gray-200: #4A3B32;       /* text (dropdown items) */
-  --color-gray-300: #4A3B32;       /* body text */
-  --color-gray-400: #6B5C52;       /* tertiary text */
-  --color-gray-500: #75665B;       /* secondary text */
-  --color-gray-600: #D9CFC4;       /* warm light gray */
-  --color-gray-700: #E6DED4;       /* borders */
-  --color-gray-800: #EFE9E2;       /* borders / surfaces */
-  --color-gray-900: #F7F3EE;       /* surfaces */
+  --color-gray-200: var(--primitive-slate-300);   /* text (dropdown items) */
+  --color-gray-300: var(--primitive-slate-300);   /* body text */
+  --color-gray-400: var(--primitive-slate-400);   /* tertiary text */
+  --color-gray-500: var(--primitive-slate-500);   /* secondary text */
+  --color-gray-600: #D6D5D1;                      /* light gray - no primitive equivalent */
+  --color-gray-700: var(--primitive-gray-100);    /* borders */
+  --color-gray-800: var(--primitive-dark-700);    /* borders / surfaces */
+  --color-gray-900: var(--primitive-dark-800);    /* surfaces */
 
-  --color-slate-300: #4A3B32;
-  --color-slate-400: #6B5C52;
-  --color-slate-500: #75665B;
+  --color-slate-300: var(--primitive-slate-300);
+  --color-slate-400: var(--primitive-slate-400);
+  --color-slate-500: var(--primitive-slate-500);
 
-  --color-blue: #F28C28;           /* border-blue, bg-blue/20 - orange */
-  --color-blue-400: #F28C28;       /* border-blue-400 - orange */
-  --color-blue-500: #F5C33B;       /* bg-blue-500/20, from-blue-500/10 - yellow fills */
-  --color-blue-600: #1C1917;       /* bg-blue-600 primary buttons - warm black */
-  --color-blue-hover: #2E2925;     /* bg-blue-hover - button hover */
+  --color-blue: var(--primitive-orange-500);      /* border-blue, bg-blue/20 - orange */
+  --color-blue-400: var(--primitive-orange-500);  /* border-blue-400 - orange */
+  --color-blue-500: var(--primitive-yellow-400);  /* bg-blue-500/20, from-blue-500/10 - yellow fills */
+  --color-blue-600: var(--primitive-black);       /* bg-blue-600 primary buttons */
+  --color-blue-hover: var(--primitive-gray-900);  /* bg-blue-hover - button hover */
 
-  --color-accent: #C73E13;         /* text-accent - former text-blue-400 */
-  --color-accent-hover: #A33210;
-  --color-accent-icon: #F28C28;    /* icons - orange */
-  --color-ink-900: #2B1D16;        /* text-ink-900 - former text-white */
-  --color-sand-200: #E6DED4;       /* light text on dark overlays (hover) */
+  --color-accent: var(--primitive-blue-500);      /* text-accent - former text-blue-400 */
+  --color-accent-hover: var(--primitive-blue-400);
+  --color-accent-icon: var(--primitive-orange-500); /* icons - orange */
+  --color-ink-900: var(--primitive-white);        /* text-ink-900 - former text-white */
+  --color-sand-200: var(--primitive-gray-100);    /* light text on dark overlays (hover) */
 
   --color-emerald-500: #3F7A52;
   --color-green-400: #3F7A52;
   --color-green-500: #B5DDC0;      /* bg-green-500/15 fills */
-  --color-red-400: #C73E13;
-  --color-red-500: #F28C28;        /* bg-red-500/15 fills */
+  --color-red-400: var(--primitive-blue-500);
+  --color-red-500: var(--primitive-orange-500);   /* bg-red-500/15 fills */
 }
 
 @theme inline {
@@ -240,7 +241,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
-    --foreground: #4A3B32;
+    --foreground: #1C1F22;
   }
 }
 
