@@ -6,6 +6,7 @@ import {
   BookOpen,
   TrendingUp,
   Award,
+  ChevronDown,
 } from "lucide-react";
 import Image from "next/image";
 import { getImagePath } from "@/utils/image";
@@ -77,7 +78,8 @@ export default function Teaching() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="min-h-[70vh] flex items-center justify-center relative px-6 pt-20">
+      {/* Su telefono la hero riempie lo schermo (meno la nav), cosi' la card sotto non si vede a meta' */}
+      <section className="min-h-[calc(100svh-5rem)] md:min-h-[70vh] flex items-center justify-center relative px-6 pt-20 pb-24 md:pb-20">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-[600px] h-[600px] bg-transparent rounded-full opacity-10 blur-3xl"></div>
         </div>
@@ -106,10 +108,19 @@ export default function Teaching() {
             of cross-cultural collaboration.
           </p>
         </div>
+
+        {/* Freccia verso la sezione sotto, come in home */}
+        <a
+          href="#teaching-overview"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex justify-center animate-bounce motion-reduce:animate-none"
+          aria-label="Scroll to Teaching Experience"
+        >
+          <ChevronDown size={32} className="text-[var(--color-icon-accent)] glow-blue" aria-hidden="true" />
+        </a>
       </section>
 
       {/* Overview Stats */}
-      <section className="py-24 px-6">
+      <section id="teaching-overview" className="py-24 px-6 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left: Teaching Stats */}
