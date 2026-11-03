@@ -152,6 +152,7 @@
   --nav-link-default: var(--color-text-primary);
   --nav-link-hover: var(--color-text-link-hover);
   --nav-link-active: var(--color-text-brand);
+  --nav-dropdown-hover: #F3DCAA;                 /* Hover dei link nel menu a tendina Product Work: usato solo li' */
 
   /* Hero Section */
   --hero-background: var(--color-surface-primary);

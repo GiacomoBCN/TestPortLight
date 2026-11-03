@@ -161,7 +161,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               >
                 <Link
                   href={createPageUrl("ProductWork")}
-                  className="block px-4 py-2 text-ink-900 font-semibold hover:bg-blue/20 hover:text-ink-900 rounded-lg transition-colors"
+                  className="block px-4 py-2 text-ink-900 font-semibold hover:bg-[var(--nav-dropdown-hover)] hover:text-ink-900 rounded-lg transition-colors"
                 >
                   All Projects
                 </Link>
@@ -170,7 +170,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Link
                     key={p.path}
                     href={createPageUrl(p.path)}
-                    className="block px-4 py-2 text-sm text-gray-200 hover:bg-blue/20 hover:text-ink-900 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-sm text-gray-200 hover:bg-[var(--nav-dropdown-hover)] hover:text-ink-900 rounded-lg transition-colors"
                   >
                     {p.name}
                   </Link>
