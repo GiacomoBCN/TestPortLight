@@ -467,23 +467,26 @@ body[data-palette="b"] {
 }
 
 /* ============================================
-   LINEE DI COSTRUZIONE (.sketch + <SketchFrame/>)
-   Copiate dalle linee blu dell'SVG: filetto 1px,
-   banda pallida 4px affiancata, puntino agli incroci.
-   Tutto #0D99FF (--fascia-linee), estremita' arrotondate.
-   Le linee stanno 6px DENTRO il bordo del box e sporgono
-   10px oltre gli angoli; il box tiene il suo border-radius.
-   Ogni elemento ha la sua classe: regolabile dall'ispettore.
+   CORNICI DELLE BOX (.sketch + <SketchFrame/>)
+   Copiate dal bordo esterno del disegno delle fasce
+   (scripts/fascia/lato-sinistro-linee.svg), senza il disegno:
+   - banda azzurra chiara (#9DD0FF al 66%, come Frame_1.svg)
+   - linea piu' intensa sul lato interno, a tratti interrotta
+   - angoli irregolari: forma presa dal contorno del disegno,
+     ognuno diverso, opacita' 69/61/66/58%
+   Misure in "unita' del disegno" x --sf-u (px per unita').
+   Tutto regolabile dall'ispettore con le variabili qui sotto.
    ============================================ */
 :root {
-  --sketch-in: 6px;              /* distanza dal bordo, verso l'interno */
-  --sketch-over: 10px;           /* quanto la linea prosegue oltre l'angolo */
-  --sketch-pad: 5px;             /* margine per i puntini */
-  --sketch-line-opacity: 0.3;    /* filetto 1px */
-  --sketch-band-opacity: 0.2;    /* banda pallida 4px */
-  --sketch-dot-opacity: 0.3;     /* puntini */
-  --sk-ext: calc(var(--sketch-over) + var(--sketch-pad) - var(--sketch-in)); /* 9px fuori dal box */
-  --sk-l: calc(var(--sketch-pad) + var(--sketch-over));                       /* 15px: posizione del filetto nell'SVG */
+  --sf-u: 0.3px;                              /* scala: 1 unita' del disegno = 0,3 px (fasce a ~1080 px di altezza) */
+  --sf-color: #9DD0FF;                        /* azzurro della banda e degli angoli */
+  --sf-band-mix: 66%;                         /* quanto azzurro nella banda (resto bianco) */
+  --sf-offset: calc(9.57 * var(--sf-u));      /* quanto l'angolo sporge oltre la banda */
+  --sf-band: calc(12 * var(--sf-u));          /* spessore della banda */
+  --sf-line: 1px;                             /* spessore della linea interna */
+  --sf-line-color: var(--fascia-linee);       /* #0D99FF */
+  --sf-line-opacity: 0.55;
+  --sf-ext: calc(var(--sf-offset) + var(--sf-band)); /* quanto la cornice esce dal box */
 }
 
 @layer base {
@@ -494,15 +497,39 @@ body[data-palette="b"] {
 
 .sketch-frame {
   position: absolute;
-  top: calc(-1 * var(--sk-ext));
-  left: calc(-1 * var(--sk-ext));
-  width: calc(100% + 2 * var(--sk-ext));
-  height: calc(100% + 2 * var(--sk-ext));
-  overflow: visible;
+  inset: calc(-1 * var(--sf-ext));
   pointer-events: none;
   z-index: 1;
-  fill: var(--fascia-linee);
 }
+
+.sketch-frame > span {
+  position: absolute;
+  display: block;
+}
+
+/* banda chiara sui 4 lati, il lato interno coincide col bordo del box */
+.sf-band { background: color-mix(in srgb, var(--sf-color) var(--sf-band-mix), white); }
+.sf-band-top    { top: var(--sf-offset); left: var(--sf-offset); right: var(--sf-offset); height: var(--sf-band); }
+.sf-band-bottom { bottom: var(--sf-offset); left: var(--sf-offset); right: var(--sf-offset); height: var(--sf-band); }
+.sf-band-left   { left: var(--sf-offset); top: var(--sf-offset); bottom: var(--sf-offset); width: var(--sf-band); }
+.sf-band-right  { right: var(--sf-offset); top: var(--sf-offset); bottom: var(--sf-offset); width: var(--sf-band); }
+
+/* linea interna, sul bordo del box: a tratti c'e' e a tratti no (interruzioni diverse per lato) */
+.sf-line { background: var(--sf-line-color); opacity: var(--sf-line-opacity); }
+.sf-line-top    { top: calc(var(--sf-ext) - var(--sf-line)); left: var(--sf-ext); right: var(--sf-ext); height: var(--sf-line);
+                  mask-image: linear-gradient(to right, #000 0 22%, transparent 22% 26%, #000 26% 63%, transparent 63% 65%, #000 65% 100%); }
+.sf-line-bottom { bottom: calc(var(--sf-ext) - var(--sf-line)); left: var(--sf-ext); right: var(--sf-ext); height: var(--sf-line);
+                  mask-image: linear-gradient(to right, #000 0 41%, transparent 41% 47%, #000 47% 84%, transparent 84% 86%, #000 86% 100%); }
+.sf-line-left   { left: calc(var(--sf-ext) - var(--sf-line)); top: var(--sf-ext); bottom: var(--sf-ext); width: var(--sf-line);
+                  mask-image: linear-gradient(to bottom, #000 0 30%, transparent 30% 33%, #000 33% 71%, transparent 71% 77%, #000 77% 100%); }
+.sf-line-right  { right: calc(var(--sf-ext) - var(--sf-line)); top: var(--sf-ext); bottom: var(--sf-ext); width: var(--sf-line);
+                  mask-image: linear-gradient(to bottom, #000 0 15%, transparent 15% 18%, #000 18% 55%, transparent 55% 61%, #000 61% 100%); }
+
+/* angoli irregolari, dal contorno del disegno */
+.sf-corner-tl { top: 0; left: 0; width: calc(47.82 * var(--sf-u)); height: calc(49.75 * var(--sf-u)); background: color-mix(in srgb, var(--sf-color) 69%, white); clip-path: polygon(15.4% 0.0%, 73.1% 0.0%, 100.0% 19.2%, 100.0% 61.5%, 73.1% 92.3%, 57.7% 100.0%, 15.4% 100.0%, 0.0% 76.9%, 0.0% 15.4%); }
+.sf-corner-tr { top: 0; right: 0; width: calc(47.82 * var(--sf-u)); height: calc(55.49 * var(--sf-u)); background: color-mix(in srgb, var(--sf-color) 61%, white); clip-path: polygon(0.0% 17.2%, 26.9% 0.0%, 80.8% 0.0%, 100.0% 17.2%, 100.0% 65.5%, 73.1% 100.0%, 32.4% 92.8%, 0.0% 55.9%); }
+.sf-corner-br { bottom: 0; right: 0; width: calc(38.63 * var(--sf-u)); height: calc(53.58 * var(--sf-u)); background: color-mix(in srgb, var(--sf-color) 66%, white); clip-path: polygon(44.3% 0.0%, 66.7% 3.6%, 100.0% 35.7%, 100.0% 82.1%, 76.2% 100.0%, 33.3% 100.0%, 9.5% 82.1%, 0.0% 71.4%, 0.0% 50.0%, 28.6% 25.0%); }
+.sf-corner-bl { bottom: 0; left: 0; width: calc(45.98 * var(--sf-u)); height: calc(53.58 * var(--sf-u)); background: color-mix(in srgb, var(--sf-color) 58%, white); clip-path: polygon(28.0% 0.0%, 0.0% 32.1%, 0.0% 85.7%, 20.0% 100.0%, 56.0% 100.0%, 60.0% 92.9%, 80.0% 75.0%, 100.0% 57.1%, 65.2% 43.1%, 46.9% 8.5%); }
 
 /* Sotto i 1280px (niente fasce laterali) le cornici non si mostrano da nessuna parte:
    nav, footer, card. Da 1280px in su restano come sono. */
@@ -542,24 +569,3 @@ main h3 {
     overflow-wrap: anywhere;
   }
 }
-
-/* filetti 1px */
-.sketch-line { opacity: var(--sketch-line-opacity); rx: 0.5px; }
-.sketch-line-top    { x: var(--sketch-pad); y: var(--sk-l); width: calc(100% - 2 * var(--sketch-pad)); height: 1px; }
-.sketch-line-bottom { x: var(--sketch-pad); y: calc(100% - var(--sk-l) - 1px); width: calc(100% - 2 * var(--sketch-pad)); height: 1px; }
-.sketch-line-left   { x: var(--sk-l); y: var(--sketch-pad); width: 1px; height: calc(100% - 2 * var(--sketch-pad)); }
-.sketch-line-right  { x: calc(100% - var(--sk-l) - 1px); y: var(--sketch-pad); width: 1px; height: calc(100% - 2 * var(--sketch-pad)); }
-
-/* bande pallide 4px, subito fuori dal filetto */
-.sketch-band { opacity: var(--sketch-band-opacity); rx: 2px; }
-.sketch-band-top    { x: var(--sketch-pad); y: calc(var(--sk-l) - 5px); width: calc(100% - 2 * var(--sketch-pad)); height: 4px; }
-.sketch-band-bottom { x: var(--sketch-pad); y: calc(100% - var(--sk-l) + 1px); width: calc(100% - 2 * var(--sketch-pad)); height: 4px; }
-.sketch-band-left   { x: calc(var(--sk-l) - 5px); y: var(--sketch-pad); width: 4px; height: calc(100% - 2 * var(--sketch-pad)); }
-.sketch-band-right  { x: calc(100% - var(--sk-l) + 1px); y: var(--sketch-pad); width: 4px; height: calc(100% - 2 * var(--sketch-pad)); }
-
-/* puntini agli incroci dei filetti */
-.sketch-dot { opacity: var(--sketch-dot-opacity); r: 4px; }
-.sketch-dot-tl { cx: calc(var(--sk-l) + 0.5px); cy: calc(var(--sk-l) + 0.5px); }
-.sketch-dot-tr { cx: calc(100% - var(--sk-l) - 0.5px); cy: calc(var(--sk-l) + 0.5px); }
-.sketch-dot-bl { cx: calc(var(--sk-l) + 0.5px); cy: calc(100% - var(--sk-l) - 0.5px); }
-.sketch-dot-br { cx: calc(100% - var(--sk-l) - 0.5px); cy: calc(100% - var(--sk-l) - 0.5px); }

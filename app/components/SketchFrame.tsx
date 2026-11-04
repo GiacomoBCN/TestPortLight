@@ -1,28 +1,29 @@
 import React from "react";
 
 /**
- * Cornice "linee di costruzione" dei box (.sketch): SVG inline con elementi veri,
- * ognuno con la sua classe, cosi' si possono regolare dall'ispettore.
- * Geometria e colori in globals.css (sezione LINEE DI COSTRUZIONE).
- *  - .sketch-band  bande pallide 4px, estremita' arrotondate
- *  - .sketch-line  filetti 1px, estremita' arrotondate
- *  - .sketch-dot   puntini agli incroci
+ * Cornice delle box (.sketch), copiata dal bordo esterno del disegno delle fasce
+ * (scripts/fascia/lato-sinistro-linee.svg), senza il disegno:
+ *  - .sf-band    banda azzurra chiara sui 4 lati
+ *  - .sf-line    linea piu' intensa sul lato interno, a tratti interrotta
+ *  - .sf-corner  angoli irregolari, ognuno con la sua forma
+ * Misure, colori e opacita' in globals.css (sezione CORNICI DELLE BOX), variabili --sf-*.
+ * Elementi HTML semplici: regolabili dall'ispettore.
  */
 export default function SketchFrame() {
   return (
-    <svg className="sketch-frame" aria-hidden="true" focusable="false">
-      <rect className="sketch-band sketch-band-top" />
-      <rect className="sketch-band sketch-band-bottom" />
-      <rect className="sketch-band sketch-band-left" />
-      <rect className="sketch-band sketch-band-right" />
-      <rect className="sketch-line sketch-line-top" />
-      <rect className="sketch-line sketch-line-bottom" />
-      <rect className="sketch-line sketch-line-left" />
-      <rect className="sketch-line sketch-line-right" />
-      <circle className="sketch-dot sketch-dot-tl" />
-      <circle className="sketch-dot sketch-dot-tr" />
-      <circle className="sketch-dot sketch-dot-bl" />
-      <circle className="sketch-dot sketch-dot-br" />
-    </svg>
+    <span className="sketch-frame" aria-hidden="true">
+      <span className="sf-band sf-band-top" />
+      <span className="sf-band sf-band-bottom" />
+      <span className="sf-band sf-band-left" />
+      <span className="sf-band sf-band-right" />
+      <span className="sf-line sf-line-top" />
+      <span className="sf-line sf-line-bottom" />
+      <span className="sf-line sf-line-left" />
+      <span className="sf-line sf-line-right" />
+      <span className="sf-corner sf-corner-tl" />
+      <span className="sf-corner sf-corner-tr" />
+      <span className="sf-corner sf-corner-br" />
+      <span className="sf-corner sf-corner-bl" />
+    </span>
   );
 }
