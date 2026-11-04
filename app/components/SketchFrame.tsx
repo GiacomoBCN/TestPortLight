@@ -5,20 +5,25 @@ import React, { useId } from "react";
  * Cornice delle box (.sketch), copiata dal bordo esterno del disegno delle fasce
  * (scripts/fascia/lato-sinistro-linee.svg), senza il disegno:
  *  - .sf-band    banda azzurra chiara sui 4 lati
- *  - .sf-line    linea definita dentro la banda: a tratti c'e' e a tratti no
+ *  - .sf-line    un tratto "a matita" per lato dentro la banda (vedi regola dello schizzo)
  *  - .sf-corner  angoli irregolari, ognuno con la sua forma
  * Misure, colori e opacita' in globals.css (sezione CORNICI DELLE BOX), variabili --sf-*.
  *
- * I tratti della linea sono "casuali" ma diversi per ogni box: il seme viene da useId(),
+ * I tratti sono "casuali" ma diversi per ogni box: il seme viene da useId(),
  * che e' uguale sul server e nel browser, quindi niente errori di idratazione e la stessa
  * box ha sempre gli stessi tratti.
  */
 
-// Parametri dei tratti (in % della lunghezza del lato)
-const DASH_MIN = 10; // tratto piu' corto
-const DASH_MAX = 38; // tratto piu' lungo
-const GAP_MIN = 4; // interruzione piu' corta
-const GAP_MAX = 16; // interruzione piu' lunga
+// Regola dello schizzo: un solo tratto per lato, come a matita. Il tratto non arriva da
+// angolo ad angolo (si ferma prima o parte piu' in la'), a volte un lato manca, ed e' appena
+// storto, con spessore e intensita' un po' diversi.
+const LEN_MIN = 55; // lunghezza minima del tratto (% del lato)
+const LEN_MAX = 95; // lunghezza massima
+const SKIP = 0.17; // probabilita' che un lato manchi (almeno 3 lati restano sempre)
+const TILT = 0.25; // inclinazione massima, in gradi
+const WIDTHS = [1, 1, 1.5]; // spessori possibili in px
+const OPACITY_MIN = 0.65; // intensita' minima del tratto
+const OPACITY_MAX = 0.95;
 
 // Numero pseudo-casuale ripetibile a partire da una stringa
 function seeded(seed: string) {
@@ -36,31 +41,35 @@ function seeded(seed: string) {
   };
 }
 
-// Maschera con tratti e vuoti alternati di lunghezza casuale
-function dashMask(rand: () => number, direction: "to right" | "to bottom") {
+type Side = "top" | "bottom" | "left" | "right";
+
+// Un tratto per lato: dove inizia e finisce, inclinazione, spessore, intensita'
+function stroke(rand: () => number, side: Side, hidden: boolean): React.CSSProperties {
+  if (hidden) return { display: "none" };
   const between = (a: number, b: number) => a + rand() * (b - a);
-  const stops: string[] = [];
-  let pos = rand() < 0.5 ? 0 : between(2, 12); // a volte parte subito, a volte dopo un vuoto
-  if (pos > 0) stops.push(`transparent 0 ${pos.toFixed(1)}%`);
-  while (pos < 100) {
-    const end = Math.min(100, pos + between(DASH_MIN, DASH_MAX));
-    stops.push(`#000 ${pos.toFixed(1)}% ${end.toFixed(1)}%`);
-    pos = end;
-    if (pos >= 100) break;
-    const gapEnd = Math.min(100, pos + between(GAP_MIN, GAP_MAX));
-    stops.push(`transparent ${pos.toFixed(1)}% ${gapEnd.toFixed(1)}%`);
-    pos = gapEnd;
-  }
-  const image = `linear-gradient(${direction}, ${stops.join(", ")})`;
-  return { maskImage: image, WebkitMaskImage: image };
+  const len = between(LEN_MIN, LEN_MAX);
+  const start = between(0, 100 - len);
+  const end = start + len;
+  const dir = side === "top" || side === "bottom" ? "to right" : "to bottom";
+  const image = `linear-gradient(${dir}, transparent 0 ${start.toFixed(1)}%, #000 ${start.toFixed(1)}% ${end.toFixed(1)}%, transparent ${end.toFixed(1)}% 100%)`;
+  const width = WIDTHS[Math.floor(rand() * WIDTHS.length)];
+  const size = side === "top" || side === "bottom" ? { height: `${width}px` } : { width: `${width}px` };
+  return {
+    maskImage: image,
+    WebkitMaskImage: image,
+    transform: `rotate(${between(-TILT, TILT).toFixed(2)}deg)`,
+    opacity: between(OPACITY_MIN, OPACITY_MAX).toFixed(2),
+    ...size,
+  };
 }
 
 export default function SketchFrame() {
   const rand = seeded(useId());
-  const top = dashMask(rand, "to right");
-  const bottom = dashMask(rand, "to right");
-  const left = dashMask(rand, "to bottom");
-  const right = dashMask(rand, "to bottom");
+  const sides: Side[] = ["top", "bottom", "left", "right"];
+  // quali lati mancano: mai piu' di uno
+  const hidden = sides.map(() => rand() < SKIP);
+  if (hidden.filter(Boolean).length > 1) hidden.forEach((_, i) => (hidden[i] = i === hidden.indexOf(true)));
+  const [top, bottom, left, right] = sides.map((side, i) => stroke(rand, side, hidden[i]));
 
   return (
     <span className="sketch-frame" aria-hidden="true">

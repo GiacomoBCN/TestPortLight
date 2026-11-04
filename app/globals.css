@@ -471,8 +471,8 @@ body[data-palette="b"] {
    Copiate dal bordo esterno del disegno delle fasce
    (scripts/fascia/lato-sinistro-linee.svg), senza il disegno:
    - banda azzurra chiara (#9DD0FF al 66%, come Frame_1.svg)
-   - linea definita dentro la banda, a meta' spessore: a tratti c'e' e a tratti no,
-     con tratti diversi per ogni box (calcolati in SketchFrame.tsx)
+   - dentro la banda un tratto "a matita" per lato: non tocca gli angoli, a volte
+     manca, appena storto; diverso per ogni box (calcolato in SketchFrame.tsx)
    - angoli irregolari: forma presa dal contorno del disegno,
      ognuno diverso, opacita' 69/61/66/58%
    Misure in "unita' del disegno" x --sf-u (px per unita').
@@ -515,8 +515,8 @@ body[data-palette="b"] {
 .sf-band-left   { left: var(--sf-offset); top: var(--sf-offset); bottom: var(--sf-offset); width: var(--sf-band); }
 .sf-band-right  { right: var(--sf-offset); top: var(--sf-offset); bottom: var(--sf-offset); width: var(--sf-band); }
 
-/* linea definita dentro la banda, a meta' del suo spessore. Dove c'e' e dove no lo decide
-   SketchFrame.tsx (mask-image diversa per ogni box e ogni lato) */
+/* tratto a matita dentro la banda, a meta' del suo spessore. Lunghezza, inclinazione,
+   spessore e intensita' li decide SketchFrame.tsx, diversi per ogni box e ogni lato */
 .sf-line { background: var(--sf-line-color); opacity: var(--sf-line-opacity); }
 .sf-line-top    { top: calc(var(--sf-offset) + (var(--sf-band) - var(--sf-line)) / 2); left: var(--sf-offset); right: var(--sf-offset); height: var(--sf-line); }
 .sf-line-bottom { bottom: calc(var(--sf-offset) + (var(--sf-band) - var(--sf-line)) / 2); left: var(--sf-offset); right: var(--sf-offset); height: var(--sf-line); }
