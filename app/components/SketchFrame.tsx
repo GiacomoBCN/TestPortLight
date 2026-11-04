@@ -21,9 +21,9 @@ const LEN_MIN = 55; // lunghezza minima del tratto (% del lato)
 const LEN_MAX = 95; // lunghezza massima
 const SKIP = 0.17; // probabilita' che un lato manchi (almeno 3 lati restano sempre)
 const TILT = 0.25; // inclinazione massima, in gradi
-const WIDTHS = [1, 1, 1.5]; // spessori possibili in px
-const OPACITY_MIN = 0.65; // intensita' minima del tratto
-const OPACITY_MAX = 0.95;
+const WIDTHS = [1]; // spessore in px (1,5 era troppo)
+const OPACITY_MIN = 0.45; // intensita' minima del tratto
+const OPACITY_MAX = 0.7; // massima (0,95 era troppo blu)
 
 // Numero pseudo-casuale ripetibile a partire da una stringa
 function seeded(seed: string) {
