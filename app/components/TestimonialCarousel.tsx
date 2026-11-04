@@ -98,7 +98,8 @@ export default function TestimonialCarousel({
     <>
       <div className="relative">
         {/* Carousel Container */}
-        <div className="relative overflow-hidden">
+        {/* overflow-hidden serve allo scorrimento; -m-3 p-3 lascia 12px per le cornici delle card senza cambiarne misura e posizione */}
+        <div className="relative overflow-hidden -m-3 p-3">
           <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
               key={currentIndex}
