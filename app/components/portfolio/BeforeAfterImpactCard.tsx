@@ -100,7 +100,7 @@ export default function BeforeAfterImpactCard({
             </p>
           </div>
 
-          <div className="glass p-3 rounded-lg border-l-4 border-[var(--color-border-interactive)] flex-1 flex flex-col">
+          <div className="glass p-3 rounded-lg border-l-4 border-l-[var(--color-border-interactive)] flex-1 flex flex-col">
             <p className="text-[var(--color-text-inverse)] text-sm leading-relaxed text-left flex-1">
               <span className="text-sm uppercase tracking-wider text-[var(--color-text-link-hover)] font-semibold">
                 Impact:&nbsp;
