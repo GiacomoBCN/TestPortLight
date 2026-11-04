@@ -21,6 +21,7 @@ const LEN_MIN = 55; // lunghezza minima del tratto (% del lato)
 const LEN_MAX = 95; // lunghezza massima
 const SKIP = 0.17; // probabilita' che un lato manchi (almeno 3 lati restano sempre)
 const TILT = 0.25; // inclinazione massima, in gradi
+const TILT_MIN = 0.12; // inclinazione minima: un tratto perfettamente dritto viene netto e sembra piu' scuro degli altri
 const WIDTHS = [1]; // spessore in px (1,5 era troppo)
 const OPACITY_MIN = 0.3; // intensita' minima del tratto
 const OPACITY_MAX = 0.5; // massima (0,7 e 0,95 erano troppo blu)
@@ -57,7 +58,7 @@ function stroke(rand: () => number, side: Side, hidden: boolean): React.CSSPrope
   return {
     maskImage: image,
     WebkitMaskImage: image,
-    transform: `rotate(${between(-TILT, TILT).toFixed(2)}deg)`,
+    transform: `rotate(${((rand() < 0.5 ? -1 : 1) * between(TILT_MIN, TILT)).toFixed(2)}deg)`,
     opacity: between(OPACITY_MIN, OPACITY_MAX).toFixed(2),
     ...size,
   };
