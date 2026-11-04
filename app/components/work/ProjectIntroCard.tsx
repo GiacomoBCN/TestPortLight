@@ -25,7 +25,7 @@ export default function ProjectIntroCard({
     >
       <div className="max-w-6xl mx-auto sketch">
         <SketchFrame />
-        <div className="bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-2xl overflow-hidden hover:border-[var(--color-border-interactive)]/30 transition-all duration-300">
+        <div className="bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-2xl overflow-hidden transition-all duration-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Left: Image */}
 

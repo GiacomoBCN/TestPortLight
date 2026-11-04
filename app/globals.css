@@ -264,9 +264,9 @@
     backdrop-filter: blur(20px) saturate(180%);
   }
 
+  /* al passaggio del mouse cambia solo il fondo: niente bordo arancio (stona con le cornici) */
   .glass-hover:hover {
     background: var(--color-surface-tertiary);
-    border-color: var(--color-border-interactive);
   }
 }
 

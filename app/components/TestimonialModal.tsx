@@ -94,7 +94,7 @@ export default function TestimonialModal({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto overscroll-contain glass rounded-2xl p-6 md:p-8"
+              className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto overscroll-contain glass bg-white rounded-2xl p-6 md:p-8"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
