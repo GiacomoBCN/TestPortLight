@@ -26,86 +26,20 @@ import ProjectIntroCard from "../components/work/ProjectIntroCard";
 import ProjectGallery from "../components/work/ProjectGallery";
 import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
+import RichText from "@/app/components/RichText";
+import { backOffice } from "@/content/back-office";
 
 export default function OnlineBackOfficeCaseStudy() {
-  const keyDecisions = [
-    {
-      point: "Architecture Strategy",
-      options: [
-        "Maintain per-client codebases",
-        "Monorepo with themed builds",
-        "Single shared core + client themes",
-      ],
-      rationale:
-        "Created a single shared core style CSS and a shared asset folder. Client-specific tokens/themes override variables without touching core markup.",
-      impact: "99% code reuse across portals",
-    },
-    {
-      point: "Asset Management",
-      options: [
-        "Duplicate assets per client",
-        "CDN per client",
-        "Shared assets with client overrides",
-      ],
-      rationale:
-        "Icons and images were centralized. Only logo and color tokens vary per client. This reduced duplication and guaranteed consistency.",
-      impact: "80% faster deployment of visual updates",
-    },
-    {
-      point: "Delivery Pipeline",
-      options: [
-        "Manual FTP per client",
-        "Per-repo Git flow",
-        "Git-based propagation to all clients",
-      ],
-      rationale:
-        "Git-driven releases: update once in core, propagate to 15+ client portals via branches. Rollbacks and hotfixes became trivial.",
-      impact: "Minutes to roll out changes (vs days)",
-    },
-  ];
+  const keyDecisions = backOffice.keyDecisions.decisions;
 
-  const achievements = [
-    {
-      icon: Layers,
-      metric: "99%",
-      label: "Code Reuse",
-      description: "Single shared core powering all client portals",
-    },
-    {
-      icon: Zap,
-      metric: "80%",
-      label: "Efficiency Gain",
-      description:
-        "Faster testing and deployment through unified CSS and icons",
-    },
-    {
-      icon: CheckCircle,
-      metric: "15+",
-      label: "Clients Unified",
-      description: "Consistent UX and branding across the full client base",
-    },
-  ];
+  // Icone nello stesso ordine di backOffice.outcomes.achievements
+  const achievementIcons = [Layers, Zap, CheckCircle];
+  const achievements = backOffice.outcomes.achievements.map((a, i) => ({
+    icon: achievementIcons[i],
+    ...a,
+  }));
 
-  const rolloutImprovements = [
-    {
-      task: "Apply a visual fix to a component",
-      before: "15 repos / manual uploads",
-      after: "1 core change → propagate",
-      improvement: "–90% effort",
-    },
-    {
-      task: "Add a new icon to all portals",
-      before: "Duplicate in every client",
-      after: "Drop once in shared assets",
-      improvement: "–95% duplication",
-    },
-    {
-      task: "Release a hotfix",
-      before: "Per-client packaging",
-      after: "Git merge → scripted deploy",
-      improvement: "Hours → Minutes",
-    },
-  ];
+  const rolloutImprovements = backOffice.operationalImprovements.rows;
 
   return (
     <div className="min-h-screen">
@@ -116,7 +50,7 @@ export default function OnlineBackOfficeCaseStudy() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="sr-only md:not-sr-only">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">{backOffice.backLink}</span>
         </Link>
       </div>
 
@@ -126,45 +60,29 @@ export default function OnlineBackOfficeCaseStudy() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent" />
         <div className="max-w-5xl mx-auto relative z-10">
           <p className="text-sm text-gray-400 mb-6">
-            Home &gt; Product Work &gt; Back Office Unification
+            {backOffice.hero.breadcrumb}
           </p>
 
           <div className="mb-4">
             <span className="text-xs uppercase tracking-wider text-accent">
-              PLATFORM ARCHITECTURE · FRONT-END SCALABILITY
+              {backOffice.hero.category}
             </span>
           </div>
 
           <h1 className="text-5xl font-bold text-ink-900 mb-4">
-            Back Office Unification
+            {backOffice.hero.title}
           </h1>
 
           <p className="text-lg text-gray-400 mb-4">
-            Product Designer &amp; Platform Strategist
+            {backOffice.hero.subtitle}
           </p>
 
           <p className="text-xl text-gray-300 mb-8">
-            Consolidated 15 fragmented client portals into a unified back-office
-            platform. <br />
-            Built a shared CSS architecture, centralized assets, and Git-based
-            rollout model achieving{" "}
-            <span className="text-ink-900 font-semibold">99%</span> code reuse,
-            <span className="text-ink-900 font-semibold"> 80%</span> faster
-            deployments, and consistent UX across
-            <span className="text-ink-900 font-semibold"> 15+</span> FMCG clients.
+            <RichText text={backOffice.hero.description} boldClassName="text-ink-900 font-semibold" />
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {[
-              "Scalable Architecture",
-              "Front-End Design",
-              "CSS Tokens",
-              "Git Workflow",
-              "Bootstrap",
-              "B2B SaaS",
-              "Design Systems",
-              "Process Governance",
-            ].map((tag, i) => (
+            {backOffice.hero.tags.map((tag, i) => (
               <span
                 key={i}
                 className="px-4 py-2 glass rounded-full text-sm text-gray-300"
@@ -178,30 +96,18 @@ export default function OnlineBackOfficeCaseStudy() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={getImagePath("images/projects/OnlineBackOffice-1.webp")}
-        title="From Client Forks to a Unified Back Office System"
+        image={getImagePath(backOffice.intro.image)}
+        title={backOffice.intro.title}
         showGradient={false}
       >
         <p className="text-gray-300 leading-relaxed">
-          XpuntoCero’s Back Office portals serve as dashboards for the SGPV
-          field app, used by merchandisers and sales reps for 15 FMCG clients
-          across Spain, Portugal, and Italy. <br />
-          They visualize field data, manage promotions, and track retail
-          execution. Over time, each portal evolved separately with custom
-          branding and one-off requests. Updates became slow, inconsistent, and
-          difficult to align with the SGPV app.
+          <RichText text={backOffice.intro.paragraphs[0]} />
         </p>
         <p className="text-gray-300 leading-relaxed">
-          My goal was to preserve each client’s identity while building a
-          single, scalable foundation that simplified maintenance and
-          accelerated delivery.
+          {backOffice.intro.paragraphs[1]}
         </p>
         <p className="text-gray-300 leading-relaxed">
-          I redesigned the UI kit, consolidated CSS, and introduced a Git-based
-          release workflow, ensuring improvements shipped once and reached all
-          client portals instantly. The result kept the freedom of customization
-          while removing redundant work and bringing long-term consistency to
-          the system.
+          {backOffice.intro.paragraphs[2]}
         </p>
       </ProjectIntroCard>
 
@@ -209,45 +115,25 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <OverviewCard icon={AlertCircle} title="The Challenge">
-              Inconsistent client forks, duplicated assets, and manual updates
-              across 15+ portals made maintenance slow, costly, and prone to
-              errors. Each portal required separate fixes, leading to diverging
-              interfaces and unsustainable QA cycles.
+            <OverviewCard icon={AlertCircle} title={backOffice.challenge.title}>
+              {backOffice.challenge.text}
             </OverviewCard>
-            <OverviewCard icon={User} title="My Role">
+            <OverviewCard icon={User} title={backOffice.role.title}>
               <p className="font-semibold mb-2">
-                Product Designer & Platform Strategist
+                {backOffice.role.summary}
               </p>
               <ul className="space-y-1 ">
-                <li>
-                  <span aria-hidden="true">•</span> Diagnosed fragmented client forks and unsustainable update
-                  cycles.
-                </li>
-                <li>
-                  <span aria-hidden="true">•</span> Led the back-office unification, built one shared core
-                  applied across 15+ client portals.
-                </li>
-                <li>
-                  <span aria-hidden="true">•</span> Reverse-engineered legacy CSS to identify patterns and
-                  enable bulk front-end updates.
-                </li>
-                <li>
-                  <span aria-hidden="true">•</span> Created the Git-based release model to propagate
-                  improvements from a single source.
-                </li>
-                <li>
-                  <span aria-hidden="true">•</span> Established the roadmap and process that made the unified
-                  approach maintainable at scale.
-                </li>
+                {backOffice.role.items.map((item, i) => (
+                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                ))}
               </ul>
             </OverviewCard>
 
-            <OverviewCard icon={TrendingUp} title="Impact">
+            <OverviewCard icon={TrendingUp} title={backOffice.impact.title}>
               <ul className="space-y-1">
-                <li><span aria-hidden="true">•</span> 99% core code reuse across all client portals</li>
-                <li><span aria-hidden="true">•</span> 80% faster rollout of visual and UI updates</li>
-                <li><span aria-hidden="true">•</span> Consistent UX and brand alignment for 15+ clients</li>
+                {backOffice.impact.items.map((item, i) => (
+                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                ))}
               </ul>
             </OverviewCard>
           </div>
@@ -258,7 +144,7 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
-            Program Outcomes
+            {backOffice.outcomes.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {achievements.map((a, i) => (
@@ -283,21 +169,11 @@ export default function OnlineBackOfficeCaseStudy() {
 
       {/* Project Gallery Slider */}
       <ProjectGallery
-        title="Design Evolution"
-        images={[
-          {
-            src: getImagePath("images/projects/OnlineBackOffice-2.webp"),
-            alt: "Legacy vs New dashboards",
-          },
-          {
-            src: getImagePath("images/projects/OnlineBackOffice-3.webp"),
-            alt: "Tables and data views – old vs new",
-          },
-          {
-            src: getImagePath("images/projects/OnlineBackOffice-4.webp"),
-            alt: "Unified approach diagram & laptop",
-          },
-        ]}
+        title={backOffice.gallery.title}
+        images={backOffice.gallery.images.map((im) => ({
+          src: getImagePath(im.file),
+          alt: im.alt,
+        }))}
       />
 
       {/* Section 1: Business Context */}
@@ -305,11 +181,11 @@ export default function OnlineBackOfficeCaseStudy() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              01
+              {backOffice.businessContext.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Business Context
+                {backOffice.businessContext.title}
               </h2>
             </div>
           </div>
@@ -318,47 +194,34 @@ export default function OnlineBackOfficeCaseStudy() {
             <GlassCard>
               <div className="p-6 space-y-4">
                 <p className="text-gray-300 leading-relaxed">
-                  XpuntoCero’s Back Office portals are the dashboards for the
-                  SGPV field app. They visualize field data such as sales,
-                  promotions, and store audits.
+                  {backOffice.businessContext.paragraphs[0]}
                 </p>
 
                 <p className="text-gray-300 leading-relaxed">
-                  Over time, client portals drifted apart with custom branding,
-                  duplicated assets, and manual updates. This fragmentation
-                  slowed releases and caused inconsistencies with the SGPV
-                  mobile app.
+                  {backOffice.businessContext.paragraphs[1]}
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  The goal was to create one shared core that keeps each
-                  client’s identity while centralizing maintenance and
-                  accelerating updates.
+                  {backOffice.businessContext.paragraphs[2]}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
                   <div className="text-gray-400 text-sm">
                     <div className="font-semibold text-accent mb-1">
-                      Challenges
+                      {backOffice.businessContext.challenges.title}
                     </div>
                     <ul className="space-y-1">
-                      <li><span aria-hidden="true">•</span> Duplicated assets and inconsistent portals </li>
-                      <li>
-                        <span aria-hidden="true">•</span> Manual updates breaking alignment with SGPV app data
-                      </li>
-                      <li>
-                        <span aria-hidden="true">•</span> High QA and maintenance costs across 15+ clients
-                      </li>
+                      {backOffice.businessContext.challenges.items.map((item, i) => (
+                        <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                      ))}
                     </ul>
                   </div>
                   <div className="text-gray-400 text-sm">
                     <div className="font-semibold text-accent mb-1">
-                      Goals
+                      {backOffice.businessContext.goals.title}
                     </div>
                     <ul className="space-y-1">
-                      <li><span aria-hidden="true">•</span> Shared core with CSS-based theming </li>
-                      <li><span aria-hidden="true">•</span> Git-powered centralized release workflow </li>
-                      <li>
-                        <span aria-hidden="true">•</span> Faster iteration aligned with SGPV product cycles
-                      </li>
+                      {backOffice.businessContext.goals.items.map((item, i) => (
+                        <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -373,11 +236,11 @@ export default function OnlineBackOfficeCaseStudy() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              02
+              {backOffice.problemHypothesis.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Problem & Hypothesis
+                {backOffice.problemHypothesis.title}
               </h2>
             </div>
           </div>
@@ -391,22 +254,17 @@ export default function OnlineBackOfficeCaseStudy() {
                     <AlertCircle className="w-5 h-5 text-red-400" />
                   </div>
                   <h3 className="text-xl font-semibold text-ink-900">
-                    The Problem
+                    {backOffice.problemHypothesis.problem.title}
                   </h3>
                 </div>
 
                 {/* Your original list */}
 
-                <p className="text-gray-300 leading-relaxed">
-                  <span aria-hidden="true">•</span> Inconsistent UI across portals due to heavy per-client
-                  customization
-                </p>
-                <p className="text-gray-300 leading-relaxed">
-                  <span aria-hidden="true">•</span> Increased development time and QA overhead
-                </p>
-                <p className="text-gray-300 leading-relaxed">
-                  <span aria-hidden="true">•</span> Updates could not be applied uniformly
-                </p>
+                {backOffice.problemHypothesis.problem.items.map((item, i) => (
+                  <p key={i} className="text-gray-300 leading-relaxed">
+                    <span aria-hidden="true">•</span> {item}
+                  </p>
+                ))}
               </div>
             </GlassCard>
 
@@ -418,16 +276,13 @@ export default function OnlineBackOfficeCaseStudy() {
                     <Wrench className="w-5 h-5 text-green-400" />
                   </div>
                   <h3 className="text-xl font-semibold text-ink-900">
-                    Hypothesis
+                    {backOffice.problemHypothesis.hypothesis.title}
                   </h3>
                 </div>
 
                 {/* Your original paragraph */}
                 <p className="text-gray-300 leading-relaxed">
-                  By concentrating changes in a single CSS file and a shared
-                  image/icon folder, we can roll out UI updates to all portals
-                  at once via Git, maintain client customization via themes, and
-                  dramatically reduce duplicated work.
+                  {backOffice.problemHypothesis.hypothesis.text}
                 </p>
               </div>
             </GlassCard>
@@ -440,11 +295,11 @@ export default function OnlineBackOfficeCaseStudy() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              03
+              {backOffice.keyDecisions.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Key Decisions & Trade-offs
+                {backOffice.keyDecisions.title}
               </h2>
             </div>
           </div>
@@ -459,11 +314,11 @@ export default function OnlineBackOfficeCaseStudy() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              04
+              {backOffice.solution.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                The Unified Solution
+                {backOffice.solution.title}
               </h2>
             </div>
           </div>
@@ -471,35 +326,29 @@ export default function OnlineBackOfficeCaseStudy() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  Single CSS + Shared Assets
+                  {backOffice.solution.sharedAssets.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Consolidated all client styles into one maintainable CSS
-                  architecture with variables and mixins.
+                  {backOffice.solution.sharedAssets.paragraphs[0]}
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  Reverse-engineered legacy files to find reusable patterns and
-                  moved icons and images into a shared library.
+                  {backOffice.solution.sharedAssets.paragraphs[1]}
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  Each client’s theme now overrides only color tokens and logos,
-                  keeping 99% of the codebase identical.
+                  {backOffice.solution.sharedAssets.paragraphs[2]}
                 </p>
               </div>
             </GlassCard>
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  Git-Based Propagation
+                  {backOffice.solution.gitPropagation.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Updates are committed to the shared core, merged through
-                  dedicated client branches, and deployed to all portals using
-                  Git-based scripts.
+                  {backOffice.solution.gitPropagation.paragraphs[0]}
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  This workflow replaced manual uploads, reduced release errors,
-                  and made rollbacks fully traceable and fast to execute.
+                  {backOffice.solution.gitPropagation.paragraphs[1]}
                 </p>
               </div>
             </GlassCard>
@@ -512,11 +361,11 @@ export default function OnlineBackOfficeCaseStudy() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              05
+              {backOffice.operationalImprovements.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Operational Improvements
+                {backOffice.operationalImprovements.title}
               </h2>
             </div>
           </div>
@@ -524,25 +373,23 @@ export default function OnlineBackOfficeCaseStudy() {
             <GlassCard className="hidden lg:block">
               <div className="p-6">
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Centralization turned multi-client maintenance into a
-                  productized workflow. Below are representative changes in
-                  effort/time to ship.
+                  {backOffice.operationalImprovements.intro}
                 </p>
                 <div className="overflow-x-auto">
                   <table className="w-full text-left">
                     <thead>
                       <tr className="border-b border-gray-700">
                         <th className="pb-4 pr-4 text-accent font-semibold">
-                          Task
+                          {backOffice.operationalImprovements.columns.task}
                         </th>
                         <th className="pb-4 pr-4 text-accent font-semibold">
-                          Before
+                          {backOffice.operationalImprovements.columns.before}
                         </th>
                         <th className="pb-4 pr-4 text-accent font-semibold">
-                          After
+                          {backOffice.operationalImprovements.columns.after}
                         </th>
                         <th className="pb-4 text-accent font-semibold">
-                          Improvement
+                          {backOffice.operationalImprovements.columns.improvement}
                         </th>
                       </tr>
                     </thead>
@@ -580,7 +427,7 @@ export default function OnlineBackOfficeCaseStudy() {
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
                         <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
-                          Before
+                          {backOffice.operationalImprovements.columns.before}
                         </div>
                         <div className="text-gray-300 text-sm font-semibold">
                           {item.before}
@@ -589,7 +436,7 @@ export default function OnlineBackOfficeCaseStudy() {
 
                       <div className="flex justify-between items-center">
                         <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
-                          After
+                          {backOffice.operationalImprovements.columns.after}
                         </div>
                         <div className="text-gray-300 text-sm font-semibold">
                           {item.after}
@@ -598,7 +445,7 @@ export default function OnlineBackOfficeCaseStudy() {
 
                       <div className="flex justify-between items-center pt-2 border-t border-ink-900/10">
                         <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
-                          Improvement
+                          {backOffice.operationalImprovements.columns.improvement}
                         </div>
                         <div className="text-green-400 text-base font-bold">
                           {item.improvement}
@@ -618,11 +465,11 @@ export default function OnlineBackOfficeCaseStudy() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              06
+              {backOffice.deliverables.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Outcomes & Deliverables
+                {backOffice.deliverables.title}
               </h2>
             </div>
           </div>
@@ -631,24 +478,24 @@ export default function OnlineBackOfficeCaseStudy() {
               <GlassCard>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-accent mb-3">
-                    Front-End
+                    {backOffice.deliverables.frontEnd.title}
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
-                    <li><span aria-hidden="true">•</span> Unified CSS architecture with tokens</li>
-                    <li><span aria-hidden="true">•</span> Shared iconography & image library</li>
-                    <li><span aria-hidden="true">•</span> Bootstrap-based responsive components</li>
+                    {backOffice.deliverables.frontEnd.items.map((item, i) => (
+                      <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                    ))}
                   </ul>
                 </div>
               </GlassCard>
               <GlassCard>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-accent mb-3">
-                    Process & Governance
+                    {backOffice.deliverables.process.title}
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
-                    <li><span aria-hidden="true">•</span> Git release workflow for multi-client rollouts</li>
-                    <li><span aria-hidden="true">•</span> Branching model for hotfixes and theming</li>
-                    <li><span aria-hidden="true">•</span> QA checklist and A/B testing framework</li>
+                    {backOffice.deliverables.process.items.map((item, i) => (
+                      <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                    ))}
                   </ul>
                 </div>
               </GlassCard>
@@ -657,22 +504,14 @@ export default function OnlineBackOfficeCaseStudy() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-accent mb-3">
-                  Results
+                  {backOffice.deliverables.results.title}
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li>
-                    → <strong>Scalability:</strong> Re-styled and deployed
-                    across 15+ clients with centralized updates.
-                  </li>
-                  <li>
-                    → <strong>Development Efficiency:</strong> Focusing on core
-                    CSS + icons enabled 80% faster updates across portals.
-                  </li>
-                  <li>
-                    → <strong>Development Speed:</strong> Centralized design and
-                    development enabled future updates to be implemented 25%
-                    faster.
-                  </li>
+                  {backOffice.deliverables.results.items.map((item, i) => (
+                    <li key={i}>
+                      <RichText text={item} />
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -684,21 +523,20 @@ export default function OnlineBackOfficeCaseStudy() {
             <GlassCard>
               <div className="text-center py-8">
                 <h2 className="text-3xl font-bold text-ink-900 mb-4">
-                  Want to see more work?
+                  {backOffice.cta.title}
                 </h2>
                 <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                  This project shows how a design-led front-end refactor can
-                  unlock scale and lower costs across a legacy estate.
+                  {backOffice.cta.text}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href={createPageUrl("ProductWork")}
                     className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
                   >
-                    View All Projects
+                    {backOffice.cta.allProjects}
                   </Link>
                   <CopyEmailLink className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all">
-                  Let's Talk
+                  {backOffice.cta.talk}
                 </CopyEmailLink>
                 </div>
               </div>
