@@ -111,7 +111,7 @@ export default function TestimonialModal({
               {/* Content */}
               <div className="flex flex-col">
                 {/* Quote - Left aligned */}
-                <p className="text-lg md:text-xl text-[var(--color-text-inverse)] font-light leading-relaxed mb-8 whitespace-pre-line text-left">
+                <p className="text-lg md:text-xl text-[var(--color-text-inverse)] font-light leading-relaxed mb-8 whitespace-pre-line text-left pr-10 md:pr-8">
                   "{quote}"
                 </p>
 
