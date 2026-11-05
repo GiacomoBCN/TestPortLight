@@ -306,6 +306,32 @@ export default function Home() {
             />
 
             <ProjectCard
+              role="AI Interaction Design · Banking"
+              title="Falak: AI Assistant for a Bank"
+              company="Concept & Coded Prototype"
+              timeframe=""
+              description="Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype."
+              image={getImagePath("images/projects/falak/01-desktop-overview.webp")}
+              metrics={[
+                { value: "8", label: "Patterns" },
+                { value: "EN · AR", label: "Bilingual" },
+                { value: "Live", label: "Demo" },
+              ]}
+              tags={[
+                "AI Interaction Patterns",
+                "Trust Calibration",
+                "Human Oversight",
+                "Research Synthesis",
+                "Flutter",
+                "Claude Code",
+                "Arabic / RTL",
+                "WCAG 2.2 AA",
+              ]}
+              link={createPageUrl("Falak")}
+              delay={0.2}
+            />
+
+            <ProjectCard
               role="B2B SaaS Long-term"
               title="SGPV Product Evolution"
               company="XpuntoCero -> SGPV"
@@ -335,32 +361,6 @@ export default function Home() {
               ]}
               link={createPageUrl("SGPVEvolution")}
               delay={0.3}
-            />
-
-            <ProjectCard
-              role="Growth & Business Impact"
-              title="XpuntoCero Digital Transformation"
-              company="XpuntoCero"
-              timeframe=""
-              description="Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, qualified leads by 15% and doubling demo requests."
-              image={getImagePath("images/projects/XP0.webp")}
-              metrics={[
-                { value: "40%", label: "Mobile Traffic" },
-                { value: "15%", label: "More Leads" },
-                { value: "2×", label: "Demo Requests" },
-              ]}
-              tags={[
-                "Branding",
-                "Strategy",
-                "End-to-end UX/UI Process",
-                "Figma",
-                "Front-End",
-                "PWA",
-                "WordPress",
-                "Elementor",
-              ]}
-              link={createPageUrl("XpuntoCero")}
-              delay={0.2}
             />
           </div>
         </div>
