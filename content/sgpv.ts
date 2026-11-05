@@ -4,9 +4,10 @@
 // Nota: le description di ImageTextCard sono divise in paragrafi su "\n" e ogni paragrafo
 // viene trim()-mato dal componente.
 import { projects } from "./projects";
+import { shell } from "./shell";
 
 export const sgpv = {
-  backLink: "Back to Projects",
+  backLink: shell.caseStudy.backLink,
 
   hero: projects.sgpv.caseStudyHero,
 
@@ -325,9 +326,9 @@ export const sgpv = {
   },
 
   cta: {
-    title: "Want to see more work?",
+    title: shell.caseStudy.moreWorkTitle,
     text: "This project shows how I lead multi-client product evolution—turning research insights and governance into scalable design systems.",
-    allProjects: "View All Projects",
-    talk: "Let's Talk",
+    allProjects: shell.caseStudy.allProjects,
+    talk: shell.caseStudy.letsTalk,
   },
 };

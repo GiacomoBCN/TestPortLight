@@ -2,9 +2,10 @@
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 // I percorsi immagine passano da getImagePath() nella pagina.
 import { projects } from "./projects";
+import { shell } from "./shell";
 
 export const vod = {
-  backLink: "Back to Projects",
+  backLink: shell.caseStudy.backLink,
 
   hero: projects.vod.caseStudyHero,
 
@@ -461,9 +462,9 @@ export const vod = {
   },
 
   cta: {
-    title: "Want to see more work?",
+    title: shell.caseStudy.moreWorkTitle,
     text: "This is one example of how I evaluate complex products and propose solutions that balance user needs with business constraints.",
-    allProjects: "View All Projects",
-    talk: "Let's Talk",
+    allProjects: shell.caseStudy.allProjects,
+    talk: shell.caseStudy.letsTalk,
   },
 };

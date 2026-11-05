@@ -1,12 +1,13 @@
 // Testi della pagina Falak (app/pages/Falak.tsx), nell'ordine delle sezioni.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 import { projects } from "./projects";
+import { shell } from "./shell";
 
 export const falak = {
   demoUrl: "https://giacomobcn.github.io/chatTest/",
   repoUrl: "https://github.com/GiacomoBCN/chatTest",
 
-  backLink: "Back to Projects",
+  backLink: shell.caseStudy.backLink,
 
   // Screenshot: file in public/images/projects/falak/ e testo alternativo
   shots: {
@@ -357,8 +358,8 @@ export const falak = {
     title: "Try it, or talk about it",
     text: "The demo runs in the browser, in English and Arabic. If you are building an assistant where being wrong is expensive, I'd like to compare notes.",
     demo: "Open the demo",
-    allProjects: "View All Projects",
-    talk: "Let's Talk",
+    allProjects: shell.caseStudy.allProjects,
+    talk: shell.caseStudy.letsTalk,
   },
 };
 

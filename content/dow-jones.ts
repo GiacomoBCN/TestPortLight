@@ -3,9 +3,10 @@
 // Le voci degli elenchi con il pallino "•" (role.items, outcomes.*.items) sono rese come
 // " " + testo dopo lo span aria-hidden, come nell'originale.
 import { projects } from "./projects";
+import { shell } from "./shell";
 
 export const dowJones = {
-  backLink: "Back to Projects",
+  backLink: shell.caseStudy.backLink,
 
   hero: projects.dowJones.caseStudyHero,
 
@@ -255,9 +256,9 @@ export const dowJones = {
   },
 
   cta: {
-    title: "Want to see more work?",
+    title: shell.caseStudy.moreWorkTitle,
     text: "This is just one example of how I lead cross-functional teams to deliver measurable business impact through strategic design and technical leadership.",
-    primary: "View All Projects",
-    secondary: "Let's Talk",
+    primary: shell.caseStudy.allProjects,
+    secondary: shell.caseStudy.letsTalk,
   },
 };

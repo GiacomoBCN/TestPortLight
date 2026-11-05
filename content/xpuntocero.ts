@@ -3,9 +3,10 @@
 // Nei paragrafi i numeri evidenziati usano **...** con boldClassName="text-ink-900 font-semibold";
 // lo spazio dentro gli asterischi (es. "** +40%**") e' voluto: nell'originale stava dentro lo span.
 import { projects } from "./projects";
+import { shell } from "./shell";
 
 export const xpuntoCero = {
-  backLink: "Back to Projects",
+  backLink: shell.caseStudy.backLink,
 
   hero: projects.xpuntoCero.caseStudyHero,
 
@@ -278,9 +279,9 @@ export const xpuntoCero = {
   },
 
   cta: {
-    title: "Want to see more work?",
+    title: shell.caseStudy.moreWorkTitle,
     text: "This project demonstrates how research-driven design, cohesive branding, and performant technical implementation create measurable business impact.",
-    allProjects: "View All Projects",
-    talk: "Let's Talk",
+    allProjects: shell.caseStudy.allProjects,
+    talk: shell.caseStudy.letsTalk,
   },
 };

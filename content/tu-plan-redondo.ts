@@ -1,9 +1,10 @@
 // Testi della pagina TuPlanRedondo (app/pages/TuPlanRedondo.tsx), nell'ordine delle sezioni.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 import { projects } from "./projects";
+import { shell } from "./shell";
 
 export const tuPlanRedondo = {
-  backLink: "Back to Projects",
+  backLink: shell.caseStudy.backLink,
 
   hero: projects.tuPlanRedondo.caseStudyHero,
 
@@ -251,9 +252,9 @@ export const tuPlanRedondo = {
   },
 
   cta: {
-    title: "Want to see more work?",
+    title: shell.caseStudy.moreWorkTitle,
     text: "This project demonstrates how research-driven design, cohesive branding, and performant technical implementation create measurable business impact.",
-    allProjects: "View All Projects",
-    talk: "Let's Talk",
+    allProjects: shell.caseStudy.allProjects,
+    talk: shell.caseStudy.letsTalk,
   },
 };

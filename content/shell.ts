@@ -72,6 +72,14 @@ export const shell = {
     install: "Install",
   },
 
+  // Testi uguali in tutte le pagine dei case study (pulsante in alto e CTA finale)
+  caseStudy: {
+    backLink: "Back to Projects",
+    moreWorkTitle: "Want to see more work?",
+    allProjects: "View All Projects",
+    letsTalk: "Let's Talk",
+  },
+
   notFound: {
     code: "404",
     title: "Page Not Found",

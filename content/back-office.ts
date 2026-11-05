@@ -1,9 +1,10 @@
 // Testi della pagina Back Office (app/pages/BackOffice.tsx), nell'ordine delle sezioni.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 import { projects } from "./projects";
+import { shell } from "./shell";
 
 export const backOffice = {
-  backLink: "Back to Projects",
+  backLink: shell.caseStudy.backLink,
 
   hero: projects.backOffice.caseStudyHero,
 
@@ -243,9 +244,9 @@ export const backOffice = {
   },
 
   cta: {
-    title: "Want to see more work?",
+    title: shell.caseStudy.moreWorkTitle,
     text: "This project shows how a design-led front-end refactor can unlock scale and lower costs across a legacy estate.",
-    allProjects: "View All Projects",
-    talk: "Let's Talk",
+    allProjects: shell.caseStudy.allProjects,
+    talk: shell.caseStudy.letsTalk,
   },
 };
