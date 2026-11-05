@@ -27,85 +27,15 @@ import ProjectIntroCard from "../components/work/ProjectIntroCard";
 import ProjectGallery from "../components/work/ProjectGallery";
 import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
+import { dowJones } from "@/content/dow-jones";
 
 export default function DowJones() {
-  const keyDecisions = [
-    {
-      point: "Governance Model",
-      options: ["Centralized team", "Distributed contributors", "Hybrid model"],
-      rationale:
-        "Hybrid approach balanced central oversight with brand autonomy. Brands contributed to the system while maintaining their unique identities. This voluntary adoption model was critical.",
-      impact: "All 8 brands adopted the system",
-    },
-    {
-      point: "Platform Architecture",
-      options: [
-        "React-only",
-        "Native per platform",
-        "Token-based cross-platform",
-      ],
-      rationale:
-        "Token-first strategy using Style Dictionary enabled one source of truth across web, iOS, and Android. This unlocked multi-brand theming and dark mode without rebuilding components.",
-      impact: "Cross-platform consistency",
-    },
-    {
-      point: "Component Complexity",
-      options: ["Simple atoms only", "Complex compositions", "Tiered system"],
-      rationale:
-        "Tiered system with reorganized Storybook architecture provided flexibility while maintaining consistency. Improved discoverability for 60+ designers and 120+ stakeholders.",
-      impact: "20% complexity reduction",
-    },
-    {
-      point: "Documentation & Workflow Strategy",
-      options: [
-        "Code comments",
-        "Separate docs site",
-        "Integrated Storybook + process optimization",
-      ],
-      rationale:
-        "Storybook integration kept docs close to code, increasing usage and reducing maintenance burden. I also improved team workflows for handoffs, UAT, QA, and design acceptance, streamlining how designers and engineers collaborated.",
-      impact: "30% productivity boost",
-    },
-  ];
-  const teamAdoptionMetrics = [
-    {
-      icon: Users,
-      metric: "60+",
-      label: "Designers Aligned",
-      description: "Unified design teams across 8 brands",
-    },
-    {
-      icon: Code,
-      metric: "200K+",
-      label: "Component References",
-      description: "System adoption at scale across all products",
-    },
-    {
-      icon: Target,
-      metric: "120+",
-      label: "Stakeholders",
-      description:
-        "Cross-functional collaboration (business, product, engineering, accessibility)",
-    },
-    {
-      icon: Layers,
-      metric: "8",
-      label: "Brands",
-      description: "WSJ, Factiva, Barron's, MarketWatch, and more",
-    },
-    {
-      icon: GitBranch,
-      metric: "3",
-      label: "Platforms",
-      description: "Web, iOS (SwiftUI), Android (native)",
-    },
-    {
-      icon: CheckCircle,
-      metric: "WCAG 2.2",
-      label: "Accessibility",
-      description: "EU & U.S. compliance standards",
-    },
-  ];
+  // Icone delle metriche "Team Adoption & Scale", stesso ordine di dowJones.teamAdoption.metrics
+  const teamAdoptionIcons = [Users, Code, Target, Layers, GitBranch, CheckCircle];
+  const teamAdoptionMetrics = dowJones.teamAdoption.metrics.map((metric, index) => ({
+    icon: teamAdoptionIcons[index],
+    ...metric,
+  }));
 
   return (
     <div className="min-h-screen">
@@ -116,7 +46,7 @@ export default function DowJones() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="sr-only md:not-sr-only">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">{dowJones.backLink}</span>
         </Link>
       </div>
 
@@ -125,40 +55,24 @@ export default function DowJones() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent"></div>
         <div className="max-w-5xl mx-auto relative z-10">
           <p className="text-sm text-gray-400 mb-6">
-            Home &gt; Product Work &gt; Dow Jones Design System
+            {dowJones.hero.breadcrumb}
           </p>
           <div className="mb-4">
             <span className="text-xs uppercase tracking-wider text-accent">
-              DESIGN SYSTEMS · PRODUCT OWNERSHIP · ENTERPRISE
+              {dowJones.hero.category}
             </span>
           </div>
           <h1 className="text-5xl font-bold text-ink-900 mb-4">
-            Dow Jones Design System
+            {dowJones.hero.title}
           </h1>
           <p className="text-lg text-gray-400 mb-4">
-            Lead Design Technologist | Design System Product Owner
+            {dowJones.hero.subtitle}
           </p>
           <p className="text-xl text-gray-300 mb-8">
-            I co-led design system adoption across 8 brands at Dow Jones, from
-            The Wall Street Journal to Factiva (B2C & B2B). We unified teams,
-            reduced component complexity by 20%, and boosted productivity by
-            30%.
+            {dowJones.hero.description}
           </p>
           <div className="flex flex-wrap gap-2">
-            {[
-              "Leadership",
-              "AI-Enhanced",
-              "Product Strategy",
-              "Design Systems",
-              "SAFe Agile",
-              "WCAG 2.2",
-              "CI/CD",
-              "Storybook",
-              "Style Dictionary",
-              "Design Tokens",
-              "React",
-              "Figma",
-            ].map((tag, i) => (
+            {dowJones.hero.tags.map((tag, i) => (
               <span
                 key={i}
                 className="px-4 py-2 glass rounded-full text-sm text-gray-300"
@@ -173,32 +87,19 @@ export default function DowJones() {
       {/* Intro Card with your actual image */}
 
       <ProjectIntroCard
-        image={getImagePath("images/projects/brand-ds.webp")}
-        title="Building a Unified System at Scale"
+        image={getImagePath(dowJones.intro.image)}
+        title={dowJones.intro.title}
         showGradient={false}
       >
         <p className="text-gray-300 leading-relaxed">
-          Dow Jones operates multiple B2B and B2C brands including The Wall
-          Street Journal, Barron's, MarketWatch and Factiva (B2B), with more in
-          the pipeline (B2C and B2B). Each brand had evolved independently with
-          its own design team, which drove rapid innovation and brand-specific
-          optimization. As the company scaled, the opportunity emerged to unify
-          these learnings into a shared foundation while preserving each brand's
-          unique identity.
+          {dowJones.intro.paragraphs[0]}
         </p>
         <p className="text-gray-300 leading-relaxed">
-          As Lead Design Technologist and Product Owner for the design system, I
-          co-owned the product roadmap with design and engineering leadership.
-          The challenge was establishing governance that 8 autonomous brands
-          would embrace, not as a constraint, but as an accelerator.
+          {dowJones.intro.paragraphs[1]}
         </p>
 
         <p className="text-gray-300 leading-relaxed">
-          We succeeded by reorganizing the architecture (20% less complexity),
-          streamlining workflows (30% productivity boost), and embedding
-          accessibility (WCAG 2.2) from day one. Today, the system powers 200K+
-          component instances used by 60+ designers and 120+ stakeholders across
-          web, iOS, and Android.
+          {dowJones.intro.paragraphs[2]}
         </p>
       </ProjectIntroCard>
 
@@ -206,28 +107,21 @@ export default function DowJones() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <OverviewCard icon={AlertCircle} title="The Challenge">
-              Multiple B2B and B2C brands, each with strong design identities.
-              The opportunity: create a unified foundation that accelerates
-              development while preserving brand uniqueness.
+            <OverviewCard icon={AlertCircle} title={dowJones.challenge.title}>
+              {dowJones.challenge.text}
             </OverviewCard>
 
-            <OverviewCard icon={User} title="My Role">
-              <p className="font-semibold mb-2">Lead Design Technologist</p>
+            <OverviewCard icon={User} title={dowJones.role.title}>
+              <p className="font-semibold mb-2">{dowJones.role.summary}</p>
               <ul className="space-y-1">
-                <li><span aria-hidden="true">•</span> Product roadmap co-ownership</li>
-                <li><span aria-hidden="true">•</span> Design system governance</li>
-                <li><span aria-hidden="true">•</span> Component architecture</li>
-                <li><span aria-hidden="true">•</span> Stakeholder alignment & conflict resolution</li>
-                <li>
-                  <span aria-hidden="true">•</span> Bridge between design vision and technical implementation
-                </li>
+                {dowJones.role.items.map((item, i) => (
+                  <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                ))}
               </ul>
             </OverviewCard>
 
-            <OverviewCard icon={GitBranch} title="Scope">
-              Cross-platform system · 8 brands · Web, iOS, Android · WCAG 2.2
-              compliant
+            <OverviewCard icon={GitBranch} title={dowJones.scope.title}>
+              {dowJones.scope.text}
             </OverviewCard>
           </div>
         </div>
@@ -237,10 +131,10 @@ export default function DowJones() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-ink-900 mb-4 text-center">
-            Team Adoption & Scale
+            {dowJones.teamAdoption.title}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Who uses the system and where it's deployed
+            {dowJones.teamAdoption.subtitle}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamAdoptionMetrics.map((metric, index) => (
@@ -267,21 +161,11 @@ export default function DowJones() {
 
       {/* Project Gallery Slider */}
       <ProjectGallery
-        title="Project Gallery"
-        images={[
-          {
-            src: getImagePath("images/projects/token1-ds.webp"),
-            alt: "Design System",
-          },
-          {
-            src: getImagePath("images/projects/token2-ds.webp"),
-            alt: "Design Tokens",
-          },
-          {
-            src: getImagePath("images/projects/token3-ds.webp"),
-            alt: "Design System",
-          },
-        ]}
+        title={dowJones.gallery.title}
+        images={dowJones.gallery.images.map((image) => ({
+          src: getImagePath(image.file),
+          alt: image.alt,
+        }))}
       />
 
       {/* Section 1: Business Context */}
@@ -289,11 +173,11 @@ export default function DowJones() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              01
+              {dowJones.businessContext.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Business Context
+                {dowJones.businessContext.title}
               </h2>
             </div>
           </div>
@@ -301,46 +185,22 @@ export default function DowJones() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  From Autonomy to Unified Scale
+                  {dowJones.businessContext.card.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  As Dow Jones grew its portfolio—The Wall Street Journal,
-                  Barron's, MarketWatch, Factiva, and more—each brand developed
-                  its own design approaches and workflows. This autonomy was a
-                  strength: teams moved fast, optimized for their specific
-                  audiences, and built strong brand identities.
+                  {dowJones.businessContext.card.paragraphs[0]}
                 </p>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  The opportunity emerged as the company scaled: could we
-                  preserve that brand autonomy while creating a shared
-                  foundation that would accelerate everyone? The goal wasn't to
-                  standardize everything. It was to enable teams to move faster
-                  by solving common problems once, then customizing where it
-                  mattered.
+                  {dowJones.businessContext.card.paragraphs[1]}
                 </p>
-                <p className="text-gray-400 mb-2">What we needed:</p>
+                <p className="text-gray-400 mb-2">{dowJones.businessContext.card.needsLabel}</p>
                 <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      A governance model that brands would adopt voluntarily
-                      (not mandated from above)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Technical architecture flexible enough to support B2C and
-                      B2B contexts
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      A system that preserved brand identity while enabling
-                      cross-brand efficiency
-                    </span>
-                  </li>
+                  {dowJones.businessContext.card.needs.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -353,11 +213,11 @@ export default function DowJones() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              02
+              {dowJones.governance.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Governance & Architecture
+                {dowJones.governance.title}
               </h2>
             </div>
           </div>
@@ -367,76 +227,33 @@ export default function DowJones() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  Token-First Architecture
+                  {dowJones.governance.tokenFirst.title}
                 </h3>
 
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Our team proposed a token-first strategy to enable multi-brand
-                  scale. Design tokens are variables that store foundational
-                  design attributes: colors, spacing, typography, shadows. Think
-                  of them like Lego bricks. You build the component structure
-                  once (the brick shape), then snap on different tokens (colors
-                  and styles) to create brand-specific versions.
+                  {dowJones.governance.tokenFirst.paragraphs[0]}
                 </p>
 
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  All brands use the same token structure, but each assigns
-                  different values. For example, "Ink" is a token family for
-                  typography and iconography. Within that family, there are
-                  specific tokens like InkBrand. Both The Wall Street Journal
-                  and Factiva have the same Ink family with the same InkBrand
-                  token, but each brand assigns different values to it. Same
-                  structure, different brand expression.
+                  {dowJones.governance.tokenFirst.paragraphs[1]}
                 </p>
 
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  My role was bridging the technical vision with designers and
-                  stakeholders, helping them understand how "variables" would
-                  speed up their work. Many struggled with the abstraction, so I
-                  translated it simply: "Design once, the system adapts it to
-                  every brand automatically." I also worked with teams when
-                  system rules felt too strict, explaining the reasoning behind
-                  governance decisions and helping stakeholders see why
-                  consistency mattered for long-term scale.
+                  {dowJones.governance.tokenFirst.paragraphs[2]}
                 </p>
 
-                <p className="text-gray-400 mb-2">What this enabled:</p>
+                <p className="text-gray-400 mb-2">{dowJones.governance.tokenFirst.enabledLabel}</p>
                 <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Migrated to platform-agnostic Style Dictionary (one source
-                      for web, iOS, and Android)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Automated token distribution via CI/CD (designers update
-                      Figma, tokens flow to all platforms)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Single source of truth for visual properties (no more
-                      "which blue?" debates)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      White-label theming and dark mode without rebuilding
-                      components
-                    </span>
-                  </li>
+                  {dowJones.governance.tokenFirst.enabled.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
 
                 <p className="text-gray-300 leading-relaxed mt-4">
-                  Instead of 8 separate design systems, we had one flexible
-                  system expressing 8 brand identities. The technical
-                  architecture made it possible; my role was ensuring adoption
-                  and governance.
+                  {dowJones.governance.tokenFirst.conclusion}
                 </p>
               </div>
             </GlassCard>
@@ -445,55 +262,25 @@ export default function DowJones() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  Repository & Documentation Overhaul
+                  {dowJones.governance.repository.title}
                 </h3>
 
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Led the reorganization of core repositories and Storybook
-                  architecture, reducing component complexity by 20% and
-                  dramatically improving discoverability for both engineers and
-                  designers. This wasn't just technical cleanup. It required
-                  careful coordination across 8 brands.
+                  {dowJones.governance.repository.paragraphs[0]}
                 </p>
 
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  I moderated every handoff and pre-handoff session, acting as
-                  problem solver when brand-specific needs conflicted with
-                  system-wide goals. These sessions were where the real
-                  governance work happened: finding solutions that satisfied
-                  individual brand requirements while maintaining system
-                  integrity.
+                  {dowJones.governance.repository.paragraphs[1]}
                 </p>
 
-                <p className="text-gray-400 mb-2">Results:</p>
+                <p className="text-gray-400 mb-2">{dowJones.governance.repository.resultsLabel}</p>
                 <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Improved component organization and documentation
-                      structure
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Streamlined contribution workflows and approval processes
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Facilitated handoff sessions as moderator, resolving
-                      conflicts between brand needs and system goals
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Faster onboarding (new team members reached productivity
-                      sooner)
-                    </span>
-                  </li>
+                  {dowJones.governance.repository.results.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -506,16 +293,16 @@ export default function DowJones() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              03
+              {dowJones.keyDecisions.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Key Decisions & Trade-offs
+                {dowJones.keyDecisions.title}
               </h2>
             </div>
           </div>
           <div className="pl-0 md:pl-24">
-            <DecisionTable decisions={keyDecisions} />
+            <DecisionTable decisions={dowJones.keyDecisions.decisions} />
           </div>
         </div>
       </section>
@@ -525,11 +312,11 @@ export default function DowJones() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              04
+              {dowJones.collaboration.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                How We Worked: Process, Quality & Collaboration
+                {dowJones.collaboration.title}
               </h2>
             </div>
           </div>
@@ -537,37 +324,19 @@ export default function DowJones() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  Cross-Functional Partnership
+                  {dowJones.collaboration.partnership.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Partnered with over 120 stakeholders from product,
-                  engineering, and accessibility teams to ensure scalable
-                  implementation and alignment across all brands.
+                  {dowJones.collaboration.partnership.text}
                 </p>
-                <p className="text-gray-400 mb-2">What this looked like:</p>
+                <p className="text-gray-400 mb-2">{dowJones.collaboration.partnership.listLabel}</p>
                 <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Collaborated with analytics teams using Google Analytics
-                      and internal dashboards to inform product improvements and
-                      support data-driven prioritization
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Demonstrated a "make things happen" mindset through
-                      ownership and speed (no waiting for perfect conditions)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Regular sync meetings across time zones to keep 8 brands
-                      aligned
-                    </span>
-                  </li>
+                  {dowJones.collaboration.partnership.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -575,37 +344,19 @@ export default function DowJones() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  Accessibility & Quality
+                  {dowJones.collaboration.accessibility.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Ensured accessibility (A11y) best practices were embedded into
-                  the design system from day one, meeting EU and U.S. compliance
-                  standards (WCAG 2.2). This wasn't a checklist. It was baked
-                  into our workflow.
+                  {dowJones.collaboration.accessibility.text}
                 </p>
-                <p className="text-gray-400 mb-2">How we validated:</p>
+                <p className="text-gray-400 mb-2">{dowJones.collaboration.accessibility.listLabel}</p>
                 <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Collaborated with the accessibility lead on validation
-                      strategy and testing protocols
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Facilitated alignment between design, engineering, and
-                      accessibility teams on component compliance
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Improved workflows for accessibility review and design
-                      acceptance
-                    </span>
-                  </li>
+                  {dowJones.collaboration.accessibility.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -613,14 +364,10 @@ export default function DowJones() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  AI-Assisted Workflow
+                  {dowJones.collaboration.aiWorkflow.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  I used AI throughout this work. ChatGPT and Vertex AI for
-                  speeding up documentation, component specs, and prototyping.
-                  Also automated quality checks and consistency validation. It's
-                  not magic, but it does let you iterate faster and catch more
-                  issues.
+                  {dowJones.collaboration.aiWorkflow.text}
                 </p>
               </div>
             </GlassCard>
@@ -633,81 +380,62 @@ export default function DowJones() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              05
+              {dowJones.outcomes.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Business Outcomes
+                {dowJones.outcomes.title}
               </h2>
               <p className="text-gray-400 mt-2">
-                How the system improved velocity and quality
+                {dowJones.outcomes.subtitle}
               </p>
             </div>
           </div>
           <div className="pl-0 md:pl-24 space-y-6">
             <p className="text-gray-300 leading-relaxed">
-              The design system contributed to improved UX consistency across
-              all Dow Jones digital properties, reduced friction in user
-              journeys, and delivered measurable gains in how teams work. The
-              system enabled scalable cross-platform development and faster
-              time-to-market for new features.
+              {dowJones.outcomes.intro}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
                   <div className="text-4xl font-bold text-accent mb-2">
-                    30%
+                    {dowJones.outcomes.productivity.value}
                   </div>
                   <h3 className="text-lg font-semibold text-ink-900 mb-3">
-                    Productivity Boost
+                    {dowJones.outcomes.productivity.title}
                   </h3>
                   <p className="text-gray-300 text-sm mb-4">
-                    Streamlined workflows, improved documentation, and reduced
-                    design-to-code inconsistency. Teams spend less time
-                    reinventing solutions and more time solving user problems.
+                    {dowJones.outcomes.productivity.text}
                   </p>
                   <p className="text-gray-400 text-sm mb-2">
-                    How we got there:
+                    {dowJones.outcomes.productivity.listLabel}
                   </p>
                   <ul className="space-y-1 text-gray-400 text-sm">
-                    <li>
-                      <span aria-hidden="true">•</span> Better Storybook organization makes component discovery
-                      faster
-                    </li>
-                    <li>
-                      <span aria-hidden="true">•</span> Token automation eliminates manual sync between design
-                      and code
-                    </li>
-                    <li>
-                      <span aria-hidden="true">•</span> Clear contribution guidelines reduce back-and-forth in
-                      reviews
-                    </li>
+                    {dowJones.outcomes.productivity.items.map((item, i) => (
+                      <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                    ))}
                   </ul>
                 </div>
               </GlassCard>
               <GlassCard>
                 <div className="p-6">
                   <div className="text-4xl font-bold text-accent mb-2">
-                    20%
+                    {dowJones.outcomes.complexity.value}
                   </div>
                   <h3 className="text-lg font-semibold text-ink-900 mb-3">
-                    Complexity Reduction
+                    {dowJones.outcomes.complexity.title}
                   </h3>
 
                   <p className="text-gray-300 text-sm mb-4">
-                    Repository reorganization and architectural simplification
-                    made the system easier to maintain and extend. Simpler code
-                    means fewer bugs and faster onboarding.
+                    {dowJones.outcomes.complexity.text}
                   </p>
 
-                  <p className="text-gray-400 text-sm mb-2">What changed:</p>
+                  <p className="text-gray-400 text-sm mb-2">{dowJones.outcomes.complexity.listLabel}</p>
                   <ul className="space-y-1 text-gray-400 text-sm">
-                    <li><span aria-hidden="true">•</span> Consolidated redundant components</li>
-                    <li><span aria-hidden="true">•</span> Clearer component hierarchy in Storybook</li>
-                    <li>
-                      <span aria-hidden="true">•</span> Platform-agnostic tokens reduced platform-specific code
-                    </li>
+                    {dowJones.outcomes.complexity.items.map((item, i) => (
+                      <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                    ))}
                   </ul>
                 </div>
               </GlassCard>
@@ -716,13 +444,10 @@ export default function DowJones() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-ink-900 mb-3">
-                  WCAG 2.2 Compliance Across All Brands
+                  {dowJones.outcomes.wcag.title}
                 </h3>
                 <p className="text-gray-300 text-sm">
-                  Accessibility isn't a feature. It's a requirement. Every
-                  component meets EU and U.S. compliance standards, validated
-                  through automated testing and manual review. This benefits all
-                  users, not just those with disabilities.
+                  {dowJones.outcomes.wcag.text}
                 </p>
               </div>
             </GlassCard>
@@ -730,14 +455,14 @@ export default function DowJones() {
           {/* IMAGE 5: Multi-platform, multi-brand scale */}
           <div className="mt-8 rounded-lg overflow-hidden relative w-full aspect-video">
             <Image
-              src={getImagePath("images/projects/brand-ds.webp")}
-              alt="Design system deployed across WSJ, Barron's, Factiva, and MarketWatch on multiple devices"
+              src={getImagePath(dowJones.outcomes.image.file)}
+              alt={dowJones.outcomes.image.alt}
               fill
               sizes="100vw"
               className="object-contain"
             />
             <p className="text-sm text-gray-400 mt-3 text-center">
-              The system in production across B2B & B2C brands and 3 platforms
+              {dowJones.outcomes.image.caption}
             </p>
           </div>
         </div>
@@ -749,22 +474,20 @@ export default function DowJones() {
           <GlassCard>
             <div className="text-center py-8">
               <h2 className="text-3xl font-bold text-ink-900 mb-4">
-                Want to see more work?
+                {dowJones.cta.title}
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                This is just one example of how I lead cross-functional teams to
-                deliver measurable business impact through strategic design and
-                technical leadership.
+                {dowJones.cta.text}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href={createPageUrl("ProductWork")}
                   className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
                 >
-                  View All Projects
+                  {dowJones.cta.primary}
                 </Link>
                 <CopyEmailLink className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all">
-                  Let's Talk
+                  {dowJones.cta.secondary}
                 </CopyEmailLink>
               </div>
             </div>
