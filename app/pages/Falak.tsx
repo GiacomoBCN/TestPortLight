@@ -387,7 +387,7 @@ export default function FalakCaseStudy() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={shots.overview.src}
+        image={shots.spending.src}
         title="Four ways an AI answer earns trust"
         showGradient={false}
       >

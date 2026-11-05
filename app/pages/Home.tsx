@@ -311,7 +311,7 @@ export default function Home() {
               company="Concept & Coded Prototype"
               timeframe=""
               description="Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype."
-              image={getImagePath("images/projects/falak/01-desktop-overview.webp")}
+              image={getImagePath("images/projects/falak/04-desktop-spending-range.webp")}
               metrics={[
                 { value: "8", label: "Patterns" },
                 { value: "EN · AR", label: "Bilingual" },
