@@ -26,6 +26,8 @@ import ProjectGallery from "../components/work/ProjectGallery";
 import ImageTextCard from "../components/casestudy/ImageTextCard";
 import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
+import RichText from "@/app/components/RichText";
+import { vod } from "@/content/vod";
 
 export default function VoDPlatform() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -75,172 +77,37 @@ export default function VoDPlatform() {
   };
 
 
-  const keyDecisions = [
-    {
-      point: "Navigation Architecture",
-      options: [
-        "Keep 3-axis system",
-        "Reduce to 2-axis (vertical + horizontal)",
-        "Single axis with deep menus",
-      ],
-      rationale:
-        "Vertical rail for primary sections, horizontal tabs for filtering within each section. This 2-axis model reduced remote clicks by 40% and works across TV, mobile, tablet, and car with the same logic.",
-      impact: "40% reduction in interaction steps",
-    },
-    {
-      point: "Landing Experience",
-      options: [
-        "Keep 'Who's watching?' gate",
-        "Direct to homepage",
-        "Direct to Continue Watching",
-      ],
-      rationale:
-        "Profile switching happens 10x less than browsing, so I moved it to the utility bar and removed the welcome gate. Users now land directly on Continue Watching",
-      impact: "60% fewer presses to reach profiles",
-    },
-    {
-      point: "Accessibility Standards",
-      options: [
-        "Basic contrast fixes",
-        "WCAG AA compliance",
-        "WCAG AAA compliance",
-      ],
-      rationale:
-        "WCAG AA gives you solid accessibility without the extreme constraints of AAA. It's critical for TV viewing from 3 meters away - if you can't see the focus indicator from your couch, the interface is broken.",
-      impact: "WCAG AA compliant",
-    },
-    {
-      point: "Component System Approach",
-      options: [
-        "Device-specific designs",
-        "Responsive single design",
-        "Adaptive box-first grid",
-      ],
-      rationale:
-        "The component grid maintains visual consistency across all platforms while respecting each device's interaction model (D-pad for TV, touch for mobile/car, hybrid for tablet).",
-      impact: "Unified design language",
-    },
-  ];
+  const keyDecisions = vod.keyDecisions.decisions;
 
-  const achievements = [
-    {
-      icon: Zap,
-      metric: "40%",
-      label: "Interaction Reduction",
-      description: "Fewer clicks/taps for common user journeys",
-    },
-    {
-      icon: Eye,
-      metric: "60%",
-      label: "Fewer Presses to Switch Profile",
-      description: "From ≥10 taps to just 4 taps",
-    },
-    {
-      icon: CheckCircle,
-      metric: "WCAG AA",
-      label: "Accessibility",
-      description: "Contrast ratios & focus states compliant",
-    },
-    {
-      icon: Monitor,
-      metric: "4 Devices",
-      label: "Multi-Platform",
-      description: "TV, mobile, tablet, in-car displays",
-    },
-  ];
+  // Icone delle card dei risultati, nello stesso ordine di vod.achievements.items
+  const achievementIcons = [Zap, Eye, CheckCircle, Monitor];
 
-  const interactionImprovements = [
-    {
-      task: "Switch from Watch → Live TV to Shop → Groceries",
-      before: "9 taps",
-      after: "6 taps",
-      improvement: "–33%",
-    },
-    {
-      task: "Go from landing hero to first row card",
-      before: "2 taps",
-      after: "1 tap",
-      improvement: "–50%",
-    },
-    {
-      task: "Open profile switcher from deep in content",
-      before: "≥10 taps",
-      after: "4 taps",
-      improvement: "–60%",
-    },
-  ];
+  const achievements = vod.achievements.items.map((a, i) => ({
+    icon: achievementIcons[i],
+    ...a,
+  }));
 
-  const evaluationImages = [
-    {
-      src: getImagePath("images/projects/Vod-Old_Home_nav.webp"),
-      alt: "Original VOD platform interface showing navigation complexity",
-    },
-    {
-      src: getImagePath("images/projects/Vod-Old_Welcom.webp"),
-      alt: "Original VOD platform welcome screen interface",
-    },
-  ];
+  const interactionImprovements = vod.interactionImprovements.rows;
 
-  const heuristicData = {
-    title: "Heuristic Review Findings",
-    description:
-      "I ran a heuristic evaluation to figure out why the interface felt clunky. The issues weren't just visual. The interaction model itself was broken:",
-    bulletPoints: [
-      {
-        label: "Complex interaction flow",
-        text: "Users had to navigate through three axes (icon belt, tabs, carousels) just to find content",
-      },
-      {
-        label: "Legibility challenges",
-        text: "Light text over artwork failed WCAG contrast standards (under 4.5:1)",
-      },
-      {
-        label: "Weak focus indicators",
-        text: "Focus indicators were nearly invisible from 3 meters away (TV viewing distance)",
-      },
-      {
-        label: "Unnecessary friction",
-        text: '"Who\'s watching?" welcome screen blocked immediate content access',
-      },
-    ],
-    additionalText:
-      'I mapped click-paths for common tasks to quantify the problem. Switching from "Watch > Live TV" to "Shop > Groceries" took 9 button presses on a TV remote. Opening the profile switcher from deep in content took over 10 presses.',
-  };
+  const evaluationImages = vod.problem.evaluationImages.map((im) => ({
+    src: getImagePath(im.src),
+    alt: im.alt,
+  }));
 
-  const accessibilityData = {
-    title: "Accessibility Gaps",
-    description:
-      "The accessibility audit found several WCAG violations. Contrast ratios were too low, focus indicators were nearly invisible, and touch targets were under 44px. These issues hurt everyone, not just users with disabilities. Try watching TV from 3 meters away with weak focus states and you'll see the problem.",
-    bulletPoints: [
-      {
-        label: "Contrast ratios below WCAG AA standards",
-        text: "< 4.5:1 for normal text",
-      },
-      {
-        label: "Focus indicators",
-        text: "Not meeting 3:1 contrast requirement against adjacent colors",
-      },
-      {
-        label: "Color-only information",
-        text: "Without text labels or icons",
-      },
-      {
-        label: "Insufficient touch target sizes",
-        text: "For mobile (< 44px)",
-      },
-    ],
-  };
+  const heuristicData = vod.problem.heuristic;
 
-  const navigationComparisonImages = [
-    {
-      src: getImagePath("images/projects/Vod_old_navigation.webp"),
-      alt: "Old Navigation (3-Axis) - Complex three-layer navigation system with icon belt, tabs, and carousels",
-    },
-    {
-      src: getImagePath("images/projects/Vod_New_navigarion.webp"),
-      alt: "New Navigation (2-Axis) - Simplified vertical rail and horizontal tabs system reducing interaction steps by 40%",
-    },
-  ];
+  const accessibilityData = vod.problem.accessibility;
+
+  const navigationComparisonImages = vod.navigationDeepDive.comparisonImages.map((im) => ({
+    src: getImagePath(im.src),
+    alt: im.alt,
+  }));
+
+  const table = vod.navigationDeepDive.table;
+
+  const cards = vod.navigationDeepDive.cards;
+
+  const learnings = vod.outcomes.learnings.items;
 
   return (
     <div className="min-h-screen">
@@ -251,7 +118,7 @@ export default function VoDPlatform() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="sr-only md:not-sr-only">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">{vod.backLink}</span>
         </Link>
       </div>
 
@@ -260,35 +127,24 @@ export default function VoDPlatform() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent"></div>
         <div className="max-w-5xl mx-auto relative z-10">
           <p className="text-sm text-gray-400 mb-6">
-            Home &gt; Product Work &gt; VOD Platform Redesign
+            {vod.hero.breadcrumb}
           </p>
           <div className="mb-4">
             <span className="text-xs uppercase tracking-wider text-accent">
-              DESIGN CHALLENGE · MULTI-PLATFORM
+              {vod.hero.category}
             </span>
           </div>
           <h1 className="text-5xl font-bold text-ink-900 mb-4">
-            VOD Platform Redesign
+            {vod.hero.title}
           </h1>
           <p className="text-lg text-gray-400 mb-4">
-            Design Challenge · MENA streaming platform
+            {vod.hero.subtitle}
           </p>
           <p className="text-xl text-gray-300 mb-8">
-            Redesigned a VOD platform for the MENA region. Reduced interaction
-            steps by 40% through click-path analysis and brought the experience
-            to WCAG AA compliance across TV, mobile, tablet, and in-car
-            displays.
+            {vod.hero.description}
           </p>
           <div className="flex flex-wrap gap-2">
-            {[
-              "Heuristic Evaluation",
-              "End-to-end UX/UI Process",
-              "Figma",
-              "Multi-platform Design",
-              "UX Strategy",
-              "WCAG 2.2 AA",
-              "TV/10-foot UI",
-            ].map((tag, i) => (
+            {vod.hero.tags.map((tag, i) => (
               <span
                 key={i}
                 className="px-4 py-2 glass rounded-full text-sm text-gray-300"
@@ -302,21 +158,15 @@ export default function VoDPlatform() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={getImagePath("images/projects/Vod-01.webp")}
-        title="Evaluating & Redesigning a Multi-Device Streaming Experience"
+        image={getImagePath(vod.intro.image)}
+        title={vod.intro.title}
         showGradient={false}
       >
         <p className="text-gray-300 leading-relaxed">
-          As a design challenge in a hiring process, I reviewed and redesigned
-          the initial prototype of a MENA-based VOD platform. The platform needed to serve content
-          across multiple contexts: traditional TV viewing, mobile on-the-go,
-          tablet browsing, and in-car entertainment systems.
+          {vod.intro.paragraphs[0]}
         </p>
         <p className="text-gray-300 leading-relaxed">
-          My role was to evaluate usability, visual clarity, and interaction
-          flow through heuristic review, identify accessibility gaps against
-          WCAG standards, and propose a unified home screen concept that could
-          scale across all devices while reducing user friction.
+          {vod.intro.paragraphs[1]}
         </p>
       </ProjectIntroCard>
 
@@ -324,28 +174,24 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <OverviewCard icon={AlertCircle} title="The Challenge">
-              Complex 3-axis navigation causing user friction. Poor legibility
-              with light text over artwork. Weak focus indicators for TV
-              viewing. Unnecessary entry gates before content access.
+            <OverviewCard icon={AlertCircle} title={vod.challenge.title}>
+              {vod.challenge.text}
             </OverviewCard>
 
-            <OverviewCard icon={User} title="My Role">
-              <p className="font-semibold mb-2">Product Designer</p>
+            <OverviewCard icon={User} title={vod.role.title}>
+              <p className="font-semibold mb-2">{vod.role.summary}</p>
               <ul className="space-y-1">
-                <li><span aria-hidden="true">•</span> Heuristic evaluation & accessibility audit</li>
-                <li>
-                  <span aria-hidden="true">•</span> Cross-platform design strategy (TV, mobile, tablet, car)
-                </li>
+                {vod.role.items.map((item, i) => (
+                  <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                ))}
               </ul>
             </OverviewCard>
 
-            <OverviewCard icon={TrendingUp} title="Impact">
+            <OverviewCard icon={TrendingUp} title={vod.impact.title}>
               <ul className="space-y-1">
-                <li><span aria-hidden="true">•</span> 40% reduction in interaction steps</li>
-                <li><span aria-hidden="true">•</span> WCAG AA compliant accessibility</li>
-                <li><span aria-hidden="true">•</span> Unified design language across devices</li>
-                <li><span aria-hidden="true">•</span> 60% fewer presses to switch profiles</li>
+                {vod.impact.items.map((item, i) => (
+                  <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                ))}
               </ul>
             </OverviewCard>
           </div>
@@ -356,7 +202,7 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
-            Redesign Impact
+            {vod.achievements.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {achievements.map((achievement, index) => (
@@ -383,29 +229,11 @@ export default function VoDPlatform() {
 
       {/* Project Gallery Slider */}
       <ProjectGallery
-        title="Design Evolution"
-        images={[
-          {
-            src: getImagePath("images/projects/Vod-1_New _LiveTV.webp"),
-            alt: "New version of LiveTV page",
-          },
-          {
-            src: getImagePath("images/projects/Vod-2-New_Vod_Page.webp"),
-            alt: "New version of VOD page",
-          },
-          {
-            src: getImagePath("images/projects/Vod-3- Nwe_Catch-up.webp"),
-            alt: "New version of Catch-Up page",
-          },
-          {
-            src: getImagePath("images/projects/Vod-3_old_new_gamePage.webp"),
-            alt: "After & Before of Game page",
-          },
-          {
-            src: getImagePath("images/projects/Vod-4_old_new_learnigPage.webp"),
-            alt: "After & Before of Learning page",
-          },
-        ]}
+        title={vod.gallery.title}
+        images={vod.gallery.images.map((im) => ({
+          src: getImagePath(im.src),
+          alt: im.alt,
+        }))}
       />
 
       {/* Section 1: Business Context */}
@@ -414,11 +242,11 @@ export default function VoDPlatform() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              01
+              {vod.businessContext.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Business Context
+                {vod.businessContext.title}
               </h2>
             </div>
           </div>
@@ -426,22 +254,11 @@ export default function VoDPlatform() {
             <GlassCard>
               <div className="p-6">
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  The company was building a VOD platform to compete
-                  with Netflix and Disney+ in the region. The prototype had a
-                  lot of features, but users got lost in a three-layer
-                  navigation system (icon belt, tab row, carousels). Light text
-                  over images created poor contrast. Focus indicators were too
-                  weak for TV viewing from 3 meters away. And the "Who's
-                  watching?" welcome screen blocked users from accessing
-                  content.
+                  {vod.businessContext.paragraphs[0]}
                 </p>
 
                 <p className="text-gray-300 leading-relaxed">
-                  The MENA streaming market was getting crowded with global
-                  players. Users expected Netflix-level usability, but localized
-                  for regional preferences. The platform needed to work across
-                  TV, mobile, tablet, and in-car displays without feeling
-                  fragmented.
+                  {vod.businessContext.paragraphs[1]}
                 </p>
               </div>
             </GlassCard>
@@ -454,11 +271,11 @@ export default function VoDPlatform() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              02
+              {vod.problem.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                The Problem & Evaluation
+                {vod.problem.title}
               </h2>
             </div>
           </div>
@@ -468,18 +285,10 @@ export default function VoDPlatform() {
               title={heuristicData.title}
               description={heuristicData.description}
               bulletPoints={heuristicData.bulletPoints}
-              images={[
-                {
-                  src: getImagePath("images/projects/Vod-Old_Home_nav.webp"),
-                  alt: "Original VOD platform home screen showing the cluttered three-axis navigation layout",
-                },
-                {
-                  src: getImagePath(
-                    "images/projects/Vod_Redesing_Nav_Graf_Reason.webp"
-                  ),
-                  alt: "Diagram showing how redesigning VOD navigation improved usability and user experience through simplicity and accessibility.",
-                },
-              ]}
+              images={heuristicData.images.map((im) => ({
+                src: getImagePath(im.src),
+                alt: im.alt,
+              }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText={heuristicData.additionalText}
@@ -490,16 +299,10 @@ export default function VoDPlatform() {
               title={accessibilityData.title}
               description={accessibilityData.description}
               bulletPoints={accessibilityData.bulletPoints}
-              images={[
-                {
-                  src: getImagePath("images/projects/Vod-Old_Welcom.webp"),
-                  alt: "Original VOD welcome screen requiring multiple clicks before accessing content",
-                },
-                {
-                  src: getImagePath("images/projects/Vod-Old_ex_a11y.webp"),
-                  alt: "Example of accessibility issues in the original VOD interface, showing low contrast and poor legibility",
-                },
-              ]}
+              images={accessibilityData.images.map((im) => ({
+                src: getImagePath(im.src),
+                alt: im.alt,
+              }))}
               imagePosition="right"
               onOpenGallery={openGallery}
             />
@@ -512,11 +315,11 @@ export default function VoDPlatform() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              03
+              {vod.keyDecisions.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Key Decisions & Trade-offs
+                {vod.keyDecisions.title}
               </h2>
             </div>
           </div>
@@ -531,11 +334,11 @@ export default function VoDPlatform() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              04
+              {vod.redesign.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                The Redesign Solution
+                {vod.redesign.title}
               </h2>
             </div>
           </div>
@@ -544,30 +347,16 @@ export default function VoDPlatform() {
             <GlassCard>
               <div className="p-3">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  2-Axis Navigation System
+                  {vod.redesign.navigation.title}
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Vertical rail stays visible across all screens for
-                      wayfinding
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Horizontal tabs filter content within each section
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Clear mental model: vertical for "where," horizontal for
-                      "what"
-                    </span>
-                  </li>
+                  {vod.redesign.navigation.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -575,24 +364,16 @@ export default function VoDPlatform() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  Removed Welcome Screen Friction
+                  {vod.redesign.welcomeScreen.title}
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>Instant access to content without gates</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Profile switcher in persistent top-right utility bar
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>Continue Watching is now the landing page</span>
-                  </li>
+                  {vod.redesign.welcomeScreen.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -600,32 +381,16 @@ export default function VoDPlatform() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  WCAG AA Compliance
+                  {vod.redesign.wcag.title}
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>Contrast ratios of 4.5:1+ for all text elements</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Bold focus states with 3:1+ contrast against backgrounds
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Color-blind safe iconography and information architecture
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Touch targets sized at 44x44px minimum for mobile
-                    </span>
-                  </li>
+                  {vod.redesign.wcag.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -633,24 +398,16 @@ export default function VoDPlatform() {
             <GlassCard>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-ink-900 mb-3">
-                  Box-First Component Grid
+                  {vod.redesign.grid.title}
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>Adaptive grid scales from 5" phones to 75" TVs</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>
-                      Platform-specific interaction patterns (D-pad vs touch)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1" aria-hidden="true">•</span>
-                    <span>Consistent visual language across all devices</span>
-                  </li>
+                  {vod.redesign.grid.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -663,11 +420,10 @@ export default function VoDPlatform() {
         <div className="max-w-5xl mx-auto">
           <div className="pl-0 md:pl-24 mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-ink-900 mb-2">
-              Navigation System Deep Dive
+              {vod.navigationDeepDive.title}
             </h3>
             <p className="text-gray-400">
-              A detailed comparison of the old 3-axis vs new 2-axis navigation
-              system
+              {vod.navigationDeepDive.subtitle}
             </p>
           </div>
 
@@ -679,21 +435,21 @@ export default function VoDPlatform() {
                   type="button"
                   className="block aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
                   onClick={() => openGallery(navigationComparisonImages, 0)}
-                  aria-label="Enlarge image: Old Navigation (3-Axis)"
+                  aria-label={vod.navigationDeepDive.oldImage.enlargeLabel}
                 >
                   <Image
-                    src={getImagePath("images/projects/Vod_old_navigation.webp")}
-                    alt="Old Navigation (3-Axis)"
+                    src={getImagePath(vod.navigationDeepDive.oldImage.src)}
+                    alt={vod.navigationDeepDive.oldImage.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                    <span className="text-white text-sm font-medium">Click to enlarge</span>
+                    <span className="text-white text-sm font-medium">{vod.navigationDeepDive.oldImage.clickToEnlarge}</span>
                   </div>
                 </button>
                 <p className="text-gray-400 text-sm mt-2">
-                  🟥 Old Navigation (3-Axis)
+                  {vod.navigationDeepDive.oldImage.caption}
                 </p>
               </div>
 
@@ -702,21 +458,21 @@ export default function VoDPlatform() {
                   type="button"
                   className="block aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-700 shadow-lg cursor-pointer group relative transition-all hover:border-blue-400"
                   onClick={() => openGallery(navigationComparisonImages, 1)}
-                  aria-label="Enlarge image: New Navigation (2-Axis)"
+                  aria-label={vod.navigationDeepDive.newImage.enlargeLabel}
                 >
                   <Image
-                    src={getImagePath("images/projects/Vod_New_navigarion.webp")}
-                    alt="New Navigation (2-Axis)"
+                    src={getImagePath(vod.navigationDeepDive.newImage.src)}
+                    alt={vod.navigationDeepDive.newImage.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
-                    <span className="text-white text-sm font-medium">Click to enlarge</span>
+                    <span className="text-white text-sm font-medium">{vod.navigationDeepDive.newImage.clickToEnlarge}</span>
                   </div>
                 </button>
                 <p className="text-gray-400 text-sm mt-2">
-                  🟦 New Navigation (2-Axis)
+                  {vod.navigationDeepDive.newImage.caption}
                 </p>
               </div>
             </div>
@@ -731,102 +487,77 @@ export default function VoDPlatform() {
                   <thead>
                     <tr className="border-b border-gray-700">
                       <th className="pb-4 pr-4 text-accent font-semibold w-[18%]">
-                        Category
+                        {table.headers.category}
                       </th>
                       <th className="pb-4 pr-4 text-accent font-semibold w-[41%]">
-                        🟥 OLD NAVIGATION (3-Axis)
+                        {table.headers.old}
                       </th>
                       <th className="pb-4 pr-4 text-accent font-semibold w-[41%]">
-                        🟦 NEW NAVIGATION (2-Axis)
+                        {table.headers.new}
                       </th>
                     </tr>
                   </thead>
 
                   <tbody className="text-gray-300">
                     <tr className="border-b border-gray-800">
-                      <td className="py-4 pr-4 font-semibold">Structure</td>
+                      <td className="py-4 pr-4 font-semibold">{table.structure.category}</td>
                       <td className="py-4 pr-4">
-                        1️⃣ <strong>Top icon belt</strong> — horizontal row
-                        (Home, Games, Learning, Shop…)
-                        <br />
-                        2️⃣ <strong>Second horizontal tab row</strong> — (Live
-                        TV, VOD, Catch-up, TV Guide)
-                        <br />
-                        3️⃣ <strong>Content rows</strong> — horizontal carousels
-                        of shows/movies
+                        <RichText text={table.structure.old} />
                       </td>
                       <td className="py-4 pr-4">
-                        1️⃣ <strong>Vertical rail (left)</strong> — primary
-                        sections (Watch, Play, Learn, Shop…)
-                        <br />
-                        2️⃣ <strong>Top horizontal tabs</strong> — filter within
-                        the section (Live TV, VOD, Catch-up…)
+                        <RichText text={table.structure.new} />
                       </td>
                     </tr>
 
                     <tr className="border-b border-gray-800">
-                      <td className="py-4 pr-4 font-semibold">Movement</td>
+                      <td className="py-4 pr-4 font-semibold">{table.movement.category}</td>
                       <td className="py-4 pr-4">
-                        ⬆️⬇️ jump between stacked rows
-                        <br />
-                        ⬅️➡️ move within each row
+                        <RichText text={table.movement.old} />
                         <br />
                         <span className="text-gray-400">
-                          Zig-zag pattern due to two horizontal layers:
-                          <br />
-                          <em>Up → right → down → right → up → left…</em>
+                          <RichText text={table.movement.oldNote} />
                         </span>
                       </td>
                       <td className="py-4 pr-4">
-                        ⬆️⬇️ move between main sections (vertical rail)
-                        <br />
-                        ⬅️➡️ browse tabs or content horizontally
+                        <RichText text={table.movement.new} />
                         <br />
                         <span className="text-gray-400">
-                          Planar, predictable; no zig-zag.
+                          {table.movement.newNote}
                         </span>
                       </td>
                     </tr>
 
                     <tr className="border-b border-gray-800">
                       <td className="py-4 pr-4 font-semibold">
-                        Focus & Legibility
+                        {table.focus.category}
                       </td>
                       <td className="py-4 pr-4">
-                        Weak focus; easy to lose track across layers.
-                        <br />
-                        Light text over artwork → poor contrast.
+                        <RichText text={table.focus.old} />
                       </td>
                       <td className="py-4 pr-4">
-                        Persistent focus halo (+5% scale, Orbit Blue outline).
-                        <br />
-                        Text on 80% dark scrim → WCAG AA.
+                        <RichText text={table.focus.new} />
                       </td>
                     </tr>
 
                     <tr className="border-b border-gray-800">
                       <td className="py-4 pr-4 font-semibold">
-                        Utility & Feedback
+                        {table.utility.category}
                       </td>
                       <td className="py-4 pr-4">
-                        Scattered top-right icons; no micro-interactions.
+                        {table.utility.old}
                       </td>
                       <td className="py-4 pr-4">
-                        Right-aligned utility cluster (Search, Grid, AI,
-                        Avatar).
-                        <br />
-                        Gentle bounce/scale + soft click feedback (specified).
+                        <RichText text={table.utility.new} />
                       </td>
                     </tr>
 
                     <tr>
-                      <td className="py-4 pr-4 font-semibold">Outcome</td>
+                      <td className="py-4 pr-4 font-semibold">{table.outcome.category}</td>
                       <td className="py-4 pr-4">
-                        Higher cognitive load; extra remote clicks.
+                        {table.outcome.old}
                       </td>
                       <td className="py-4 pr-4">
-                        ~40% fewer interaction steps; clearer "where vs what"
-                        mental model.
+                        {table.outcome.new}
                       </td>
                     </tr>
                   </tbody>
@@ -840,43 +571,33 @@ export default function VoDPlatform() {
               <GlassCard>
                 <div className="p-5">
                   <h3 className="text-ink-900 font-semibold text-lg mb-4">
-                    Structure
+                    {cards.structure.title}
                   </h3>
 
                   <div className="space-y-4">
                     <div>
                       <div className="text-red-400 text-xs font-semibold uppercase tracking-wide mb-2 flex items-center gap-2">
-                        🟥 OLD (3-Axis)
+                        {cards.structure.oldLabel}
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
-                        <p>
-                          1️⃣ <strong>Top icon belt</strong> — horizontal row
-                          (Home, Games, Learning, Shop…)
-                        </p>
-                        <p>
-                          2️⃣ <strong>Second horizontal tab row</strong> — (Live
-                          TV, VOD, Catch-up, TV Guide)
-                        </p>
-                        <p>
-                          3️⃣ <strong>Content rows</strong> — horizontal
-                          carousels of shows/movies
-                        </p>
+                        {cards.structure.old.map((line, i) => (
+                          <p key={i}>
+                            <RichText text={line} />
+                          </p>
+                        ))}
                       </div>
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
                       <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2 flex items-center gap-2">
-                        🟦 NEW (2-Axis)
+                        {cards.structure.newLabel}
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
-                        <p>
-                          1️⃣ <strong>Vertical rail (left)</strong> — primary
-                          sections (Watch, Play, Learn, Shop…)
-                        </p>
-                        <p>
-                          2️⃣ <strong>Top horizontal tabs</strong> — filter
-                          within the section (Live TV, VOD, Catch-up…)
-                        </p>
+                        {cards.structure.new.map((line, i) => (
+                          <p key={i}>
+                            <RichText text={line} />
+                          </p>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -887,33 +608,34 @@ export default function VoDPlatform() {
               <GlassCard>
                 <div className="p-5">
                   <h3 className="text-ink-900 font-semibold text-lg mb-4">
-                    Movement
+                    {cards.movement.title}
                   </h3>
 
                   <div className="space-y-4">
                     <div>
                       <div className="text-red-400 text-xs font-semibold uppercase tracking-wide mb-2">
-                        🟥 OLD (3-Axis)
+                        {cards.movement.oldLabel}
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
-                        <p>⬆️⬇️ jump between stacked rows</p>
-                        <p>⬅️➡️ move within each row</p>
+                        {cards.movement.old.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
                         <p className="text-gray-400 italic">
-                          Zig-zag pattern due to two horizontal layers: Up →
-                          right → down → right → up → left…
+                          {cards.movement.oldNote}
                         </p>
                       </div>
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
                       <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2">
-                        🟦 NEW (2-Axis)
+                        {cards.movement.newLabel}
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
-                        <p>⬆️⬇️ move between main sections (vertical rail)</p>
-                        <p>⬅️➡️ browse tabs or content horizontally</p>
+                        {cards.movement.new.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
                         <p className="text-gray-400">
-                          Planar, predictable; no zig-zag.
+                          {cards.movement.newNote}
                         </p>
                       </div>
                     </div>
@@ -925,29 +647,29 @@ export default function VoDPlatform() {
               <GlassCard>
                 <div className="p-5">
                   <h3 className="text-ink-900 font-semibold text-lg mb-4">
-                    Focus & Legibility
+                    {cards.focus.title}
                   </h3>
 
                   <div className="space-y-4">
                     <div>
                       <div className="text-red-400 text-xs font-semibold uppercase tracking-wide mb-2">
-                        🟥 OLD (3-Axis)
+                        {cards.focus.oldLabel}
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
-                        <p>Weak focus; easy to lose track across layers.</p>
-                        <p>Light text over artwork → poor contrast.</p>
+                        {cards.focus.old.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
                       </div>
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
                       <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2">
-                        🟦 NEW (2-Axis)
+                        {cards.focus.newLabel}
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
-                        <p>
-                          Persistent focus halo (+5% scale, Orbit Blue outline).
-                        </p>
-                        <p>Text on 80% dark scrim → WCAG AA.</p>
+                        {cards.focus.new.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -958,31 +680,29 @@ export default function VoDPlatform() {
               <GlassCard>
                 <div className="p-5">
                   <h3 className="text-ink-900 font-semibold text-lg mb-4">
-                    Utility & Feedback
+                    {cards.utility.title}
                   </h3>
 
                   <div className="space-y-4">
                     <div>
                       <div className="text-red-400 text-xs font-semibold uppercase tracking-wide mb-2">
-                        🟥 OLD (3-Axis)
+                        {cards.utility.oldLabel}
                       </div>
                       <div className="text-gray-300 text-sm">
-                        <p>Scattered top-right icons; no micro-interactions.</p>
+                        {cards.utility.old.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
                       </div>
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
                       <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2">
-                        🟦 NEW (2-Axis)
+                        {cards.utility.newLabel}
                       </div>
                       <div className="text-gray-300 text-sm space-y-2">
-                        <p>
-                          Right-aligned utility cluster (Search, Grid, AI,
-                          Avatar).
-                        </p>
-                        <p>
-                          Gentle bounce/scale + soft click feedback (specified).
-                        </p>
+                        {cards.utility.new.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -993,28 +713,29 @@ export default function VoDPlatform() {
               <GlassCard>
                 <div className="p-5">
                   <h3 className="text-ink-900 font-semibold text-lg mb-4">
-                    Outcome
+                    {cards.outcome.title}
                   </h3>
 
                   <div className="space-y-4">
                     <div>
                       <div className="text-red-400 text-xs font-semibold uppercase tracking-wide mb-2">
-                        🟥 OLD (3-Axis)
+                        {cards.outcome.oldLabel}
                       </div>
                       <div className="text-gray-300 text-sm">
-                        <p>Higher cognitive load; extra remote clicks.</p>
+                        {cards.outcome.old.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
                       </div>
                     </div>
 
                     <div className="border-t border-gray-700 pt-4">
                       <div className="text-accent text-xs font-semibold uppercase tracking-wide mb-2">
-                        🟦 NEW (2-Axis)
+                        {cards.outcome.newLabel}
                       </div>
                       <div className="text-gray-300 text-sm">
-                        <p>
-                          ~40% fewer interaction steps; clearer "where vs what"
-                          mental model.
-                        </p>
+                        {cards.outcome.new.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -1030,11 +751,11 @@ export default function VoDPlatform() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              05
+              {vod.interactionImprovements.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Measured Interaction Improvements
+                {vod.interactionImprovements.title}
               </h2>
             </div>
           </div>
@@ -1042,8 +763,7 @@ export default function VoDPlatform() {
             <GlassCard>
               <div className="p-6">
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  I mapped click-paths before and after the redesign to measure
-                  the improvement in common TV remote tasks.
+                  {vod.interactionImprovements.intro}
                 </p>
 
                 {/* Desktop Table View - hidden on mobile */}
@@ -1052,16 +772,16 @@ export default function VoDPlatform() {
                     <thead>
                       <tr className="border-b border-gray-700">
                         <th className="pb-4 pr-4 text-accent font-semibold">
-                          Task (TV Example)
+                          {vod.interactionImprovements.columns.task}
                         </th>
                         <th className="pb-4 pr-4 text-accent font-semibold">
-                          Original Prototype
+                          {vod.interactionImprovements.columns.before}
                         </th>
                         <th className="pb-4 pr-4 text-accent font-semibold">
-                          Redesigned Flow
+                          {vod.interactionImprovements.columns.after}
                         </th>
                         <th className="pb-4 text-accent font-semibold">
-                          Improvement
+                          {vod.interactionImprovements.columns.improvement}
                         </th>
                       </tr>
                     </thead>
@@ -1096,7 +816,7 @@ export default function VoDPlatform() {
                       <div className="space-y-3">
                         <div className="flex justify-between items-center">
                           <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
-                            Original Prototype
+                            {vod.interactionImprovements.cardLabels.before}
                           </div>
                           <div className="text-gray-300 text-sm font-semibold">
                             {item.before}
@@ -1105,7 +825,7 @@ export default function VoDPlatform() {
 
                         <div className="flex justify-between items-center">
                           <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
-                            Redesigned Flow
+                            {vod.interactionImprovements.cardLabels.after}
                           </div>
                           <div className="text-gray-300 text-sm font-semibold">
                             {item.after}
@@ -1114,7 +834,7 @@ export default function VoDPlatform() {
 
                         <div className="flex justify-between items-center pt-2 border-t border-ink-900/10">
                           <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide">
-                            Improvement
+                            {vod.interactionImprovements.cardLabels.improvement}
                           </div>
                           <div className="text-green-400 text-base font-bold">
                             {item.improvement}
@@ -1135,50 +855,34 @@ export default function VoDPlatform() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              06
+              {vod.outcomes.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Outcomes & Deliverables
+                {vod.outcomes.title}
               </h2>
             </div>
           </div>
           <div className="pl-0 md:pl-24 space-y-6">
             <p className="text-gray-300 leading-relaxed">
-              This was a design challenge focused on evaluation and design
-              recommendations. I delivered mid-fidelity Figma mockups across TV,
-              mobile, tablet, and in-car contexts, plus click-path analysis
-              documentation.
+              {vod.outcomes.text}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-accent mb-3">
-                    Constraints & Trade-offs
+                    {vod.outcomes.constraints.title}
                   </h3>
 
                   <ul className="space-y-2 text-gray-300 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span>
-                        <strong>WCAG AA vs AAA:</strong> Chose AA to balance
-                        accessibility with design flexibility for TV viewing.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>
-                        <strong>2-axis vs 1-axis navigation:</strong> Kept
-                        horizontal tabs because removing them would require
-                        deeper menus and increase click-paths.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>
-                        <strong>Profile switching location:</strong> Validated
-                        top-right placement by showing Netflix and Disney+ use
-                        the same pattern.
-                      </span>
-                    </li>
+                    {vod.outcomes.constraints.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span>
+                          <RichText text={item} />
+                        </span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </GlassCard>
@@ -1186,37 +890,34 @@ export default function VoDPlatform() {
               <GlassCard>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-accent mb-3">
-                    Key Learnings
+                    {vod.outcomes.learnings.title}
                   </h3>
                   <ul className="space-y-3 text-gray-300 text-sm">
+                    {/* Le prime tre hanno {" "} separato dopo il <strong>, l'ultima no (nodi di testo come nell'originale) */}
                     <li className="flex items-start gap-2">
                       <span>
-                        <strong>TV design requires different thinking:</strong>{" "}
-                        Focus indicators must be bold, text high-contrast, and
-                        navigation needs clear vertical/horizontal axes.
+                        <strong>{learnings[0].label}</strong>{" "}
+                        {learnings[0].text}
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span>
                         <strong>
-                          Accessibility improvements benefit everyone:
+                          {learnings[1].label}
                         </strong>{" "}
-                        Better contrast helped users in bright rooms, stronger
-                        focus states improved TV viewing.
+                        {learnings[1].text}
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span>
-                        <strong>Remove friction before adding features:</strong>{" "}
-                        The biggest win came from deleting the welcome screen,
-                        not adding functionality.
+                        <strong>{learnings[2].label}</strong>{" "}
+                        {learnings[2].text}
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span>
-                        <strong>Quantify interaction costs:</strong> Mapping
-                        click-paths (9 taps → 6 taps = –33%) gave stakeholders
-                        concrete proof.
+                        <strong>{learnings[3].label}</strong>
+                        {` ${learnings[3].text}`}
                       </span>
                     </li>
                   </ul>
@@ -1228,14 +929,14 @@ export default function VoDPlatform() {
           {/* IMAGE 5: Multi-platform, multi-brand scale */}
           <div className="mt-8 rounded-lg overflow-hidden relative w-full aspect-video">
             <Image
-              src={getImagePath("images/projects/Vod-NewGamePage.webp")}
-              alt="Redesign Game page"
+              src={getImagePath(vod.outcomes.image.src)}
+              alt={vod.outcomes.image.alt}
               fill
               sizes="100vw"
               className="object-contain"
             />
             <p className="text-sm text-gray-400 mt-3 text-center">
-              Redesign game page
+              {vod.outcomes.image.caption}
             </p>
           </div>
         </div>
@@ -1247,22 +948,20 @@ export default function VoDPlatform() {
           <GlassCard>
             <div className="text-center py-8">
               <h2 className="text-3xl font-bold text-ink-900 mb-4">
-                Want to see more work?
+                {vod.cta.title}
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                This is one example of how I evaluate complex products and
-                propose solutions that balance user needs with business
-                constraints.
+                {vod.cta.text}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href={createPageUrl("ProductWork")}
                   className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
                 >
-                  View All Projects
+                  {vod.cta.allProjects}
                 </Link>
                 <CopyEmailLink className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all">
-                  Let's Talk
+                  {vod.cta.talk}
                 </CopyEmailLink>
               </div>
             </div>
