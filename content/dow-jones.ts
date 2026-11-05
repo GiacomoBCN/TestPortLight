@@ -2,32 +2,12 @@
 // Testo semplice: nessun mini-markup in questa pagina.
 // Le voci degli elenchi con il pallino "•" (role.items, outcomes.*.items) sono rese come
 // " " + testo dopo lo span aria-hidden, come nell'originale.
+import { projects } from "./projects";
 
 export const dowJones = {
   backLink: "Back to Projects",
 
-  hero: {
-    breadcrumb: "Home > Product Work > Dow Jones Design System",
-    category: "DESIGN SYSTEMS · PRODUCT OWNERSHIP · ENTERPRISE",
-    title: "Dow Jones Design System",
-    subtitle: "Lead Design Technologist | Design System Product Owner",
-    description:
-      "I co-led design system adoption across 8 brands at Dow Jones, from The Wall Street Journal to Factiva (B2C & B2B). We unified teams, reduced component complexity by 20%, and boosted productivity by 30%.",
-    tags: [
-      "Leadership",
-      "AI-Enhanced",
-      "Product Strategy",
-      "Design Systems",
-      "SAFe Agile",
-      "WCAG 2.2",
-      "CI/CD",
-      "Storybook",
-      "Style Dictionary",
-      "Design Tokens",
-      "React",
-      "Figma",
-    ],
-  },
+  hero: projects.dowJones.caseStudyHero,
 
   intro: {
     image: "images/projects/brand-ds.webp",

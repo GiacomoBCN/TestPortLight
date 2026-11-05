@@ -1,29 +1,11 @@
 // Testi della pagina Back Office (app/pages/BackOffice.tsx), nell'ordine delle sezioni.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
+import { projects } from "./projects";
 
 export const backOffice = {
   backLink: "Back to Projects",
 
-  hero: {
-    breadcrumb: "Home > Product Work > Back Office Unification",
-    category: "PLATFORM ARCHITECTURE · FRONT-END SCALABILITY",
-    title: "Back Office Unification",
-    subtitle: "Product Designer & Platform Strategist",
-    // **...** = <span className="text-ink-900 font-semibold">; gli spazi dentro ** ** sono voluti
-    // (nell'originale lo spazio sta dentro lo span: "** 80%**", "** 15+**").
-    description:
-      "Consolidated 15 fragmented client portals into a unified back-office platform. \nBuilt a shared CSS architecture, centralized assets, and Git-based rollout model achieving **99%** code reuse,** 80%** faster deployments, and consistent UX across** 15+** FMCG clients.",
-    tags: [
-      "Scalable Architecture",
-      "Front-End Design",
-      "CSS Tokens",
-      "Git Workflow",
-      "Bootstrap",
-      "B2B SaaS",
-      "Design Systems",
-      "Process Governance",
-    ],
-  },
+  hero: projects.backOffice.caseStudyHero,
 
   intro: {
     image: "images/projects/OnlineBackOffice-1.webp",

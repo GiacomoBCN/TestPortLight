@@ -1,5 +1,6 @@
 // Testi della Home (app/pages/Home.tsx), nell'ordine delle sezioni.
 // Nessun mini-markup in questa pagina: tutte stringhe semplici.
+import { projects } from "./projects";
 
 export const home = {
   hero: {
@@ -84,62 +85,10 @@ export const home = {
     subtitle: "Strategic product leadership with measurable impact",
     // image: percorso sotto public/ (passato a getImagePath nella pagina)
     projects: {
-      dowJones: {
-        role: "Enterprise Leadership",
-        title: "Dow Jones Design System",
-        company: "Dow Jones",
-        timeframe: "",
-        description:
-          "Co-led design system adoption across B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%.",
-        image: "images/projects/DJ1.webp",
-        metrics: [
-          { value: "60+", label: "Designers" },
-          { value: "200K+", label: "Component Refs" },
-          { value: "30%", label: "Efficiency" },
-        ],
-      },
-      falak: {
-        role: "AI Interaction Design · Banking",
-        title: "Falak: AI Assistant for a Bank",
-        company: "Concept & Coded Prototype",
-        timeframe: "",
-        description:
-          "Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype.",
-        image: "images/projects/falak/04-desktop-spending-range.webp",
-        metrics: [
-          { value: "8", label: "Patterns" },
-          { value: "EN · AR", label: "Bilingual" },
-          { value: "Live", label: "Demo" },
-        ],
-      },
-      vod: {
-        role: "B2C Multi-platform",
-        title: "VOD Platform Redesign",
-        company: "Design Challenge",
-        timeframe: "",
-        description:
-          "Redesigned cross-device VOD experience with 40% fewer interaction steps (calculated via click-path analysis) and WCAG AA compliance across TV, mobile, and in-car displays.",
-        image: "images/projects/Vod.webp",
-        metrics: [
-          { value: "40%", label: "Less Friction" },
-          { value: "WCAG AA", label: "Compliant" },
-          { value: "4", label: "Platforms" },
-        ],
-      },
-      sgpv: {
-        role: "B2B SaaS Long-term",
-        title: "SGPV Product Evolution",
-        company: "XpuntoCero -> SGPV",
-        timeframe: "",
-        description:
-          "Multi-year product evolution from PhoneGap to Flutter, serving 15 B2B clients. Redesigned user flows and AI-powered features reduced task time by 25%.",
-        image: "images/projects/sgpv.webp",
-        metrics: [
-          { value: "15", label: "Global Brands" },
-          { value: "25%", label: "Faster" },
-          { value: "30%", label: "Satisfaction ↑" },
-        ],
-      },
+      dowJones: projects.dowJones.homeCard,
+      falak: projects.falak.homeCard,
+      vod: projects.vod.homeCard,
+      sgpv: projects.sgpv.homeCard,
     },
   },
 

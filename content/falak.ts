@@ -1,5 +1,6 @@
 // Testi della pagina Falak (app/pages/Falak.tsx), nell'ordine delle sezioni.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
+import { projects } from "./projects";
 
 export const falak = {
   demoUrl: "https://giacomobcn.github.io/chatTest/",
@@ -31,26 +32,9 @@ export const falak = {
   },
 
   hero: {
-    breadcrumb: "Home > Product Work > Falak AI Assistant",
-    category: "AI INTERACTION DESIGN · TRUST & ACCOUNTABILITY · BANKING",
-    title: "Falak: an AI assistant that shows its sources",
-    subtitle: "Concept, Research & Coded Prototype",
-    // **...** = <span className="text-ink-900 font-semibold">
-    description:
-      "A research-led study of how an AI assistant in a bank should handle uncertainty, hand over to people, and keep human oversight honest. Eight interaction patterns, each checked against the 2019–2026 literature, built as a bilingual **English / Arabic** Flutter prototype. Falak is a fictional bank; every name and figure is invented.",
+    ...projects.falak.caseStudyHero,
     demoCta: "Open the live demo",
     repoCta: "Source on GitHub",
-    tags: [
-      "AI Interaction Patterns",
-      "Trust Calibration",
-      "Human Oversight",
-      "Research Synthesis",
-      "Flutter",
-      "Claude Code",
-      "Arabic / RTL",
-      "WCAG 2.2 AA",
-      "EU AI Act",
-    ],
   },
 
   intro: {

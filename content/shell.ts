@@ -1,5 +1,6 @@
 // Testi del guscio del sito: metadati, skip link, nav, footer, banner cookie,
 // pagina 404 e le etichette dei componenti condivisi (lightbox, gallerie, tabelle...).
+import { projects } from "./projects";
 
 export const shell = {
   metadata: {
@@ -31,13 +32,13 @@ export const shell = {
     productWork: "Product Work",
     allProjects: "All Projects",
     projects: [
-      { name: "Dow Jones Design System", path: "DowJones" },
-      { name: "Falak AI Assistant", path: "Falak" },
-      { name: "VOD Platform", path: "VODplatform" },
-      { name: "SGPV Evolution", path: "SGPVEvolution" },
-      { name: "XpuntoCero Transformation", path: "XpuntoCero" },
-      { name: "Back Office Unification", path: "BackOffice" },
-      { name: "TuPlanRedondo PWA", path: "TuPlanRedondo" },
+      { name: projects.dowJones.navLink, path: "DowJones" },
+      { name: projects.falak.navLink, path: "Falak" },
+      { name: projects.vod.navLink, path: "VODplatform" },
+      { name: projects.sgpv.navLink, path: "SGPVEvolution" },
+      { name: projects.xpuntoCero.navLink, path: "XpuntoCero" },
+      { name: projects.backOffice.navLink, path: "BackOffice" },
+      { name: projects.tuPlanRedondo.navLink, path: "TuPlanRedondo" },
       // TEMPORARILY HIDDEN - E-Commerce Management
       // { name: "E-Commerce Management", path: "EcommerceManagement" },
     ],

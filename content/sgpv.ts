@@ -3,29 +3,12 @@
 // Le immagini sono percorsi relativi a public/ (la pagina applica getImagePath).
 // Nota: le description di ImageTextCard sono divise in paragrafi su "\n" e ogni paragrafo
 // viene trim()-mato dal componente.
+import { projects } from "./projects";
 
 export const sgpv = {
   backLink: "Back to Projects",
 
-  hero: {
-    breadcrumb: "Home > Product Work > SGPV Product Evolution",
-    category: "MULTI-CLIENT PLATFORM · UX & PRODUCT EVOLUTION",
-    title: "SGPV Product Evolution",
-    subtitle: "Product Designer & UX Lead",
-    // **...** = <span className="text-ink-900 font-semibold">
-    description:
-      "Led the modernization of a multi-client field app used by 15 FMCG brands. Unified fragmented versions into a single responsive platform and later migrated to Flutter, introducing AI-based data capture.\n The evolution cut hardware costs by **20%**, improved deployment efficiency by **80%**, and raised user satisfaction by **30%**.",
-    tags: [
-      "Product Strategy",
-      "UX Research",
-      "Responsive Design",
-      "AI-Driven Workflows",
-      "Figma",
-      "Flutter",
-      "B2B SaaS",
-      "Agile / SCRUM",
-    ],
-  },
+  hero: projects.sgpv.caseStudyHero,
 
   intro: {
     image: "images/projects/sgpv-evo.webp",

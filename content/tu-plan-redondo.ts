@@ -1,28 +1,11 @@
 // Testi della pagina TuPlanRedondo (app/pages/TuPlanRedondo.tsx), nell'ordine delle sezioni.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
+import { projects } from "./projects";
 
 export const tuPlanRedondo = {
   backLink: "Back to Projects",
 
-  hero: {
-    breadcrumb: "Home > Product Work > TuPlanRedondo PWA",
-    category: "FULL-STACK DESIGN · RESEARCH → DESIGN → BUILD",
-    title: "TuPlanRedondo PWA",
-    subtitle: "Full-Stack Designer",
-    // **...** = <span className="text-ink-900 font-semibold">
-    description:
-      "I designed and built a Progressive Web App that replaced a paper-based employee evaluation process across multiple McDonald’s restaurants. \nThe new system reduced manual work by **30%** and cut delivery costs by **45%**.",
-    tags: [
-      "User Research",
-      "UI/UX Design",
-      "Visual Design",
-      "Front-End Development",
-      "PWA",
-      "Bootstrap",
-      "JavaScript",
-      "Figma",
-    ],
-  },
+  hero: projects.tuPlanRedondo.caseStudyHero,
 
   intro: {
     image: "images/projects/mc-1.webp",

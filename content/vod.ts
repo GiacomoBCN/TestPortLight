@@ -1,27 +1,12 @@
 // Testi della pagina VOD Platform (app/pages/VODplatform.tsx), nell'ordine delle sezioni.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 // I percorsi immagine passano da getImagePath() nella pagina.
+import { projects } from "./projects";
 
 export const vod = {
   backLink: "Back to Projects",
 
-  hero: {
-    breadcrumb: "Home > Product Work > VOD Platform Redesign",
-    category: "DESIGN CHALLENGE · MULTI-PLATFORM",
-    title: "VOD Platform Redesign",
-    subtitle: "Design Challenge · MENA streaming platform",
-    description:
-      "Redesigned a VOD platform for the MENA region. Reduced interaction steps by 40% through click-path analysis and brought the experience to WCAG AA compliance across TV, mobile, tablet, and in-car displays.",
-    tags: [
-      "Heuristic Evaluation",
-      "End-to-end UX/UI Process",
-      "Figma",
-      "Multi-platform Design",
-      "UX Strategy",
-      "WCAG 2.2 AA",
-      "TV/10-foot UI",
-    ],
-  },
+  hero: projects.vod.caseStudyHero,
 
   intro: {
     image: "images/projects/Vod-01.webp",

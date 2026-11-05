@@ -1,5 +1,6 @@
 // Testi della pagina Product Work (app/pages/ProductWork.tsx), nell'ordine delle sezioni.
 // Le schede progetto sono rese da ProjectListingCard ("View Case Study" e' in content/shell.ts).
+import { projects } from "./projects";
 
 export const productWork = {
   hero: {
@@ -12,174 +13,13 @@ export const productWork = {
 
   // Schede progetto, nell'ordine della griglia (props di ProjectListingCard)
   projects: [
-    {
-      category: "DESIGN SYSTEMS · PRODUCT OWNERSHIP · ENTERPRISE",
-      title: "Dow Jones Design System",
-      role: "Lead Design Technologist | Design System Product Owner",
-      year: "",
-      description:
-        "Co-led design system adoption across B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%.",
-      metrics: [
-        { value: "60+", label: "Designers" },
-        { value: "200K+", label: "References" },
-        { value: "30%", label: "Efficiency" },
-      ],
-      tags: [
-        "Leadership",
-        "AI-Enhanced",
-        "Product Strategy",
-        "Design Systems",
-        "SAFe Agile",
-        "WCAG 2.2",
-        "CI/CD",
-        "Storybook",
-        "Style Dictionary",
-        "Design Tokens",
-        "React",
-        "Figma",
-      ],
-      slug: "DowJones",
-    },
-    {
-      category: "AI INTERACTION DESIGN · TRUST & ACCOUNTABILITY · BANKING",
-      title: "Falak: AI Assistant for a Bank",
-      role: "Concept, Research & Coded Prototype",
-      year: "",
-      description:
-        "Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype.",
-      metrics: [
-        { value: "8", label: "Patterns" },
-        { value: "EN · AR", label: "Bilingual" },
-        { value: "Live", label: "Demo" },
-      ],
-      tags: [
-        "AI Interaction Patterns",
-        "Trust Calibration",
-        "Human Oversight",
-        "Research Synthesis",
-        "Flutter",
-        "Claude Code",
-        "Arabic / RTL",
-        "WCAG 2.2 AA",
-      ],
-      slug: "Falak",
-    },
-    {
-      category: "B2C Multi-platform",
-      title: "VOD Platform Redesign",
-      role: "Design Challenge",
-      year: "",
-      description:
-        "Redesigned cross-device VOD experience with 40% fewer interaction steps (calculated via click-path analysis) and WCAG AA compliance across TV, mobile, and in-car displays.",
-      metrics: [
-        { value: "40%", label: "Steps Reduced" },
-        { value: "WCAG AA", label: "Compliant" },
-        { value: "4", label: "Platforms" },
-      ],
-      tags: [
-        "Heuristic Evaluation",
-        "End-to-end UX/UI Process",
-        "Figma",
-        "Multi-platform Design",
-        "UX Strategy",
-        "WCAG 2.2 AA",
-        "TV/10-foot UI",
-      ],
-      slug: "VODplatform",
-    },
-    {
-      category: "SAAS",
-      title: "SGPV Product Evolution",
-      role: "Product Design & Development",
-      year: "",
-      description:
-        "Multi-year product evolution from PhoneGap to Flutter, serving 15 B2B clients. Redesigned user flows and AI-powered features reduced task time by 25%.",
-      metrics: [
-        { value: "15", label: "Clients" },
-        { value: "25%", label: "Faster" },
-        { value: "30%", label: "Satisfaction ↑" },
-      ],
-      tags: [
-        "Product Strategy",
-        "End-to-end UX/UI Process",
-        "Design System",
-        "Figma",
-        "AI",
-        "Mobile",
-        "B2B",
-        "SaaS",
-        "Flutter",
-        "Dart",
-        "PhoneGap",
-        "JavaScript",
-        "Bootstrap",
-        "Agile/SCRUM",
-      ],
-      slug: "SGPVEvolution",
-    },
-    {
-      category: "GROWTH · BUSINESS IMPACT",
-      title: "XpuntoCero Digital Transformation",
-      role: "Product Design & Development",
-      year: "",
-      description:
-        "Rebranded SaaS company with PWA redesign, increasing mobile traffic by 40%, qualified leads by 15% and doubling demo requests.",
-      metrics: [
-        { value: "40%", label: "Mobile Traffic" },
-        { value: "15%", label: "More Leads" },
-        { value: "2×", label: "Demo Requests" },
-      ],
-      tags: [
-        "Branding",
-        "Strategy",
-        "End-to-end UX/UI Process",
-        "Figma",
-        "Front-End",
-        "PWA",
-        "WordPress",
-        "Elementor",
-      ],
-      slug: "XpuntoCero",
-    },
-    {
-      category: "TECHNICAL LEADERSHIP · SCALABILITY",
-      title: "Back Office Unification",
-      role: "Product Design & Development",
-      year: "",
-      description:
-        "Unified 15 client portals with shared CSS and assets, reducing redundant work and enabling scalable updates across all platforms.",
-      metrics: [
-        { value: "15", label: "Portals" },
-        { value: "99%", label: "Code Reuse" },
-        { value: "80%", label: "Efficiency" },
-      ],
-      tags: ["Bootstrap 4", "CSS3", "Git Workflow"],
-      slug: "BackOffice",
-    },
-    {
-      category: "B2B SAAS · FIELD OPERATIONS",
-      title: "TuPlanRedondo PWA",
-      role: "Product Design & Development",
-      year: "",
-      description:
-        "Streamlined evaluation user flows with a PWA for McDonald's franchise, saving 30% time and boosting satisfaction by 25%.",
-      metrics: [
-        { value: "30%", label: "Time Saved" },
-        { value: "25%", label: "Satisfaction" },
-        { value: "Real-time", label: "Data" },
-      ],
-      tags: [
-        "End-to-end UX/UI Process",
-        "Figma",
-        "Front-End Development",
-        "PWA",
-        "HTML5",
-        "CSS3",
-        "Bootstrap",
-        "JavaScript",
-      ],
-      slug: "TuPlanRedondo",
-    },
+    projects.dowJones.productWorkCard,
+    projects.falak.productWorkCard,
+    projects.vod.productWorkCard,
+    projects.sgpv.productWorkCard,
+    projects.xpuntoCero.productWorkCard,
+    projects.backOffice.productWorkCard,
+    projects.tuPlanRedondo.productWorkCard,
     // TEMPORARILY HIDDEN - E-Commerce Product Management
     // {
     //   category: "PRODUCT MANAGEMENT · PORTFOLIO",

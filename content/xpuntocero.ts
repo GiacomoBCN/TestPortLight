@@ -2,28 +2,12 @@
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 // Nei paragrafi i numeri evidenziati usano **...** con boldClassName="text-ink-900 font-semibold";
 // lo spazio dentro gli asterischi (es. "** +40%**") e' voluto: nell'originale stava dentro lo span.
+import { projects } from "./projects";
 
 export const xpuntoCero = {
   backLink: "Back to Projects",
 
-  hero: {
-    breadcrumb: "Home > Product Work > XpuntoCero Digital Transformation",
-    category: "BRAND TRANSFORMATION · VISUAL DESIGN",
-    title: "XpuntoCero Digital Transformation",
-    subtitle: "Product Designer & Front-End Developer",
-    description:
-      "Internal rebrand of a legacy SaaS platform. \nI led the UX and visual redesign and partnered with engineering to ship a fast PWA.\nResults:** +40%** mobile traffic,** +15%** qualified leads, and** 2×** demo requests, proving how a refreshed brand and faster UX directly improved conversions.",
-    tags: [
-      "Brand Identity",
-      "Visual Design",
-      "Information Architecture",
-      "UX Research",
-      "Figma",
-      "Front-End",
-      "PWA",
-      "WordPress / Elementor",
-    ],
-  },
+  hero: projects.xpuntoCero.caseStudyHero,
 
   intro: {
     image: "images/projects/XP0-old_new.webp",
