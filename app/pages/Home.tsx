@@ -29,45 +29,9 @@ import ExpandableText from "../components/ExpandableText";
 import BeforeAfterImpactCard from "../components/portfolio/BeforeAfterImpactCard";
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import SketchFrame from "../components/SketchFrame";
+import { home } from "@/content/home";
 
-// Testimonials data
-const testimonials = [
-  {
-    quote: "Giacomo is a very good asset when it comes to building bridges between design and tech. Not only does he have a very good understanding of both sides; his best characteristic is the ability to talk to both in their own languages and to be the medium across the two worlds, communicating needs, constraints and opportunities efficiently. Last but not least, he is a good team player, able to build bonds with everyone in the office, which is a benefit to the design team. He is also very good at research and brings a humanistic approach. His ability to capture requirements and information out of interviews and focus groups is fantastic. Something I really value in a person in his position.",
-    name: "Antonella Sassu",
-    title: "Senior Design Manager • Dow Jones",
-    image: "images/profile/1756901959970.webp",
-    alt: "Antonella Sassu",
-  },
-  {
-    quote: "I had the pleasure of working closely with Giacomo as a Design Lead Technologist at Dow Jones, and I can confidently say he is an exceptional professional. Giacomo played a critical role as a bridge between engineering and UX, which was instrumental in driving the success of our projects and ensuring smooth handoffs between teams. Additionally, I had the opportunity to collaborate with Giacomo on improving the User Acceptance Testing (UAT), Quality Assurance (QA), and Design acceptance processes. During this collaboration, Giacomo demonstrated his meticulous attention to detail, problem-solving skills, and dedication to optimizing workflows.",
-    name: "Oana Stroe",
-    title: "Product Design Lead • UX Mentor",
-    image: "images/profile/1710886367232.webp",
-    alt: "Oana Stroe",
-  },
-  {
-    quote: "I had the pleasure of working with Giacomo while teaching Intelligent Capital and Talent Management in the Master's in International Business program at EAE Business School. He not only helped organize the course and structure content but also brought invaluable expertise in cross-cultural management, ensuring students gained a truly global perspective.\n\nHaving taught Inclusive Leadership, I can confidently say that Giacomo embodies its principles. He fosters diverse perspectives, builds trust, and creates space where all voices are heard. He doesn't just lead - he empowers, ensuring that learning and collaboration thrive.\n\nHis communication skills stand out - clear, engaging, and adaptable. Whether leading discussions, mentoring students, or working with colleagues, he knows how to connect with people, spark thoughtful conversations, and bring key insights to life. And when it comes to collaboration, Giacomo strengthens every team he's part of.\n\nHis leadership reflects the core values of global citizenship: inclusiveness, cultural competence, adaptability, and a genuine commitment to making a positive impact. I would highly recommend him for any role that values strong leadership, strategic management, and the ability to foster inclusive, cross-cultural collaboration. Any organization would be lucky to have him on board!",
-    name: "Frank Longo",
-    title: "Higher Education Leader • University",
-    image: "images/profile/1685965339196.webp",
-    alt: "Frank Longo",
-  },
-  {
-    quote: "I had the opportunity to be instructed by Giacomo in UX/UI at EAE. Giacomo's extensive experience and insightful perspective in this field provided me a solid foundation to effectively prepare and manage digital products. He is truly a great professional.",
-    name: "Ismael Ruiz Gutierrez",
-    title: "Marketing Manager • Former Student",
-    image: "images/profile/1685897244209.webp",
-    alt: "Ismael Ruiz",
-  },
-  {
-    quote: "Giacomo acted as consultant on a personal project that involved the design and implementation of a website. He mentored me and guided me through several difficult choices pointing at the direction to take for each of them. The project would not have been possible without his input. He is very professional and also fun to work with. Thanks, wish you all the best.",
-    name: "Sergio D'Argenio",
-    title: "Data Analyst • Tech Company",
-    image: "images/profile/1517687171761.webp",
-    alt: "Sergio D'Argenio",
-  },
-];
+const { hero, impact, howILead, featuredWork, howIWork, testimonials, cta } = home;
 
 export default function Home() {
   const reduceMotion = useReducedMotion();
@@ -97,9 +61,9 @@ export default function Home() {
           <div className="hero-in hero-in-fade mb-3 md:mb-6" style={{ animationDelay: "0.2s" }}>
             <span className="inline-block text-[var(--color-text-brand)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
               {/* Mobile: una qualifica per riga, senza puntino. Da md in su: una riga sola */}
-              <span className="block md:inline">Product Builder</span>
+              <span className="block md:inline">{hero.titleLines[0]}</span>
               <span className="hidden md:inline" aria-hidden="true"> · </span>
-              <span className="block md:inline">Design Engineer</span>
+              <span className="block md:inline">{hero.titleLines[1]}</span>
             </span>
           </div>
 
@@ -107,17 +71,14 @@ export default function Home() {
             className="hero-in text-5xl md:text-7xl font-bold text-[var(--color-text-inverse)] mb-6"
             style={{ animationDelay: "0.3s" }}
           >
-            Giacomo Bianchi, PhD
+            {hero.name}
           </h1>
 
           <p
             style={{ animationDelay: "0.4s" }}
             className="hero-in text-xl md:text-2xl text-[var(--color-text-primary)] mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            I build AI products end to end. When something matters and I
-            don't know it yet, I learn it, cross-check it and prove it with
-            tests. Before that, I co-led the Dow Jones design system across 8
-            brands and taught product design to 1,000+ students.
+            {hero.intro}
           </p>
 
           <div
@@ -128,13 +89,13 @@ export default function Home() {
               href="#work"
               className="px-8 py-4 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105"
             >
-              View Product Work
+              {hero.productWorkCta}
             </a>
             <Link
               href={createPageUrl("Teaching")}
               className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold hover:bg-[var(--teaching-accent-border)] active:bg-[var(--teaching-accent-border)] active:text-[var(--color-text-inverse)] active:border-[var(--teaching-accent-border)] hover:border-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
             >
-              View Teaching Portfolio
+              {hero.teachingCta}
             </Link>
           </div>
 
@@ -150,7 +111,7 @@ export default function Home() {
               duration: 1.5,
             }}
             className="flex justify-center cursor-pointer"
-            aria-label="Scroll to Driving Measurable Impact"
+            aria-label={hero.scrollCueLabel}
           >
             <ChevronDown size={32} className="text-[var(--color-icon-accent)] glow-blue" aria-hidden="true" />
           </motion.a>
@@ -161,37 +122,36 @@ export default function Home() {
       <section id="impact" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
-            title="Driving Measurable Impact"
-            subtitle="From leading design systems at Dow Jones to teaching at EAE.
-            I focus on systems that scale and teams that succeed."
+            title={impact.title}
+            subtitle={impact.subtitle}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <BeforeAfterImpactCard
               icon={MonitorCog}
-              headline="60 +"
-              subHeadline="DOW JONES - 8 BRANDS ALIGNED" // <- New sub-headline
-              before="8 brands with separate design and engineering teams. Each team had different processes, priorities, and platforms."
-              after="Co-owned roadmap and led adoption across 60+ designers, 120+ stakeholders. Spearheaded token-first architecture. Reduced component complexity 20%."
-              impact="200K+ components in production. 30% productivity increase through improved workflows. WCAG 2.2 compliant."
+              headline={impact.cards.dowJones.headline}
+              subHeadline={impact.cards.dowJones.subHeadline}
+              before={impact.cards.dowJones.before}
+              after={impact.cards.dowJones.after}
+              impact={impact.cards.dowJones.impact}
               delay={0}
             />
             <BeforeAfterImpactCard
               icon={TrendingUp}
-              headline="40 %"
-              subHeadline="INTERACTION FRICTION"
-              before="VOD platform required 10+ button presses to switch profiles. 3-axis navigation confused users."
-              after="Heuristic evaluation identified friction. Redesigned to 4 presses. Clear 2-axis structure."
-              impact="60% fewer presses to switch profiles. WCAG AA accessible. Scaled across TV, mobile, tablet, car."
+              headline={impact.cards.vod.headline}
+              subHeadline={impact.cards.vod.subHeadline}
+              before={impact.cards.vod.before}
+              after={impact.cards.vod.after}
+              impact={impact.cards.vod.impact}
               delay={0.1}
             />
             <BeforeAfterImpactCard
               icon={GraduationCap}
-              headline="1000 +"
-              subHeadline="STUDENTS MENTORED" // <- New sub-headline
-              before="Theory-heavy lectures with limited real-world application."
-              after="Project-driven learning across design and management disciplines."
-              impact="7 years teaching at EAE Business School. 2 master's programs. 19 project teams annually."
+              headline={impact.cards.teaching.headline}
+              subHeadline={impact.cards.teaching.subHeadline}
+              before={impact.cards.teaching.before}
+              after={impact.cards.teaching.after}
+              impact={impact.cards.teaching.impact}
               delay={0.2}
             />
           </div>
@@ -202,39 +162,27 @@ export default function Home() {
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
-            title="How I Lead"
-            subtitle="Through people, product, and strategy"
+            title={howILead.title}
+            subtitle={howILead.subtitle}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <LeadershipCard
               icon={Users}
-              title="Through People"
-              points={[
-                "Facilitated cross-brand collaboration and design critiques at Dow Jones",
-                "Bridged design-engineering gap through 1:1 key role relationships and problem-solving meetings",
-                "Taught 1000+ students across 2 official master's programs at EAE Business School",
-              ]}
+              title={howILead.cards.people.title}
+              points={howILead.cards.people.points}
               delay={0}
             />
             <LeadershipCard
               icon={Package}
-              title="Through Product"
-              points={[
-                "Co-owned design system roadmap and sprint planning",
-                "Led SGPV product evolution over 18 months (PhoneGap → Flutter + AI) serving 15 FMCG clients",
-                "Balanced user value with technical constraints across B2B and B2C platforms",
-              ]}
+              title={howILead.cards.product.title}
+              points={howILead.cards.product.points}
               delay={0.1}
             />
             <LeadershipCard
               icon={Zap}
-              title="Through Strategy"
-              points={[
-                "Improved UAT/QA workflows - 30% team productivity increase",
-                "Proposed removing the VOD welcome screen, prioritizing user value over convention",
-                "Managed feature backlog and prioritization for B2B platforms - balanced user value with technical constraints",
-              ]}
+              title={howILead.cards.strategy.title}
+              points={howILead.cards.strategy.points}
               delay={0.2}
             />
           </div>
@@ -245,82 +193,66 @@ export default function Home() {
       <section id="work" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
-            title="Featured Work"
-            subtitle="Strategic product leadership with measurable impact"
+            title={featuredWork.title}
+            subtitle={featuredWork.subtitle}
             className="mb-8"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ProjectCard
               compact
-              role="Enterprise Leadership"
-              title="Dow Jones Design System"
-              company="Dow Jones"
-              timeframe=""
-              description="Co-led design system adoption across B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%."
-              image={getImagePath("images/projects/DJ1.webp")}
+              role={featuredWork.projects.dowJones.role}
+              title={featuredWork.projects.dowJones.title}
+              company={featuredWork.projects.dowJones.company}
+              timeframe={featuredWork.projects.dowJones.timeframe}
+              description={featuredWork.projects.dowJones.description}
+              image={getImagePath(featuredWork.projects.dowJones.image)}
               imageFit="contain"
               imageBg="#ffffff"
-              metrics={[
-                { value: "60+", label: "Designers" },
-                { value: "200K+", label: "Component Refs" },
-                { value: "30%", label: "Efficiency" },
-              ]}
+              metrics={featuredWork.projects.dowJones.metrics}
               link={createPageUrl("DowJones")}
               delay={0}
             />
 
             <ProjectCard
               compact
-              role="AI Interaction Design · Banking"
-              title="Falak: AI Assistant for a Bank"
-              company="Concept & Coded Prototype"
-              timeframe=""
-              description="Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype."
-              image={getImagePath("images/projects/falak/04-desktop-spending-range.webp")}
+              role={featuredWork.projects.falak.role}
+              title={featuredWork.projects.falak.title}
+              company={featuredWork.projects.falak.company}
+              timeframe={featuredWork.projects.falak.timeframe}
+              description={featuredWork.projects.falak.description}
+              image={getImagePath(featuredWork.projects.falak.image)}
               imageFit="contain"
               imageBg="#eaece9"
-              metrics={[
-                { value: "8", label: "Patterns" },
-                { value: "EN · AR", label: "Bilingual" },
-                { value: "Live", label: "Demo" },
-              ]}
+              metrics={featuredWork.projects.falak.metrics}
               link={createPageUrl("Falak")}
               delay={0.1}
             />
 
             <ProjectCard
               compact
-              role="B2C Multi-platform"
-              title="VOD Platform Redesign"
-              company="Design Challenge"
-              timeframe=""
-              description="Redesigned cross-device VOD experience with 40% fewer interaction steps (calculated via click-path analysis) and WCAG AA compliance across TV, mobile, and in-car displays."
-              image={getImagePath("images/projects/Vod.webp")}
-              metrics={[
-                { value: "40%", label: "Less Friction" },
-                { value: "WCAG AA", label: "Compliant" },
-                { value: "4", label: "Platforms" },
-              ]}
+              role={featuredWork.projects.vod.role}
+              title={featuredWork.projects.vod.title}
+              company={featuredWork.projects.vod.company}
+              timeframe={featuredWork.projects.vod.timeframe}
+              description={featuredWork.projects.vod.description}
+              image={getImagePath(featuredWork.projects.vod.image)}
+              metrics={featuredWork.projects.vod.metrics}
               link={createPageUrl("VODplatform")}
               delay={0.2}
             />
 
             <ProjectCard
               compact
-              role="B2B SaaS Long-term"
-              title="SGPV Product Evolution"
-              company="XpuntoCero -> SGPV"
-              timeframe=""
-              description="Multi-year product evolution from PhoneGap to Flutter, serving 15 B2B clients. Redesigned user flows and AI-powered features reduced task time by 25%."
-              image={getImagePath("images/projects/sgpv.webp")}
+              role={featuredWork.projects.sgpv.role}
+              title={featuredWork.projects.sgpv.title}
+              company={featuredWork.projects.sgpv.company}
+              timeframe={featuredWork.projects.sgpv.timeframe}
+              description={featuredWork.projects.sgpv.description}
+              image={getImagePath(featuredWork.projects.sgpv.image)}
               imageFit="contain"
               imageBg="#ffffff"
-              metrics={[
-                { value: "15", label: "Global Brands" },
-                { value: "25%", label: "Faster" },
-                { value: "30%", label: "Satisfaction ↑" },
-              ]}
+              metrics={featuredWork.projects.sgpv.metrics}
               link={createPageUrl("SGPVEvolution")}
               delay={0.3}
             />
@@ -334,8 +266,8 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionHeader
-            title="How I Work"
-            subtitle="Merging strategy, design, and technology through empathy and clarity"
+            title={howIWork.title}
+            subtitle={howIWork.subtitle}
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -349,8 +281,8 @@ export default function Home() {
             >
               <div className="overflow-hidden rounded-2xl ring-1 ring-ink-900/10 shadow-2xl max-w-sm">
                 <Image
-                  src={getImagePath("images/profile/gb.ven_2.webp")}
-                  alt="Giacomo Bianchi portrait"
+                  src={getImagePath(howIWork.portrait.image)}
+                  alt={howIWork.portrait.alt}
                   width={480}
                   height={640}
                   className="object-cover w-full h-auto grayscale"
@@ -374,15 +306,13 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
-                        Product Design
+                        {howIWork.cards.productDesign.title}
                       </h3>
                       <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        Research → Strategy → Design → Testing → Delivery.
+                        {howIWork.cards.productDesign.tools}
                       </p>
                       <p className="text-sm text-[var(--color-text-tertiary)]">
-                        I run heuristic evaluations, user interviews, and
-                        usability tests to validate decisions before engineering
-                        builds.
+                        {howIWork.cards.productDesign.text}
                       </p>
                     </div>
                   </div>
@@ -398,15 +328,13 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
-                        Product Strategy
+                        {howIWork.cards.productStrategy.title}
                       </h3>
                       <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        Roadmaps, Prioritization, Stakeholder Alignment.
+                        {howIWork.cards.productStrategy.tools}
                       </p>
                       <p className="text-sm text-[var(--color-text-tertiary)]">
-                        I co-own product roadmaps and prioritize features based
-                        on user research, business goals, and technical
-                        constraints. I have driven strategic decisions across design systems, mobile apps, and B2B platforms.
+                        {howIWork.cards.productStrategy.text}
                       </p>
                     </div>
                   </div>
@@ -419,16 +347,13 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
-                        Front-End Development
+                        {howIWork.cards.frontEnd.title}
                       </h3>
                       <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        React, Flutter, Dart, HTML5, CSS3, JavaScript,
-                        TypeScript, Tailwind.
+                        {howIWork.cards.frontEnd.tools}
                       </p>
                       <p className="text-sm text-[var(--color-text-tertiary)]">
-                        I code functional prototypes to bridge design and
-                        engineering. This shared language helps me validate
-                        feasibility early and align teams on technical approach.
+                        {howIWork.cards.frontEnd.text}
                       </p>
                     </div>
                   </div>
@@ -440,14 +365,13 @@ export default function Home() {
                       <Sparkles size={24} className="text-[var(--color-icon-accent)]" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">AI-Native Builder
+                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">{howIWork.cards.aiNative.title}
                       </h3>
                       <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        Cursor, Claude Code, Claude API, n8n, Vercel, Ollama, GitHub Copilot, Vertex AI, ChatGPT, Midjourney.
+                        {howIWork.cards.aiNative.tools}
                       </p>
                       <p className="text-sm text-[var(--color-text-tertiary)]">
-                        ML/AI certified (180h: Python, TensorFlow, Deep Learning). I build with Cursor, Claude Code, and local LLMs, shipping functional prototypes and AI-powered workflows, not just designing around them. 
-                        Genuine technical fluency at the intersection of design craft and AI.
+                        {howIWork.cards.aiNative.text}
                       </p>
                     </div>
                   </div>
@@ -455,11 +379,7 @@ export default function Home() {
               </div>
               <GlassCard hover={false} delay={0.1}>
                 <p className="text-lg text-[var(--color-text-primary)] leading-relaxed ">
-                  My technical background allows me to bridge design and
-                  engineering - prototyping rapidly and participating in
-                  architecture discussions. I use AI tools to validate ideas in
-                  hours instead of weeks, building working prototypes that teams
-                  can react to instead of debating abstract specs.
+                  {howIWork.summary}
                 </p>
               </GlassCard>
             </motion.div>
@@ -470,8 +390,8 @@ export default function Home() {
       {/* Social Proof Section */}
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <SectionHeader title="What Colleagues Say" />
-          <TestimonialCarousel testimonials={testimonials} />
+          <SectionHeader title={testimonials.title} />
+          <TestimonialCarousel testimonials={testimonials.items} />
         </div>
       </section>
 
@@ -490,17 +410,16 @@ export default function Home() {
                   <Briefcase size={28} className="text-[var(--color-icon-accent)]" />
                 </div>
                 <h3 className="text-2xl md:text-[1.75rem] font-bold text-[var(--color-text-inverse)] mb-3">
-                  Product & Design Leadership
+                  {cta.productLeadership.title}
                 </h3>
                 <p className="text-[var(--color-text-primary)] mb-6 leading-relaxed">
-                  Explore my work leading cross-functional teams, building
-                  design systems, and driving measurable business impact.
+                  {cta.productLeadership.text}
                 </p>
                 <Link
                   href={createPageUrl("ProductWork")}
                   className="inline-block px-7 py-3.5 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105"
                 >
-                  Explore Product Work
+                  {cta.productLeadership.button}
                 </Link>
               </div>
             </div>
@@ -518,17 +437,16 @@ export default function Home() {
                   <GraduationCap size={28} className="text-[var(--color-text-teaching)]" />
                 </div>
                 <h3 className="text-2xl md:text-[1.75rem] font-bold text-[var(--color-text-inverse)] mb-3">
-                  Teaching & Research
+                  {cta.teaching.title}
                 </h3>
                 <p className="text-[var(--color-text-primary)] mb-6 leading-relaxed">
-                  Discover my experience teaching 1000+ students and bridging
-                  academic research with industry practice.
+                  {cta.teaching.text}
                 </p>
                 <Link
                   href={createPageUrl("Teaching")}
                   className="inline-block px-7 py-3.5 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--teaching-accent-border)] active:bg-[var(--teaching-accent-border)] active:text-[var(--color-text-inverse)] active:border-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
                 >
-                  View Teaching Portfolio{" "}
+                  {cta.teaching.button}{" "}
                 </Link>
               </div>
             </div>
