@@ -29,6 +29,8 @@ import ProjectGallery from "../components/work/ProjectGallery";
 import ImageTextCard from "../components/casestudy/ImageTextCard";
 import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
+import RichText from "@/app/components/RichText";
+import { xpuntoCero } from "@/content/xpuntocero";
 
 export default function XpuntoCero() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -79,54 +81,7 @@ export default function XpuntoCero() {
 
 
   // Add near the top with other arrays
-  const keyDecisions = [
-    {
-      point: "Brand Direction",
-      options: ["Full rebrand", "Identity refresh", "Keep legacy"],
-      rationale:
-        "Refreshed typography, colors, and icons while keeping the logo mark to preserve recognition.",
-      impact: "Modernized look without disrupting brand equity.",
-    },
-    {
-      point: "Information Architecture & Navigation",
-      options: ["Keep old IA", "Light tweaks", "Simplify structure"],
-      rationale:
-        "Reduced top navigation and clarified labels to match how users browse products.",
-      impact: "Simpler flow and faster access to key pages.",
-    },
-    {
-      point: "Visual Language",
-      options: ["Stock photos", "Isometric visuals", "Mixed media"],
-      rationale:
-        "Replaced stock images with custom isometric illustrations for clarity and personality.",
-      impact: "Consistent style and quicker content creation.",
-    },
-    {
-      point: "Front-End",
-      options: ["Static site", "SPA", "PWA"],
-      rationale:
-        "Adopted a lightweight PWA with caching and optimized assets for better mobile speed.",
-      impact: "Pages load 20% faster and mobile engagement improved.",
-    },
-    {
-      point: "Accessibility",
-      options: [
-        "Bright warm + white text",
-        "Dark text on warm",
-        "Overlay contrast",
-      ],
-      rationale:
-        "Adjusted warm colors and added overlays to meet WCAG contrast standards.",
-      impact: "Improved readability and visual comfort on mobile.",
-    },
-    {
-      point: "CMS Choice",
-      options: ["Custom React", "Headless CMS", "WordPress + Elementor"],
-      rationale:
-        "Used WordPress with shared components so non-devs could update content easily.",
-      impact: "Faster page launches with consistent design.",
-    },
-  ];
+  const keyDecisions = xpuntoCero.keyDecisions.decisions;
 
   const achievements = [
     {
@@ -176,7 +131,7 @@ export default function XpuntoCero() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="sr-only md:not-sr-only">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">{xpuntoCero.backLink}</span>
         </Link>
       </div>
 
@@ -185,48 +140,29 @@ export default function XpuntoCero() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent" />
         <div className="max-w-5xl mx-auto relative z-10">
           <p className="text-sm text-gray-400 mb-6">
-            Home &gt; Product Work &gt; XpuntoCero Digital Transformation
+            {xpuntoCero.hero.breadcrumb}
           </p>
 
           <div className="mb-4">
             <span className="text-xs uppercase tracking-wider text-accent">
-              BRAND TRANSFORMATION · VISUAL DESIGN
+              {xpuntoCero.hero.category}
             </span>
           </div>
 
           <h1 className="text-5xl font-bold text-ink-900 mb-4">
-            XpuntoCero Digital Transformation
+            {xpuntoCero.hero.title}
           </h1>
 
           <p className="text-lg text-gray-400 mb-4">
-            Product Designer &amp; Front-End Developer
+            {xpuntoCero.hero.subtitle}
           </p>
 
           <p className="text-xl text-gray-300 mb-8">
-            Internal rebrand of a legacy SaaS platform. <br />I led the UX and
-            visual redesign and partnered with engineering to ship a fast PWA.
-            <br />
-            Results:
-            <span className="text-ink-900 font-semibold"> +40%</span> mobile
-            traffic,
-            <span className="text-ink-900 font-semibold"> +15%</span> qualified
-            leads, and
-            <span className="text-ink-900 font-semibold"> 2×</span> demo requests,
-            proving how a refreshed brand and faster UX directly improved
-            conversions.
+            <RichText text={xpuntoCero.hero.description} boldClassName="text-ink-900 font-semibold" />
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {[
-              "Brand Identity",
-              "Visual Design",
-              "Information Architecture",
-              "UX Research",
-              "Figma",
-              "Front-End",
-              "PWA",
-              "WordPress / Elementor",
-            ].map((tag, i) => (
+            {xpuntoCero.hero.tags.map((tag, i) => (
               <span
                 key={i}
                 className="px-4 py-2 glass rounded-full text-sm text-gray-300"
@@ -240,32 +176,20 @@ export default function XpuntoCero() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={getImagePath("images/projects/XP0-old_new.webp")}
-        title="Revitalizing a SaaS Brand for Growth"
+        image={getImagePath(xpuntoCero.intro.image)}
+        title={xpuntoCero.intro.title}
         showGradient={false}
       >
         <p className="text-gray-300 leading-relaxed">
-          XpuntoCero, a B2B SaaS provider specializing in point-of-sale
-          solutions for FMCG, Out-of-Home services, and Digital Marketing, had a
-          strong product but an outdated brand. After years without a redesign,
-          its interfaces no longer reflected the company’s innovation or
-          technical depth. <br />
-          The image above shows how the new design modernized the experience,
-          improving clarity, hierarchy, and visual consistency across key pages.
+          <RichText text={xpuntoCero.intro.paragraphs[0]} />
         </p>
 
         <p className="text-gray-300 leading-relaxed">
-          I led the UX and visual rebrand, connecting research insights with a
-          new design language. This included refining the logo, color palette,
-          icon system, and overall interface composition, then implementing the
-          new front-end on a performant PWA.
+          <RichText text={xpuntoCero.intro.paragraphs[1]} />
         </p>
 
         <p className="text-gray-300 leading-relaxed">
-          The result was a cohesive brand presence that felt faster, clearer,
-          and more credible, driving measurable results such as
-          <span className="text-ink-900 font-semibold"> 2× </span> more demo
-          requests and stronger lead conversion.
+          <RichText text={xpuntoCero.intro.paragraphs[2]} boldClassName="text-ink-900 font-semibold" />
         </p>
       </ProjectIntroCard>
 
@@ -273,35 +197,26 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <OverviewCard icon={AlertCircle} title="The Challenge">
-              XpuntoCero’s brand and platform hadn’t evolved in years. <br />
-              The outdated design and weak mobile experience made the company
-              appear less innovative, while inconsistent hierarchy and
-              typography hurt clarity and user trust during sales demos.
+            <OverviewCard icon={AlertCircle} title={xpuntoCero.challenge.title}>
+              <RichText text={xpuntoCero.challenge.text} />
             </OverviewCard>
 
-            <OverviewCard icon={User} title="My Role">
+            <OverviewCard icon={User} title={xpuntoCero.role.title}>
               <p className="font-semibold mb-2">
-                Product Designer &amp; Front-End Developer
+                {xpuntoCero.role.summary}
               </p>
               <ul className="space-y-1">
-                <li><span aria-hidden="true">•</span> Led UX research and brand redesign strategy</li>
-                <li>
-                  <span aria-hidden="true">•</span> Defined new information architecture and visual system
-                </li>
-                <li>
-                  <span aria-hidden="true">•</span> Designed isometric illustrations and refined logo system
-                </li>
-                <li><span aria-hidden="true">•</span> Implemented PWA front-end with WordPress integration</li>
+                {xpuntoCero.role.items.map((item, i) => (
+                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                ))}
               </ul>
             </OverviewCard>
 
-            <OverviewCard icon={GitBranch} title="Scope">
+            <OverviewCard icon={GitBranch} title={xpuntoCero.scope.title}>
               <ul className="space-y-1">
-                <li><span aria-hidden="true">•</span> Internal product rebrand across 8 SaaS solutions</li>
-                <li><span aria-hidden="true">•</span> UX/UI modernization for web and mobile</li>
-                <li><span aria-hidden="true">•</span> Logo and visual identity refresh</li>
-                <li><span aria-hidden="true">•</span> PWA implementation and performance optimization</li>
+                {xpuntoCero.scope.items.map((item, i) => (
+                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                ))}
               </ul>
             </OverviewCard>
           </div>
@@ -312,7 +227,7 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
-            Project Impact
+            {xpuntoCero.projectImpact.title}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -321,13 +236,12 @@ export default function XpuntoCero() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
                   <Smartphone className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-ink-900 mb-2">+40%</div>
+                <div className="text-4xl font-bold text-ink-900 mb-2">{xpuntoCero.projectImpact.metrics[0].value}</div>
                 <div className="text-sm font-semibold text-accent mb-2">
-                  Mobile Traffic
+                  {xpuntoCero.projectImpact.metrics[0].label}
                 </div>
                 <div className="text-xs text-gray-400">
-                  The new responsive PWA improved load speed and mobile
-                  usability.
+                  {xpuntoCero.projectImpact.metrics[0].description}
                 </div>
               </div>
             </GlassCard>
@@ -337,13 +251,12 @@ export default function XpuntoCero() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
                   <Target className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-ink-900 mb-2">+15%</div>
+                <div className="text-4xl font-bold text-ink-900 mb-2">{xpuntoCero.projectImpact.metrics[1].value}</div>
                 <div className="text-sm font-semibold text-accent mb-2">
-                  Qualified Leads
+                  {xpuntoCero.projectImpact.metrics[1].label}
                 </div>
                 <div className="text-xs text-gray-400">
-                  Clearer messaging and visual hierarchy improved visitor
-                  retention.
+                  {xpuntoCero.projectImpact.metrics[1].description}
                 </div>
               </div>
             </GlassCard>
@@ -353,12 +266,12 @@ export default function XpuntoCero() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
                   <CheckCircle className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-ink-900 mb-2">2×</div>
+                <div className="text-4xl font-bold text-ink-900 mb-2">{xpuntoCero.projectImpact.metrics[2].value}</div>
                 <div className="text-sm font-semibold text-accent mb-2">
-                  Demo Requests
+                  {xpuntoCero.projectImpact.metrics[2].label}
                 </div>
                 <div className="text-xs text-gray-400">
-                  The refreshed brand and faster flows doubled demo interest.
+                  {xpuntoCero.projectImpact.metrics[2].description}
                 </div>
               </div>
             </GlassCard>
@@ -368,25 +281,11 @@ export default function XpuntoCero() {
 
       {/* Project Gallery */}
       <ProjectGallery
-        title="Design Evolution"
-        images={[
-          {
-            src: getImagePath("images/projects/XP0_Home_OldVsNew.webp"),
-            alt: "Home Before & After - Website Transformation",
-          },
-          {
-            src: getImagePath("images/projects/XP0_CorePageProd_OldVsNew.webp"),
-            alt: "Product page Before & After - Website Transformation",
-          },
-          {
-            src: getImagePath("images/projects/XP0_ProductCards_OldVsNew.webp"),
-            alt: "Product cards Before & After - Website Transformation",
-          },
-          {
-            src: getImagePath("images/projects/XP0_Pwa.webp"),
-            alt: "Progressive web App",
-          },
-        ]}
+        title={xpuntoCero.gallery.title}
+        images={xpuntoCero.gallery.images.map((im) => ({
+          src: getImagePath(im.src),
+          alt: im.alt,
+        }))}
       />
 
       {/* 01 Business Context */}
@@ -394,11 +293,11 @@ export default function XpuntoCero() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              01
+              {xpuntoCero.businessContext.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Business Context
+                {xpuntoCero.businessContext.title}
               </h2>
             </div>
           </div>
@@ -407,29 +306,15 @@ export default function XpuntoCero() {
             <GlassCard>
               <div className="p-6 space-y-4">
                 <p className="text-gray-300 leading-relaxed">
-                  XpuntoCero is a B2B SaaS company providing point-of-sale and
-                  marketing platforms for clients in the FMCG and Out-of-Home
-                  sectors. The company also develops{" "}
-                  <span className="text-ink-900 font-semibold">SGPV</span>, a
-                  field operations app used by merchandisers from major consumer
-                  brands across Southern Europe. After more than a decade
-                  without a redesign, XpuntoCero’s visual identity no longer
-                  reflected the quality or innovation of its technology.
+                  <RichText text={xpuntoCero.businessContext.paragraphs[0]} boldClassName="text-ink-900 font-semibold" />
                 </p>
 
                 <p className="text-gray-300 leading-relaxed">
-                  Over time, the brand began to feel dated. The old website was
-                  slow on mobile and visually inconsistent, making it harder to
-                  communicate the company’s value and innovation. Competing
-                  startups looked fresher and more user-friendly, which made
-                  XpuntoCero appear less dynamic than it actually was.
+                  <RichText text={xpuntoCero.businessContext.paragraphs[1]} />
                 </p>
 
                 <p className="text-gray-300 leading-relaxed">
-                  The company needed to refresh its brand and user experience to
-                  regain credibility, improve mobile performance, and clearly
-                  communicate the value of its multi-product ecosystem to
-                  enterprise buyers.
+                  <RichText text={xpuntoCero.businessContext.paragraphs[2]} />
                 </p>
               </div>
             </GlassCard>
@@ -442,11 +327,11 @@ export default function XpuntoCero() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              02
+              {xpuntoCero.research.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Research & Design Approach
+                {xpuntoCero.research.title}
               </h2>
             </div>
           </div>
@@ -454,93 +339,44 @@ export default function XpuntoCero() {
           <div className="pl-0 md:pl-24 space-y-8">
             {/* Discovery */}
             <ImageTextCard
-              title="Discovery"
-              description="I began with a competitive and heuristic review of similar B2B SaaS platforms to identify visual and structural patterns that conveyed innovation and trust. Five quick interviews with existing clients and internal stakeholders helped uncover perception gaps and usability issues, especially on mobile."
-              bulletPoints={[
-                {
-                  label: "5 Interviews",
-                  text: "Gathered qualitative feedback on brand perception and usability.",
-                },
-                {
-                  label: "Heuristic Review",
-                  text: "Benchmarked layout, tone, and accessibility of modern SaaS interfaces.",
-                },
-                {
-                  label: "Key Finding",
-                  text: "Outdated visuals and slow mobile performance reduced credibility.",
-                },
-              ]}
-              images={[
-                {
-                  src: getImagePath(
-                    "images/projects/XP0-SaaS_Platform_Analysis.webp"
-                  ),
-                  alt: "Brand perception map positioning XpuntoCero as reliable but outdated in the SaaS landscape.",
-                },
-              ]}
+              title={xpuntoCero.research.cards.discovery.title}
+              description={xpuntoCero.research.cards.discovery.description}
+              bulletPoints={xpuntoCero.research.cards.discovery.bulletPoints}
+              images={xpuntoCero.research.cards.discovery.images.map((im) => ({
+                src: getImagePath(im.src),
+                alt: im.alt,
+              }))}
               imagePosition="left"
               onOpenGallery={openGallery}
-              additionalText=""
+              additionalText={xpuntoCero.research.cards.discovery.additionalText}
             />
 
             {/* Key Insights */}
             <ImageTextCard
-              title="Key Insights"
-              description="Analysis of interviews and tests revealed that users trusted the platform’s reliability but found the interface dated and inconsistent. Navigation labels were unclear, and the visual tone didn’t match the company’s innovative positioning."
-              bulletPoints={[
-                {
-                  label: "Users wanted",
-                  text: "Simpler menus and a clearer hierarchy of features.",
-                },
-                {
-                  label: "Mobile first",
-                  text: "Most usage happened on smartphones, yet the UI was not optimized.",
-                },
-                {
-                  label: "Visual mismatch",
-                  text: "The brand looked older than the technology behind it.",
-                },
-              ]}
-              images={[
-                {
-                  src: getImagePath(
-                    "images/projects/XP0-ux_Issues_Stem_from_Deeper_Problems..webp"
-                  ),
-                  alt: "Iceberg diagram showing how surface usability issues stemmed from deeper UX and information architecture problems.",
-                },
-              ]}
+              title={xpuntoCero.research.cards.keyInsights.title}
+              description={xpuntoCero.research.cards.keyInsights.description}
+              bulletPoints={xpuntoCero.research.cards.keyInsights.bulletPoints}
+              images={xpuntoCero.research.cards.keyInsights.images.map((im) => ({
+                src: getImagePath(im.src),
+                alt: im.alt,
+              }))}
               imagePosition="right"
               onOpenGallery={openGallery}
-              additionalText=""
+              additionalText={xpuntoCero.research.cards.keyInsights.additionalText}
             />
 
             {/* Design Direction */}
             <ImageTextCard
-              title="Design Direction"
-              description="These insights informed a new design language based on simplicity, trust, and coherence. I refreshed the color palette, introduced a modular layout system, and tested early prototypes internally to ensure clarity on both desktop and mobile."
-              bulletPoints={[
-                {
-                  label: "Color palette",
-                  text: "Cooler blues and neutral grays to convey trust and precision.",
-                },
-                {
-                  label: "Typography",
-                  text: "Modern sans-serif fonts improving legibility and hierarchy.",
-                },
-                {
-                  label: "Prototyping",
-                  text: "Interactive Figma flows validated early navigation and layout choices.",
-                },
-              ]}
-              images={[
-                {
-                  src: getImagePath("images/projects/XP0-ux_laptop_mobile.webp"),
-                  alt: "Responsive redesign preview of XpuntoCero’s platform on laptop and smartphone screens.",
-                },
-              ]}
+              title={xpuntoCero.research.cards.designDirection.title}
+              description={xpuntoCero.research.cards.designDirection.description}
+              bulletPoints={xpuntoCero.research.cards.designDirection.bulletPoints}
+              images={xpuntoCero.research.cards.designDirection.images.map((im) => ({
+                src: getImagePath(im.src),
+                alt: im.alt,
+              }))}
               imagePosition="left"
               onOpenGallery={openGallery}
-              additionalText=""
+              additionalText={xpuntoCero.research.cards.designDirection.additionalText}
             />
           </div>
         </div>
@@ -551,11 +387,11 @@ export default function XpuntoCero() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              03
+              {xpuntoCero.keyDecisions.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Key Design Decisions & Trade-offs
+                {xpuntoCero.keyDecisions.title}
               </h2>
             </div>
           </div>
@@ -571,11 +407,11 @@ export default function XpuntoCero() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              04
+              {xpuntoCero.visualIdentity.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Visual & Brand Identity
+                {xpuntoCero.visualIdentity.title}
               </h2>
             </div>
           </div>
@@ -583,73 +419,30 @@ export default function XpuntoCero() {
           <div className="pl-0 md:pl-24 space-y-8">
             {/* Visual kit */}
             <ImageTextCard
-              title="Visual Kit & Brand Personality"
-              description="The brand identity needed to feel bold, modern, and instantly recognizable. I anchored the design on strong color blocking and clear typography to give the interface a tech-forward character. The visual language communicates confidence and accessibility, while the bright coral CTAs make interaction effortless."
-              bulletPoints={[
-                {
-                  label: "Anchor Colors",
-                  text: "Turquoise #5DD9D2 and Coral #FF5757, supported by neutral grays.",
-                },
-                {
-                  label: "Logo Redesign",
-                  text: "Simplified, memorable mark that reflects the platform’s technical precision.",
-                },
-                {
-                  label: "Contrast Rules",
-                  text: "Dark text on warm backgrounds, subtle overlays for accessibility.",
-                },
-                {
-                  label: "Typography",
-                  text: "Clean sans-serif type with clear hierarchy for mobile readability.",
-                },
-
-                {
-                  label: "Icon Library (SVG)",
-                  text: "Functional icons guiding users through key features across products.",
-                },
-              ]}
-              images={[
-                {
-                  src: getImagePath(
-                    "images/projects/XP0-logo-colors-icons.webp"
-                  ),
-                  alt: "XpuntoCero logo old vs new, anchor colors, and core product icons/logos",
-                },
-              ]}
+              title={xpuntoCero.visualIdentity.cards.visualKit.title}
+              description={xpuntoCero.visualIdentity.cards.visualKit.description}
+              bulletPoints={xpuntoCero.visualIdentity.cards.visualKit.bulletPoints}
+              images={xpuntoCero.visualIdentity.cards.visualKit.images.map((im) => ({
+                src: getImagePath(im.src),
+                alt: im.alt,
+              }))}
               imagePosition="left"
               onOpenGallery={openGallery}
-              additionalText="The result was a strong, memorable, and modern identity that balanced energy with clarity, exactly what a tech brand needs to stand out without overwhelming users."
+              additionalText={xpuntoCero.visualIdentity.cards.visualKit.additionalText}
             />
 
             {/* Isometric Product Illustrations */}
             <ImageTextCard
-              title="Isometric Product Illustrations"
-              description="To make the product self-explanatory, I created a full set of custom isometric illustrations. Each one visualizes how XpuntoCero’s SaaS tools connect digital dashboards with real-world retail activity. The goal was for users to grasp the product’s purpose instantly, even before reading any text."
-              bulletPoints={[
-                {
-                  label: "Storytelling",
-                  text: "Illustrations show data flow from mobile to in-store operations.",
-                },
-                {
-                  label: "Differentiation",
-                  text: "Custom visuals replaced generic SaaS stock imagery.",
-                },
-                {
-                  label: "Clarity",
-                  text: "Users could understand each product’s function at a glance.",
-                },
-              ]}
-              images={[
-                {
-                  src: getImagePath(
-                    "images/projects/XP0-Custom_isometric_illustration.webp"
-                  ),
-                  alt: "Custom isometric illustration showing mobile, tablet, and retail environments linked through XpuntoCero’s SaaS solution.",
-                },
-              ]}
+              title={xpuntoCero.visualIdentity.cards.isometricIllustrations.title}
+              description={xpuntoCero.visualIdentity.cards.isometricIllustrations.description}
+              bulletPoints={xpuntoCero.visualIdentity.cards.isometricIllustrations.bulletPoints}
+              images={xpuntoCero.visualIdentity.cards.isometricIllustrations.images.map((im) => ({
+                src: getImagePath(im.src),
+                alt: im.alt,
+              }))}
               imagePosition="right"
               onOpenGallery={openGallery}
-              additionalText="The brand relied on visual storytelling rather than lengthy explanations, making complex tools feel approachable and clear."
+              additionalText={xpuntoCero.visualIdentity.cards.isometricIllustrations.additionalText}
             />
           </div>
         </div>
@@ -660,11 +453,11 @@ export default function XpuntoCero() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              05
+              {xpuntoCero.outcomes.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Outcomes & Business Impact
+                {xpuntoCero.outcomes.title}
               </h2>
             </div>
           </div>
@@ -674,9 +467,7 @@ export default function XpuntoCero() {
             <GlassCard>
               <div className="p-6">
                 <p className="text-gray-300 leading-relaxed">
-                  The redesign improved acquisition, engagement, and mobile
-                  performance while giving XpuntoCero a recognizable, modern
-                  identity that restored credibility as a SaaS provider.
+                  {xpuntoCero.outcomes.intro}
                 </p>
               </div>
             </GlassCard>
@@ -687,39 +478,34 @@ export default function XpuntoCero() {
               <GlassCard>
                 <div className="p-6 space-y-4">
                   <h3 className="text-lg font-semibold text-accent mb-2">
-                    Lead Generation & Marketing
+                    {xpuntoCero.outcomes.leadGeneration.title}
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
-                    Clearer messaging and improved visual hierarchy increased
-                    qualified leads by
-                    <span className="text-ink-900 font-semibold"> +15%</span> and
-                    doubled demo interest.
+                    <RichText text={xpuntoCero.outcomes.leadGeneration.text} boldClassName="text-ink-900 font-semibold" />
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                     <div className="text-center">
                       <div className="text-4xl font-bold text-ink-900 mb-1">
-                        +15%
+                        {xpuntoCero.outcomes.leadGeneration.metrics[0].value}
                       </div>
                       <div className="text-sm font-semibold text-accent">
-                        Qualified Leads
+                        {xpuntoCero.outcomes.leadGeneration.metrics[0].label}
                       </div>
                       <div className="text-xs text-gray-400">
-                        Clearer messaging and better hierarchy improved
-                        retention.
+                        {xpuntoCero.outcomes.leadGeneration.metrics[0].description}
                       </div>
                     </div>
 
                     <div className="text-center">
                       <div className="text-4xl font-bold text-ink-900 mb-1">
-                        2×
+                        {xpuntoCero.outcomes.leadGeneration.metrics[1].value}
                       </div>
                       <div className="text-sm font-semibold text-accent">
-                        Demo Requests
+                        {xpuntoCero.outcomes.leadGeneration.metrics[1].label}
                       </div>
                       <div className="text-xs text-gray-400">
-                        The refreshed brand and faster flows doubled demo
-                        interest.
+                        {xpuntoCero.outcomes.leadGeneration.metrics[1].description}
                       </div>
                     </div>
                   </div>
@@ -730,21 +516,16 @@ export default function XpuntoCero() {
               <GlassCard>
                 <div className="p-6 space-y-4">
                   <h3 className="text-lg font-semibold text-accent mb-2">
-                    UX & Performance
+                    {xpuntoCero.outcomes.uxPerformance.title}
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
-                    PWA architecture boosted mobile traffic by
-                    <span className="text-ink-900 font-semibold"> 40%</span> and
-                    reduced load times by
-                    <span className="text-ink-900 font-semibold"> 20%</span>.
-                    Users experienced smoother navigation and a more consistent
-                    brand across devices.
+                    <RichText text={xpuntoCero.outcomes.uxPerformance.text} boldClassName="text-ink-900 font-semibold" />
                   </p>
 
                   <ul className="text-gray-400 text-sm space-y-1 pt-2">
-                    <li><span aria-hidden="true">•</span> +40% mobile traffic</li>
-                    <li><span aria-hidden="true">•</span> 20% faster loads</li>
-                    <li><span aria-hidden="true">•</span> Higher satisfaction and engagement</li>
+                    {xpuntoCero.outcomes.uxPerformance.items.map((item, i) => (
+                      <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                    ))}
                   </ul>
                 </div>
               </GlassCard>
@@ -754,29 +535,14 @@ export default function XpuntoCero() {
             <GlassCard>
               <div className="p-6 space-y-3">
                 <h3 className="text-lg font-semibold text-accent mb-2">
-                  Key Learnings
+                  {xpuntoCero.outcomes.keyLearnings.title}
                 </h3>
                 <ul className="text-gray-300 text-sm space-y-2 leading-relaxed">
-                  <li>
-                    → <strong>Brand perception shapes B2B trust:</strong>{" "}
-                    enterprise buyers judge credibility visually before
-                    exploring features.
-                  </li>
-                  <li>
-                    → <strong>Mobile speed matters:</strong> even B2B
-                    decision-makers browse on mobile; quick, accessible sites
-                    retain attention.
-                  </li>
-                  <li>
-                    →{" "}
-                    <strong>Visual storytelling simplifies complexity:</strong>{" "}
-                    custom isometric illustrations helped users grasp
-                    multi-product offerings instantly.
-                  </li>
-                  <li>
-                    → <strong>Early validation saves time:</strong> quick
-                    usability tests caught navigation issues before rollout.
-                  </li>
+                  {xpuntoCero.outcomes.keyLearnings.items.map((item, i) => (
+                    <li key={i}>
+                      <RichText text={item} />
+                    </li>
+                  ))}
                 </ul>
               </div>
             </GlassCard>
@@ -790,22 +556,20 @@ export default function XpuntoCero() {
           <GlassCard>
             <div className="text-center py-8">
               <h2 className="text-3xl font-bold text-ink-900 mb-4">
-                Want to see more work?
+                {xpuntoCero.cta.title}
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                This project demonstrates how research-driven design, cohesive
-                branding, and performant technical implementation create
-                measurable business impact.
+                {xpuntoCero.cta.text}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href={createPageUrl("ProductWork")}
                   className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
                 >
-                  View All Projects
+                  {xpuntoCero.cta.allProjects}
                 </Link>
                 <CopyEmailLink className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all">
-                  Let's Talk
+                  {xpuntoCero.cta.talk}
                 </CopyEmailLink>
               </div>
             </div>
