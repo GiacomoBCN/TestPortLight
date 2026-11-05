@@ -16,7 +16,7 @@ export default function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className={`text-center mb-16 ${className}`}
+      className={`text-center ${/\bmb-/.test(className) ? "" : "mb-16"} ${className}`}
     >
       <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-inverse)] mb-4">{title}</h2>
       {subtitle && (

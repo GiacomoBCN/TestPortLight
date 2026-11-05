@@ -16,6 +16,7 @@ export default function ProjectCard({
   image,
   imageFit = "cover",
   imageBg,
+  compact = false,
   delay = 0,
 }: {
   role: string;
@@ -31,6 +32,8 @@ export default function ProjectCard({
   imageFit?: "cover" | "contain";
   /** sfondo dietro l'immagine, utile con contain */
   imageBg?: string;
+  /** versione bassa per la home: immagine piu' stretta, testi a 2 righe, meno aria */
+  compact?: boolean;
   delay?: number;
 }) {
   const ref = React.useRef(null);
@@ -40,8 +43,8 @@ export default function ProjectCard({
     <article className="flex flex-col h-full">
       {/* Project Image - Fixed height */}
       {image && (
-        <div className="mb-6 -mx-8 -mt-8 overflow-hidden rounded-t-xl">
-          <div className="relative aspect-video overflow-hidden" style={imageBg ? { background: imageBg } : undefined}>
+        <div className={`${compact ? "mb-4 -mx-6 -mt-6" : "mb-6 -mx-8 -mt-8"} overflow-hidden rounded-t-xl`}>
+          <div className={`relative ${compact ? "aspect-[2.4/1]" : "aspect-video"} overflow-hidden`} style={imageBg ? { background: imageBg } : undefined}>
             <Image
               src={image}
               alt={title}
@@ -57,11 +60,11 @@ export default function ProjectCard({
       )}
 
       {/* Header Section - Fixed height */}
-      <div className="mb-6">
+      <div className={compact ? "mb-3" : "mb-6"}>
         <span className="text-xs uppercase tracking-wider text-[var(--project-card-role-text)] font-semibold block">
           {role}
         </span>
-        <h3 className="text-2xl font-bold text-[var(--project-card-title-default)] mt-2 mb-1 transition-colors duration-300 group-hover:text-[var(--project-card-title-hover)] min-h-[64px]">
+        <h3 className={`${compact ? "text-xl mt-1 mb-0.5 line-clamp-1" : "text-2xl mt-2 mb-1 min-h-[64px]"} font-bold text-[var(--project-card-title-default)] transition-colors duration-300 group-hover:text-[var(--project-card-title-hover)]`}>
           {title}
         </h3>
         <p className="text-sm text-[var(--project-card-company-text)]">
@@ -71,18 +74,18 @@ export default function ProjectCard({
       </div>
 
       {/* Description - Fixed height */}
-      <p className="text-[var(--project-card-description-text)] mb-6 min-h-[72px]">{description}</p>
+      <p className={`text-[var(--project-card-description-text)] ${compact ? "text-sm mb-3 line-clamp-2" : "mb-6 min-h-[72px]"}`}>{description}</p>
 
       {/* Spacer to push metrics and tags to bottom */}
       <div className="flex-1"></div>
 
       {/* Metrics - Fixed height */}
-      <div className="mb-6 pb-6 border-b border-[var(--color-border-default)] min-h-[88px]">
+      <div className={compact ? "" : "mb-6 pb-6 border-b border-[var(--color-border-default)] min-h-[88px]"}>
         {metrics.length > 0 && (
           <div className="grid grid-cols-3 gap-4">
             {metrics.map((metric, index) => (
               <div key={index} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-[var(--project-card-metric-value)] mb-1">
+                <div className={`${compact ? "text-xl" : "text-2xl md:text-3xl"} font-bold text-[var(--project-card-metric-value)] mb-1`}>
                   {metric.value}
                 </div>
                 <div className="text-xs text-[var(--project-card-metric-label)] leading-tight">
@@ -94,8 +97,8 @@ export default function ProjectCard({
         )}
       </div>
       {/* Tags - Responsive height with better mobile handling */}
-      <div className="min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
-        {tags.length > 0 && (
+      {tags.length > 0 && (
+        <div className="min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
           <div className="flex flex-wrap gap-2">
             {tags.map((tag, index) => (
               <span
@@ -106,8 +109,8 @@ export default function ProjectCard({
               </span>
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </article>
   );
 
@@ -123,9 +126,9 @@ export default function ProjectCard({
       >
         <Link
           href={link}
-          className="block h-full glass sketch rounded-xl p-8 transition-all duration-300 cursor-pointer group
+          className={`block h-full glass sketch rounded-xl ${compact ? "p-6" : "p-8"} transition-all duration-300 cursor-pointer group
                      hover:scale-[1.02] hover:border-[var(--card-border-hover)] hover:shadow-[0_0_30px_rgba(242,140,40,0.3)]
-                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-interactive)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-secondary)]"
+                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-interactive)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-secondary)]`}
         >
           <SketchFrame />
           {cardContent}
@@ -141,7 +144,7 @@ export default function ProjectCard({
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay }}
-      className="glass sketch rounded-xl p-8"
+      className={`glass sketch rounded-xl ${compact ? "p-6" : "p-8"}`}
     >
       <SketchFrame />
       {cardContent}

@@ -247,68 +247,50 @@ export default function Home() {
           <SectionHeader
             title="Featured Work"
             subtitle="Strategic product leadership with measurable impact"
+            className="mb-8"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ProjectCard
+              compact
               role="Enterprise Leadership"
               title="Dow Jones Design System"
               company="Dow Jones"
               timeframe=""
               description="Co-led design system adoption across B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%."
               image={getImagePath("images/projects/DJ1.webp")}
+              imageFit="contain"
+              imageBg="#ffffff"
               metrics={[
                 { value: "60+", label: "Designers" },
                 { value: "200K+", label: "Component Refs" },
                 { value: "30%", label: "Efficiency" },
-              ]}
-              tags={[
-                "Leadership",
-                "AI-Enhanced",
-                "Product Strategy",
-                "Design Systems",
-                "SAFe Agile",
-                "WCAG 2.2",
-                "CI/CD",
-                "Storybook",
-                "Style Dictionary",
-                "Design Tokens",
-                "React",
-                "Figma",
               ]}
               link={createPageUrl("DowJones")}
               delay={0}
             />
 
             <ProjectCard
+              compact
               role="AI Interaction Design · Banking"
               title="Falak: AI Assistant for a Bank"
               company="Concept & Coded Prototype"
               timeframe=""
               description="Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype."
-              image={getImagePath("images/projects/falak/13-desktop-dark-spending.webp")}
+              image={getImagePath("images/projects/falak/04-desktop-spending-range.webp")}
               imageFit="contain"
-              imageBg="#0c110f"
+              imageBg="#eaece9"
               metrics={[
                 { value: "8", label: "Patterns" },
                 { value: "EN · AR", label: "Bilingual" },
                 { value: "Live", label: "Demo" },
-              ]}
-              tags={[
-                "AI Interaction Patterns",
-                "Trust Calibration",
-                "Human Oversight",
-                "Research Synthesis",
-                "Flutter",
-                "Claude Code",
-                "Arabic / RTL",
-                "WCAG 2.2 AA",
               ]}
               link={createPageUrl("Falak")}
               delay={0.1}
             />
 
             <ProjectCard
+              compact
               role="B2C Multi-platform"
               title="VOD Platform Redesign"
               company="Design Challenge"
@@ -320,46 +302,24 @@ export default function Home() {
                 { value: "WCAG AA", label: "Compliant" },
                 { value: "4", label: "Platforms" },
               ]}
-              tags={[
-                "Heuristic Evaluation",
-                "End-to-end UX/UI Process",
-                "Figma",
-                "Multi-platform Design",
-                "UX Strategy",
-                "WCAG 2.2 AA",
-                "TV/10-foot UI",
-              ]}
               link={createPageUrl("VODplatform")}
               delay={0.2}
             />
 
             <ProjectCard
+              compact
               role="B2B SaaS Long-term"
               title="SGPV Product Evolution"
               company="XpuntoCero -> SGPV"
               timeframe=""
               description="Multi-year product evolution from PhoneGap to Flutter, serving 15 B2B clients. Redesigned user flows and AI-powered features reduced task time by 25%."
               image={getImagePath("images/projects/sgpv.webp")}
+              imageFit="contain"
+              imageBg="#ffffff"
               metrics={[
                 { value: "15", label: "Global Brands" },
                 { value: "25%", label: "Faster" },
                 { value: "30%", label: "Satisfaction ↑" },
-              ]}
-              tags={[
-                "Product Strategy",
-                "End-to-end UX/UI Process",
-                "Design System",
-                "Figma",
-                "AI",
-                "Mobile",
-                "B2B",
-                "SaaS",
-                "Flutter",
-                "Dart",
-                "PhoneGap",
-                "JavaScript",
-                "Bootstrap",
-                "Agile/SCRUM",
               ]}
               link={createPageUrl("SGPVEvolution")}
               delay={0.3}
