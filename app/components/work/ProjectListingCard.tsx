@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { createPageUrl } from "@/utils";
 import SketchFrame from "../SketchFrame";
 
@@ -100,14 +99,13 @@ export default function ProjectListingCard({
       </div>
 
       {/* BOTTOM SECTION - CTA (fixed position, never overflows) */}
-      <div className="mt-auto pt-2 border-t border-[var(--color-text-inverse)]/5 flex-shrink-0">
+      <div className="mt-auto pt-3 border-t border-[var(--color-text-inverse)]/5 flex-shrink-0 text-center">
         <Link
           href={createPageUrl(slug)}
-          className="inline-flex items-center text-[var(--color-text-link-default)] underline decoration-[var(--primitive-orange-500)] decoration-2 underline-offset-4 hover:text-[var(--color-text-link-hover)] transition-colors text-sm"
+          className="inline-block text-[var(--color-text-link-default)] underline decoration-[var(--primitive-orange-500)] decoration-2 underline-offset-4 hover:text-[var(--color-text-link-hover)] transition-colors text-sm"
           aria-label={`View Case Study: ${title}`}
         >
           View Case Study
-          <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
         </Link>
       </div>
     </div>
