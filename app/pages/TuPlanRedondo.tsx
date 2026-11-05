@@ -28,6 +28,8 @@ import ImageTextCard from "../components/casestudy/ImageTextCard";
 
 import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
+import RichText from "@/app/components/RichText";
+import { tuPlanRedondo } from "@/content/tu-plan-redondo";
 
 export default function TuPlanRedondo() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -77,61 +79,19 @@ export default function TuPlanRedondo() {
   };
 
 
-  const keyDecisions = [
-    {
-      point: "Technology Choice",
-      options: ["Native app", "Hybrid", "Progressive Web App (PWA)"],
-      rationale:
-        "The client asked for a native app. After assessing devices, budget, and rollout constraints, I proposed a PWA: no installs, works on any browser, faster to ship.",
-      impact:
-        "Delivery costs ↓ 45%; instant access on tablets, phones, laptops",
-    },
-    {
-      point: "Connectivity Strategy",
-      options: ["Offline-first", "Basic caching", "Online real-time"],
-      rationale:
-        "Restaurants had stable Wi-Fi. Offline would add complexity without clear value, so I optimized for fast loads and real-time submission.",
-      impact: "Simpler maintenance; reliable performance; shorter timeline",
-    },
-    {
-      point: "Interface Scope",
-      options: [
-        "Complex evaluation suite",
-        "Feature creep",
-        "Focused forms + dashboard",
-      ],
-      rationale:
-        "Kept the MVP tight: streamlined forms, role-based access, and a simple live dashboard for managers.",
-      impact: "30% less manual work; quicker adoption; easier training",
-    },
-  ];
+  const keyDecisions = tuPlanRedondo.keyDecisions.decisions;
 
-  const achievements = [
-    {
-      icon: Zap,
-      metric: "30%",
-      label: "Time Savings",
-      description: "Reduced manual evaluation time",
-    },
-    {
-      icon: CheckCircle,
-      metric: "25%",
-      label: "Satisfaction ↑",
-      description: "Improved evaluator experience",
-    },
-    {
-      icon: Database,
-      metric: "30%",
-      label: "Cost Reduction",
-      description: "PWA vs native app development",
-    },
-    {
-      icon: BarChart3,
-      metric: "Real-time",
-      label: "Analytics",
-      description: "Instant performance insights",
-    },
-  ];
+  // Non renderizzato. Icone nello stesso ordine di tuPlanRedondo.achievements
+  const achievementIcons = [Zap, CheckCircle, Database, BarChart3];
+  const achievements = tuPlanRedondo.achievements.map((a, i) => ({
+    icon: achievementIcons[i],
+    ...a,
+  }));
+
+  const img = (im: { file: string; alt: string }) => ({
+    src: getImagePath(im.file),
+    alt: im.alt,
+  });
 
   return (
     <div className="min-h-screen">
@@ -142,7 +102,7 @@ export default function TuPlanRedondo() {
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"
         >
           <ArrowLeft size={20} />
-          <span className="sr-only md:not-sr-only">Back to Projects</span>
+          <span className="sr-only md:not-sr-only">{tuPlanRedondo.backLink}</span>
         </Link>
       </div>
 
@@ -151,42 +111,27 @@ export default function TuPlanRedondo() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent"></div>
         <div className="max-w-5xl mx-auto relative z-10">
           <p className="text-sm text-gray-400 mb-6">
-            Home &gt; Product Work &gt; TuPlanRedondo PWA
+            {tuPlanRedondo.hero.breadcrumb}
           </p>
 
           <div className="mb-4">
             <span className="text-xs uppercase tracking-wider text-accent">
-              FULL-STACK DESIGN · RESEARCH → DESIGN → BUILD
+              {tuPlanRedondo.hero.category}
             </span>
           </div>
 
           <h1 className="text-5xl font-bold text-ink-900 mb-4">
-            TuPlanRedondo PWA
+            {tuPlanRedondo.hero.title}
           </h1>
 
-          <p className="text-lg text-gray-400 mb-4">Full-Stack Designer</p>
+          <p className="text-lg text-gray-400 mb-4">{tuPlanRedondo.hero.subtitle}</p>
 
           <p className="text-xl text-gray-300 mb-8">
-            I designed and built a Progressive Web App that replaced a
-            paper-based employee evaluation process across multiple McDonald’s
-            restaurants. <br />
-            The new system reduced manual work by{" "}
-            <span className="text-ink-900 font-semibold">30%</span>{" "}
-            and cut delivery costs by{" "}
-            <span className="text-ink-900 font-semibold">45%</span>.
+            <RichText text={tuPlanRedondo.hero.description} boldClassName="text-ink-900 font-semibold" />
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {[
-              "User Research",
-              "UI/UX Design",
-              "Visual Design",
-              "Front-End Development",
-              "PWA",
-              "Bootstrap",
-              "JavaScript",
-              "Figma",
-            ].map((tag, i) => (
+            {tuPlanRedondo.hero.tags.map((tag, i) => (
               <span
                 key={i}
                 className="px-4 py-2 glass rounded-full text-sm text-gray-300"
@@ -201,25 +146,19 @@ export default function TuPlanRedondo() {
 
       {/* Intro Card */}
       <ProjectIntroCard
-        image={getImagePath("images/projects/mc-1.webp")}
-        title="Digitizing Employee Evaluations for a McDonald’s Franchise"
+        image={getImagePath(tuPlanRedondo.intro.image)}
+        title={tuPlanRedondo.intro.title}
       >
         <p className="text-gray-300 leading-relaxed">
-          A McDonald’s franchise needed to replace its manual evaluation forms
-          with a centralized digital solution.
+          {tuPlanRedondo.intro.paragraphs[0]}
         </p>
 
         <p className="text-gray-300 leading-relaxed">
-          While working at XpuntoCero, I led the project from user research to
-          interface design and front-end development, delivering a lightweight
-          Progressive Web App (PWA) that runs on any device without
-          installation.
+          {tuPlanRedondo.intro.paragraphs[1]}
         </p>
 
         <p className="text-gray-300 leading-relaxed">
-          The app streamlined how supervisors evaluated team performance, synced
-          results in real time, and gave management a live dashboard to track
-          data across locations — all at a fraction of the cost of a native app.
+          {tuPlanRedondo.intro.paragraphs[2]}
         </p>
       </ProjectIntroCard>
 
@@ -227,40 +166,26 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <OverviewCard icon={AlertCircle} title="The Challenge">
-              Manual, paper-based evaluations across the franchise’s restaurants
-              slowed daily operations and often led to data errors.
-              <br /> The client needed a simple digital solution that worked on
-              any device.
+            <OverviewCard icon={AlertCircle} title={tuPlanRedondo.challenge.title}>
+              <RichText text={tuPlanRedondo.challenge.text} />
             </OverviewCard>
 
-            <OverviewCard icon={User} title="My Role">
+            <OverviewCard icon={User} title={tuPlanRedondo.role.title}>
               <p className="font-semibold mb-2">
-                Product Designer &amp; Front-End Developer
+                {tuPlanRedondo.role.summary}
               </p>
               <ul className="space-y-1">
-                <li>
-                  <span aria-hidden="true">•</span> Led user interviews, affinity mapping, and usability testing
-                </li>
-                <li><span aria-hidden="true">•</span> Designed all wireframes, mockups, and icons in Figma</li>
-                <li>
-                  <span aria-hidden="true">•</span> Built the PWA front-end for tablets, laptops, and
-                  smartphones
-                </li>
-                <li>
-                  <span aria-hidden="true">•</span> Delivered a cost-effective digital solution that cut
-                  delivery costs by 45%
-                </li>
+                {tuPlanRedondo.role.items.map((item, i) => (
+                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                ))}
               </ul>
             </OverviewCard>
 
-            <OverviewCard icon={GitBranch} title="Scope">
+            <OverviewCard icon={GitBranch} title={tuPlanRedondo.scope.title}>
               <ul className="space-y-1">
-                <li><span aria-hidden="true">•</span> End-to-end research → design → development</li>
-                <li><span aria-hidden="true">•</span> Evaluation forms, dashboard, and secure login</li>
-                <li>
-                  <span aria-hidden="true">•</span> Cross-device PWA built with HTML5, CSS3, Bootstrap, JS
-                </li>
+                {tuPlanRedondo.scope.items.map((item, i) => (
+                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                ))}
               </ul>
             </OverviewCard>
           </div>
@@ -271,7 +196,7 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
-            Project Impact
+            {tuPlanRedondo.impact.title}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -280,12 +205,12 @@ export default function TuPlanRedondo() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
                   <Zap className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-ink-900 mb-2">30%</div>
+                <div className="text-4xl font-bold text-ink-900 mb-2">{tuPlanRedondo.impact.metrics[0].value}</div>
                 <div className="text-sm font-semibold text-accent mb-2">
-                  Faster Evaluations
+                  {tuPlanRedondo.impact.metrics[0].label}
                 </div>
                 <div className="text-xs text-gray-400">
-                  Streamlined digital workflow replaced manual paper forms.
+                  {tuPlanRedondo.impact.metrics[0].description}
                 </div>
               </div>
             </GlassCard>
@@ -295,13 +220,12 @@ export default function TuPlanRedondo() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
                   <SmilePlus className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-ink-900 mb-2">25%</div>
+                <div className="text-4xl font-bold text-ink-900 mb-2">{tuPlanRedondo.impact.metrics[1].value}</div>
                 <div className="text-sm font-semibold text-accent mb-2">
-                  Higher Satisfaction
+                  {tuPlanRedondo.impact.metrics[1].label}
                 </div>
                 <div className="text-xs text-gray-400">
-                  Evaluators found the PWA faster, simpler, and easier to
-                  access.
+                  {tuPlanRedondo.impact.metrics[1].description}
                 </div>
               </div>
             </GlassCard>
@@ -311,12 +235,12 @@ export default function TuPlanRedondo() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
                   <CircleDollarSign className="w-6 h-6 text-accent-icon" />
                 </div>
-                <div className="text-4xl font-bold text-ink-900 mb-2">45%</div>
+                <div className="text-4xl font-bold text-ink-900 mb-2">{tuPlanRedondo.impact.metrics[2].value}</div>
                 <div className="text-sm font-semibold text-accent mb-2">
-                  Lower Dev Cost
+                  {tuPlanRedondo.impact.metrics[2].label}
                 </div>
                 <div className="text-xs text-gray-400">
-                  PWA approach avoided native builds for iOS and Android.
+                  {tuPlanRedondo.impact.metrics[2].description}
                 </div>
               </div>
             </GlassCard>
@@ -327,14 +251,13 @@ export default function TuPlanRedondo() {
                   <BarChart3 className="w-6 h-6 text-accent-icon" />
                 </div>
                 <div className="text-4xl font-bold text-ink-900 mb-2">
-                  Real-time
+                  {tuPlanRedondo.impact.metrics[3].value}
                 </div>
                 <div className="text-sm font-semibold text-accent mb-2">
-                  Insights
+                  {tuPlanRedondo.impact.metrics[3].label}
                 </div>
                 <div className="text-xs text-gray-400">
-                  Live dashboards connected managers to instant performance
-                  data.
+                  {tuPlanRedondo.impact.metrics[3].description}
                 </div>
               </div>
             </GlassCard>
@@ -344,32 +267,19 @@ export default function TuPlanRedondo() {
 
       {/* Project Gallery */}
       <ProjectGallery
-        title="Design & Development"
-        images={[
-          {
-            src: getImagePath("images/projects/mc-2.webp"),
-            alt: "Different profiles of the PWA",
-          },
-          {
-            src: getImagePath("images/projects/mc-3.webp"),
-            alt: "Mobile first design",
-          },
-          {
-            src: getImagePath("images/projects/mc-4.webp"),
-            alt: "Different screens of the PWA",
-          },
-        ]}
+        title={tuPlanRedondo.gallery.title}
+        images={tuPlanRedondo.gallery.images.map(img)}
       />
 
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              01
+              {tuPlanRedondo.businessContext.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Business Context
+                {tuPlanRedondo.businessContext.title}
               </h2>
             </div>
           </div>
@@ -378,23 +288,13 @@ export default function TuPlanRedondo() {
             <GlassCard>
               <div className="p-6 space-y-4">
                 <p className="text-gray-300 leading-relaxed">
-                  The McDonald’s franchise approached requesting a mobile
-                  application to digitalize employee evaluations and track
-                  performance across its restaurants. The existing process
-                  relied on printed forms and manual data entry, which made
-                  reporting slow, fragmented, and prone to errors.
+                  {tuPlanRedondo.businessContext.paragraphs[0]}
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  Managers wanted a simple tool to collect evaluations, review
-                  results, and monitor staff performance more efficiently. The
-                  priority was to eliminate paperwork and centralize all data in
-                  a single digital system accessible during daily operations in
-                  each restaurant.
+                  {tuPlanRedondo.businessContext.paragraphs[1]}
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  They initially asked for a native app, but after mapping their
-                  environment, we realized a PWA would solve the same problem
-                  faster, cheaper, and without app-store friction.
+                  {tuPlanRedondo.businessContext.paragraphs[2]}
                 </p>
               </div>
             </GlassCard>
@@ -407,11 +307,11 @@ export default function TuPlanRedondo() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              02
+              {tuPlanRedondo.research.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Research & Definition
+                {tuPlanRedondo.research.title}
               </h2>
             </div>
           </div>
@@ -420,42 +320,10 @@ export default function TuPlanRedondo() {
             {/* --- User Research Process --- */}
 
             <ImageTextCard
-              title="User Research Process"
-              description="I conducted comprehensive research to understand both evaluator workflows and management reporting needs, combining qualitative interviews with iterative usability testing."
-              bulletPoints={[
-                {
-                  label: "Desk research",
-                  text: "Analyzed existing paper forms and spreadsheet workflows.",
-                },
-                {
-                  label: "5 user interviews",
-                  text: "Field administrator/crew/supervisors to understand pain points.",
-                },
-                {
-                  label: "Affinity mapping",
-                  text: "Synthesized insights into themes around efficiency, accuracy, and reporting.",
-                },
-                {
-                  label: "Personas",
-                  text: "Developed profiles for field administrator/crew/supervisors.",
-                },
-                {
-                  label: "Journey mapping",
-                  text: "Documented end-to-end evaluation and reporting workflows.",
-                },
-                {
-                  label: "10 usability tests",
-                  text: "Iterative testing validated design decisions and interaction patterns.",
-                },
-              ]}
-              images={[
-                {
-                  src: getImagePath(
-                    "images/projects/mc-userflowEvol_Difprofiles.webp"
-                  ),
-                  alt: "User flow boards showing administrator/restaurant manager/supervisors/crew paths",
-                },
-              ]}
+              title={tuPlanRedondo.research.userResearch.title}
+              description={tuPlanRedondo.research.userResearch.description}
+              bulletPoints={tuPlanRedondo.research.userResearch.bulletPoints}
+              images={tuPlanRedondo.research.userResearch.images.map(img)}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText=""
@@ -464,41 +332,10 @@ export default function TuPlanRedondo() {
             {/* --- Key Findings --- */}
 
             <ImageTextCard
-              title="Key Findings"
-              description="Research revealed critical pain points that shaped the product requirements and guided the design approach."
-              bulletPoints={[
-                {
-                  label: "Time waste",
-                  text: "Paper forms and manual data entry made each evaluation slow and reporting fragmented.",
-                },
-                {
-                  label: "Transcription errors",
-                  text: "Manual data entry from paper to spreadsheets introduced mistakes.",
-                },
-                {
-                  label: "Delayed insights",
-                  text: "Weeks passed before management could see performance trends.",
-                },
-                {
-                  label: "App friction",
-                  text: "Users strongly resisted downloading apps due to privacy concern.",
-                },
-
-                {
-                  label: "Connectivity",
-                  text: "No issues with connectivity.",
-                },
-                {
-                  label: "User types",
-                  text: "Administrator, restaurant manager, supervisor and crew members under one streamlined workflow.",
-                },
-              ]}
-              images={[
-                {
-                  src: getImagePath("images/projects/mc-painPoints.webp"),
-                  alt: "Pain points in product development",
-                },
-              ]}
+              title={tuPlanRedondo.research.keyFindings.title}
+              description={tuPlanRedondo.research.keyFindings.description}
+              bulletPoints={tuPlanRedondo.research.keyFindings.bulletPoints}
+              images={tuPlanRedondo.research.keyFindings.images.map(img)}
               imagePosition="right"
               onOpenGallery={openGallery}
               additionalText=""
@@ -512,11 +349,11 @@ export default function TuPlanRedondo() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              03
+              {tuPlanRedondo.keyDecisions.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Key Decisions & Trade-offs
+                {tuPlanRedondo.keyDecisions.title}
               </h2>
             </div>
           </div>
@@ -533,11 +370,11 @@ export default function TuPlanRedondo() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              04
+              {tuPlanRedondo.designImplementation.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Design & Implementation
+                {tuPlanRedondo.designImplementation.title}
               </h2>
             </div>
           </div>
@@ -545,35 +382,10 @@ export default function TuPlanRedondo() {
           <div className="pl-0 md:pl-24 space-y-8">
             {/* 1) Brand-Aligned Visual Design */}
             <ImageTextCard
-              title="Brand-Aligned Visual Design"
-              description="Created all icons and visual elements to align with McDonald’s brand guidelines while maintaining clarity and usability. The design balances brand recognition with functional requirements."
-              bulletPoints={[
-                {
-                  label: "Employee selection",
-                  text: "Avatar-based visual identification",
-                },
-                {
-                  label: "Quick-tap input",
-                  text: "Approval/rejection for criteria like food safety, cleanliness, and appearance",
-                },
-                {
-                  label: "Color coding",
-                  text: "McDonald’s brand colors (green = approved, red = needs improvement) for instant recognition",
-                },
-                {
-                  label: "Autosave",
-                  text: "Prevents data loss if evaluators are interrupted",
-                },
-              ]}
-              images={[
-                // replace with your real screenshots
-                {
-                  src: getImagePath(
-                    "images/projects/mc-iconsVisualElements.webp"
-                  ),
-                  alt: "Brand-aligned components and icons",
-                },
-              ]}
+              title={tuPlanRedondo.designImplementation.visualDesign.title}
+              description={tuPlanRedondo.designImplementation.visualDesign.description}
+              bulletPoints={tuPlanRedondo.designImplementation.visualDesign.bulletPoints}
+              images={tuPlanRedondo.designImplementation.visualDesign.images.map(img)}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText=""
@@ -581,35 +393,10 @@ export default function TuPlanRedondo() {
 
             {/* 2) Streamlined Evaluation Interface */}
             <ImageTextCard
-              title="Streamlined Evaluation Interface"
-              description="Designed evaluation forms to match the mental model of paper workflows while leveraging digital affordances. Visual indicators (thumbs up/down, color coding) enable fast data entry during observations."
-              bulletPoints={[
-                {
-                  label: "Employee selection",
-                  text: "Avatar-based visual identification",
-                },
-                {
-                  label: "Quick-tap input",
-                  text: "Approval/rejection for criteria like food safety, cleanliness, and appearance",
-                },
-                {
-                  label: "Color coding",
-                  text: "McDonald’s brand colors (green = approved, red = needs improvement) for instant recognition",
-                },
-                {
-                  label: "Autosave",
-                  text: "Prevents data loss if evaluators are interrupted",
-                },
-              ]}
-              images={[
-                // replace with your real screenshots
-                {
-                  src: getImagePath(
-                    "images/projects/mc-userflowEvol-restaurantManager.webp"
-                  ),
-                  alt: "Mockup of evaluation flow of general restaurant manager",
-                },
-              ]}
+              title={tuPlanRedondo.designImplementation.evaluationInterface.title}
+              description={tuPlanRedondo.designImplementation.evaluationInterface.description}
+              bulletPoints={tuPlanRedondo.designImplementation.evaluationInterface.bulletPoints}
+              images={tuPlanRedondo.designImplementation.evaluationInterface.images.map(img)}
               imagePosition="right"
               onOpenGallery={openGallery}
               additionalText=""
@@ -617,31 +404,10 @@ export default function TuPlanRedondo() {
 
             {/* 3) Performance Evaluation */}
             <ImageTextCard
-              title="Performance Evaluation"
-              description="Managers select a worker and score core McDonald’s service metrics with quick taps. Visual fries icons make scoring unambiguous during fast service."
-              bulletPoints={[
-                {
-                  label: "Core metrics",
-                  text: "CLS (Quality | Service | Cleanliness) · Attitude · Appearance",
-                },
-                {
-                  label: "Fast input",
-                  text: "Green/red fries icons for quick, intuitive scoring",
-                },
-                {
-                  label: "Autosave",
-                  text: "No data loss if an evaluation is interrupted",
-                },
-              ]}
-              images={[
-                // replace with your real screenshots
-                {
-                  src: getImagePath(
-                    "images/projects/mc-PerformanceEvaluation.webp"
-                  ),
-                  alt: "PWA screenshot of performance evaluation page",
-                },
-              ]}
+              title={tuPlanRedondo.designImplementation.performanceEvaluation.title}
+              description={tuPlanRedondo.designImplementation.performanceEvaluation.description}
+              bulletPoints={tuPlanRedondo.designImplementation.performanceEvaluation.bulletPoints}
+              images={tuPlanRedondo.designImplementation.performanceEvaluation.images.map(img)}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText=""
@@ -655,41 +421,32 @@ export default function TuPlanRedondo() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
             <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              05
+              {tuPlanRedondo.businessImpact.number}
             </div>
             <div className="flex-1 pt-2">
               <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
-                Business Impact & Results
+                {tuPlanRedondo.businessImpact.title}
               </h2>
             </div>
           </div>
 
           <div className="pl-0 md:pl-24 space-y-6">
             <p className="text-gray-300 leading-relaxed">
-              The PWA delivered measurable improvements in efficiency, cost, and
-              user satisfaction while establishing a scalable foundation for
-              future franchise operations tools.
+              {tuPlanRedondo.businessImpact.intro}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-accent mb-3">
-                    Operational Efficiency & User Experience
+                    {tuPlanRedondo.businessImpact.efficiency.title}
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
-                    <li>
-                      <strong>30% time savings:</strong> Evaluations that took
-                      30-40 minutes now complete in 20-25 minutes.
-                    </li>
-                    <li>
-                      <strong>Eliminated data entry:</strong> Zero manual
-                      transcription from paper to spreadsheets.
-                    </li>
-                    <li>
-                      <strong>25% satisfaction increase:</strong> managers
-                      praised simplicity and speed.
-                    </li>
+                    {tuPlanRedondo.businessImpact.efficiency.items.map((item, i) => (
+                      <li key={i}>
+                        <RichText text={item} />
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </GlassCard>
@@ -697,27 +454,14 @@ export default function TuPlanRedondo() {
               <GlassCard>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-accent mb-3">
-                    Cost
+                    {tuPlanRedondo.businessImpact.cost.title}
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
-                    <li>
-                      <strong>45% cost reduction:</strong> PWA development
-                      cheaper than native iOS + Android apps.
-                    </li>
-                    <li>
-                      <strong>Cross-device compatibility:</strong> Single
-                      codebase works on tablets, phones, and laptops.
-                    </li>
-                    <li>
-                      <strong>Zero update friction:</strong> Directly released,
-                      no app-store approval delays.
-                    </li>
-
-                    <li>
-                      <strong>Zero installation friction:</strong> Users access
-                      via browser or can add it to the Home screen without an app
-                      store and without using device memory.
-                    </li>
+                    {tuPlanRedondo.businessImpact.cost.items.map((item, i) => (
+                      <li key={i}>
+                        <RichText text={item} />
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </GlassCard>
@@ -733,22 +477,20 @@ export default function TuPlanRedondo() {
           <GlassCard>
             <div className="text-center py-8">
               <h2 className="text-3xl font-bold text-ink-900 mb-4">
-                Want to see more work?
+                {tuPlanRedondo.cta.title}
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                This project demonstrates how research-driven design, cohesive
-                branding, and performant technical implementation create
-                measurable business impact.
+                {tuPlanRedondo.cta.text}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href={createPageUrl("ProductWork")}
                   className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
                 >
-                  View All Projects
+                  {tuPlanRedondo.cta.allProjects}
                 </Link>
                 <CopyEmailLink className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all">
-                  Let's Talk
+                  {tuPlanRedondo.cta.talk}
                 </CopyEmailLink>
               </div>
             </div>
