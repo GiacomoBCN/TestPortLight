@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { shell } from "@/content/shell";
 
 /**
  * Lightbox unica per tutte le gallerie (ProjectGallery e case study).
@@ -105,7 +106,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Lig
       ref={dialogRef}
       role="dialog"
       aria-modal="true"
-      aria-label={`Image ${index + 1} of ${images.length}: ${image.alt}`}
+      aria-label={shell.ui.lightbox.dialogLabel(index + 1, images.length, image.alt)}
       className="fixed inset-0 bg-black/90 z-[70] flex items-center justify-center p-4 overscroll-contain"
       data-track-area="lightbox"
       onClick={onClose}
@@ -118,7 +119,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Lig
         type="button"
         onClick={onClose}
         className="absolute top-4 right-4 text-white hover:text-sand-200 transition-colors z-10"
-        aria-label="Close image"
+        aria-label={shell.ui.lightbox.close}
       >
         <X size={32} aria-hidden="true" />
       </button>
@@ -133,7 +134,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Lig
               onPrev();
             }}
             className="flex absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
-            aria-label="Previous image"
+            aria-label={shell.ui.lightbox.previous}
           >
             <ChevronLeft size={32} aria-hidden="true" />
           </button>
@@ -145,7 +146,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Lig
               onNext();
             }}
             className="flex absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white hover:text-sand-200 transition-colors z-10 bg-black/50 rounded-full p-3 hover:bg-black/70"
-            aria-label="Next image"
+            aria-label={shell.ui.lightbox.next}
           >
             <ChevronRight size={32} aria-hidden="true" />
           </button>
@@ -155,7 +156,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Lig
             aria-live="polite"
             aria-atomic="true"
           >
-            {index + 1} / {images.length}
+            {shell.ui.lightbox.counter(index + 1, images.length)}
           </div>
         </>
       )}

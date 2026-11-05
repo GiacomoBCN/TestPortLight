@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { shell } from "@/content/shell";
 
 interface ExpandableTextProps {
   maxLength?: number;
@@ -40,7 +41,7 @@ export default function ExpandableText({
               onClick={() => setIsExpanded(!isExpanded)}
               className="ml-2 text-sm text-[var(--color-text-brand)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium underline underline-offset-2"
             >
-              {isExpanded ? "Show less" : "Show more"}
+              {isExpanded ? shell.ui.expandableText.showLess : shell.ui.expandableText.showMore}
             </button>
           )}
         </span>
@@ -58,7 +59,7 @@ export default function ExpandableText({
               onClick={() => setIsExpanded(!isExpanded)}
               className="ml-2 text-sm text-[var(--color-text-brand)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium underline underline-offset-2"
             >
-              {isExpanded ? "Show less" : "Show more"}
+              {isExpanded ? shell.ui.expandableText.showLess : shell.ui.expandableText.showMore}
             </button>
           )}
         </>
@@ -91,7 +92,7 @@ export default function ExpandableText({
             onClick={() => setIsExpanded(!isExpanded)}
             className="text-sm text-[var(--color-text-brand)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium underline underline-offset-2"
           >
-            Show less
+            {shell.ui.expandableText.showLess}
           </button>
         </motion.div>
       )}

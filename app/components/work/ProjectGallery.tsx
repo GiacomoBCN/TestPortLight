@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Lightbox from "../Lightbox";
+import { shell } from "@/content/shell";
 
 interface GalleryImage {
   src: string;
@@ -16,7 +17,7 @@ interface ProjectGalleryProps {
 
 export default function ProjectGallery({
   images,
-  title = "Project Gallery"
+  title = shell.ui.projectGallery.defaultTitle
 }: ProjectGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
@@ -54,7 +55,7 @@ export default function ProjectGallery({
                 type="button"
                 onClick={scrollLeft}
                 className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
-                aria-label="Scroll images left"
+                aria-label={shell.ui.projectGallery.scrollLeft}
               >
                 <ChevronLeft size={24} aria-hidden="true" />
               </button>
@@ -77,7 +78,7 @@ export default function ProjectGallery({
                   key={index}
                   className="block flex-shrink-0 w-80 h-48 bg-white backdrop-blur-xl border border-ink-900/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group"
                   onClick={() => setSelectedIndex(index)}
-                  aria-label={`Enlarge image: ${image.alt}`}
+                  aria-label={shell.ui.enlargeImageLabel(image.alt)}
                 >
                   <Image
                     src={image.src}
@@ -99,7 +100,7 @@ export default function ProjectGallery({
                 type="button"
                 onClick={scrollRight}
                 className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
-                aria-label="Scroll images right"
+                aria-label={shell.ui.projectGallery.scrollRight}
               >
                 <ChevronRight size={24} aria-hidden="true" />
               </button>

@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import SideBands from "./components/SideBands";
 import SketchFrame from "./components/SketchFrame";
 import CopyEmailLink, { CONTACT_EMAIL } from "./components/CopyEmailLink";
+import { shell } from "@/content/shell";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -60,17 +61,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     };
   }, [isMobileMenuOpen]);
 
-  const projectLinks = [
-    { name: "Dow Jones Design System", path: "DowJones" },
-    { name: "Falak AI Assistant", path: "Falak" },
-    { name: "VOD Platform", path: "VODplatform" },
-    { name: "SGPV Evolution", path: "SGPVEvolution" },
-    { name: "XpuntoCero Transformation", path: "XpuntoCero" },
-    { name: "Back Office Unification", path: "BackOffice" },
-    { name: "TuPlanRedondo PWA", path: "TuPlanRedondo" },
-    // TEMPORARILY HIDDEN - E-Commerce Management
-    // { name: "E-Commerce Management", path: "EcommerceManagement" },
-  ];
+  const projectLinks = shell.nav.projects;
 
   const isHome = pathname === "/";
 
@@ -94,7 +85,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Skip link */}
       <a href="#main-content" className="skip-link">
-        Skip to main content
+        {shell.skipLink}
       </a>
 
       {/* Nav */}
@@ -102,7 +93,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         className={`sketch fixed top-0 inset-x-0 z-[60] transition-all ${
           isScrolled ? "glass py-4" : "bg-transparent py-6"
         }`}
-        aria-label="Main navigation"
+        aria-label={shell.nav.ariaLabel}
         style={{ left: "var(--band)", right: "var(--band)" }}
       >
         <SketchFrame />
@@ -116,11 +107,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 className="text-accent font-bold text-lg"
                 aria-hidden="true"
               >
-                GB
+                {shell.nav.logoMark}
               </span>
             </div>
             <span className="font-bold text-xl sr-only md:not-sr-only">
-              Giacomo Bianchi
+              {shell.nav.siteName}
             </span>
           </Link>
 
@@ -148,7 +139,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 aria-expanded={isProductDropdownOpen}
                 aria-controls="product-work-submenu"
               >
-                Product Work{" "}
+                {shell.nav.productWork}{" "}
                 <ChevronDown className="w-4 h-4 ml-1" aria-hidden="true" />
               </Link>
               {/* Il pannello parte sotto tutta la cornice del nav (banda azzurra,
@@ -175,7 +166,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   href={createPageUrl("ProductWork")}
                   className="block px-4 py-2 text-ink-900 font-semibold hover:bg-[var(--nav-dropdown-hover)] hover:text-ink-900 rounded-lg transition-colors"
                 >
-                  All Projects
+                  {shell.nav.allProjects}
                 </Link>
                 <div className="h-px bg-ink-900/20 my-2" />
                 {projectLinks.map((p) => (
@@ -195,16 +186,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               href={createPageUrl("Teaching")}
               className="text-slate-300 hover:text-ink-900"
             >
-              Teaching
+              {shell.nav.teaching}
             </Link>
             <Link href="/#about" className="text-slate-300 hover:text-ink-900">
-              About
+              {shell.nav.about}
             </Link>
             <CopyEmailLink
               className="px-6 py-2 glass rounded-lg hover:bg-blue-600! hover:text-white"
-              ariaLabel="Contact via email"
+              ariaLabel={shell.nav.contactAriaLabel}
             >
-              Contact
+              {shell.nav.contact}
             </CopyEmailLink>
           </div>
 
@@ -216,7 +207,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             onClick={() => setIsMobileMenuOpen((s) => !s)}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMobileMenuOpen ? shell.nav.closeMenu : shell.nav.openMenu}
           >
             {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
@@ -240,7 +231,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   href={createPageUrl("ProductWork")}
                   className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 font-semibold text-lg"
                 >
-                  Product Work
+                  {shell.nav.productWork}
                 </Link>
                 <div className="pl-4 space-y-2 border-l-2 border-ink-900/10">
                   {projectLinks.map((p) => (
@@ -257,20 +248,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   href={createPageUrl("Teaching")}
                   className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 text-lg"
                 >
-                  Teaching
+                  {shell.nav.teaching}
                 </Link>
                 <Link
                   href="/#about"
                   className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 text-lg"
                 >
-                  About
+                  {shell.nav.about}
                 </Link>
 
                 <CopyEmailLink
                   className="px-6 py-3 glass rounded-lg hover:bg-blue-600! hover:text-white text-center font-semibold mt-2"
-                  ariaLabel="Contact via email"
+                  ariaLabel={shell.nav.contactAriaLabel}
                 >
-                  Contact
+                  {shell.nav.contact}
                 </CopyEmailLink>
               </div>
             </div>
@@ -291,12 +282,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="text-slate-300 text-sm">© 2026 Giacomo Bianchi.</p>
+              <p className="text-slate-300 text-sm">{shell.footer.copyright}</p>
               <p className="text-slate-500 text-xs mt-1">
-                Italian by birth. Product leader by craft. Global by vocation.
+                {shell.footer.tagline}
               </p>
               <p className="text-slate-500 text-xs mt-1">
-                Barcelona • Open to MENA, Europe & Remote
+                {shell.footer.location}
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -306,7 +297,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </CopyEmailLink>
               <CopyEmailLink
                 className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600! hover:text-white glow-blue"
-                ariaLabel="Email"
+                ariaLabel={shell.footer.emailAriaLabel}
                 copiedLabel={<Check size={20} aria-hidden="true" />}
               >
                 <Mail size={20} />
@@ -317,7 +308,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white glow-blue"
-                aria-label="LinkedIn"
+                aria-label={shell.footer.linkedinAriaLabel}
               >
                 <svg
                   width="20"

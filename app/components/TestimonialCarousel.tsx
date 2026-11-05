@@ -7,6 +7,7 @@ import Image from "next/image";
 import GlassCard from "./portfolio/GlassCard";
 import TestimonialModal from "./TestimonialModal";
 import { getImagePath } from "@/utils/image";
+import { shell } from "@/content/shell";
 
 interface Testimonial {
   quote: string;
@@ -130,11 +131,11 @@ export default function TestimonialCarousel({
                         <button
                           type="button"
                           onClick={() => openModal(testimonial)}
-                          aria-label={`Read more: testimonial from ${testimonial.name}`}
+                          aria-label={shell.ui.testimonials.readMoreLabel(testimonial.name)}
                           aria-haspopup="dialog"
                           className="mb-4 text-sm text-[var(--color-text-brand)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium underline underline-offset-2 text-left"
                         >
-                          Read more
+                          {shell.ui.testimonials.readMore}
                         </button>
                       )}
 
@@ -174,7 +175,7 @@ export default function TestimonialCarousel({
                 type="button"
                 onClick={() => paginate(-1)}
                 className="w-12 h-12 glass rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] transition-all duration-200 glow-blue hover:scale-110"
-                aria-label="Previous testimonials"
+                aria-label={shell.ui.testimonials.previous}
               >
                 <ChevronLeft size={24} aria-hidden="true" />
               </button>
@@ -190,7 +191,7 @@ export default function TestimonialCarousel({
                     onClick={() => goToSlide(index)}
                     aria-current={index === currentIndex ? "true" : undefined}
                     className="group h-6 px-1.5 flex items-center justify-center"
-                    aria-label={`Go to page ${index + 1}`}
+                    aria-label={shell.ui.testimonials.goToPage(index + 1)}
                   >
                     <span
                       aria-hidden="true"
@@ -208,7 +209,7 @@ export default function TestimonialCarousel({
                 type="button"
                 onClick={() => paginate(1)}
                 className="w-12 h-12 glass rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] transition-all duration-200 glow-blue hover:scale-110"
-                aria-label="Next testimonials"
+                aria-label={shell.ui.testimonials.next}
               >
                 <ChevronRight size={24} aria-hidden="true" />
               </button>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { shell } from "@/content/shell";
 
 declare global {
   interface Window {
@@ -62,7 +63,7 @@ export default function CookieConsent() {
           className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-50"
           data-track-area="cookie"
           role="region"
-          aria-label="Cookie consent"
+          aria-label={shell.cookieConsent.ariaLabel}
         style={{ right: "calc(var(--band) + 1.5rem)" }}
         >
           <div
@@ -74,8 +75,7 @@ export default function CookieConsent() {
           >
             <div className="flex flex-col gap-3">
               <p className="text-sm text-[var(--color-text-primary)] leading-relaxed">
-                We use cookies to analyze site traffic and improve your
-                experience.
+                {shell.cookieConsent.message}
               </p>
               <div className="flex gap-2">
                 <button
@@ -83,7 +83,7 @@ export default function CookieConsent() {
                   onClick={handleDecline}
                   className="flex-1 px-4 py-2 text-xs font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] bg-[var(--color-text-inverse)]/5 hover:bg-[var(--color-text-inverse)]/10 rounded-lg transition-all border border-[var(--color-text-inverse)]/10"
                 >
-                  Decline
+                  {shell.cookieConsent.decline}
                 </button>
                 <button
                   type="button"
@@ -91,7 +91,7 @@ export default function CookieConsent() {
                   className="flex-1 px-4 py-2 text-xs font-medium text-[var(--button-primary-text)] bg-[var(--button-primary-background-default)] hover:bg-[var(--button-primary-background-hover)] rounded-lg transition-all"
                   style={{ boxShadow: "0 0 20px var(--color-surface-glow)" }}
                 >
-                  Accept
+                  {shell.cookieConsent.accept}
                 </button>
               </div>
             </div>

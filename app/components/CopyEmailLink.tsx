@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import { shell } from "@/content/shell";
 
 export const CONTACT_EMAIL = "consulting@giacomobianchi.tech";
 
@@ -10,7 +11,7 @@ export const CONTACT_EMAIL = "consulting@giacomobianchi.tech";
  */
 export default function CopyEmailLink({
   children,
-  copiedLabel = "Email copied",
+  copiedLabel = shell.ui.copyEmail.copied,
   className,
   ariaLabel,
 }: {
@@ -57,7 +58,7 @@ export default function CopyEmailLink({
     >
       {copied ? copiedLabel : children}
       <span className="sr-only" role="status" aria-live="polite">
-        {copied ? "Email address copied to clipboard" : ""}
+        {copied ? shell.ui.copyEmail.copiedAnnouncement : ""}
       </span>
     </a>
   );

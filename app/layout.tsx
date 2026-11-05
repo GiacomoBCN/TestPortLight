@@ -4,12 +4,12 @@ import SiteShell from "@/app/SiteShell";
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import CookieConsent from "@/app/components/CookieConsent";
 import { Suspense } from "react";
+import { shell } from "@/content/shell";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-const SITE_TITLE = "Giacomo Bianchi · Product Builder & Design Engineer";
-const SITE_DESCRIPTION =
-  "I build AI products end to end. Product Builder and Design Engineer, former Lead Design Technologist at Dow Jones. Based in Barcelona.";
+const SITE_TITLE = shell.metadata.title;
+const SITE_DESCRIPTION = shell.metadata.description;
 
 export const viewport: Viewport = {
   themeColor: "#ffffff",
@@ -22,23 +22,15 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://giacomobianchi.tech'),
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
-  keywords: [
-    "Product Builder",
-    "Design Engineer",
-    "Design Systems",
-    "AI products",
-    "UX",
-    "Dow Jones",
-    "Barcelona",
-  ],
-  authors: [{ name: "Giacomo Bianchi" }],
-  creator: "Giacomo Bianchi",
-  publisher: "Giacomo Bianchi",
-  applicationName: "GB Portfolio",
+  keywords: shell.metadata.keywords,
+  authors: [{ name: shell.metadata.author }],
+  creator: shell.metadata.author,
+  publisher: shell.metadata.author,
+  applicationName: shell.metadata.applicationName,
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "GB Portfolio",
+    title: shell.metadata.appleWebAppTitle,
   },
   formatDetection: {
     telephone: false,
@@ -47,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://giacomobianchi.tech",
-    siteName: "Giacomo Bianchi",
+    siteName: shell.metadata.siteName,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: [
@@ -55,7 +47,7 @@ export const metadata: Metadata = {
         url: `${basePath}/android-chrome-512x512.png`,
         width: 512,
         height: 512,
-        alt: "Giacomo Bianchi",
+        alt: shell.metadata.ogImageAlt,
       },
     ],
   },

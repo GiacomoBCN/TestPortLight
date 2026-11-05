@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import SketchFrame from "../SketchFrame";
+import { shell } from "@/content/shell";
 
 interface ProjectListingCardProps {
   category: string;
@@ -66,7 +67,7 @@ export default function ProjectListingCard({
       <div
         ref={scrollRef}
         className="flex-grow mb-4 overflow-y-auto"
-        {...(scrollable ? { tabIndex: 0, role: "region", "aria-label": `${title}: metrics and tags` } : {})}
+        {...(scrollable ? { tabIndex: 0, role: "region", "aria-label": shell.ui.projectListingCard.metricsRegionLabel(title) } : {})}
       >
         {metrics.length > 0 && (
           <div className="grid grid-cols-3 gap-2 mb-3">
@@ -103,9 +104,9 @@ export default function ProjectListingCard({
         <Link
           href={createPageUrl(slug)}
           className="inline-block text-[var(--color-text-link-default)] underline decoration-[var(--primitive-orange-500)] decoration-2 underline-offset-4 hover:text-[var(--color-text-link-hover)] transition-colors text-sm"
-          aria-label={`View Case Study: ${title}`}
+          aria-label={shell.ui.projectListingCard.viewCaseStudyLabel(title)}
         >
-          View Case Study
+          {shell.ui.projectListingCard.viewCaseStudy}
         </Link>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { getImagePath } from "@/utils/image";
+import { shell } from "@/content/shell";
 
 interface TestimonialModalProps {
   isOpen: boolean;
@@ -103,7 +104,7 @@ export default function TestimonialModal({
                 type="button"
                 onClick={onClose}
                 className="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] transition-all duration-200 glow-blue hover:scale-110"
-                aria-label="Close modal"
+                aria-label={shell.ui.testimonials.closeModal}
               >
                 <X size={20} aria-hidden="true" />
               </button>

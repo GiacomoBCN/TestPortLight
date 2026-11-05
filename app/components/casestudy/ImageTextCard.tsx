@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import GlassCard from "../portfolio/GlassCard";
+import { shell } from "@/content/shell";
 
 interface ImageTextCardProps {
   title: string;
@@ -42,7 +43,7 @@ export default function ImageTextCard({
             key={index}
             className="block w-full relative group cursor-pointer"
             onClick={() => onOpenGallery(imagesWithPath, index)}
-            aria-label={`Enlarge image: ${image.alt}`}
+            aria-label={shell.ui.enlargeImageLabel(image.alt)}
           >
             <div className="relative w-full aspect-video">
               <Image
@@ -55,7 +56,7 @@ export default function ImageTextCard({
             </div>
             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
               <span className="text-white text-sm font-medium">
-                Click to enlarge
+                {shell.ui.clickToEnlarge}
               </span>
             </div>
           </button>

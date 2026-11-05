@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
+import { shell } from "@/content/shell";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,8 +37,8 @@ export default function ScrollToTop() {
             className={`w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-[var(--color-surface-interactive-default)] glow-blue transition-all duration-300 pointer-events-auto ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
             }`}
-            aria-label="Scroll to top"
-            title="Scroll to top"
+            aria-label={shell.ui.scrollToTop}
+            title={shell.ui.scrollToTop}
             type="button"
             tabIndex={isVisible ? 0 : -1}
             aria-hidden={isVisible ? undefined : true}

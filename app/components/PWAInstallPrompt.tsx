@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, X } from 'lucide-react';
+import { shell } from '@/content/shell';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -90,24 +91,24 @@ export default function PWAInstallPrompt() {
             </div>
             <div className="flex-1">
               <h3 className="text-sm font-semibold text-[var(--color-text-inverse)] mb-1">
-                Install Portfolio
+                {shell.pwaInstall.title}
               </h3>
               <p className="text-xs text-[var(--color-text-primary)] mb-3">
-                Add to your home screen for quick access
+                {shell.pwaInstall.message}
               </p>
               <div className="flex gap-2">
                 <button
                   onClick={handleDismiss}
                   className="flex-1 px-3 py-1.5 text-xs font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] bg-[var(--color-text-inverse)]/5 hover:bg-[var(--color-text-inverse)]/10 rounded-lg transition-all border border-[var(--color-text-inverse)]/10"
                 >
-                  Not now
+                  {shell.pwaInstall.dismiss}
                 </button>
                 <button
                   onClick={handleInstall}
                   className="flex-1 px-3 py-1.5 text-xs font-medium text-[var(--button-primary-text)] bg-[var(--button-primary-background-default)] hover:bg-[var(--button-primary-background-hover)] rounded-lg transition-all"
                   style={{ boxShadow: "0 0 20px var(--color-surface-glow)" }}
                 >
-                  Install
+                  {shell.pwaInstall.install}
                 </button>
               </div>
             </div>

@@ -1,9 +1,10 @@
 import React from "react";
 import SketchFrame from "../SketchFrame";
+import { shell } from "@/content/shell";
 
 export default function DecisionTable({
   decisions,
-  impactLabel = "Impact",
+  impactLabel = shell.ui.decisionTable.defaultImpactLabel,
 }: {
   decisions: Array<{
     point: string;
@@ -40,13 +41,13 @@ export default function DecisionTable({
             <thead>
               <tr className="border-b border-[var(--color-text-inverse)]/10">
                 <th className="text-left py-4 px-6 text-[var(--color-text-inverse)] font-semibold text-sm">
-                  Decision Point
+                  {shell.ui.decisionTable.decisionPoint}
                 </th>
                 <th className="text-left py-4 px-6 text-[var(--color-text-inverse)] font-semibold text-sm">
-                  Options Considered
+                  {shell.ui.decisionTable.optionsConsidered}
                 </th>
                 <th className="text-left py-4 px-6 text-[var(--color-text-inverse)] font-semibold text-sm">
-                  Why We Chose
+                  {shell.ui.decisionTable.whyWeChose}
                 </th>
                 <th className="text-left py-4 px-6 text-[var(--color-text-inverse)] font-semibold text-sm">
                   {impactLabel}
@@ -93,7 +94,7 @@ export default function DecisionTable({
             <div className="space-y-4">
               <div>
                 <div className="text-[var(--color-text-inverse)]/70 text-xs font-semibold uppercase tracking-wide mb-2">
-                  Options Considered
+                  {shell.ui.decisionTable.optionsConsidered}
                 </div>
                 <div className="text-[var(--color-text-primary)] text-sm space-y-1">
                   {decision.options.map((option, i) => (
@@ -104,7 +105,7 @@ export default function DecisionTable({
 
               <div>
                 <div className="text-[var(--color-text-inverse)]/70 text-xs font-semibold uppercase tracking-wide mb-2">
-                  Why We Chose
+                  {shell.ui.decisionTable.whyWeChose}
                 </div>
                 <div className="text-[var(--color-text-primary)] text-sm">
                   {decision.rationale}
