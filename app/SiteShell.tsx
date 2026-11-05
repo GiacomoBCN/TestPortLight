@@ -146,16 +146,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Product Work{" "}
                 <ChevronDown className="w-4 h-4 ml-1" aria-hidden="true" />
               </Link>
+              {/* Il pannello parte sotto il bordo del nav (quindi sotto la
+                  linea blu della SketchFrame): il padding-top trasparente fa
+                  da ponte per l'hover. py-6 / py-4 = padding del nav. */}
               <div
-                className={`absolute top-full left-0 mt-2 w-64 rounded-xl p-4 transition-all ${
+                className={`absolute top-full left-0 z-20 transition-all ${
+                  isScrolled ? "pt-[calc(1rem+0.5rem)]" : "pt-[calc(1.5rem+0.5rem)]"
+                } ${
                   isProductDropdownOpen
                     ? "opacity-100 visible"
                     : "opacity-0 invisible"
                 }`}
+              >
+              <div
+                className="w-64 rounded-xl p-4"
                 style={{
                   background: "rgba(255, 255, 255, 0.97)",
                   backdropFilter: "blur(20px) saturate(180%)",
                   border: "1px solid rgba(7, 9, 11, 0.15)",
+                  boxShadow: "0 12px 32px rgba(7, 9, 11, 0.08)",
                 }}
                 id="product-work-submenu"
               >
@@ -175,6 +184,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     {p.name}
                   </Link>
                 ))}
+              </div>
               </div>
             </div>
 
