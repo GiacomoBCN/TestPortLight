@@ -14,6 +14,8 @@ export default function ProjectCard({
   tags = [],
   link,
   image,
+  imageFit = "cover",
+  imageBg,
   delay = 0,
 }: {
   role: string;
@@ -25,6 +27,10 @@ export default function ProjectCard({
   tags?: string[];
   link?: string;
   image?: string;
+  /** cover (default) ritaglia; contain mostra tutta la schermata */
+  imageFit?: "cover" | "contain";
+  /** sfondo dietro l'immagine, utile con contain */
+  imageBg?: string;
   delay?: number;
 }) {
   const ref = React.useRef(null);
@@ -35,15 +41,17 @@ export default function ProjectCard({
       {/* Project Image - Fixed height */}
       {image && (
         <div className="mb-6 -mx-8 -mt-8 overflow-hidden rounded-t-xl">
-          <div className="relative aspect-video overflow-hidden">
+          <div className="relative aspect-video overflow-hidden" style={imageBg ? { background: imageBg } : undefined}>
             <Image
               src={image}
               alt={title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className={`${imageFit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-105`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-secondary)] via-transparent to-transparent opacity-60"></div>
+            {imageFit === "cover" && (
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-secondary)] via-transparent to-transparent opacity-60"></div>
+            )}
           </div>
         </div>
       )}

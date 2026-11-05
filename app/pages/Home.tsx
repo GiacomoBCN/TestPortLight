@@ -281,6 +281,34 @@ export default function Home() {
             />
 
             <ProjectCard
+              role="AI Interaction Design · Banking"
+              title="Falak: AI Assistant for a Bank"
+              company="Concept & Coded Prototype"
+              timeframe=""
+              description="Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype."
+              image={getImagePath("images/projects/falak/13-desktop-dark-spending.webp")}
+              imageFit="contain"
+              imageBg="#0c110f"
+              metrics={[
+                { value: "8", label: "Patterns" },
+                { value: "EN · AR", label: "Bilingual" },
+                { value: "Live", label: "Demo" },
+              ]}
+              tags={[
+                "AI Interaction Patterns",
+                "Trust Calibration",
+                "Human Oversight",
+                "Research Synthesis",
+                "Flutter",
+                "Claude Code",
+                "Arabic / RTL",
+                "WCAG 2.2 AA",
+              ]}
+              link={createPageUrl("Falak")}
+              delay={0.1}
+            />
+
+            <ProjectCard
               role="B2C Multi-platform"
               title="VOD Platform Redesign"
               company="Design Challenge"
@@ -302,32 +330,6 @@ export default function Home() {
                 "TV/10-foot UI",
               ]}
               link={createPageUrl("VODplatform")}
-              delay={0.1}
-            />
-
-            <ProjectCard
-              role="AI Interaction Design · Banking"
-              title="Falak: AI Assistant for a Bank"
-              company="Concept & Coded Prototype"
-              timeframe=""
-              description="Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype."
-              image={getImagePath("images/projects/falak/04-desktop-spending-range.webp")}
-              metrics={[
-                { value: "8", label: "Patterns" },
-                { value: "EN · AR", label: "Bilingual" },
-                { value: "Live", label: "Demo" },
-              ]}
-              tags={[
-                "AI Interaction Patterns",
-                "Trust Calibration",
-                "Human Oversight",
-                "Research Synthesis",
-                "Flutter",
-                "Claude Code",
-                "Arabic / RTL",
-                "WCAG 2.2 AA",
-              ]}
-              link={createPageUrl("Falak")}
               delay={0.2}
             />
 
