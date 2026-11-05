@@ -242,6 +242,63 @@ export default function FalakCaseStudy() {
     },
   ];
 
+  const regulations = [
+    {
+      rule: "EU AI Act art. 50(1)",
+      duty: "Tell people they are interacting with an AI, at the start of the first interaction, clearly and accessibly",
+      status: "Applies from 2 Aug 2026, untouched by the Digital Omnibus",
+      falak: "Done: the first message says it is an AI, in English and Arabic",
+    },
+    {
+      rule: "EU AI Act art. 50(2)",
+      duty: "Marking of generated content",
+      status: "Postponed to 2 Dec 2026 for systems placed before 2 Aug 2026",
+      falak: "Marginal for a text chat",
+    },
+    {
+      rule: "Digital Omnibus on AI",
+      duty: "Postpones high-risk obligations (Annex III, credit scoring included, and art. 14)",
+      status: "In force 27 Jul 2026; Annex III applies from 2 Dec 2027, Annex I from 2 Aug 2028",
+      falak: "The staff tool becomes high-risk only if it embeds creditworthiness scores",
+    },
+    {
+      rule: "EU AI Act art. 14(4)",
+      duty: "Awareness of automation bias, ability to ignore or override the output, a stop control",
+      status: "From 2 Dec 2027 for high-risk systems",
+      falak: "Partly: own read first, decline path, stop on multi-step work. Automation-bias signals for staff are a next step",
+    },
+    {
+      rule: "EU AI Act art. 86",
+      duty: "Explanation of the AI's role in a decision affecting a person",
+      status: "From 2 Aug 2026, tied to the high-risk classification",
+      falak: "The checkpoint receipt logs decision, reason, first read, who signed off, model and session",
+    },
+    {
+      rule: "EU AI Act art. 5",
+      duty: "Ban on manipulation and on exploiting vulnerabilities",
+      status: "In force since Feb 2025",
+      falak: "Conversion-rate pitch removed; a vulnerability check is one of the three named checks",
+    },
+    {
+      rule: "GDPR art. 22 / SCHUFA ruling",
+      duty: "Human intervention, right to be heard and to contest, when the bank draws strongly on a score",
+      status: "Already in force; the Omnibus delay does not delay this",
+      falak: "Human sign-off with a reason on both paths; inferred data labelled and unconfirmed",
+    },
+    {
+      rule: "QCB AI Guideline (Qatar, Sep 2024)",
+      duty: "AI register, human-oversight protocol, board accountability, customer notice, explanation of decisions",
+      status: "In force for QCB-licensed institutions; which points bind is to be checked on qcb.gov.qa",
+      falak: "Notice and explanations identical in English and Arabic",
+    },
+    {
+      rule: "CFPB Issue Spotlight (US, Jun 2023)",
+      duty: "No doom loops, recognise disputes and rights, accurate information",
+      status: "Supervisory expectation",
+      falak: "A person always one tap away; any answer can be flagged as wrong",
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Back Button */}
@@ -535,6 +592,99 @@ export default function FalakCaseStudy() {
                 </div>
               </GlassCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Regulatory reference */}
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-start gap-6 mb-8">
+            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">05</div>
+            <div className="flex-1 pt-2">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">Regulatory Reference</h2>
+              <p className="text-gray-400 mt-2">
+                The rules the design was checked against, as they stand after
+                the EU Digital Omnibus. A design map, not legal advice. No rule
+                found requires citing the data source on every answer: that
+                pattern is good practice, not a duty.
+              </p>
+            </div>
+          </div>
+          <div className="pl-0 md:pl-24">
+            {/* Desktop table */}
+            <GlassCard className="hidden lg:block">
+              <div className="p-6 overflow-x-auto">
+                <table className="w-full text-left text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-700">
+                      <th className="pb-4 pr-4 text-accent font-semibold align-bottom">Rule</th>
+                      <th className="pb-4 pr-4 text-accent font-semibold align-bottom">Relevant duty</th>
+                      <th className="pb-4 pr-4 text-accent font-semibold align-bottom">Date / status</th>
+                      <th className="pb-4 text-accent font-semibold align-bottom">What Falak does</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-gray-300">
+                    {regulations.map((r, i) => (
+                      <tr key={i} className="border-b border-gray-800 last:border-0 align-top">
+                        <td className="py-4 pr-4 text-ink-900 font-medium w-40">{r.rule}</td>
+                        <td className="py-4 pr-4">{r.duty}</td>
+                        <td className="py-4 pr-4">{r.status}</td>
+                        <td className="py-4 text-ink-900">{r.falak}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </GlassCard>
+
+            {/* Mobile cards */}
+            <div className="lg:hidden space-y-4">
+              {regulations.map((r, i) => (
+                <GlassCard key={i}>
+                  <div className="p-5">
+                    <h3 className="text-ink-900 font-semibold text-base mb-3">{r.rule}</h3>
+                    <div className="space-y-3 text-sm">
+                      <div>
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">Relevant duty</div>
+                        <div className="text-gray-300">{r.duty}</div>
+                      </div>
+                      <div>
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">Date / status</div>
+                        <div className="text-gray-300">{r.status}</div>
+                      </div>
+                      <div>
+                        <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">What Falak does</div>
+                        <div className="text-ink-900">{r.falak}</div>
+                      </div>
+                    </div>
+                  </div>
+                </GlassCard>
+              ))}
+            </div>
+
+            <p className="text-xs text-gray-400 mt-4 leading-relaxed">
+              Sources:{" "}
+              {[
+                ["Freshfields on the Digital Omnibus", "https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/eu-ai-act-unpacked-34-the-final-digital-omnibus-on-ai-key-amendments-to-the-a-102nber"],
+                ["Usercentrics", "https://usercentrics.com/knowledge-hub/eu-ai-act-high-risk-delay-article-50-transparency-consent/"],
+                ["BSI on art. 50", "https://www.bsigroup.com/en-US/insights-and-media/media-center/press-releases/2026/august/eu-ai-act-article-50-transparency-obligations/"],
+                ["art. 14", "https://euaiact.com/article/14"],
+                ["art. 86", "https://www.artificialintelligenceact.eu/article/86/"],
+                ["A&O Shearman on SCHUFA", "https://www.aoshearman.com/en/insights/ao-shearman-on-data/cjeu-rules-that-a-credit-score-constitutes-automated-decision-making-under-the-gdpr"],
+                ["QCB guideline", "https://regulations.ai/regulations/RAI-QA-DO-CBAGXXX-2024"],
+                ["CFPB", "https://files.consumerfinance.gov/f/documents/cfpb_chatbot-issue-spotlight_2023-06.pdf"],
+                ["Bird & Bird on the EBA mapping", "https://cm.twobirds.com/en/insights/2026/recent-developments-on-the-interplay-between-ai-and-financial-institutions"],
+              ].map(([label, href], i, arr) => (
+                <React.Fragment key={href}>
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink-900">
+                    {label}
+                  </a>
+                  {i < arr.length - 1 ? " · " : "."}
+                </React.Fragment>
+              ))}{" "}
+              The EBA mapping (Nov 2025) finds no significant conflict between the AI Act and banking law, and lists as high-risk only creditworthiness assessment and credit scoring of natural persons.
+            </p>
           </div>
         </div>
       </section>
