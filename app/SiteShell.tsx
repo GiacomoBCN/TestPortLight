@@ -125,8 +125,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
+            {/* La zona hover copre tutta l'altezza del nav (margini negativi =
+                padding del nav), cosi' top-full del pannello = bordo inferiore del nav. */}
             <div
-              className="relative"
+              className={`relative self-stretch flex items-center ${
+                isScrolled ? "-my-4 py-4" : "-my-6 py-6"
+              }`}
               onMouseEnter={() => setIsProductDropdownOpen(true)}
               onMouseLeave={() => setIsProductDropdownOpen(false)}
               onFocus={() => setIsProductDropdownOpen(true)}
@@ -146,13 +150,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Product Work{" "}
                 <ChevronDown className="w-4 h-4 ml-1" aria-hidden="true" />
               </Link>
-              {/* Il pannello parte sotto il bordo del nav (quindi sotto la
-                  linea blu della SketchFrame): il padding-top trasparente fa
-                  da ponte per l'hover. py-6 / py-4 = padding del nav. */}
+              {/* Il pannello parte sotto tutta la cornice del nav (banda azzurra,
+                  tratto a matita e angoli = --sf-ext) piu' 10px d'aria: non tocca
+                  la linea blu. Il padding-top trasparente fa da ponte per l'hover. */}
               <div
-                className={`absolute top-full left-0 z-20 transition-all ${
-                  isScrolled ? "pt-[calc(1rem+0.5rem)]" : "pt-[calc(1.5rem+0.5rem)]"
-                } ${
+                className={`absolute top-full left-0 z-20 pt-[calc(var(--sf-ext)+10px)] transition-all ${
                   isProductDropdownOpen
                     ? "opacity-100 visible"
                     : "opacity-0 invisible"
