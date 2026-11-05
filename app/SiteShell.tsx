@@ -61,6 +61,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, [isMobileMenuOpen]);
 
   const projectLinks = [
+    { name: "Falak AI Assistant", path: "Falak" },
     { name: "Dow Jones Design System", path: "DowJones" },
     { name: "VOD Platform", path: "VODplatform" },
     { name: "SGPV Evolution", path: "SGPVEvolution" },

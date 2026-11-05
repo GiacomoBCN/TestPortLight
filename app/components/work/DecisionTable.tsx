@@ -2,15 +2,33 @@ import React from "react";
 import SketchFrame from "../SketchFrame";
 
 export default function DecisionTable({
-  decisions
+  decisions,
+  impactLabel = "Impact",
 }: {
   decisions: Array<{
     point: string;
     options: string[];
     rationale: string;
     impact: string;
+    /** Link facoltativo sull'ultima colonna (es. la fonte della ricerca) */
+    impactHref?: string;
   }>;
+  /** Intestazione dell'ultima colonna */
+  impactLabel?: string;
 }) {
+  const impactCell = (d: { impact: string; impactHref?: string }) =>
+    d.impactHref ? (
+      <a
+        href={d.impactHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline decoration-current/40 underline-offset-2 hover:decoration-current"
+      >
+        {d.impact}
+      </a>
+    ) : (
+      d.impact
+    );
   return (
     <>
       {/* Desktop Table View - hidden on mobile */}
@@ -31,7 +49,7 @@ export default function DecisionTable({
                   Why We Chose
                 </th>
                 <th className="text-left py-4 px-6 text-[var(--color-text-inverse)] font-semibold text-sm">
-                  Impact
+                  {impactLabel}
                 </th>
               </tr>
             </thead>
@@ -50,7 +68,7 @@ export default function DecisionTable({
                     {decision.rationale}
                   </td>
                   <td className="py-4 px-6 text-[var(--color-text-link-default)] font-semibold text-sm">
-                    {decision.impact}
+                    {impactCell(decision)}
                   </td>
                 </tr>
               ))}
@@ -95,10 +113,10 @@ export default function DecisionTable({
 
               <div>
                 <div className="text-[var(--color-text-inverse)]/70 text-xs font-semibold uppercase tracking-wide mb-2">
-                  Impact
+                  {impactLabel}
                 </div>
                 <div className="text-[var(--color-text-link-default)] font-semibold text-sm">
-                  {decision.impact}
+                  {impactCell(decision)}
                 </div>
               </div>
             </div>

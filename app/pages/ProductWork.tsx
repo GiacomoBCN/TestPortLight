@@ -6,6 +6,30 @@ import ProjectListingCard from "../components/work/ProjectListingCard";
 export default function ProductWork() {
   const projects = [
     {
+      category: "AI INTERACTION DESIGN · TRUST & ACCOUNTABILITY · BANKING",
+      title: "Falak: AI Assistant for a Bank",
+      role: "Concept, Research & Coded Prototype",
+      year: "",
+      description:
+        "Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype.",
+      metrics: [
+        { value: "8", label: "Patterns" },
+        { value: "EN · AR", label: "Bilingual" },
+        { value: "Live", label: "Demo" },
+      ],
+      tags: [
+        "AI Interaction Patterns",
+        "Trust Calibration",
+        "Human Oversight",
+        "Research Synthesis",
+        "Flutter",
+        "Claude Code",
+        "Arabic / RTL",
+        "WCAG 2.2 AA",
+      ],
+      slug: "Falak",
+    },
+    {
       category: "DESIGN SYSTEMS · PRODUCT OWNERSHIP · ENTERPRISE",
       title: "Dow Jones Design System",
       role: "Lead Design Technologist | Design System Product Owner",
