@@ -305,7 +305,7 @@ export const falak = {
         rule: "EU AI Act art. 5",
         duty: "Ban on manipulation and on exploiting vulnerabilities",
         status: "In force since Feb 2025",
-        falak: "Conversion-rate pitch removed; a vulnerability check is one of the three named checks",
+        falak: "No sales or persuasion prompts; a vulnerability check is one of the three named checks",
       },
       {
         rule: "GDPR art. 22 / SCHUFA ruling",
