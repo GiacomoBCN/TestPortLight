@@ -45,23 +45,28 @@ function PipelinePlaceholder() {
 }
 
 /**
- * Blocco 16:9 sotto l'hero. Con i file video presenti: <video> in loop, muto;
- * con prefers-reduced-motion solo il poster (o il segnaposto, se manca il poster).
+ * Blocco 16:9 sotto l'hero. Con i file video presenti: <video> in loop, muto, che parte da solo.
+ * Se non puo' partire da solo (prefers-reduced-motion, autoplay bloccato dal browser)
+ * resta visibile sul poster con i controlli, e lo si avvia con play.
  * Senza file video: il segnaposto.
  */
 function HeroMedia({ files }: { files: HeroMediaFiles }) {
   const { video, webm, poster, alt } = aiProduct.heroMedia;
   const hasVideo = files.mp4 || files.webm;
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [controls, setControls] = React.useState(false);
 
-  // Con prefers-reduced-motion il video resta fermo (e nascosto via CSS)
   React.useEffect(() => {
     const el = videoRef.current;
     if (!el) return;
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const apply = () => {
-      if (mq.matches) el.pause();
-      else el.play().catch(() => {});
+      if (mq.matches) {
+        el.pause();
+        setControls(true);
+      } else {
+        el.play().then(() => setControls(false)).catch(() => setControls(true));
+      }
     };
     apply();
     mq.addEventListener("change", apply);
@@ -79,38 +84,23 @@ function HeroMedia({ files }: { files: HeroMediaFiles }) {
     );
   }
 
-  const decorative = !alt;
-
   return (
     <div className={`${frame} relative aspect-video`}>
       <SketchFrame />
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
-        autoPlay
+        className="absolute inset-0 w-full h-full object-cover"
         muted
         loop
         playsInline
         preload="metadata"
+        controls={controls}
         poster={files.poster ? getImagePath(poster) : undefined}
-        aria-hidden={decorative || undefined}
-        aria-label={decorative ? undefined : alt}
+        aria-label={alt || undefined}
       >
         {files.webm && <source src={getImagePath(webm)} type="video/webm" />}
         {files.mp4 && <source src={getImagePath(video)} type="video/mp4" />}
       </video>
-      {files.poster ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={getImagePath(poster)}
-          alt={alt}
-          className="absolute inset-0 w-full h-full object-cover hidden motion-reduce:block"
-        />
-      ) : (
-        <div className="absolute inset-0 hidden motion-reduce:block">
-          <PipelinePlaceholder />
-        </div>
-      )}
     </div>
   );
 }
