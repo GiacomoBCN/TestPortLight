@@ -163,20 +163,20 @@ export const aiProduct = {
     title: "What I Learned",
     items: [
       {
-        title: "A good benchmark finds more than a model",
-        text: "Writing the criteria first and running blind made the result defensible. It also made a silent production fault visible, because the test measured what users actually got, not what the logs said.",
+        title: "The best model is relative to your data",
+        text: "Public benchmarks measure other people's tasks. On my own content, languages and sources, the ranking was different and the most expensive model was not at the top. The only benchmark that counts is the one run on the archive the product will actually answer from.",
       },
       {
-        title: "Cost and quality don't move together",
-        text: "The most expensive model was not the best on my content, and the cheapest was good enough for most of the volume. Measuring both at once changed where each model sits.",
+        title: "Retrieval before the model",
+        text: "A better model cannot answer from what retrieval didn't bring. Measuring hit@10 showed the first setup was missing more than half of the relevant cards. Fixing that moved quality more than any model change, and it is where I look first now.",
       },
       {
-        title: "Non-technical users don't do setup",
-        text: "Every manual step, however small, lost someone. The product got better each time a step was removed, not each time a feature was added.",
+        title: "Mixing models is a recipe, tuned to the archive",
+        text: "Which model does which step depends on the data: how long the sources are, how many languages, where an error is visible to the user and where it isn't. The split that works is not a rule I can reuse elsewhere; it is the result of measuring this archive, and it will change when the archive changes.",
       },
       {
-        title: "One person can run production, if the system takes the decisions",
-        text: "Guards, checks and deduplication in code, isolation proven by tests, and clear error paths are what let one person sleep. The models are the smallest part of it.",
+        title: "Cost and quality in the same test, or you optimise one and pay the other",
+        text: "Measuring quality alone pushed me towards the biggest model; measuring cost alone towards the smallest. Measuring both, three runs, fixed configuration, is what made the ÷10 on cost possible without losing answer quality.",
       },
     ],
   },
