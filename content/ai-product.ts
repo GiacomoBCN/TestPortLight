@@ -29,6 +29,9 @@ export const aiProduct = {
     poster: "video/pipeline-loop-poster.webp",
     // Testo alternativo del video: da scrivere. Finche' e' vuoto il video e' trattato come decorativo.
     alt: "",
+    // Etichette (per screen reader) del bottone sotto il video
+    pauseLabel: "Pause video",
+    playLabel: "Play video",
   },
 
   heroPlaceholder: [

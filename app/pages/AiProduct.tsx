@@ -4,6 +4,8 @@ import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import {
   ArrowLeft,
+  Pause,
+  Play,
   AlertCircle,
   User,
   Users,
@@ -45,33 +47,38 @@ function PipelinePlaceholder() {
 }
 
 /**
- * Blocco 16:9 sotto l'hero. Con i file video presenti: <video> in loop, muto, che parte da solo.
- * Se non puo' partire da solo (prefers-reduced-motion, autoplay bloccato dal browser)
- * resta visibile sul poster con i controlli, e lo si avvia con play.
+ * Blocco 16:9 sotto l'hero. Con i file video presenti: <video> muto in loop che parte da solo,
+ * con sotto un bottone tondo pausa / play (come nella home del prodotto).
+ * Se il browser blocca l'autoplay il bottone mostra play.
  * Senza file video: il segnaposto.
  */
 function HeroMedia({ files }: { files: HeroMediaFiles }) {
-  const { video, webm, poster, alt } = aiProduct.heroMedia;
+  const { video, webm, poster, alt, pauseLabel, playLabel } = aiProduct.heroMedia;
   const hasVideo = files.mp4 || files.webm;
   const videoRef = React.useRef<HTMLVideoElement>(null);
-  const [controls, setControls] = React.useState(false);
+  const [playing, setPlaying] = React.useState(false);
 
   React.useEffect(() => {
     const el = videoRef.current;
     if (!el) return;
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const apply = () => {
-      if (mq.matches) {
-        el.pause();
-        setControls(true);
-      } else {
-        el.play().then(() => setControls(false)).catch(() => setControls(true));
-      }
+    const onPlay = () => setPlaying(true);
+    const onPause = () => setPlaying(false);
+    el.addEventListener("play", onPlay);
+    el.addEventListener("pause", onPause);
+    setPlaying(!el.paused);
+    el.play().then(() => setPlaying(true)).catch(() => setPlaying(!el.paused));
+    return () => {
+      el.removeEventListener("play", onPlay);
+      el.removeEventListener("pause", onPause);
     };
-    apply();
-    mq.addEventListener("change", apply);
-    return () => mq.removeEventListener("change", apply);
   }, []);
+
+  const toggle = () => {
+    const el = videoRef.current;
+    if (!el) return;
+    if (el.paused) el.play().catch(() => {});
+    else el.pause();
+  };
 
   const frame = "glass sketch rounded-xl overflow-hidden";
 
@@ -85,22 +92,34 @@ function HeroMedia({ files }: { files: HeroMediaFiles }) {
   }
 
   return (
-    <div className={`${frame} relative aspect-video`}>
-      <SketchFrame />
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        controls={controls}
-        poster={files.poster ? getImagePath(poster) : undefined}
-        aria-label={alt || undefined}
-      >
-        {files.webm && <source src={getImagePath(webm)} type="video/webm" />}
-        {files.mp4 && <source src={getImagePath(video)} type="video/mp4" />}
-      </video>
+    <div>
+      <div className={`${frame} relative aspect-video`}>
+        <SketchFrame />
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={files.poster ? getImagePath(poster) : undefined}
+          aria-label={alt || undefined}
+        >
+          {files.webm && <source src={getImagePath(webm)} type="video/webm" />}
+          {files.mp4 && <source src={getImagePath(video)} type="video/mp4" />}
+        </video>
+      </div>
+      <div className="flex justify-end mt-3">
+        <button
+          type="button"
+          onClick={toggle}
+          aria-label={playing ? pauseLabel : playLabel}
+          className="w-10 h-10 rounded-full glass flex items-center justify-center text-ink-900 hover:border-blue transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-interactive)]"
+        >
+          {playing ? <Pause size={16} aria-hidden="true" /> : <Play size={16} aria-hidden="true" />}
+        </button>
+      </div>
     </div>
   );
 }
