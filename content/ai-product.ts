@@ -158,18 +158,8 @@ export const aiProduct = {
     ],
   },
 
-  delivered: {
-    number: "03",
-    title: "What was delivered",
-    stats: [
-      { value: "1", label: "Action for the user", note: "Share a link, get a card" },
-      { value: "3", label: "Models in production", note: "Each on the step where it earns its place" },
-      { value: "98", label: "Mobile performance", note: "Landing page, Lighthouse" },
-    ],
-  },
-
   learnings: {
-    number: "04",
+    number: "03",
     title: "What I Learned",
     items: [
       {

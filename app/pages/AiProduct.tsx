@@ -127,8 +127,6 @@ export default function AiProductCaseStudy({ media }: { media: HeroMediaFiles })
 
   const keyDecisions = aiProduct.keyDecisions.decisions;
 
-  const delivered = aiProduct.delivered.stats;
-
   const learnings = aiProduct.learnings.items;
 
   return (
@@ -291,31 +289,6 @@ export default function AiProductCaseStudy({ media }: { media: HeroMediaFiles })
           </div>
           <div className="pl-0 md:pl-24">
             <DecisionTable decisions={keyDecisions} impactLabel={aiProduct.keyDecisions.impactLabel} />
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Impact / Results */}
-      <section className="py-16 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">{aiProduct.delivered.number}</div>
-            <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">{aiProduct.delivered.title}</h2>
-            </div>
-          </div>
-          <div className="pl-0 md:pl-24 space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              {delivered.map((d, i) => (
-                <GlassCard key={i}>
-                  <div className="flex flex-col items-center text-center p-4">
-                    <div className="text-4xl font-bold text-ink-900 mb-1">{d.value}</div>
-                    <div className="text-sm font-semibold text-accent mb-1">{d.label}</div>
-                    <div className="text-xs text-gray-400">{d.note}</div>
-                  </div>
-                </GlassCard>
-              ))}
-            </div>
           </div>
         </div>
       </section>

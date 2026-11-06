@@ -85,7 +85,6 @@ export const home = {
     subtitle: "Strategic product leadership with measurable impact",
     // image: percorso sotto public/ (passato a getImagePath nella pagina)
     projects: {
-      aiProduct: projects.aiProduct.homeCard,
       dowJones: projects.dowJones.homeCard,
       falak: projects.falak.homeCard,
       vod: projects.vod.homeCard,

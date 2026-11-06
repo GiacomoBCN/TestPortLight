@@ -201,18 +201,6 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ProjectCard
               compact
-              role={featuredWork.projects.aiProduct.role}
-              title={featuredWork.projects.aiProduct.title}
-              company={featuredWork.projects.aiProduct.company}
-              timeframe={featuredWork.projects.aiProduct.timeframe}
-              description={featuredWork.projects.aiProduct.description}
-              metrics={featuredWork.projects.aiProduct.metrics}
-              link={createPageUrl("AiProduct")}
-              delay={0}
-            />
-
-            <ProjectCard
-              compact
               role={featuredWork.projects.dowJones.role}
               title={featuredWork.projects.dowJones.title}
               company={featuredWork.projects.dowJones.company}

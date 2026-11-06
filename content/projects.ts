@@ -43,7 +43,7 @@ export const projects = {
       breadcrumb: "Home > Product Work > An AI product, end to end",
       category: "AI PRODUCT · RESEARCH · DESIGN SYSTEM · DEPLOY",
       title: "An AI product, end to end",
-      subtitle: "Founder & Product Builder · 2026 – present",
+      subtitle: "Founder & Product Builder",
       description:
         "[StayKeel](https://staykeel.com) turns any link into a structured summary and lets you ask questions across everything you saved, in any language. I did the research, chose the models by measurement, designed the system and the interface, and run it in production.",
       tags: ["AI Product", "RAG", "Model Evaluation", "Product Research", "Design Tokens", "PWA", "Multilingual"],
