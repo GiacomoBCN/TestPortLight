@@ -85,11 +85,11 @@ export const projects = {
       company: "Concept & Coded Prototype",
       timeframe: "",
       description:
-        "Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype.",
+        "Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as an LTR/RTL Flutter prototype (English and Arabic).",
       image: "images/projects/falak/04-desktop-spending-range.webp",
       metrics: [
         { value: "8", label: "Patterns" },
-        { value: "EN · AR", label: "Bilingual" },
+        { value: "LTR/RTL", label: "Writing directions" },
         { value: "Live", label: "Demo" },
       ],
     },
@@ -99,10 +99,10 @@ export const projects = {
       role: "Concept, Research & Coded Prototype",
       year: "",
       description:
-        "Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as a bilingual EN/AR Flutter prototype.",
+        "Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as an LTR/RTL Flutter prototype (English and Arabic).",
       metrics: [
         { value: "8", label: "Patterns" },
-        { value: "EN · AR", label: "Bilingual" },
+        { value: "LTR/RTL", label: "Writing directions" },
         { value: "Live", label: "Demo" },
       ],
       tags: [
@@ -112,7 +112,7 @@ export const projects = {
         "Research Synthesis",
         "Flutter",
         "Claude Code",
-        "Arabic / RTL",
+        "LTR / RTL",
         "WCAG 2.2 AA",
       ],
       slug: "Falak",
@@ -124,7 +124,7 @@ export const projects = {
       subtitle: "Concept, Research & Coded Prototype",
       // **...** = <span className="text-ink-900 font-semibold">
       description:
-        "A research-led study of how an AI assistant in a bank should handle uncertainty, hand over to people, and keep human oversight honest. Eight interaction patterns, each checked against the 2019–2026 literature, built as a bilingual **English / Arabic** Flutter prototype. Falak is a fictional bank; every name and figure is invented.",
+        "A research-led study of how an AI assistant in a bank should handle uncertainty, hand over to people, and keep human oversight honest. Eight interaction patterns, each checked against the 2019–2026 literature, built as a Flutter prototype for **left-to-right and right-to-left** layouts (English and Arabic). Falak is a fictional bank; every name and figure is invented.",
       tags: [
         "AI Interaction Patterns",
         "Trust Calibration",
@@ -132,7 +132,7 @@ export const projects = {
         "Research Synthesis",
         "Flutter",
         "Claude Code",
-        "Arabic / RTL",
+        "LTR / RTL",
         "WCAG 2.2 AA",
         "EU AI Act",
       ],

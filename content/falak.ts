@@ -67,7 +67,7 @@ export const falak = {
     title: "Scope",
     items: [
       "Two audiences: customers and bank staff",
-      "English and Arabic, full right-to-left",
+      "Left-to-right and right-to-left layouts (English and Arabic)",
       "Four scripted scenarios, light and dark",
       "No backend, no live model: the conversations are scripted to study the patterns",
     ],
@@ -232,20 +232,9 @@ export const falak = {
     title: "What was delivered",
     stats: [
       { value: "4", label: "Scripted scenarios", note: "3 for customers, 1 for bank staff" },
-      { value: "2", label: "Languages", note: "English and Arabic, full RTL" },
+      { value: "LTR/RTL", label: "Writing directions", note: "English and Arabic" },
       { value: "2", label: "Themes", note: "Light and dark, 4.5:1 contrast" },
-      { value: "0", label: "Invented metrics", note: "No users tested yet" },
     ],
-    noMetrics: {
-      title: "No numbers that weren't measured",
-      text: "This is a concept study, not a shipped product. There are no conversion rates, no satisfaction scores and no time savings to report, because no user has been tested yet. What exists is a working, accessible, bilingual prototype and a documented rationale for every choice in it, including the ones the research overturned.",
-      items: [
-        "Coded prototype, public demo and source",
-        "Research synthesis covering ~60 papers and guidelines, with a verdict per pattern",
-        "Regulatory map: EU AI Act art. 50 and 14, GDPR art. 22, QCB guideline, CFPB expectations",
-        "A test protocol for the next step, with behavioural metrics",
-      ],
-    },
   },
 
   learnings: {

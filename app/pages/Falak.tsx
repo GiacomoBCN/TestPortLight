@@ -12,7 +12,6 @@ import {
   Github,
   Languages,
   Users,
-  ShieldCheck,
   MessageSquare,
   Percent,
   BookOpen,
@@ -279,7 +278,7 @@ export default function FalakCaseStudy() {
             </div>
           </div>
           <div className="pl-0 md:pl-24 space-y-6">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
               {delivered.map((d, i) => (
                 <GlassCard key={i}>
                   <div className="flex flex-col items-center text-center p-4">
@@ -290,23 +289,6 @@ export default function FalakCaseStudy() {
                 </GlassCard>
               ))}
             </div>
-
-            <GlassCard>
-              <div className="p-6 space-y-3">
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="w-5 h-5 text-accent-icon" />
-                  <h3 className="text-lg font-semibold text-ink-900">{falak.delivered.noMetrics.title}</h3>
-                </div>
-                <p className="text-gray-300 leading-relaxed">
-                  {falak.delivered.noMetrics.text}
-                </p>
-                <ul className="text-gray-400 text-sm space-y-1 pt-2">
-                  {falak.delivered.noMetrics.items.map((item, i) => (
-                    <li key={i}><span aria-hidden="true">•</span> {item}</li>
-                  ))}
-                </ul>
-              </div>
-            </GlassCard>
           </div>
         </div>
       </section>
