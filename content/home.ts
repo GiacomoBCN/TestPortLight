@@ -117,7 +117,7 @@ export const home = {
         title: "AI-Native Builder",
         tools:
           "Cursor, Claude Code, Claude API, n8n, Vercel, Ollama, GitHub Copilot, Vertex AI, ChatGPT, Midjourney.",
-        text: "ML/AI certified (180h: Python, TensorFlow, Deep Learning). I build with Cursor, Claude Code, and local LLMs, shipping functional prototypes and AI-powered workflows, not just designing around them. Genuine technical fluency at the intersection of design craft and AI.",
+        text: "ML/AI certified (Python, TensorFlow, Deep Learning). I build with Cursor, Claude Code, and local LLMs, shipping functional prototypes and AI-powered workflows, not just designing around them. Genuine technical fluency at the intersection of design craft and AI.",
       },
     },
     summary:
