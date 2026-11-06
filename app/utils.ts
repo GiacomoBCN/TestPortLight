@@ -5,6 +5,7 @@ export function createPageUrl(name: string): string {
     Teaching: "/teaching",
     VODplatform: "/vodplatform",
     ProductWork: "/product-work",
+    AiProduct: "/ai-product",
     Falak: "/falak",
     DowJones: "/dowjones",
     XpuntoCero: "/xpuntocero",

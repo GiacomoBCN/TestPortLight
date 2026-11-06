@@ -32,6 +32,7 @@ export const shell = {
     productWork: "Product Work",
     allProjects: "All Projects",
     projects: [
+      { name: projects.aiProduct.navLink, path: "AiProduct" },
       { name: projects.dowJones.navLink, path: "DowJones" },
       { name: projects.falak.navLink, path: "Falak" },
       { name: projects.vod.navLink, path: "VODplatform" },

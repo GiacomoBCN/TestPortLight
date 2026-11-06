@@ -13,6 +13,7 @@ export const productWork = {
 
   // Schede progetto, nell'ordine della griglia (props di ProjectListingCard)
   projects: [
+    projects.aiProduct.productWorkCard,
     projects.dowJones.productWorkCard,
     projects.falak.productWorkCard,
     projects.vod.productWorkCard,
