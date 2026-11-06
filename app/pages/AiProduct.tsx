@@ -106,8 +106,9 @@ function HeroMedia({ files }: { files: HeroMediaFiles }) {
           poster={files.poster ? getImagePath(poster) : undefined}
           aria-label={alt || undefined}
         >
-          {files.webm && <source src={getImagePath(webm)} type="video/webm" />}
+          {/* mp4 (H.264) prima: lo decodifica qualsiasi browser e scheda video; webm come riserva */}
           {files.mp4 && <source src={getImagePath(video)} type="video/mp4" />}
+          {files.webm && <source src={getImagePath(webm)} type="video/webm" />}
         </video>
       </div>
       <div className="flex justify-end mt-3">
