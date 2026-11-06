@@ -120,7 +120,7 @@ export const projects = {
     caseStudyHero: {
       breadcrumb: "Home > Product Work > Falak AI Assistant",
       category: "AI INTERACTION DESIGN · TRUST & ACCOUNTABILITY · BANKING",
-      title: "Falak: an AI assistant that shows its sources",
+      title: "Falak: trust is earned, not displayed",
       subtitle: "Concept, Research & Coded Prototype",
       // Riassunto in tre righe sotto il sottotitolo; **...** = etichetta in grassetto
       summary: [

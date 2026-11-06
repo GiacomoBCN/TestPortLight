@@ -39,7 +39,7 @@ export const falak = {
   },
 
   intro: {
-    title: "Trust is earned, not displayed: designing an AI assistant people can safely rely on",
+    title: "Designing an AI assistant people can safely rely on",
     image: "spending" as const,
     paragraphs: [
       "Falak is a coded prototype of a banking assistant that shows where each answer comes from, how sure it is, and hands over to a person when it should. It runs four scripted examples: a balance (a fact), a spending estimate, a loan question an AI shouldn't decide, and a staff view where a relationship manager signs off an AI suggestion.",
