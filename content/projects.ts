@@ -122,6 +122,12 @@ export const projects = {
       category: "AI INTERACTION DESIGN · TRUST & ACCOUNTABILITY · BANKING",
       title: "Falak: an AI assistant that shows its sources",
       subtitle: "Concept, Research & Coded Prototype",
+      // Riassunto in tre righe sotto il sottotitolo; **...** = etichetta in grassetto
+      summary: [
+        "**Role:** Concept, research, interaction design and Flutter build (with Claude Code).",
+        "**Key decisions:** no confidence percentages (solid, hatched and dotted marks instead); only the sources actually used, with freshness; loan questions handed to a person without showing the AI's guess; staff form their own view before seeing the AI suggestion.",
+        "**Delivered:** working demo, 4 scenarios, English and Arabic (right-to-left), light and dark, 8 patterns checked against 2019–2026 research.",
+      ],
       // **...** = <span className="text-ink-900 font-semibold">
       description:
         "A research-led study of how an AI assistant in a bank should handle uncertainty, hand over to people, and keep human oversight honest. Eight interaction patterns, each checked against the 2019–2026 literature, built as a Flutter prototype for **left-to-right and right-to-left** layouts (English and Arabic). Falak is a fictional bank; every name and figure is invented.",

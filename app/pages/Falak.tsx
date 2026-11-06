@@ -109,6 +109,14 @@ export default function FalakCaseStudy() {
             {falak.hero.subtitle}
           </p>
 
+          <div className="mb-6 space-y-2">
+            {falak.hero.summary.map((line, i) => (
+              <p key={i} className="text-xl text-gray-300">
+                <RichText text={line} boldClassName="text-ink-900 font-semibold" />
+              </p>
+            ))}
+          </div>
+
           <p className="text-xl text-gray-300 mb-8">
             <RichText text={falak.hero.description} boldClassName="text-ink-900 font-semibold" />
           </p>

@@ -56,8 +56,8 @@ export const falak = {
     title: "My Role",
     summary: "Concept, research and prototype",
     items: [
-      "Defined the eight interaction patterns of the first PoC.",
-      "Validated each against the literature; three were reworked, one dropped.",
+      "Defined the eight interaction patterns.",
+      "Validated each pattern against the 2019–2026 literature.",
       "Designed the interaction, visual language and bilingual copy.",
       "Built the prototype in Flutter with Claude Code.",
     ],
@@ -127,7 +127,7 @@ export const falak = {
   keyDecisions: {
     number: "02",
     title: "Key Decisions & Trade-offs",
-    subtitle: "The first PoC had all eight patterns. The literature confirmed four, reworked three and replaced one. Every row links to the evidence.",
+    subtitle: "Each decision compares the options considered and links to the evidence.",
     impactLabel: "Evidence",
     decisions: [
       {
