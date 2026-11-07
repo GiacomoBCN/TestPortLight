@@ -2,7 +2,7 @@
 
 export const teaching = {
   hero: {
-    eyebrow: "Academic Leadership",
+    eyebrow: "PhD · 7 years teaching",
     title: "Teaching & Research",
     description:
       "I bring real-world product expertise into the classroom, helping 1000+ students design impactful products and navigate the challenges of cross-cultural collaboration.",
