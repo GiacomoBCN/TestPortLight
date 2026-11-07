@@ -74,7 +74,7 @@ export const designSystem = {
     items: [
       "113 tokens, each with a documented role",
       "Five content sources as theme scopes, plus a fallback",
-      "Four components; the rest stays inside the card",
+      "38 components and 162 variants in Figma, every one shipped and labelled IN CODE; nothing designed that is not in production",
       "Figma variables that mirror the code one to one",
     ],
   },
@@ -107,13 +107,13 @@ export const designSystem = {
       },
       {
         title: "Component, pattern, guideline or one-off",
-        text: "One question decides: is it reused in more than one place? Source icon, tab selector, chip and rating row are. Header, tab row, content area and footer are used once, so they stay inside the card. \"Confirm before delete, inside the card\" is a pattern. \"Only source colours go through tokens\" is a guideline. Four components, and the reasons for not building more.",
+        text: "One question decides: is it reused in more than one place? When the system was only the card, that test gave four components: source icon, tab selector, chip and rating row. Header, tab row, content area and footer are used once, so they stay inside the card. \"Confirm before delete, inside the card\" is a pattern. \"Only source colours go through tokens\" is a guideline. As the product grew to the header, the chat and the onboarding, the same test gave 38 components, each with its states, and every one of them is in production.",
         images: ["cardAnatomy"],
         demo: false,
       },
       {
         title: "Figma came last, generated from the product",
-        text: "Alone, the product was the fastest place to decide. The Figma library was generated from the code afterwards, so the two cannot disagree: every variable mirrors a token, every component carries an `IN CODE` label, and the token page in the app is read from the stylesheet itself, with a drift check that flags any token without a documented role.",
+        text: "Alone, the product was the fastest place to decide. The Figma library was generated from the code afterwards, so the two cannot disagree: every variable mirrors a token, every component carries an `IN CODE` label, the component library follows Atomic Design (tokens, atoms, molecules, organisms, templates), and the token page in the app is read from the stylesheet itself, with a drift check that flags any token without a documented role.",
         images: [],
         demo: false,
       },
@@ -192,10 +192,10 @@ export const designSystem = {
       },
       {
         point: "How many components",
-        options: ["A component per part of the card", "Four, by the reuse test"],
+        options: ["A component per visual element", "Only what passes the reuse test"],
         rationale:
-          "Parts used once stay inside the card. Promoting them would add files, variants and maintenance for zero reuse.",
-        impact: "Four components, all in code",
+          "Parts used once stay where they are. Promoting them would add files, variants and maintenance for zero reuse. Nothing in the library is speculative: a component exists because the product ships it.",
+        impact: "38 components, 162 variants, none unused",
       },
     ],
   },

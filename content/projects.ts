@@ -69,7 +69,7 @@ export const projects = {
       metrics: [
         { value: "3", label: "Token levels" },
         { value: "0", label: "Colour names in components" },
-        { value: "4", label: "Components" },
+        { value: "38", label: "Components, all in code" },
       ],
       // Video al posto dell'immagine nella scheda della Home (percorsi sotto public/; bg = fondo del video)
       video: {
@@ -89,19 +89,19 @@ export const projects = {
       metrics: [
         { value: "3", label: "Token levels" },
         { value: "0", label: "Colour names in components" },
-        { value: "4", label: "Components" },
+        { value: "38", label: "Components, all in code" },
       ],
-      tags: ["Design Tokens", "CSS Custom Properties", "Theming", "Figma Variables", "Accessibility", "Governance"],
+      tags: ["Design System", "Design Tokens", "Atomic Design", "Component Library", "CSS Custom Properties", "Figma Variables", "Theming", "Accessibility"],
       slug: "DesignSystem",
     },
     caseStudyHero: {
       breadcrumb: "Home > Product Work > A design system sized to its product",
       category: "DESIGN SYSTEM · DESIGN TOKENS · FIGMA ↔ CODE",
       title: "A design system sized to its product",
-      subtitle: "Four components, and the reasons for not building more · Design Technologist, solo · 2026",
+      subtitle: "Only what the product uses, and the reasons for not building more · Design Technologist, solo · 2026",
       description:
         "After co-leading a design system for eight brands at Dow Jones, I built one for a single product, [StayKeel](https://staykeel.com). The rules are the same. The question was how many of them one product actually needs.",
-      tags: ["Design Tokens", "CSS Custom Properties", "Theming", "Figma Variables", "Accessibility", "Governance"],
+      tags: ["Design System", "Design Tokens", "Atomic Design", "Component Library", "CSS Custom Properties", "Figma Variables", "Theming", "Accessibility"],
     },
   },
 
