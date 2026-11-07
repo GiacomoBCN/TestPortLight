@@ -22,7 +22,6 @@ export const designSystem = {
     cardRest: { file: "01-card-rest.webp", alt: "The card at rest" },
     tokensBoard: { file: "02-tokens-board.webp", alt: "The full token board" },
     cardAnatomy: { file: "03-card-anatomy.webp", alt: "Card anatomy and states" },
-    tokensPageLevel2: { file: "04-tokens-page-level2.webp", alt: "The local /tokens page, level 2" },
   },
 
   hero: projects.designSystem.caseStudyHero,
@@ -115,7 +114,7 @@ export const designSystem = {
       {
         title: "Figma came last, generated from the product",
         text: "Alone, the product was the fastest place to decide. The Figma library was generated from the code afterwards, so the two cannot disagree: every variable mirrors a token, every component carries an `IN CODE` label, and the token page in the app is read from the stylesheet itself, with a drift check that flags any token without a documented role.",
-        images: ["tokensPageLevel2"],
+        images: [],
         demo: false,
       },
     ] as const,
