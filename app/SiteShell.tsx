@@ -32,6 +32,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     setIsProductDropdownOpen(false);
   }, [pathname]);
 
+  // PWA solo per chi la vuole: blocca l'annuncio automatico di Chrome
+  // ("Installa app" / mini-barra su Android). Resta installabile dal menu del browser.
+  useEffect(() => {
+    const blockInstallPrompt = (e: Event) => e.preventDefault();
+    window.addEventListener("beforeinstallprompt", blockInstallPrompt);
+    return () => window.removeEventListener("beforeinstallprompt", blockInstallPrompt);
+  }, []);
+
   // Esc chiude il mobile menu e il dropdown
   useEffect(() => {
     const onEsc = (e: KeyboardEvent) => {
