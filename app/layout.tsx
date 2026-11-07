@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: `${basePath}/android-chrome-512x512.png`,
+        url: `${basePath}/android-chrome-512x512.png?v=2`,
         width: 512,
         height: 512,
         alt: shell.metadata.ogImageAlt,
@@ -87,37 +87,37 @@ export const metadata: Metadata = {
     card: "summary",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [`${basePath}/android-chrome-512x512.png`],
+    images: [`${basePath}/android-chrome-512x512.png?v=2`],
   },
   icons: {
     icon: [
-      { url: `${basePath}/favicon.ico`, sizes: "16x16 32x32" },
+      { url: `${basePath}/favicon.ico?v=2`, sizes: "16x16 32x32" },
       {
-        url: `${basePath}/favicon-16x16.png`,
+        url: `${basePath}/favicon-16x16.png?v=2`,
         sizes: "16x16",
         type: "image/png",
       },
       {
-        url: `${basePath}/favicon-32x32.png`,
+        url: `${basePath}/favicon-32x32.png?v=2`,
         sizes: "32x32",
         type: "image/png",
       },
     ],
     other: [
       {
-        url: `${basePath}/android-chrome-192x192.png`,
+        url: `${basePath}/android-chrome-192x192.png?v=2`,
         sizes: "192x192",
         type: "image/png",
       },
       {
-        url: `${basePath}/android-chrome-512x512.png`,
+        url: `${basePath}/android-chrome-512x512.png?v=2`,
         sizes: "512x512",
         type: "image/png",
       },
     ],
     apple: [
       {
-        url: `${basePath}/apple-touch-icon.png`,
+        url: `${basePath}/apple-touch-icon.png?v=2`,
         sizes: "180x180",
         type: "image/png",
       },
