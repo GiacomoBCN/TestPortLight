@@ -184,7 +184,7 @@ export default function DesignSystemCaseStudy({
           <div className="pl-0 md:pl-24 space-y-6">
             {patterns.map((p, i) => (
               <GlassCard key={i} hover={!p.demo} className={p.demo ? "!p-3 sm:!p-8" : ""}>
-                <div className={`${p.demo ? "p-3 sm:p-6" : "p-6"} flex flex-col md:flex-row gap-6 flex-wrap`}>
+                <div className={`${p.demo ? "p-3 sm:p-6 flex-wrap" : "p-6"} flex flex-col md:flex-row gap-6`}>
                   <div className={p.images.length > 0 ? "md:w-3/5" : "w-full"}>
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
@@ -197,13 +197,13 @@ export default function DesignSystemCaseStudy({
                     </p>
                   </div>
                   {p.images.length > 0 && (
-                    <div className="md:flex-1 grid grid-cols-2 gap-3 content-start">
+                    <div className="w-full md:w-2/5 md:flex-shrink-0 space-y-3">
                       {p.images.map((im, j) => (
                         <button
                           type="button"
                           key={j}
                           onClick={() => open(p.images, j)}
-                          className="relative aspect-[4/5] rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer col-span-2"
+                          className="relative block w-full aspect-[4/5] rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer"
                           aria-label={designSystem.approach.enlargeImageLabel(im.alt)}
                         >
                           <Image
