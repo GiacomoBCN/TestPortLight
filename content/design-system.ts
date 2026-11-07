@@ -217,7 +217,7 @@ export const designSystem = {
       },
       {
         title: "A known outlier beats a hidden one",
-        text: "The article amber sits fourteen L* points above the other sources, and it is the most frequent colour in the feed, next to the brand peach. It is not a defect today. It is written down as the worst case for a dark theme, with the ticket that will pay for it. A palette that is honest about its weak point is easier to govern than one that looks perfect.",
+        text: "The article amber sits fourteen L* points above the other sources, and it is the most frequent colour in the feed, next to the brand peach. It is not a defect today. It is written down as the worst case for any dark theme, with the ticket that will pay for it. A palette that is honest about its weak point is easier to govern than one that looks perfect.",
       },
       {
         title: "Alone, the product is the fastest place to decide. With a team, that changes.",

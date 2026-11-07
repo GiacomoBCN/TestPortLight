@@ -97,7 +97,7 @@ export const aiProduct = {
       },
       {
         title: "Rules before the test, every time",
-        text: "Before each evaluation I write the criteria, fix the configuration, score blind and run three times. Cost is measured against the estimate, not assumed. A blind benchmark of 8 models chose the current ones and cut the cost per answer by about 10×. Retrieval quality went from 43% to 73% hit@10. One of those tests also surfaced a production fault that users had been hitting silently.",
+        text: "Before each evaluation I write the criteria, fix the configuration, score blind and run three times. Cost is measured against the estimate, not assumed. A blind benchmark of 8 models chose the current ones and cut the cost per answer by about 10×. Retrieval quality went from 43% to 73% hit@10.",
       },
       {
         title: "Research with the people who will actually use it",
@@ -105,7 +105,7 @@ export const aiProduct = {
       },
       {
         title: "Fast and minimal, measured",
-        text: "The interface follows research on neurodivergent reading: three reading levels, no infinite scroll, colour as an accent only, fixed card sizes. The landing page holds Performance 98 on mobile; an animated intro and a WebGL effect were cut to keep it there.",
+        text: "The interface follows research on neurodivergent reading: three reading levels, no infinite scroll, colour as an accent only, fixed card sizes. Everything that did not serve reading was cut.",
       },
     ],
   },
@@ -128,7 +128,7 @@ export const aiProduct = {
         options: ["Reputation and benchmarks published by vendors", "Own blind benchmark on own content"],
         rationale:
           "Public benchmarks don't cover my sources, my languages or my cost ceiling. Criteria written first, 8 models, blind scoring, fixed configuration, three runs.",
-        impact: "The chosen models, and a production fault found",
+        impact: "The three models now in production",
       },
       {
         point: "Retrieval",
@@ -148,7 +148,7 @@ export const aiProduct = {
         point: "How people get links in",
         options: ["A messaging bot as the only entry", "Share sheet first, bot optional"],
         rationale:
-          "Testers didn't want a setup step, and iPhone users had no share option. The share sheet became the main path; the bot stayed for those who like it.",
+          "Testers didn't want a setup step, and iPhone needed a path that did not depend on the bot. The share sheet became the main path; the bot stayed for those who like it.",
         impact: "Setup in two minutes, no manual step",
       },
       {
