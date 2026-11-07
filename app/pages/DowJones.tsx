@@ -172,9 +172,9 @@ export default function DowJones() {
       {/* Section 1: Business Context */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(dowJones.businessContext.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {dowJones.businessContext.title}
               </h2>
@@ -210,9 +210,9 @@ export default function DowJones() {
       {/* Section 2: Governance & Architecture */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(dowJones.governance.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {dowJones.governance.title}
               </h2>
@@ -288,9 +288,9 @@ export default function DowJones() {
       {/* Key Decisions */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(dowJones.keyDecisions.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {dowJones.keyDecisions.title}
               </h2>
@@ -305,9 +305,9 @@ export default function DowJones() {
       {/* Collaboration & Process */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(dowJones.collaboration.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {dowJones.collaboration.title}
               </h2>
@@ -371,9 +371,9 @@ export default function DowJones() {
       {/* Outcomes */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(dowJones.outcomes.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {dowJones.outcomes.title}
               </h2>

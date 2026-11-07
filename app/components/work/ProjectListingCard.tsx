@@ -44,8 +44,10 @@ export default function ProjectListingCard({
       <SketchFrame />
       {/* TOP SECTION - Header (flexible height) */}
       <div className="mb-4 flex-shrink-0">
-        <div className="label-tag text-xs mb-2">
-          {category}
+        {/* Al massimo tre quarti della card. Il "·" va a capo con la parola che segue
+            (spazio non divisibile dopo il punto), mai in fondo alla riga sopra */}
+        <div className="label-tag text-xs mb-2 max-w-[75%]">
+          {category.replace(/ · /g, " ·\u00A0")}
         </div>
         <h2 className="type-work-title text-[var(--color-text-inverse)] mb-2 line-clamp-2">
           {title}

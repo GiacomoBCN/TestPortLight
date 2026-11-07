@@ -180,9 +180,9 @@ export default function OnlineBackOfficeCaseStudy() {
       {/* Section 1: Business Context */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(backOffice.businessContext.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {backOffice.businessContext.title}
               </h2>
@@ -233,9 +233,9 @@ export default function OnlineBackOfficeCaseStudy() {
       {/* Section 2: Problem & Hypothesis */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(backOffice.problemHypothesis.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {backOffice.problemHypothesis.title}
               </h2>
@@ -290,9 +290,9 @@ export default function OnlineBackOfficeCaseStudy() {
       {/* Key Decisions */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(backOffice.keyDecisions.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {backOffice.keyDecisions.title}
               </h2>
@@ -307,9 +307,9 @@ export default function OnlineBackOfficeCaseStudy() {
       {/* Section 4: The Solution */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(backOffice.solution.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {backOffice.solution.title}
               </h2>
@@ -352,9 +352,9 @@ export default function OnlineBackOfficeCaseStudy() {
       {/* Interaction / Rollout Improvements */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(backOffice.operationalImprovements.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {backOffice.operationalImprovements.title}
               </h2>
@@ -454,9 +454,9 @@ export default function OnlineBackOfficeCaseStudy() {
       {/* Outcomes & Deliverables */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(backOffice.deliverables.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {backOffice.deliverables.title}
               </h2>

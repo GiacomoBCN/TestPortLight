@@ -292,9 +292,9 @@ export default function XpuntoCero() {
       {/* 01 Business Context */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(xpuntoCero.businessContext.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.businessContext.title}
               </h2>
@@ -324,9 +324,9 @@ export default function XpuntoCero() {
       {/* 02 Research & Design Approach */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(xpuntoCero.research.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.research.title}
               </h2>
@@ -382,9 +382,9 @@ export default function XpuntoCero() {
       {/* 03 Key Design Decisions & Trade-offs */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(xpuntoCero.keyDecisions.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.keyDecisions.title}
               </h2>
@@ -400,9 +400,9 @@ export default function XpuntoCero() {
       {/* 04 Visual & Brand Identity */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(xpuntoCero.visualIdentity.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.visualIdentity.title}
               </h2>
@@ -444,9 +444,9 @@ export default function XpuntoCero() {
       {/* 05 Outcomes & Business Impact */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(xpuntoCero.outcomes.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.outcomes.title}
               </h2>

@@ -22,9 +22,9 @@ export default function CaseStudySection({
       className={`py-16 px-6 ${className}`}
     >
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-start gap-6 mb-8">
+        <div className="flex items-baseline gap-6 mb-8">
           <SectionNumber n={Number(number)} />
-          <div className="flex-1 pt-2">
+          <div className="flex-1">
             <h2 className="type-section-title text-[var(--color-text-inverse)]">
               {title}
             </h2>

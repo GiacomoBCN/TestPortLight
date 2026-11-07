@@ -241,9 +241,9 @@ export default function VoDPlatform() {
 
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(vod.businessContext.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {vod.businessContext.title}
               </h2>
@@ -268,9 +268,9 @@ export default function VoDPlatform() {
       {/* Section 2: The Problem & Evaluation */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(vod.problem.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {vod.problem.title}
               </h2>
@@ -310,9 +310,9 @@ export default function VoDPlatform() {
       {/* Key Decisions */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(vod.keyDecisions.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {vod.keyDecisions.title}
               </h2>
@@ -327,9 +327,9 @@ export default function VoDPlatform() {
       {/* Section 4: The Redesign */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(vod.redesign.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {vod.redesign.title}
               </h2>
@@ -742,9 +742,9 @@ export default function VoDPlatform() {
       {/* Interaction Improvements Table */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(vod.interactionImprovements.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {vod.interactionImprovements.title}
               </h2>
@@ -844,9 +844,9 @@ export default function VoDPlatform() {
       {/* Outcomes & Deliverables */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(vod.outcomes.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {vod.outcomes.title}
               </h2>

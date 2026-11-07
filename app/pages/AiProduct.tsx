@@ -157,9 +157,9 @@ export default function AiProductCaseStudy({ media }: { media: HeroMediaFiles })
       {/* 5. Approach */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(aiProduct.approach.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{aiProduct.approach.title}</h2>
               <p className="text-gray-400 mt-2">
                 {aiProduct.approach.subtitle}
@@ -190,9 +190,9 @@ export default function AiProductCaseStudy({ media }: { media: HeroMediaFiles })
       {/* 6. Key Decisions */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(aiProduct.keyDecisions.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{aiProduct.keyDecisions.title}</h2>
               <p className="text-gray-400 mt-2">
                 {aiProduct.keyDecisions.subtitle}
@@ -208,9 +208,9 @@ export default function AiProductCaseStudy({ media }: { media: HeroMediaFiles })
       {/* 9. What I learned */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(aiProduct.learnings.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{aiProduct.learnings.title}</h2>
             </div>
           </div>

@@ -198,9 +198,9 @@ export default function FalakCaseStudy() {
       {/* 5. Approach */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(falak.approach.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{falak.approach.title}</h2>
               <p className="text-gray-400 mt-2">
                 {falak.approach.subtitle}
@@ -256,9 +256,9 @@ export default function FalakCaseStudy() {
       {/* 6. Key Decisions */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(falak.keyDecisions.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{falak.keyDecisions.title}</h2>
               <p className="text-gray-400 mt-2">
                 {falak.keyDecisions.subtitle}
@@ -280,9 +280,9 @@ export default function FalakCaseStudy() {
       {/* 8. Impact / Results */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(falak.delivered.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{falak.delivered.title}</h2>
             </div>
           </div>
@@ -305,9 +305,9 @@ export default function FalakCaseStudy() {
       {/* 9. What I learned */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(falak.learnings.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{falak.learnings.title}</h2>
             </div>
           </div>
@@ -327,9 +327,9 @@ export default function FalakCaseStudy() {
       {/* 5. Regulatory reference */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(falak.regulations.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{falak.regulations.title}</h2>
               <p className="text-gray-400 mt-2">
                 {falak.regulations.subtitle}

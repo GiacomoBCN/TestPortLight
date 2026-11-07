@@ -217,9 +217,9 @@ export default function SGPVEvolution() {
       {/* PHASE 1 */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(sgpv.phase1.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {sgpv.phase1.title}
               </h2>
@@ -283,9 +283,9 @@ export default function SGPVEvolution() {
       {/* PHASE 2 - Research */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(sgpv.phase2.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {sgpv.phase2.title}
               </h2>
@@ -395,9 +395,9 @@ export default function SGPVEvolution() {
       {/* AI Feature Explanation - NEW SECTION */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(sgpv.aiDataCapture.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {sgpv.aiDataCapture.title}
               </h2>
@@ -435,9 +435,9 @@ export default function SGPVEvolution() {
       {/* Key Decisions */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(sgpv.keyDecisions.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {sgpv.keyDecisions.title}
               </h2>
@@ -454,9 +454,9 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(sgpv.businessImpact.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {sgpv.businessImpact.title}
               </h2>
@@ -531,9 +531,9 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(sgpv.learnings.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {sgpv.learnings.title}
               </h2>

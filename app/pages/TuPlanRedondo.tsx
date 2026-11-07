@@ -274,9 +274,9 @@ export default function TuPlanRedondo() {
 
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(tuPlanRedondo.businessContext.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.businessContext.title}
               </h2>
@@ -304,9 +304,9 @@ export default function TuPlanRedondo() {
       {/* 02: Research & Definition */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(tuPlanRedondo.research.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.research.title}
               </h2>
@@ -344,9 +344,9 @@ export default function TuPlanRedondo() {
       {/* Key Decisions */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(tuPlanRedondo.keyDecisions.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.keyDecisions.title}
               </h2>
@@ -363,9 +363,9 @@ export default function TuPlanRedondo() {
       ========================= */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(tuPlanRedondo.designImplementation.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.designImplementation.title}
               </h2>
@@ -412,9 +412,9 @@ export default function TuPlanRedondo() {
       {/* Business Impact */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(tuPlanRedondo.businessImpact.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.businessImpact.title}
               </h2>

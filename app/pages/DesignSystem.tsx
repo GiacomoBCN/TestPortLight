@@ -172,9 +172,9 @@ export default function DesignSystemCaseStudy({
       {/* 5. Approach */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(designSystem.approach.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{designSystem.approach.title}</h2>
               <p className="text-gray-400 mt-2">
                 {designSystem.approach.subtitle}
@@ -249,9 +249,9 @@ export default function DesignSystemCaseStudy({
       {/* 6. Key Decisions */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(designSystem.keyDecisions.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{designSystem.keyDecisions.title}</h2>
               <p className="text-gray-400 mt-2">
                 {designSystem.keyDecisions.subtitle}
@@ -267,9 +267,9 @@ export default function DesignSystemCaseStudy({
       {/* 9. What I learned */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-baseline gap-6 mb-8">
             <SectionNumber n={Number(designSystem.learnings.number)} />
-            <div className="flex-1 pt-2">
+            <div className="flex-1">
               <h2 className="type-section-title text-ink-900">{designSystem.learnings.title}</h2>
             </div>
           </div>
