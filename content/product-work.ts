@@ -14,9 +14,9 @@ export const productWork = {
   // Schede progetto, nell'ordine della griglia (props di ProjectListingCard)
   projects: [
     projects.dowJones.productWorkCard,
-    projects.falak.productWorkCard,
-    projects.aiProduct.productWorkCard,
     projects.designSystem.productWorkCard,
+    projects.aiProduct.productWorkCard,
+    projects.falak.productWorkCard,
     projects.vod.productWorkCard,
     projects.sgpv.productWorkCard,
     projects.xpuntoCero.productWorkCard,
