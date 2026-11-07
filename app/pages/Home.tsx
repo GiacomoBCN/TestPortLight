@@ -216,6 +216,34 @@ export default function Home() {
 
             <ProjectCard
               compact
+              role={featuredWork.projects.designSystem.role}
+              title={featuredWork.projects.designSystem.title}
+              company={featuredWork.projects.designSystem.company}
+              timeframe={featuredWork.projects.designSystem.timeframe}
+              description={featuredWork.projects.designSystem.description}
+              video={featuredWork.projects.designSystem.video}
+              videoLabels={featuredWork.videoLabels}
+              metrics={featuredWork.projects.designSystem.metrics}
+              link={createPageUrl("DesignSystem")}
+              delay={0.1}
+            />
+
+            <ProjectCard
+              compact
+              role={featuredWork.projects.aiProduct.role}
+              title={featuredWork.projects.aiProduct.title}
+              company={featuredWork.projects.aiProduct.company}
+              timeframe={featuredWork.projects.aiProduct.timeframe}
+              description={featuredWork.projects.aiProduct.description}
+              video={featuredWork.projects.aiProduct.video}
+              videoLabels={featuredWork.videoLabels}
+              metrics={featuredWork.projects.aiProduct.metrics}
+              link={createPageUrl("AiProduct")}
+              delay={0.2}
+            />
+
+            <ProjectCard
+              compact
               role={featuredWork.projects.falak.role}
               title={featuredWork.projects.falak.title}
               company={featuredWork.projects.falak.company}
@@ -226,34 +254,6 @@ export default function Home() {
               imageBg="#eaece9"
               metrics={featuredWork.projects.falak.metrics}
               link={createPageUrl("Falak")}
-              delay={0.1}
-            />
-
-            <ProjectCard
-              compact
-              role={featuredWork.projects.vod.role}
-              title={featuredWork.projects.vod.title}
-              company={featuredWork.projects.vod.company}
-              timeframe={featuredWork.projects.vod.timeframe}
-              description={featuredWork.projects.vod.description}
-              image={getImagePath(featuredWork.projects.vod.image)}
-              metrics={featuredWork.projects.vod.metrics}
-              link={createPageUrl("VODplatform")}
-              delay={0.2}
-            />
-
-            <ProjectCard
-              compact
-              role={featuredWork.projects.sgpv.role}
-              title={featuredWork.projects.sgpv.title}
-              company={featuredWork.projects.sgpv.company}
-              timeframe={featuredWork.projects.sgpv.timeframe}
-              description={featuredWork.projects.sgpv.description}
-              image={getImagePath(featuredWork.projects.sgpv.image)}
-              imageFit="contain"
-              imageBg="#ffffff"
-              metrics={featuredWork.projects.sgpv.metrics}
-              link={createPageUrl("SGPVEvolution")}
               delay={0.3}
             />
           </div>

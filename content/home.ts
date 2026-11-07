@@ -86,10 +86,13 @@ export const home = {
     // image: percorso sotto public/ (passato a getImagePath nella pagina)
     projects: {
       dowJones: projects.dowJones.homeCard,
+      designSystem: projects.designSystem.homeCard,
+      aiProduct: projects.aiProduct.homeCard,
       falak: projects.falak.homeCard,
-      vod: projects.vod.homeCard,
-      sgpv: projects.sgpv.homeCard,
+      // VOD e SGPV non sono piu' in Home: restano in Product Work e nel menu
     },
+    // Etichette (per screen reader) del bottone pausa / play sui video delle schede
+    videoLabels: { pause: "Pause video", play: "Play video" },
   },
 
   howIWork: {

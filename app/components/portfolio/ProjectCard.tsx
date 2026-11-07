@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import { Pause, Play } from "lucide-react";
+import { getImagePath } from "@/utils/image";
 import SketchFrame from "../SketchFrame";
 
 export default function ProjectCard({
@@ -18,6 +20,8 @@ export default function ProjectCard({
   imageBg,
   compact = false,
   delay = 0,
+  video,
+  videoLabels,
 }: {
   role: string;
   title: string;
@@ -35,9 +39,63 @@ export default function ProjectCard({
   /** versione bassa per la home: immagine piu' stretta, testi a 2 righe, meno aria */
   compact?: boolean;
   delay?: number;
+  /** video muto in loop al posto dell'immagine (percorsi sotto public/); bg = fondo del video */
+  video?: { mp4: string; webm: string; poster: string; bg: string };
+  /** etichette del bottone pausa / play (obbligatorie con video) */
+  videoLabels?: { pause: string; play: string };
 }) {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  // Video: parte quando la scheda entra nello schermo, si ferma quando esce.
+  // Se l'utente lo mette in pausa resta fermo finche' non preme play.
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = React.useState(false);
+  const userPaused = React.useRef(false);
+  React.useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    const onPlay = () => setPlaying(true);
+    const onPause = () => setPlaying(false);
+    el.addEventListener("play", onPlay);
+    el.addEventListener("pause", onPause);
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !userPaused.current) el.play().catch(() => {});
+      else if (!entry.isIntersecting) el.pause();
+    }, { threshold: 0.25 });
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      el.removeEventListener("play", onPlay);
+      el.removeEventListener("pause", onPause);
+    };
+  }, []);
+  const toggleVideo = () => {
+    const el = videoRef.current;
+    if (!el) return;
+    if (el.paused) {
+      userPaused.current = false;
+      el.play().catch(() => {});
+    } else {
+      userPaused.current = true;
+      el.pause();
+    }
+  };
+
+  // Bottone pausa / play: fuori dal link (un bottone dentro un link non e' valido),
+  // posato sopra l'angolo in basso a destra dell'area video.
+  const videoButton = video && videoLabels && (
+    <div className={`absolute inset-x-0 top-0 ${compact ? "aspect-[2.4/1]" : "aspect-video"} pointer-events-none z-10`}>
+      <button
+        type="button"
+        onClick={toggleVideo}
+        aria-label={playing ? videoLabels.pause : videoLabels.play}
+        className="pointer-events-auto absolute bottom-2 right-2 w-8 h-8 rounded-full bg-white/90 border border-ink-900/15 shadow-sm flex items-center justify-center text-ink-900 hover:bg-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-interactive)]"
+      >
+        {playing ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
+      </button>
+    </div>
+  );
 
   const cardContent = (
     <article className="flex flex-col h-full">
@@ -55,6 +113,27 @@ export default function ProjectCard({
             {imageFit === "cover" && (
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-secondary)] via-transparent to-transparent opacity-60"></div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Project Video - stessa area dell'immagine, video intero sul suo colore di fondo */}
+      {video && (
+        <div className={`${compact ? "mb-4 -mx-6 -mt-6" : "mb-6 -mx-8 -mt-8"} overflow-hidden rounded-t-xl`}>
+          <div className={`relative ${compact ? "aspect-[2.4/1]" : "aspect-video"} overflow-hidden`} style={{ background: video.bg }}>
+            <video
+              ref={videoRef}
+              className="absolute inset-0 w-full h-full object-contain"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={getImagePath(video.poster)}
+              aria-hidden="true"
+            >
+              <source src={getImagePath(video.mp4)} type="video/mp4" />
+              <source src={getImagePath(video.webm)} type="video/webm" />
+            </video>
           </div>
         </div>
       )}
@@ -122,7 +201,7 @@ export default function ProjectCard({
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, delay }}
-        className="h-full"
+        className="h-full relative"
       >
         <Link
           href={link}
@@ -133,6 +212,7 @@ export default function ProjectCard({
           <SketchFrame />
           {cardContent}
         </Link>
+        {videoButton}
       </motion.div>
     );
   }

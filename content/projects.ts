@@ -23,6 +23,13 @@ export const projects = {
         { value: "÷10", label: "Cost per answer" },
         { value: "43→73%", label: "Retrieval hit@10" },
       ],
+      // Video al posto dell'immagine nella scheda della Home (percorsi sotto public/; bg = fondo del video)
+      video: {
+        mp4: "video/pipeline-loop.mp4",
+        webm: "video/pipeline-loop.webm",
+        poster: "video/pipeline-loop-poster.webp",
+        bg: "#FFFFFF",
+      },
     },
     productWorkCard: {
       category: "AI PRODUCT · RESEARCH · DESIGN SYSTEM · DEPLOY",
@@ -64,6 +71,13 @@ export const projects = {
         { value: "0", label: "Colour names in components" },
         { value: "4", label: "Components" },
       ],
+      // Video al posto dell'immagine nella scheda della Home (percorsi sotto public/; bg = fondo del video)
+      video: {
+        mp4: "video/token-layers-loop.mp4",
+        webm: "video/token-layers-loop.webm",
+        poster: "video/token-layers-loop-poster.webp",
+        bg: "#1A1E21",
+      },
     },
     productWorkCard: {
       category: "DESIGN SYSTEM · DESIGN TOKENS · FIGMA ↔ CODE",
