@@ -11,7 +11,7 @@ export const aiProduct = {
 
   // Metadati della pagina (app/(links)/ai-product/page.tsx)
   metadata: {
-    title: "An AI product, end to end · Giacomo Bianchi",
+    title: "AI product, end to end · Giacomo Bianchi",
     description:
       "Research, model evaluation, design system and deploy of a multilingual AI product, built and run in production by one person.",
   },

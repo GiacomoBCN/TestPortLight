@@ -13,15 +13,15 @@ export const projects = {
     navLink: "AI Product, End to End",
     homeCard: {
       role: "Founder & Product Builder",
-      title: "An AI product, end to end",
+      title: "AI product, end to end",
       company: "StayKeel",
       timeframe: "",
       description:
         "Designed, built and run in production by one person: a multilingual AI product that turns any link into a summary you can act on, and a chat that answers only from what you saved.",
       metrics: [
-        { value: "8", label: "Models benchmarked" },
-        { value: "÷10", label: "Cost per answer" },
-        { value: "43→73%", label: "Retrieval hit@10" },
+        { value: "8", label: "Models tested" },
+        { value: "3", label: "Models in production" },
+        { value: "73%", label: "Retrieval hit@10" },
       ],
       // Video al posto dell'immagine nella scheda della Home (percorsi sotto public/; bg = fondo del video)
       video: {
@@ -33,23 +33,23 @@ export const projects = {
     },
     productWorkCard: {
       category: "AI PRODUCT · RESEARCH · DESIGN SYSTEM · DEPLOY",
-      title: "An AI product, end to end",
+      title: "AI product, end to end",
       role: "Founder & Product Builder",
       year: "",
       description:
         "Designed, built and run in production by one person: a multilingual AI product that turns any link into a summary you can act on, and a chat that answers only from what you saved.",
       metrics: [
-        { value: "8", label: "Models benchmarked" },
-        { value: "÷10", label: "Cost per answer" },
-        { value: "43→73%", label: "Retrieval hit@10" },
+        { value: "8", label: "Models tested" },
+        { value: "3", label: "Models in production" },
+        { value: "73%", label: "Retrieval hit@10" },
       ],
       tags: ["AI Product", "RAG", "Model Evaluation", "Product Research", "Design Tokens", "PWA", "Multilingual"],
       slug: "AiProduct",
     },
     caseStudyHero: {
-      breadcrumb: "Home > Product Work > An AI product, end to end",
+      breadcrumb: "Home > Product Work > AI product, end to end",
       category: "AI PRODUCT · RESEARCH · DESIGN SYSTEM · DEPLOY",
-      title: "An AI product, end to end",
+      title: "AI product, end to end",
       subtitle: "Founder & Product Builder",
       description:
         "[StayKeel](https://staykeel.com) turns any link into a structured summary and lets you ask questions across everything you saved, in any language. I did the research, chose the models by measurement, designed the system and the interface, and run it in production.",
