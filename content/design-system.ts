@@ -22,6 +22,10 @@ export const designSystem = {
     cardRest: { file: "01-card-rest.webp", alt: "The card at rest" },
     tokensBoard: { file: "02-tokens-board.webp", alt: "The full token board" },
     cardAnatomy: { file: "03-card-anatomy.webp", alt: "Card anatomy and states" },
+    // Libreria Figma, in ordine Atomic Design: si apre come galleria dalla box 5
+    figmaAtoms: { file: "05-figma-atoms.webp", alt: "Figma library: icons, buttons, chips and inputs, all labelled IN CODE" },
+    figmaMolecules: { file: "06-figma-molecules.webp", alt: "Figma library: rating bar, citation chip, ask dock and error notices, all labelled IN CODE" },
+    figmaOrganisms: { file: "07-figma-organisms.webp", alt: "Figma library: the document card in all its states, and the header" },
   },
 
   hero: projects.designSystem.caseStudyHero,
@@ -85,6 +89,9 @@ export const designSystem = {
     subtitle: "Three levels, one rule, and the proof that it holds.",
     enlarge: "Enlarge",
     enlargeImageLabel: (alt: string) => `Enlarge image: ${alt}`,
+    // Box con piu' immagini: si vede solo la prima, con "+N"; il clic apre la galleria
+    galleryLabel: (alt: string, count: number) => `Open gallery of ${count} images: ${alt}`,
+    moreImages: (n: number) => `+${n}`,
     // images: chiavi di `shots`; demo: true = qui va la demo interattiva (TokenDemoCard)
     patterns: [
       {
@@ -114,7 +121,7 @@ export const designSystem = {
       {
         title: "Figma came last, generated from the product",
         text: "Alone, the product was the fastest place to decide. The Figma library was generated from the code afterwards, so the two cannot disagree: every variable mirrors a token, every component carries an `IN CODE` label, the component library follows Atomic Design (tokens, atoms, molecules, organisms, templates), and the token page in the app is read from the stylesheet itself, with a drift check that flags any token without a documented role.",
-        images: [],
+        images: ["figmaAtoms", "figmaMolecules", "figmaOrganisms"],
         demo: false,
       },
     ] as const,

@@ -197,30 +197,40 @@ export default function DesignSystemCaseStudy({
                     </p>
                   </div>
                   {p.images.length > 0 && (
-                    <div className="w-full md:w-2/5 md:flex-shrink-0 space-y-3">
-                      {p.images.map((im, j) => (
-                        <button
-                          type="button"
-                          key={j}
-                          onClick={() => open(p.images, j)}
-                          className="relative block w-full aspect-[4/5] rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer"
-                          aria-label={designSystem.approach.enlargeImageLabel(im.alt)}
-                        >
-                          <Image
-                            src={im.src}
-                            alt={im.alt}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 30vw"
-                            className="object-contain p-2"
-                          />
-                          <div
-                            className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center"
+                    <div className="w-full md:w-2/5 md:flex-shrink-0">
+                      {/* Solo la prima immagine; se ce ne sono altre, "+N" e il clic apre la galleria */}
+                      <button
+                        type="button"
+                        onClick={() => open(p.images, 0)}
+                        className="relative block w-full aspect-[4/5] rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer"
+                        aria-label={
+                          p.images.length > 1
+                            ? designSystem.approach.galleryLabel(p.images[0].alt, p.images.length)
+                            : designSystem.approach.enlargeImageLabel(p.images[0].alt)
+                        }
+                      >
+                        <Image
+                          src={p.images[0].src}
+                          alt={p.images[0].alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 30vw"
+                          className="object-contain p-2"
+                        />
+                        {p.images.length > 1 && (
+                          <span
+                            className="absolute bottom-2 right-2 px-2.5 py-1 rounded-full bg-ink-900 text-white text-xs font-semibold"
                             aria-hidden="true"
                           >
-                            <span className="text-white text-xs font-medium">{designSystem.approach.enlarge}</span>
-                          </div>
-                        </button>
-                      ))}
+                            {designSystem.approach.moreImages(p.images.length - 1)}
+                          </span>
+                        )}
+                        <div
+                          className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center"
+                          aria-hidden="true"
+                        >
+                          <span className="text-white text-xs font-medium">{designSystem.approach.enlarge}</span>
+                        </div>
+                      </button>
                     </div>
                   )}
                   {p.demo && (
