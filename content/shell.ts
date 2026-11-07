@@ -33,9 +33,9 @@ export const shell = {
     allProjects: "All Projects",
     projects: [
       { name: projects.dowJones.navLink, path: "DowJones" },
-      { name: projects.falak.navLink, path: "Falak" },
-      { name: projects.aiProduct.navLink, path: "AiProduct" },
       { name: projects.designSystem.navLink, path: "DesignSystem" },
+      { name: projects.aiProduct.navLink, path: "AiProduct" },
+      { name: projects.falak.navLink, path: "Falak" },
       { name: projects.vod.navLink, path: "VODplatform" },
       { name: projects.sgpv.navLink, path: "SGPVEvolution" },
       { name: projects.xpuntoCero.navLink, path: "XpuntoCero" },
