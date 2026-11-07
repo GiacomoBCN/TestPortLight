@@ -290,7 +290,7 @@
 
   --section-number-size-mobile: var(--primitive-size-30);
   --section-number-size-desktop: var(--primitive-size-40);
-  --section-number-color: var(--primitive-yellow-400);  /* prova: numeri gialli (decorativi, aria-hidden). Per tornare: var(--color-ink) */
+  --section-number-color: var(--color-ink);
   --section-number-bar-color: var(--primitive-orange-500);
   --section-number-bar-width: var(--primitive-border-4);
   --section-number-bar-gap: var(--primitive-space-12);
