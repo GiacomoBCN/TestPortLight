@@ -68,8 +68,8 @@ export const projects = {
         "A three-level token architecture where the content source is the theme. Everything in it exists because the product uses it; what it doesn't use, I didn't build, and wrote down why.",
       metrics: [
         { value: "3", label: "Token levels" },
-        { value: "0", label: "Colour names in components" },
-        { value: "38", label: "Components, all in code" },
+        { value: "1:1", label: "Figma ↔ code" },
+        { value: "5→1", label: "Sources, one card" },
       ],
       // Video al posto dell'immagine nella scheda della Home (percorsi sotto public/; bg = fondo del video)
       video: {
@@ -88,8 +88,8 @@ export const projects = {
         "A three-level token architecture where the content source is the theme. Everything in it exists because the product uses it; what it doesn't use, I didn't build, and wrote down why.",
       metrics: [
         { value: "3", label: "Token levels" },
-        { value: "0", label: "Colour names in components" },
-        { value: "38", label: "Components, all in code" },
+        { value: "1:1", label: "Figma ↔ code" },
+        { value: "5→1", label: "Sources, one card" },
       ],
       tags: ["Design System", "Design Tokens", "Atomic Design", "Component Library", "CSS Custom Properties", "Figma Variables", "Theming", "Accessibility"],
       slug: "DesignSystem",
