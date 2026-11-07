@@ -7,10 +7,11 @@ import React from "react";
  *                   per i numeri evidenziati nei paragrafi: "text-ink-900 font-semibold")
  *   *testo*       → <em>testo</em>
  *   [testo](url)  → <a href={url} target="_blank" rel="noopener noreferrer" className={linkClassName}>
+ *   `testo`       → <code> (nomi di token, selettori CSS)
  *   a capo (\n)   → <br />
  * Tutto il resto, spazi compresi, resta com'e'.
  */
-const TOKEN = /\*\*([\s\S]+?)\*\*|\*([^*\n]+?)\*|\[([^\]]+)\]\(([^)\s]+)\)|\n/g;
+const TOKEN = /\*\*([\s\S]+?)\*\*|\*([^*\n]+?)\*|\[([^\]]+)\]\(([^)\s]+)\)|`([^`\n]+)`|\n/g;
 
 export default function RichText({
   text,
@@ -43,6 +44,12 @@ export default function RichText({
         <a key={k} href={m[4]} target="_blank" rel="noopener noreferrer" className={linkClassName}>
           {m[3]}
         </a>
+      );
+    } else if (m[5] !== undefined) {
+      out.push(
+        <code key={k} className="font-mono text-[0.9em] px-1 py-0.5 rounded bg-[var(--color-text-inverse)]/[0.06]">
+          {m[5]}
+        </code>
       );
     } else {
       out.push(<br key={k} />);

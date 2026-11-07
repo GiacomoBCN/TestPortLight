@@ -1,6 +1,7 @@
 import React from "react";
 import SketchFrame from "../SketchFrame";
 import { shell } from "@/content/shell";
+import RichText from "@/app/components/RichText";
 
 export default function DecisionTable({
   decisions,
@@ -62,11 +63,11 @@ export default function DecisionTable({
                   </td>
                   <td className="py-4 px-6 text-[var(--color-text-primary)] text-sm">
                     {decision.options.map((option, i) => (
-                      <div key={i}>{i + 1}. {option}</div>
+                      <div key={i}>{i + 1}. <RichText text={option} /></div>
                     ))}
                   </td>
                   <td className="py-4 px-6 text-[var(--color-text-primary)] text-sm">
-                    {decision.rationale}
+                    <RichText text={decision.rationale} />
                   </td>
                   <td className="py-4 px-6 text-[var(--color-text-link-default)] font-semibold text-sm">
                     {impactCell(decision)}
@@ -98,7 +99,7 @@ export default function DecisionTable({
                 </div>
                 <div className="text-[var(--color-text-primary)] text-sm space-y-1">
                   {decision.options.map((option, i) => (
-                    <div key={i}>{i + 1}. {option}</div>
+                    <div key={i}>{i + 1}. <RichText text={option} /></div>
                   ))}
                 </div>
               </div>
@@ -108,7 +109,7 @@ export default function DecisionTable({
                   {shell.ui.decisionTable.whyWeChose}
                 </div>
                 <div className="text-[var(--color-text-primary)] text-sm">
-                  {decision.rationale}
+                  <RichText text={decision.rationale} />
                 </div>
               </div>
 

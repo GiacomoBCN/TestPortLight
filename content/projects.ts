@@ -50,6 +50,47 @@ export const projects = {
     },
   },
 
+  designSystem: {
+    navLink: "Design System, One Product",
+    homeCard: {
+      role: "Design System · Solo",
+      title: "A design system sized to its product",
+      company: "StayKeel",
+      timeframe: "",
+      description:
+        "A three-level token architecture where the content source is the theme. Everything in it exists because the product uses it; what it doesn't use, I didn't build, and wrote down why.",
+      metrics: [
+        { value: "3", label: "Token levels" },
+        { value: "0", label: "Colour names in components" },
+        { value: "4", label: "Components" },
+      ],
+    },
+    productWorkCard: {
+      category: "DESIGN SYSTEM · DESIGN TOKENS · FIGMA ↔ CODE",
+      title: "A design system sized to its product",
+      role: "Design Technologist, solo",
+      year: "",
+      description:
+        "A three-level token architecture where the content source is the theme. Everything in it exists because the product uses it; what it doesn't use, I didn't build, and wrote down why.",
+      metrics: [
+        { value: "3", label: "Token levels" },
+        { value: "0", label: "Colour names in components" },
+        { value: "4", label: "Components" },
+      ],
+      tags: ["Design Tokens", "CSS Custom Properties", "Theming", "Figma Variables", "Accessibility", "Governance"],
+      slug: "DesignSystem",
+    },
+    caseStudyHero: {
+      breadcrumb: "Home > Product Work > A design system sized to its product",
+      category: "DESIGN SYSTEM · DESIGN TOKENS · FIGMA ↔ CODE",
+      title: "A design system sized to its product",
+      subtitle: "Four components, and the reasons for not building more · Design Technologist, solo · 2026",
+      description:
+        "After co-leading a design system for eight brands at Dow Jones, I built one for a single product, [StayKeel](https://staykeel.com). The rules are the same. The question was how many of them one product actually needs.",
+      tags: ["Design Tokens", "CSS Custom Properties", "Theming", "Figma Variables", "Accessibility", "Governance"],
+    },
+  },
+
   dowJones: {
     navLink: "Dow Jones Design System",
     homeCard: {

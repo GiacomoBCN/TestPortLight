@@ -16,6 +16,7 @@ export const productWork = {
     projects.dowJones.productWorkCard,
     projects.falak.productWorkCard,
     projects.aiProduct.productWorkCard,
+    projects.designSystem.productWorkCard,
     projects.vod.productWorkCard,
     projects.sgpv.productWorkCard,
     projects.xpuntoCero.productWorkCard,

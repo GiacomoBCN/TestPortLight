@@ -1,0 +1,257 @@
+/*
+ * Demo dei tre livelli di token (TokenDemoCard.tsx). Scritta da zero per questa pagina.
+ * Prefisso --demo-, tutto dentro .root: niente esce dal contenitore.
+ * La card legge solo --demo-color-* (livello 3). I nomi delle fonti stanno solo qui
+ * (livello 2) e nell'elenco delle chip in content/design-system.ts.
+ */
+
+/* ---------- L1 · Palette: valori grezzi, nessun componente li legge ---------- */
+.root {
+  --demo-palette-youtube: #FF6467;
+  --demo-palette-linkedin: #51A2FF;
+  --demo-palette-instagram: #C27AFF;
+  --demo-palette-article: #FFB900;
+  --demo-palette-github: #00BC7D;
+  --demo-palette-brand: #FEC978;
+  --demo-palette-brand-strong: #E8A93B;
+  --demo-palette-neutral-0: #FFFFFF;
+  --demo-palette-neutral-50: #F7F6F4;
+  --demo-palette-neutral-300: #C4C9D1;
+  --demo-palette-neutral-400: #8A92A0;
+  --demo-palette-neutral-500: #6B7280;
+  --demo-palette-neutral-900: #1E2939;
+}
+
+/* ---------- L2 · Source scope: sei token per fonte; default (unknown) = article ---------- */
+.root,
+.root[data-source="article"] {
+  --demo-color-border-card: var(--demo-palette-article);
+  --demo-color-border-card-hover: var(--demo-palette-article);
+  --demo-color-border-card-read: color-mix(in srgb, var(--demo-palette-article) 30%, #fff);
+  --demo-color-icon-card: var(--demo-palette-article);
+  --demo-color-bkg-pill: var(--demo-palette-article);
+  --demo-color-ring-card-active: var(--demo-palette-article);
+}
+
+.root[data-source="youtube"] {
+  --demo-color-border-card: var(--demo-palette-youtube);
+  --demo-color-border-card-hover: var(--demo-palette-youtube);
+  --demo-color-border-card-read: color-mix(in srgb, var(--demo-palette-youtube) 30%, #fff);
+  --demo-color-icon-card: var(--demo-palette-youtube);
+  --demo-color-bkg-pill: var(--demo-palette-youtube);
+  --demo-color-ring-card-active: var(--demo-palette-youtube);
+}
+
+.root[data-source="linkedin"] {
+  --demo-color-border-card: var(--demo-palette-linkedin);
+  --demo-color-border-card-hover: var(--demo-palette-linkedin);
+  --demo-color-border-card-read: color-mix(in srgb, var(--demo-palette-linkedin) 30%, #fff);
+  --demo-color-icon-card: var(--demo-palette-linkedin);
+  --demo-color-bkg-pill: var(--demo-palette-linkedin);
+  --demo-color-ring-card-active: var(--demo-palette-linkedin);
+}
+
+.root[data-source="instagram"] {
+  --demo-color-border-card: var(--demo-palette-instagram);
+  --demo-color-border-card-hover: var(--demo-palette-instagram);
+  --demo-color-border-card-read: color-mix(in srgb, var(--demo-palette-instagram) 30%, #fff);
+  --demo-color-icon-card: var(--demo-palette-instagram);
+  --demo-color-bkg-pill: var(--demo-palette-instagram);
+  --demo-color-ring-card-active: var(--demo-palette-instagram);
+}
+
+.root[data-source="github"] {
+  --demo-color-border-card: var(--demo-palette-github);
+  --demo-color-border-card-hover: var(--demo-palette-github);
+  --demo-color-border-card-read: color-mix(in srgb, var(--demo-palette-github) 30%, #fff);
+  --demo-color-icon-card: var(--demo-palette-github);
+  --demo-color-bkg-pill: var(--demo-palette-github);
+  --demo-color-ring-card-active: var(--demo-palette-github);
+}
+
+/* ---------- L3 · Contextual: indipendenti dalla fonte ---------- */
+.root {
+  /* Riquadro del voto: legge il brand, non la fonte. Non cambia con le chip. */
+  --demo-color-bkg-rating-selected: var(--demo-palette-brand);
+  --demo-color-border-rating-selected: var(--demo-palette-brand-strong);
+  --demo-color-underline-focus-label: var(--demo-palette-brand);
+
+  /* Superfici e testi della card */
+  --demo-color-bkg-card: var(--demo-palette-neutral-0);
+  --demo-color-bkg-control: var(--demo-palette-neutral-50);
+  --demo-color-border-card-rest: var(--demo-palette-neutral-300);
+  --demo-color-text-card: var(--demo-palette-neutral-900);
+  --demo-color-text-card-muted: var(--demo-palette-neutral-500);
+  --demo-color-icon-action: var(--demo-palette-neutral-400);
+}
+
+/* ---------- La card: legge solo --demo-color-* ---------- */
+.card {
+  position: relative;
+  background: var(--demo-color-bkg-card);
+  color: var(--demo-color-text-card);
+  border: 1px solid var(--demo-color-border-card-rest);
+  border-top: 4px solid var(--demo-color-border-card);
+  border-radius: 20px;
+  padding: 20px 20px 16px;
+  outline: 2px solid var(--demo-color-ring-card-active);
+  outline-offset: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 150ms ease, outline-color 150ms ease;
+}
+
+.card:hover {
+  border-left-color: var(--demo-color-border-card-hover);
+  border-right-color: var(--demo-color-border-card-hover);
+  border-bottom-color: var(--demo-color-border-card-hover);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 700;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--demo-color-icon-card);
+  color: var(--demo-color-text-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background-color 150ms ease;
+}
+
+.metaRow,
+.tabRow,
+.captions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.metaRow {
+  margin-top: 8px;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--demo-color-text-card-muted);
+}
+
+.action {
+  color: var(--demo-color-icon-action);
+  flex-shrink: 0;
+}
+
+.tabRow {
+  margin-top: 14px;
+}
+
+.tabs {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--demo-color-bkg-control);
+  border-radius: 999px;
+  padding: 3px;
+  font-size: 13px;
+  text-align: center;
+  color: var(--demo-color-text-card-muted);
+}
+
+.tab {
+  padding: 5px 0;
+  border-radius: 999px;
+}
+
+.tabActive {
+  background: var(--demo-color-bkg-pill);
+  color: var(--demo-color-text-card);
+  transition: background-color 150ms ease;
+}
+
+.body {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.chips {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  background: var(--demo-color-bkg-control);
+  color: var(--demo-color-text-card-muted);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.ratingRow {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faces {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.face {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--demo-color-icon-action);
+}
+
+.faceSelected {
+  background: var(--demo-color-bkg-rating-selected);
+  border-color: var(--demo-color-border-rating-selected);
+  color: var(--demo-color-text-card);
+}
+
+.captions {
+  margin-top: 6px;
+}
+
+.focusLabel {
+  text-decoration: underline;
+  text-decoration-color: var(--demo-color-underline-focus-label);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}

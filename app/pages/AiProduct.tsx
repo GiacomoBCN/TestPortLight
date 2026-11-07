@@ -4,8 +4,6 @@ import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import {
   ArrowLeft,
-  Pause,
-  Play,
   AlertCircle,
   User,
   Users,
@@ -21,109 +19,12 @@ import {
 import OverviewCard from "../components/work/OverviewCard";
 import DecisionTable from "../components/work/DecisionTable";
 import GlassCard from "../components/portfolio/GlassCard";
-import SketchFrame from "../components/SketchFrame";
+import HeroVideo, { type HeroMediaFiles } from "../components/casestudy/HeroVideo";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
-import { getImagePath } from "@/utils/image";
 import { aiProduct } from "@/content/ai-product";
 
 const DEMO_URL = aiProduct.demoUrl;
-
-/** Quali file del video esistono in public/ (controllato a build time da app/(links)/ai-product/page.tsx) */
-export type HeroMediaFiles = { mp4: boolean; webm: boolean; poster: boolean };
-
-/** Segnaposto statico: le cinque fasi della pipeline, nient'altro */
-function PipelinePlaceholder() {
-  return (
-    <ol className="h-full grid grid-cols-1 sm:grid-cols-5 gap-6 sm:gap-4 items-center p-6 sm:p-8">
-      {aiProduct.heroPlaceholder.map((step) => (
-        <li key={step.label} className="text-center">
-          <div className="text-sm md:text-base font-semibold tracking-[0.2em] text-ink-900">{step.label}</div>
-          <div className="mt-2 text-xs text-gray-400 leading-snug">{step.note}</div>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-/**
- * Blocco 16:9 sotto l'hero. Con i file video presenti: <video> muto in loop che parte da solo,
- * con sotto un bottone tondo pausa / play (come nella home del prodotto).
- * Se il browser blocca l'autoplay il bottone mostra play.
- * Senza file video: il segnaposto.
- */
-function HeroMedia({ files }: { files: HeroMediaFiles }) {
-  const { video, webm, poster, alt, pauseLabel, playLabel } = aiProduct.heroMedia;
-  const hasVideo = files.mp4 || files.webm;
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = React.useState(false);
-
-  React.useEffect(() => {
-    const el = videoRef.current;
-    if (!el) return;
-    const onPlay = () => setPlaying(true);
-    const onPause = () => setPlaying(false);
-    el.addEventListener("play", onPlay);
-    el.addEventListener("pause", onPause);
-    setPlaying(!el.paused);
-    el.play().then(() => setPlaying(true)).catch(() => setPlaying(!el.paused));
-    return () => {
-      el.removeEventListener("play", onPlay);
-      el.removeEventListener("pause", onPause);
-    };
-  }, []);
-
-  const toggle = () => {
-    const el = videoRef.current;
-    if (!el) return;
-    if (el.paused) el.play().catch(() => {});
-    else el.pause();
-  };
-
-  const frame = "glass sketch rounded-xl overflow-hidden";
-
-  if (!hasVideo) {
-    return (
-      <div className={`${frame} sm:aspect-video`}>
-        <SketchFrame />
-        <PipelinePlaceholder />
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <div className={`${frame} relative aspect-video`}>
-        <SketchFrame />
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={files.poster ? getImagePath(poster) : undefined}
-          aria-label={alt || undefined}
-        >
-          {/* mp4 (H.264) prima: lo decodifica qualsiasi browser e scheda video; webm come riserva */}
-          {files.mp4 && <source src={getImagePath(video)} type="video/mp4" />}
-          {files.webm && <source src={getImagePath(webm)} type="video/webm" />}
-        </video>
-      </div>
-      <div className="flex justify-end mt-3">
-        <button
-          type="button"
-          onClick={toggle}
-          aria-label={playing ? pauseLabel : playLabel}
-          className="w-10 h-10 rounded-full glass flex items-center justify-center text-ink-900 hover:border-blue transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-interactive)]"
-        >
-          {playing ? <Pause size={16} aria-hidden="true" /> : <Play size={16} aria-hidden="true" />}
-        </button>
-      </div>
-    </div>
-  );
-}
 
 export default function AiProductCaseStudy({ media }: { media: HeroMediaFiles }) {
   // Icone delle card dell'approccio, nello stesso ordine di aiProduct.approach.patterns
@@ -202,7 +103,7 @@ export default function AiProductCaseStudy({ media }: { media: HeroMediaFiles })
             ))}
           </div>
 
-          <HeroMedia files={media} />
+          <HeroVideo files={media} media={aiProduct.heroMedia} placeholder={aiProduct.heroPlaceholder} />
         </div>
       </section>
 
