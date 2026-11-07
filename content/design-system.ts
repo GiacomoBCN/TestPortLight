@@ -103,7 +103,7 @@ export const designSystem = {
       {
         title: "A token is chosen for its role, never for its value",
         text: "Two things that look the same today get two tokens if they do different jobs, because they will diverge. The rating label and the meta line are both small monospace capitals; they are two roles, so two tokens. The rule cuts both ways: a new role gets a new token even when its value already exists.",
-        images: [],
+        images: ["cardRest"],
         demo: false,
       },
       {

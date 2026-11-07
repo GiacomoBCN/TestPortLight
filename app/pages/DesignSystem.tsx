@@ -203,7 +203,7 @@ export default function DesignSystemCaseStudy({
                           type="button"
                           key={j}
                           onClick={() => open(p.images, j)}
-                          className="relative aspect-[3/2] rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer col-span-2"
+                          className="relative aspect-[4/5] rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer col-span-2"
                           aria-label={designSystem.approach.enlargeImageLabel(im.alt)}
                         >
                           <Image
@@ -211,7 +211,7 @@ export default function DesignSystemCaseStudy({
                             alt={im.alt}
                             fill
                             sizes="(max-width: 768px) 100vw, 30vw"
-                            className="object-cover object-top"
+                            className="object-contain p-2"
                           />
                           <div
                             className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center"
