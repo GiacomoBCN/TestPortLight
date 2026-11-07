@@ -5,31 +5,35 @@ import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import CookieConsent from "@/app/components/CookieConsent";
 import { Suspense } from "react";
 import { shell } from "@/content/shell";
-import { Comfortaa, Red_Hat_Display, Red_Hat_Text, Red_Hat_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
-// Font scaricati in build e serviti dal nostro dominio (nessuna chiamata a Google dal browser).
-// Le variabili CSS stanno su <html>; i ruoli (firma, lavoro, testo, etichette) sono in globals.css.
-const comfortaa = Comfortaa({
-  weight: "700",
-  subsets: ["latin", "latin-ext"],
+// Font nel repo (app/fonts, latin + latin-ext, woff2), serviti dal nostro dominio.
+// Locali e non next/font/google: il build non dipende piu' dalla risposta di Google
+// (su GitHub Actions falliva). Le variabili CSS stanno su <html>; i ruoli
+// (firma, lavoro, testo, etichette) sono in globals.css.
+const comfortaa = localFont({
+  src: [{ path: "./fonts/comfortaa-700.woff2", weight: "700", style: "normal" }],
   display: "swap",
   variable: "--font-comfortaa",
 });
-const redHatDisplay = Red_Hat_Display({
-  weight: ["500", "700"],
-  subsets: ["latin", "latin-ext"],
+const redHatDisplay = localFont({
+  src: [
+    { path: "./fonts/red-hat-display-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/red-hat-display-700.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-red-hat-display",
 });
-const redHatText = Red_Hat_Text({
-  weight: ["400", "600"],
-  subsets: ["latin", "latin-ext"],
+const redHatText = localFont({
+  src: [
+    { path: "./fonts/red-hat-text-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/red-hat-text-600.woff2", weight: "600", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-red-hat-text",
 });
-const redHatMono = Red_Hat_Mono({
-  weight: "500",
-  subsets: ["latin", "latin-ext"],
+const redHatMono = localFont({
+  src: [{ path: "./fonts/red-hat-mono-500.woff2", weight: "500", style: "normal" }],
   display: "swap",
   variable: "--font-red-hat-mono",
 });
