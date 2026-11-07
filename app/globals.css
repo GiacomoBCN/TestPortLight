@@ -208,7 +208,7 @@
    ============================================ */
 :root {
   /* TIER 1: PRIMITIVE TOKENS */
-  --primitive-font-comfortaa: var(--font-comfortaa), "Trebuchet MS", sans-serif;
+  --primitive-font-jost: var(--font-jost), "Trebuchet MS", sans-serif;
   --primitive-font-redhat-display: var(--font-red-hat-display), system-ui, sans-serif;
   --primitive-font-redhat-text: var(--font-red-hat-text), system-ui, sans-serif;
   --primitive-font-redhat-mono: var(--font-red-hat-mono), ui-monospace, monospace;
@@ -239,6 +239,7 @@
   --primitive-leading-title: 1.2;
 
   --primitive-tracking-none: 0;
+  --primitive-tracking-signature: -0.01em;
   --primitive-tracking-text: 0.02em;
   --primitive-tracking-label: 0.08em;
 
@@ -249,10 +250,10 @@
 
   /* TIER 2: SEMANTIC TOKENS (ruoli) */
   /* Firma: logo, titolo della home, titoli di pagina e di sezione */
-  --type-signature-family: var(--primitive-font-comfortaa);
-  --type-signature-weight: var(--primitive-weight-bold);
+  --type-signature-family: var(--primitive-font-jost);
+  --type-signature-weight: var(--primitive-weight-semibold);
   --type-signature-leading: var(--primitive-leading-display);
-  --type-signature-tracking: var(--primitive-tracking-none);
+  --type-signature-tracking: var(--primitive-tracking-signature);
 
   /* Lavoro: titoli di progetti e schede. Mai piu' di 600 */
   --type-work-family: var(--primitive-font-redhat-display);

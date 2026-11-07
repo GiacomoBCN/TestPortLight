@@ -11,10 +11,10 @@ import localFont from "next/font/local";
 // Locali e non next/font/google: il build non dipende piu' dalla risposta di Google
 // (su GitHub Actions falliva). Le variabili CSS stanno su <html>; i ruoli
 // (firma, lavoro, testo, etichette) sono in globals.css.
-const comfortaa = localFont({
-  src: [{ path: "./fonts/comfortaa-700.woff2", weight: "700", style: "normal" }],
+const jost = localFont({
+  src: [{ path: "./fonts/jost-600.woff2", weight: "600", style: "normal" }],
   display: "swap",
-  variable: "--font-comfortaa",
+  variable: "--font-jost",
 });
 const redHatDisplay = localFont({
   src: [
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: `${basePath}/android-chrome-512x512.png?v=2`,
+        url: `${basePath}/android-chrome-512x512.png?v=3`,
         width: 512,
         height: 512,
         alt: shell.metadata.ogImageAlt,
@@ -87,37 +87,37 @@ export const metadata: Metadata = {
     card: "summary",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [`${basePath}/android-chrome-512x512.png?v=2`],
+    images: [`${basePath}/android-chrome-512x512.png?v=3`],
   },
   icons: {
     icon: [
-      { url: `${basePath}/favicon.ico?v=2`, sizes: "16x16 32x32" },
+      { url: `${basePath}/favicon.ico?v=3`, sizes: "16x16 32x32" },
       {
-        url: `${basePath}/favicon-16x16.png?v=2`,
+        url: `${basePath}/favicon-16x16.png?v=3`,
         sizes: "16x16",
         type: "image/png",
       },
       {
-        url: `${basePath}/favicon-32x32.png?v=2`,
+        url: `${basePath}/favicon-32x32.png?v=3`,
         sizes: "32x32",
         type: "image/png",
       },
     ],
     other: [
       {
-        url: `${basePath}/android-chrome-192x192.png?v=2`,
+        url: `${basePath}/android-chrome-192x192.png?v=3`,
         sizes: "192x192",
         type: "image/png",
       },
       {
-        url: `${basePath}/android-chrome-512x512.png?v=2`,
+        url: `${basePath}/android-chrome-512x512.png?v=3`,
         sizes: "512x512",
         type: "image/png",
       },
     ],
     apple: [
       {
-        url: `${basePath}/apple-touch-icon.png?v=2`,
+        url: `${basePath}/apple-touch-icon.png?v=3`,
         sizes: "180x180",
         type: "image/png",
       },
@@ -136,7 +136,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${comfortaa.variable} ${redHatDisplay.variable} ${redHatText.variable} ${redHatMono.variable}`}
+      className={`${jost.variable} ${redHatDisplay.variable} ${redHatText.variable} ${redHatMono.variable}`}
     >
       <head>
         <meta name="mobile-web-app-capable" content="yes" />
