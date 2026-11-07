@@ -18,7 +18,7 @@ export default function SectionHeader({
       transition={{ duration: 0.5 }}
       className={`text-center ${/\bmb-/.test(className) ? "" : "mb-16"} ${className}`}
     >
-      <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-inverse)] mb-4">{title}</h2>
+      <h2 className="type-section-title text-[var(--color-text-inverse)] mb-4">{title}</h2>
       {subtitle && (
         <p className="text-lg text-[var(--color-text-primary)] max-w-2xl mx-auto">{subtitle}</p>
       )}

@@ -24,7 +24,7 @@ export default function DecisionTable({
         href={d.impactHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="underline decoration-current/40 underline-offset-2 hover:decoration-current"
+        className="link-underline"
       >
         {d.impact}
       </a>
@@ -88,7 +88,7 @@ export default function DecisionTable({
             className="sketch bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-xl p-5"
           >
             <SketchFrame />
-            <h3 className="text-[var(--color-text-inverse)] font-semibold text-base mb-4">
+            <h3 className="type-work text-[var(--color-text-inverse)] text-base mb-4">
               {decision.point}
             </h3>
 

@@ -18,7 +18,7 @@ export default function LeadershipCard({
         <div className="w-14 h-14 glass rounded-full flex items-center justify-center mb-4 glow-blue mx-auto">
           <Icon size={28} className="text-[var(--color-icon-accent)]" />
         </div>
-        <h3 className="text-2xl font-bold text-[var(--color-text-brand)] mb-6 text-center">{title}</h3>
+        <h3 className="type-work-title text-[var(--color-text-brand)] mb-6 text-center">{title}</h3>
         <ul className="space-y-3 flex-1">
           {points.map((point, index) => (
             <li key={index} className="flex items-start gap-3 text-[var(--color-text-primary)]">

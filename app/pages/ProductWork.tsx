@@ -11,12 +11,12 @@ export default function ProductWork() {
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-6">
-            <span className="inline-block text-accent text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
+            <span className="label-tag text-base md:text-lg">
               {productWork.hero.eyebrow}
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-ink-900 mb-6">
+          <h1 className="type-page-title text-ink-900 mb-6">
             {productWork.hero.title}
           </h1>
 

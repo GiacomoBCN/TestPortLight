@@ -52,19 +52,19 @@ export default function NotFound() {
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
               href={createPageUrl('ProductWork')}
-              className="text-[var(--color-text-link-default)] underline decoration-[var(--primitive-orange-500)] decoration-2 underline-offset-4 hover:text-[var(--color-text-link-hover)] transition-colors"
+              className="text-[var(--color-text-link-default)] link-underline hover:text-[var(--color-text-link-hover)] transition-colors"
             >
               {shell.notFound.productWork}
             </Link>
             <span className="text-[var(--color-text-secondary)]" aria-hidden="true">•</span>
             <Link
               href={createPageUrl('Teaching')}
-              className="text-[var(--color-text-link-default)] underline decoration-[var(--primitive-orange-500)] decoration-2 underline-offset-4 hover:text-[var(--color-text-link-hover)] transition-colors"
+              className="text-[var(--color-text-link-default)] link-underline hover:text-[var(--color-text-link-hover)] transition-colors"
             >
               {shell.notFound.teaching}
             </Link>
             <span className="text-[var(--color-text-secondary)]" aria-hidden="true">•</span>
-            <CopyEmailLink className="text-[var(--color-text-link-default)] underline decoration-[var(--primitive-orange-500)] decoration-2 underline-offset-4 hover:text-[var(--color-text-link-hover)] transition-colors">
+            <CopyEmailLink className="text-[var(--color-text-link-default)] link-underline hover:text-[var(--color-text-link-hover)] transition-colors">
               {shell.notFound.contact}
             </CopyEmailLink>
           </div>

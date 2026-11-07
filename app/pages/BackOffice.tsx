@@ -28,6 +28,7 @@ import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { backOffice } from "@/content/back-office";
+import SectionNumber from "../components/casestudy/SectionNumber";
 
 export default function OnlineBackOfficeCaseStudy() {
   const keyDecisions = backOffice.keyDecisions.decisions;
@@ -64,12 +65,12 @@ export default function OnlineBackOfficeCaseStudy() {
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-accent">
+            <span className="label-tag text-xs">
               {backOffice.hero.category}
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-ink-900 mb-4">
+          <h1 className="type-page-title text-ink-900 mb-4">
             {backOffice.hero.title}
           </h1>
 
@@ -124,7 +125,7 @@ export default function OnlineBackOfficeCaseStudy() {
               </p>
               <ul className="space-y-1 ">
                 {backOffice.role.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -132,7 +133,7 @@ export default function OnlineBackOfficeCaseStudy() {
             <OverviewCard icon={TrendingUp} title={backOffice.impact.title}>
               <ul className="space-y-1">
                 {backOffice.impact.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -143,7 +144,7 @@ export default function OnlineBackOfficeCaseStudy() {
       {/* Metrics Showcase */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
+          <h2 className="type-section-title text-ink-900 mb-12 text-center">
             {backOffice.outcomes.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -180,11 +181,9 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {backOffice.businessContext.number}
-            </div>
+            <SectionNumber n={Number(backOffice.businessContext.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {backOffice.businessContext.title}
               </h2>
             </div>
@@ -210,7 +209,7 @@ export default function OnlineBackOfficeCaseStudy() {
                     </div>
                     <ul className="space-y-1">
                       {backOffice.businessContext.challenges.items.map((item, i) => (
-                        <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                        <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                       ))}
                     </ul>
                   </div>
@@ -220,7 +219,7 @@ export default function OnlineBackOfficeCaseStudy() {
                     </div>
                     <ul className="space-y-1">
                       {backOffice.businessContext.goals.items.map((item, i) => (
-                        <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                        <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                       ))}
                     </ul>
                   </div>
@@ -235,11 +234,9 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {backOffice.problemHypothesis.number}
-            </div>
+            <SectionNumber n={Number(backOffice.problemHypothesis.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {backOffice.problemHypothesis.title}
               </h2>
             </div>
@@ -253,7 +250,7 @@ export default function OnlineBackOfficeCaseStudy() {
                   <div className="w-9 h-9 rounded-full bg-red-500/15 flex items-center justify-center">
                     <AlertCircle className="w-5 h-5 text-red-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-ink-900">
+                  <h3 className="type-work text-xl text-ink-900">
                     {backOffice.problemHypothesis.problem.title}
                   </h3>
                 </div>
@@ -262,7 +259,7 @@ export default function OnlineBackOfficeCaseStudy() {
 
                 {backOffice.problemHypothesis.problem.items.map((item, i) => (
                   <p key={i} className="text-gray-300 leading-relaxed">
-                    <span aria-hidden="true">•</span> {item}
+                    <span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}
                   </p>
                 ))}
               </div>
@@ -275,7 +272,7 @@ export default function OnlineBackOfficeCaseStudy() {
                   <div className="w-9 h-9 rounded-full bg-green-500/15 flex items-center justify-center">
                     <Wrench className="w-5 h-5 text-green-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-ink-900">
+                  <h3 className="type-work text-xl text-ink-900">
                     {backOffice.problemHypothesis.hypothesis.title}
                   </h3>
                 </div>
@@ -294,11 +291,9 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {backOffice.keyDecisions.number}
-            </div>
+            <SectionNumber n={Number(backOffice.keyDecisions.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {backOffice.keyDecisions.title}
               </h2>
             </div>
@@ -313,11 +308,9 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {backOffice.solution.number}
-            </div>
+            <SectionNumber n={Number(backOffice.solution.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {backOffice.solution.title}
               </h2>
             </div>
@@ -325,7 +318,7 @@ export default function OnlineBackOfficeCaseStudy() {
           <div className="pl-0 md:pl-24 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {backOffice.solution.sharedAssets.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -341,7 +334,7 @@ export default function OnlineBackOfficeCaseStudy() {
             </GlassCard>
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {backOffice.solution.gitPropagation.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -360,11 +353,9 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {backOffice.operationalImprovements.number}
-            </div>
+            <SectionNumber n={Number(backOffice.operationalImprovements.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {backOffice.operationalImprovements.title}
               </h2>
             </div>
@@ -420,7 +411,7 @@ export default function OnlineBackOfficeCaseStudy() {
                     key={index}
                     className="bg-ink-900/[0.05] border border-ink-900/10 rounded-lg p-4"
                   >
-                    <h3 className="text-ink-900 font-semibold text-base mb-4">
+                    <h3 className="type-work text-ink-900 text-base mb-4">
                       {item.task}
                     </h3>
 
@@ -464,11 +455,9 @@ export default function OnlineBackOfficeCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {backOffice.deliverables.number}
-            </div>
+            <SectionNumber n={Number(backOffice.deliverables.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {backOffice.deliverables.title}
               </h2>
             </div>
@@ -477,24 +466,24 @@ export default function OnlineBackOfficeCaseStudy() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-accent mb-3">
+                  <h3 className="type-work text-lg text-accent mb-3">
                     {backOffice.deliverables.frontEnd.title}
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
                     {backOffice.deliverables.frontEnd.items.map((item, i) => (
-                      <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                      <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                     ))}
                   </ul>
                 </div>
               </GlassCard>
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-accent mb-3">
+                  <h3 className="type-work text-lg text-accent mb-3">
                     {backOffice.deliverables.process.title}
                   </h3>
                   <ul className="space-y-1 text-gray-400 text-sm">
                     {backOffice.deliverables.process.items.map((item, i) => (
-                      <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                      <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                     ))}
                   </ul>
                 </div>
@@ -503,7 +492,7 @@ export default function OnlineBackOfficeCaseStudy() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-accent mb-3">
+                <h3 className="type-work text-lg text-accent mb-3">
                   {backOffice.deliverables.results.title}
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm">
@@ -522,7 +511,7 @@ export default function OnlineBackOfficeCaseStudy() {
           <div className="max-w-5xl mx-auto">
             <GlassCard>
               <div className="text-center py-8">
-                <h2 className="text-3xl font-bold text-ink-900 mb-4">
+                <h2 className="type-section-title text-ink-900 mb-4">
                   {backOffice.cta.title}
                 </h2>
                 <p className="text-slate-300 mb-8 max-w-2xl mx-auto">

@@ -5,6 +5,34 @@ import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import CookieConsent from "@/app/components/CookieConsent";
 import { Suspense } from "react";
 import { shell } from "@/content/shell";
+import { Comfortaa, Red_Hat_Display, Red_Hat_Text, Red_Hat_Mono } from "next/font/google";
+
+// Font scaricati in build e serviti dal nostro dominio (nessuna chiamata a Google dal browser).
+// Le variabili CSS stanno su <html>; i ruoli (firma, lavoro, testo, etichette) sono in globals.css.
+const comfortaa = Comfortaa({
+  weight: "700",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-comfortaa",
+});
+const redHatDisplay = Red_Hat_Display({
+  weight: ["500", "700"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-red-hat-display",
+});
+const redHatText = Red_Hat_Text({
+  weight: ["400", "600"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-red-hat-text",
+});
+const redHatMono = Red_Hat_Mono({
+  weight: "500",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-red-hat-mono",
+});
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -102,7 +130,10 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${comfortaa.variable} ${redHatDisplay.variable} ${redHatText.variable} ${redHatMono.variable}`}
+    >
       <head>
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

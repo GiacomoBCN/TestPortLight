@@ -31,6 +31,7 @@ import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { xpuntoCero } from "@/content/xpuntocero";
+import SectionNumber from "../components/casestudy/SectionNumber";
 
 export default function XpuntoCero() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -144,12 +145,12 @@ export default function XpuntoCero() {
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-accent">
+            <span className="label-tag text-xs">
               {xpuntoCero.hero.category}
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-ink-900 mb-4">
+          <h1 className="type-page-title text-ink-900 mb-4">
             {xpuntoCero.hero.title}
           </h1>
 
@@ -207,7 +208,7 @@ export default function XpuntoCero() {
               </p>
               <ul className="space-y-1">
                 {xpuntoCero.role.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -215,7 +216,7 @@ export default function XpuntoCero() {
             <OverviewCard icon={GitBranch} title={xpuntoCero.scope.title}>
               <ul className="space-y-1">
                 {xpuntoCero.scope.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -226,7 +227,7 @@ export default function XpuntoCero() {
       {/* Project Impact */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
+          <h2 className="type-section-title text-ink-900 mb-12 text-center">
             {xpuntoCero.projectImpact.title}
           </h2>
 
@@ -292,11 +293,9 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {xpuntoCero.businessContext.number}
-            </div>
+            <SectionNumber n={Number(xpuntoCero.businessContext.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.businessContext.title}
               </h2>
             </div>
@@ -326,11 +325,9 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {xpuntoCero.research.number}
-            </div>
+            <SectionNumber n={Number(xpuntoCero.research.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.research.title}
               </h2>
             </div>
@@ -386,11 +383,9 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {xpuntoCero.keyDecisions.number}
-            </div>
+            <SectionNumber n={Number(xpuntoCero.keyDecisions.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.keyDecisions.title}
               </h2>
             </div>
@@ -406,11 +401,9 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {xpuntoCero.visualIdentity.number}
-            </div>
+            <SectionNumber n={Number(xpuntoCero.visualIdentity.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.visualIdentity.title}
               </h2>
             </div>
@@ -452,11 +445,9 @@ export default function XpuntoCero() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {xpuntoCero.outcomes.number}
-            </div>
+            <SectionNumber n={Number(xpuntoCero.outcomes.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {xpuntoCero.outcomes.title}
               </h2>
             </div>
@@ -477,7 +468,7 @@ export default function XpuntoCero() {
               {/* Lead Generation & Marketing */}
               <GlassCard>
                 <div className="p-6 space-y-4">
-                  <h3 className="text-lg font-semibold text-accent mb-2">
+                  <h3 className="type-work text-lg text-accent mb-2">
                     {xpuntoCero.outcomes.leadGeneration.title}
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -515,7 +506,7 @@ export default function XpuntoCero() {
               {/* UX & Performance */}
               <GlassCard>
                 <div className="p-6 space-y-4">
-                  <h3 className="text-lg font-semibold text-accent mb-2">
+                  <h3 className="type-work text-lg text-accent mb-2">
                     {xpuntoCero.outcomes.uxPerformance.title}
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -524,7 +515,7 @@ export default function XpuntoCero() {
 
                   <ul className="text-gray-400 text-sm space-y-1 pt-2">
                     {xpuntoCero.outcomes.uxPerformance.items.map((item, i) => (
-                      <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                      <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                     ))}
                   </ul>
                 </div>
@@ -534,7 +525,7 @@ export default function XpuntoCero() {
             {/* Key Learnings */}
             <GlassCard>
               <div className="p-6 space-y-3">
-                <h3 className="text-lg font-semibold text-accent mb-2">
+                <h3 className="type-work text-lg text-accent mb-2">
                   {xpuntoCero.outcomes.keyLearnings.title}
                 </h3>
                 <ul className="text-gray-300 text-sm space-y-2 leading-relaxed">
@@ -555,7 +546,7 @@ export default function XpuntoCero() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-ink-900 mb-4">
+              <h2 className="type-section-title text-ink-900 mb-4">
                 {xpuntoCero.cta.title}
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">

@@ -28,6 +28,7 @@ import ProjectGallery from "../components/work/ProjectGallery";
 import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import { dowJones } from "@/content/dow-jones";
+import SectionNumber from "../components/casestudy/SectionNumber";
 
 export default function DowJones() {
   // Icone delle metriche "Team Adoption & Scale", stesso ordine di dowJones.teamAdoption.metrics
@@ -58,11 +59,11 @@ export default function DowJones() {
             {dowJones.hero.breadcrumb}
           </p>
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-accent">
+            <span className="label-tag text-xs">
               {dowJones.hero.category}
             </span>
           </div>
-          <h1 className="text-5xl font-bold text-ink-900 mb-4">
+          <h1 className="type-page-title text-ink-900 mb-4">
             {dowJones.hero.title}
           </h1>
           <p className="text-lg text-gray-400 mb-4">
@@ -115,7 +116,7 @@ export default function DowJones() {
               <p className="font-semibold mb-2">{dowJones.role.summary}</p>
               <ul className="space-y-1">
                 {dowJones.role.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span>{` ${item}`}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -130,7 +131,7 @@ export default function DowJones() {
       {/* Team Adoption & Scale */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-4 text-center">
+          <h2 className="type-section-title text-ink-900 mb-4 text-center">
             {dowJones.teamAdoption.title}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
@@ -143,7 +144,7 @@ export default function DowJones() {
                   <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
                     <metric.icon className="w-6 h-6 text-accent-icon" />
                   </div>
-                  <div className="text-4xl font-bold text-ink-900 mb-2">
+                  <div className="text-4xl type-number text-ink-900 mb-2">
                     {metric.metric}
                   </div>
                   <div className="text-sm font-semibold text-accent mb-2">
@@ -172,11 +173,9 @@ export default function DowJones() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {dowJones.businessContext.number}
-            </div>
+            <SectionNumber n={Number(dowJones.businessContext.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {dowJones.businessContext.title}
               </h2>
             </div>
@@ -184,7 +183,7 @@ export default function DowJones() {
           <div className="pl-0 md:pl-24 space-y-6">
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {dowJones.businessContext.card.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-4">
@@ -197,7 +196,7 @@ export default function DowJones() {
                 <ul className="space-y-2 text-gray-400">
                   {dowJones.businessContext.card.needs.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -212,11 +211,9 @@ export default function DowJones() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {dowJones.governance.number}
-            </div>
+            <SectionNumber n={Number(dowJones.governance.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {dowJones.governance.title}
               </h2>
             </div>
@@ -226,7 +223,7 @@ export default function DowJones() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {dowJones.governance.tokenFirst.title}
                 </h3>
 
@@ -246,7 +243,7 @@ export default function DowJones() {
                 <ul className="space-y-2 text-gray-400">
                   {dowJones.governance.tokenFirst.enabled.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -261,7 +258,7 @@ export default function DowJones() {
             {/* Card 2: Repository Overhaul */}
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {dowJones.governance.repository.title}
                 </h3>
 
@@ -277,7 +274,7 @@ export default function DowJones() {
                 <ul className="space-y-2 text-gray-400">
                   {dowJones.governance.repository.results.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -292,11 +289,9 @@ export default function DowJones() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {dowJones.keyDecisions.number}
-            </div>
+            <SectionNumber n={Number(dowJones.keyDecisions.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {dowJones.keyDecisions.title}
               </h2>
             </div>
@@ -311,11 +306,9 @@ export default function DowJones() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {dowJones.collaboration.number}
-            </div>
+            <SectionNumber n={Number(dowJones.collaboration.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {dowJones.collaboration.title}
               </h2>
             </div>
@@ -323,7 +316,7 @@ export default function DowJones() {
           <div className="pl-0 md:pl-24 space-y-6">
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {dowJones.collaboration.partnership.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-4">
@@ -333,7 +326,7 @@ export default function DowJones() {
                 <ul className="space-y-2 text-gray-400">
                   {dowJones.collaboration.partnership.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -343,7 +336,7 @@ export default function DowJones() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {dowJones.collaboration.accessibility.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-4">
@@ -353,7 +346,7 @@ export default function DowJones() {
                 <ul className="space-y-2 text-gray-400">
                   {dowJones.collaboration.accessibility.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -363,7 +356,7 @@ export default function DowJones() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {dowJones.collaboration.aiWorkflow.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -379,11 +372,9 @@ export default function DowJones() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {dowJones.outcomes.number}
-            </div>
+            <SectionNumber n={Number(dowJones.outcomes.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {dowJones.outcomes.title}
               </h2>
               <p className="text-gray-400 mt-2">
@@ -399,10 +390,10 @@ export default function DowJones() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <div className="text-4xl font-bold text-accent mb-2">
+                  <div className="text-4xl type-number text-ink-900 mb-2">
                     {dowJones.outcomes.productivity.value}
                   </div>
-                  <h3 className="text-lg font-semibold text-ink-900 mb-3">
+                  <h3 className="type-work text-lg text-ink-900 mb-3">
                     {dowJones.outcomes.productivity.title}
                   </h3>
                   <p className="text-gray-300 text-sm mb-4">
@@ -413,17 +404,17 @@ export default function DowJones() {
                   </p>
                   <ul className="space-y-1 text-gray-400 text-sm">
                     {dowJones.outcomes.productivity.items.map((item, i) => (
-                      <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                      <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span>{` ${item}`}</li>
                     ))}
                   </ul>
                 </div>
               </GlassCard>
               <GlassCard>
                 <div className="p-6">
-                  <div className="text-4xl font-bold text-accent mb-2">
+                  <div className="text-4xl type-number text-ink-900 mb-2">
                     {dowJones.outcomes.complexity.value}
                   </div>
-                  <h3 className="text-lg font-semibold text-ink-900 mb-3">
+                  <h3 className="type-work text-lg text-ink-900 mb-3">
                     {dowJones.outcomes.complexity.title}
                   </h3>
 
@@ -434,7 +425,7 @@ export default function DowJones() {
                   <p className="text-gray-400 text-sm mb-2">{dowJones.outcomes.complexity.listLabel}</p>
                   <ul className="space-y-1 text-gray-400 text-sm">
                     {dowJones.outcomes.complexity.items.map((item, i) => (
-                      <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                      <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span>{` ${item}`}</li>
                     ))}
                   </ul>
                 </div>
@@ -443,7 +434,7 @@ export default function DowJones() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-lg text-ink-900 mb-3">
                   {dowJones.outcomes.wcag.title}
                 </h3>
                 <p className="text-gray-300 text-sm">
@@ -473,7 +464,7 @@ export default function DowJones() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-ink-900 mb-4">
+              <h2 className="type-section-title text-ink-900 mb-4">
                 {dowJones.cta.title}
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">

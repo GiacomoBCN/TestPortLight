@@ -69,7 +69,7 @@ export default function BeforeAfterImpactCard({
           <Icon size={32} className="text-[var(--color-icon-accent)]" />
         </div>
 
-        <h3 className="text-5xl font-bold text-[var(--metric-value-text)] mb-6">
+        <h3 className="type-number text-5xl text-[var(--metric-value-text)] mb-6">
           {/* Lo screen reader legge solo il valore finale, non i numeri intermedi */}
           <span aria-hidden="true">{displayHeadline}</span>
           <span className="sr-only">{headline}</span>

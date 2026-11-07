@@ -29,6 +29,7 @@ import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { sgpv } from "@/content/sgpv";
+import SectionNumber from "../components/casestudy/SectionNumber";
 
 export default function SGPVEvolution() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -109,12 +110,12 @@ export default function SGPVEvolution() {
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-accent">
+            <span className="label-tag text-xs">
               {sgpv.hero.category}
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-ink-900 mb-4">
+          <h1 className="type-page-title text-ink-900 mb-4">
             {sgpv.hero.title}
           </h1>
 
@@ -178,7 +179,7 @@ export default function SGPVEvolution() {
             <OverviewCard icon={GitBranch} title={sgpv.scope.title}>
               <ul className="space-y-1">
                 {sgpv.scope.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -188,7 +189,7 @@ export default function SGPVEvolution() {
       {/* Metrics Showcase */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
+          <h2 className="type-section-title text-ink-900 mb-12 text-center">
             {sgpv.impactSnapshot.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -217,11 +218,9 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {sgpv.phase1.number}
-            </div>
+            <SectionNumber n={Number(sgpv.phase1.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {sgpv.phase1.title}
               </h2>
             </div>
@@ -230,7 +229,7 @@ export default function SGPVEvolution() {
           <div className="pl-0 md:pl-24 space-y-6">
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {sgpv.phase1.context.title}
                 </h3>
 
@@ -263,7 +262,7 @@ export default function SGPVEvolution() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {sgpv.phase1.reflection.title}
                 </h3>
 
@@ -285,11 +284,9 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {sgpv.phase2.number}
-            </div>
+            <SectionNumber n={Number(sgpv.phase2.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {sgpv.phase2.title}
               </h2>
             </div>
@@ -308,7 +305,7 @@ export default function SGPVEvolution() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {sgpv.phase2.researchWorkflow.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-6">
@@ -357,7 +354,7 @@ export default function SGPVEvolution() {
                 <div className="lg:hidden space-y-4">
                   {sgpv.phase2.researchWorkflow.rows.map((row, i) => (
                     <div key={i} className="bg-ink-900/[0.03] backdrop-blur-xl border border-ink-900/10 rounded-xl p-5">
-                      <h4 className="text-ink-900 font-semibold text-base mb-4">
+                      <h4 className="type-work text-ink-900 text-base mb-4">
                         {row.phase}
                       </h4>
                       <div className="space-y-3">
@@ -399,11 +396,9 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {sgpv.aiDataCapture.number}
-            </div>
+            <SectionNumber n={Number(sgpv.aiDataCapture.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {sgpv.aiDataCapture.title}
               </h2>
             </div>
@@ -441,11 +436,9 @@ export default function SGPVEvolution() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {sgpv.keyDecisions.number}
-            </div>
+            <SectionNumber n={Number(sgpv.keyDecisions.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {sgpv.keyDecisions.title}
               </h2>
             </div>
@@ -462,11 +455,9 @@ export default function SGPVEvolution() {
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {sgpv.businessImpact.number}
-            </div>
+            <SectionNumber n={Number(sgpv.businessImpact.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {sgpv.businessImpact.title}
               </h2>
             </div>
@@ -481,7 +472,7 @@ export default function SGPVEvolution() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-accent mb-3">
+                  <h3 className="type-work text-lg text-accent mb-3">
                     {sgpv.businessImpact.productPerformance.title}
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
@@ -496,7 +487,7 @@ export default function SGPVEvolution() {
 
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-accent mb-3">
+                  <h3 className="type-work text-lg text-accent mb-3">
                     {sgpv.businessImpact.operationalOutcomes.title}
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
@@ -513,7 +504,7 @@ export default function SGPVEvolution() {
             {/* Long-Term Value */}
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-accent mb-3">
+                <h3 className="type-work text-lg text-accent mb-3">
                   {sgpv.businessImpact.longTermValue.title}
                 </h3>
                 <p className="text-gray-300 text-sm mb-3">
@@ -522,7 +513,7 @@ export default function SGPVEvolution() {
                 <ul className="space-y-2 text-sm text-gray-300">
                   {sgpv.businessImpact.longTermValue.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1">→</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1">→</span>
                       <span>
                         <RichText text={item} />
                       </span>
@@ -541,11 +532,9 @@ export default function SGPVEvolution() {
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {sgpv.learnings.number}
-            </div>
+            <SectionNumber n={Number(sgpv.learnings.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {sgpv.learnings.title}
               </h2>
             </div>
@@ -562,7 +551,7 @@ export default function SGPVEvolution() {
               {sgpv.learnings.items.map((item, i) => (
                 <GlassCard key={i}>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                    <h3 className="type-work text-xl text-ink-900 mb-3">
                       {item.title}
                     </h3>
                     <p className="text-gray-300 leading-relaxed">
@@ -581,7 +570,7 @@ export default function SGPVEvolution() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-ink-900 mb-4">
+              <h2 className="type-section-title text-ink-900 mb-4">
                 {sgpv.cta.title}
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">

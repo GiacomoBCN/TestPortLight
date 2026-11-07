@@ -14,7 +14,7 @@ export default function MetricShowcase({
             <div className="text-5xl md:text-6xl font-bold text-[var(--metric-value-text)] mb-3 glow-blue">
               {metric.value}
             </div>
-            <h3 className="text-xl font-semibold text-[var(--color-text-inverse)] mb-2">
+            <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-2">
               {metric.label}
             </h3>
             {metric.context && (

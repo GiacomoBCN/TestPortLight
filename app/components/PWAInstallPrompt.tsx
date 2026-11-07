@@ -90,7 +90,7 @@ export default function PWAInstallPrompt() {
               <Download size={20} className="text-[var(--color-icon-accent)]" />
             </div>
             <div className="flex-1">
-              <h3 className="text-sm font-semibold text-[var(--color-text-inverse)] mb-1">
+              <h3 className="type-work text-sm text-[var(--color-text-inverse)] mb-1">
                 {shell.pwaInstall.title}
               </h3>
               <p className="text-xs text-[var(--color-text-primary)] mb-3">

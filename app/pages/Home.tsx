@@ -59,7 +59,7 @@ export default function Home() {
         {/* Entrata della hero in CSS: parte al primo paint, senza aspettare il JS */}
         <div className="hero-in hero-in-container max-w-4xl mx-auto text-center relative z-10">
           <div className="hero-in hero-in-fade mb-3 md:mb-6" style={{ animationDelay: "0.2s" }}>
-            <span className="inline-block text-[var(--color-text-brand)] text-base md:text-lg uppercase tracking-[0.2em] font-semibold">
+            <span className="label-tag text-base md:text-lg">
               {/* Mobile: una qualifica per riga, senza puntino. Da md in su: una riga sola */}
               <span className="block md:inline">{hero.titleLines[0]}</span>
               <span className="hidden md:inline" aria-hidden="true"> · </span>
@@ -68,7 +68,7 @@ export default function Home() {
           </div>
 
           <h1
-            className="hero-in text-5xl md:text-7xl font-bold text-[var(--color-text-inverse)] mb-6"
+            className="hero-in type-home-title text-[var(--color-text-inverse)] mb-6"
             style={{ animationDelay: "0.3s" }}
           >
             {hero.name}
@@ -93,7 +93,7 @@ export default function Home() {
             </a>
             <Link
               href={createPageUrl("Teaching")}
-              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold hover:bg-[var(--teaching-accent-border)] active:bg-[var(--teaching-accent-border)] active:text-[var(--color-text-inverse)] active:border-[var(--teaching-accent-border)] hover:border-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
+              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold hover:bg-[var(--color-surface-interactive-hover)] active:bg-[var(--color-surface-interactive-hover)] active:text-[var(--color-text-inverse)] active:border-[var(--color-border-interactive)] hover:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105"
             >
               {hero.teachingCta}
             </Link>
@@ -305,7 +305,7 @@ export default function Home() {
                       <DraftingCompass size={24} className="text-[var(--color-icon-accent)]" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
+                      <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-2">
                         {howIWork.cards.productDesign.title}
                       </h3>
                       <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
@@ -327,7 +327,7 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
+                      <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-2">
                         {howIWork.cards.productStrategy.title}
                       </h3>
                       <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
@@ -346,7 +346,7 @@ export default function Home() {
                       <Code size={24} className="text-[var(--color-icon-accent)]" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">
+                      <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-2">
                         {howIWork.cards.frontEnd.title}
                       </h3>
                       <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
@@ -365,7 +365,7 @@ export default function Home() {
                       <Sparkles size={24} className="text-[var(--color-icon-accent)]" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-inverse)] mb-2">{howIWork.cards.aiNative.title}
+                      <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-2">{howIWork.cards.aiNative.title}
                       </h3>
                       <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
                         {howIWork.cards.aiNative.tools}
@@ -409,7 +409,7 @@ export default function Home() {
                 <div className="w-14 h-14 glass rounded-full flex items-center justify-center mb-5 glow-blue">
                   <Briefcase size={28} className="text-[var(--color-icon-accent)]" />
                 </div>
-                <h3 className="text-2xl md:text-[1.75rem] font-bold text-[var(--color-text-inverse)] mb-3">
+                <h3 className="type-work-title text-[var(--color-text-inverse)] mb-3">
                   {cta.productLeadership.title}
                 </h3>
                 <p className="text-[var(--color-text-primary)] mb-6 leading-relaxed">
@@ -427,16 +427,15 @@ export default function Home() {
             {/* Teaching & Research */}
             <div className="glass sketch rounded-2xl p-8 md:p-10 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300">
               <SketchFrame />
-              <div className="absolute top-0 left-0 w-full h-full rounded-2xl bg-gradient-to-br from-[var(--teaching-accent-border)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute top-0 left-0 w-full h-full rounded-2xl bg-gradient-to-br from-[var(--color-surface-interactive-default)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div
-                  className="w-14 h-14 glass rounded-full flex items-center justify-center mb-5"
-                  style={{ boxShadow: "0 0 20px rgba(245, 195, 59, 0.3)" }}
+                  className="w-14 h-14 glass rounded-full flex items-center justify-center mb-5 glow-blue"
                 >
-                  <GraduationCap size={28} className="text-[var(--color-text-teaching)]" />
+                  <GraduationCap size={28} className="text-[var(--color-icon-accent)]" />
                 </div>
-                <h3 className="text-2xl md:text-[1.75rem] font-bold text-[var(--color-text-inverse)] mb-3">
+                <h3 className="type-work-title text-[var(--color-text-inverse)] mb-3">
                   {cta.teaching.title}
                 </h3>
                 <p className="text-[var(--color-text-primary)] mb-6 leading-relaxed">
@@ -444,7 +443,7 @@ export default function Home() {
                 </p>
                 <Link
                   href={createPageUrl("Teaching")}
-                  className="inline-block px-7 py-3.5 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold border-2 border-[var(--teaching-accent-border)] hover:bg-[var(--teaching-accent-border)] active:bg-[var(--teaching-accent-border)] active:text-[var(--color-text-inverse)] active:border-[var(--teaching-accent-border)] transition-all duration-200 hover:scale-105"
+                  className="inline-block px-7 py-3.5 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold border-2 border-[var(--button-secondary-border)] hover:bg-[var(--color-surface-interactive-hover)] active:bg-[var(--color-surface-interactive-hover)] active:text-[var(--color-text-inverse)] active:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105"
                 >
                   {cta.teaching.button}{" "}
                 </Link>

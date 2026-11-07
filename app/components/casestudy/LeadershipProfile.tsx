@@ -38,7 +38,7 @@ export default function LeadershipProfile({
 
           {/* Profile Info */}
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-2xl font-bold text-[var(--color-text-inverse)] mb-1">{name}</h3>
+            <h3 className="type-work-title text-[var(--color-text-inverse)] mb-1">{name}</h3>
             <p className="text-[var(--color-text-brand)] font-semibold mb-4">{role}</p>
 
             {responsibilities.length > 0 && (

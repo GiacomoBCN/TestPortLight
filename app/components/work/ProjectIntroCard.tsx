@@ -45,7 +45,7 @@ export default function ProjectIntroCard({
 
             {/* Right: Content */}
             <div className="p-8 md:p-12 flex flex-col justify-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-inverse)] mb-6">
+              <h2 className="type-work-title text-[var(--color-text-inverse)] mb-6">
                 {title}
               </h2>
               <div className="prose prose-invert max-w-none space-y-4">

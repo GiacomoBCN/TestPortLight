@@ -25,6 +25,7 @@ import { designSystem, type DesignSystemShotKey } from "@/content/design-system"
 import TokenDemoCard from "../components/casestudy/TokenDemoCard";
 import Lightbox from "../components/Lightbox";
 import { getImagePath } from "@/utils/image";
+import SectionNumber from "../components/casestudy/SectionNumber";
 
 const DEMO_URL = designSystem.demoUrl;
 
@@ -89,12 +90,12 @@ export default function DesignSystemCaseStudy({
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-accent">
+            <span className="label-tag text-xs">
               {designSystem.hero.category}
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-ink-900 mb-4">
+          <h1 className="type-page-title text-ink-900 mb-4">
             {designSystem.hero.title}
           </h1>
 
@@ -106,7 +107,7 @@ export default function DesignSystemCaseStudy({
             <RichText
               text={designSystem.hero.description}
               boldClassName="text-ink-900 font-semibold"
-              linkClassName="underline underline-offset-2 hover:text-ink-900"
+              linkClassName="link-underline hover:text-ink-900"
             />
           </p>
 
@@ -126,7 +127,7 @@ export default function DesignSystemCaseStudy({
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <GlassCard hover={false} className="p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-inverse)] mb-6">
+            <h2 className="type-work-title text-[var(--color-text-inverse)] mb-6">
               {designSystem.intro.title}
             </h2>
             <div className="space-y-4">
@@ -152,7 +153,7 @@ export default function DesignSystemCaseStudy({
               <p className="font-semibold mb-2">{designSystem.role.summary}</p>
               <ul className="space-y-1">
                 {designSystem.role.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -160,7 +161,7 @@ export default function DesignSystemCaseStudy({
             <OverviewCard icon={Users} title={designSystem.scope.title}>
               <ul className="space-y-1">
                 {designSystem.scope.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -172,9 +173,9 @@ export default function DesignSystemCaseStudy({
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">{designSystem.approach.number}</div>
+            <SectionNumber n={Number(designSystem.approach.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">{designSystem.approach.title}</h2>
+              <h2 className="type-section-title text-ink-900">{designSystem.approach.title}</h2>
               <p className="text-gray-400 mt-2">
                 {designSystem.approach.subtitle}
               </p>
@@ -190,10 +191,10 @@ export default function DesignSystemCaseStudy({
                       <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                         <p.icon className="w-5 h-5 text-accent-icon" />
                       </div>
-                      <h3 className="text-xl font-semibold text-ink-900">{p.title}</h3>
+                      <h3 className="type-work text-xl text-ink-900">{p.title}</h3>
                     </div>
                     <p className="text-gray-300 leading-relaxed">
-                      <RichText text={p.text} linkClassName="underline underline-offset-2 hover:text-ink-900" />
+                      <RichText text={p.text} linkClassName="link-underline hover:text-ink-900" />
                     </p>
                   </div>
                   {p.images.length > 0 && (
@@ -249,9 +250,9 @@ export default function DesignSystemCaseStudy({
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">{designSystem.keyDecisions.number}</div>
+            <SectionNumber n={Number(designSystem.keyDecisions.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">{designSystem.keyDecisions.title}</h2>
+              <h2 className="type-section-title text-ink-900">{designSystem.keyDecisions.title}</h2>
               <p className="text-gray-400 mt-2">
                 {designSystem.keyDecisions.subtitle}
               </p>
@@ -267,16 +268,16 @@ export default function DesignSystemCaseStudy({
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">{designSystem.learnings.number}</div>
+            <SectionNumber n={Number(designSystem.learnings.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">{designSystem.learnings.title}</h2>
+              <h2 className="type-section-title text-ink-900">{designSystem.learnings.title}</h2>
             </div>
           </div>
           <div className="pl-0 md:pl-24 grid grid-cols-1 md:grid-cols-2 gap-6">
             {learnings.map((l, i) => (
               <GlassCard key={i}>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-ink-900 mb-3">{l.title}</h3>
+                  <h3 className="type-work text-xl text-ink-900 mb-3">{l.title}</h3>
                   <p className="text-gray-300 leading-relaxed">{l.text}</p>
                 </div>
               </GlassCard>
@@ -290,7 +291,7 @@ export default function DesignSystemCaseStudy({
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-ink-900 mb-4">{designSystem.cta.title}</h2>
+              <h2 className="type-section-title text-ink-900 mb-4">{designSystem.cta.title}</h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
                 {designSystem.cta.text}
               </p>

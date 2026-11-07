@@ -64,6 +64,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const projectLinks = shell.nav.projects;
 
   const isHome = pathname === "/";
+  // Voce di menu attiva (trailingSlash: true, quindi "/teaching/")
+  const path = (pathname || "/").replace(/\/$/, "") || "/";
+  const projectPaths = projectLinks.map((p) => createPageUrl(p.path));
+  const isTeachingActive = path === createPageUrl("Teaching");
+  const isProductWorkActive =
+    path === createPageUrl("ProductWork") || projectPaths.includes(path);
+  const activeNav =
+    "underline decoration-2 underline-offset-8 decoration-[var(--nav-link-active-underline)] text-ink-900";
 
   return (
     <MotionConfig reducedMotion="user">
@@ -73,12 +81,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         :root { --bg-base:#FFFFFF; --bg-dark:#ffffff; }
         * { scroll-behavior: smooth; }
         body {
-          font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
           background: #FFFFFF;
         }
         .glow-blue { box-shadow: 0 0 20px rgba(242,140,40,0.3); }
         .mobile-menu-overlay { background: rgba(255,255,255,0.96); backdrop-filter: blur(20px) saturate(180%); }
-        a:focus-visible, button:focus-visible { outline:2px solid #A8500A; outline-offset:2px; border-radius:4px; }
         .skip-link { position:absolute; top:-40px; left:0; background:#111418; color:#fff; padding:8px 16px; z-index:100; }
         .skip-link:focus { top:0; }
       `}</style>
@@ -104,13 +110,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           >
             <div className="w-10 h-10 glass rounded-full flex items-center justify-center glow-blue">
               <span
-                className="text-accent font-bold text-lg"
+                className="text-accent type-signature text-lg"
                 aria-hidden="true"
               >
                 {shell.nav.logoMark}
               </span>
             </div>
-            <span className="font-bold text-xl sr-only md:not-sr-only">
+            <span className="type-signature text-xl sr-only md:not-sr-only">
               {shell.nav.siteName}
             </span>
           </Link>
@@ -134,7 +140,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             >
               <Link
                 href={createPageUrl("ProductWork")}
-                className="flex items-center text-slate-300 hover:text-ink-900"
+                className={`flex items-center text-slate-300 hover:text-ink-900 ${isProductWorkActive ? activeNav : ""}`}
+                aria-current={isProductWorkActive ? "page" : undefined}
                 aria-haspopup="true"
                 aria-expanded={isProductDropdownOpen}
                 aria-controls="product-work-submenu"
@@ -184,7 +191,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             <Link
               href={createPageUrl("Teaching")}
-              className="text-slate-300 hover:text-ink-900"
+              className={`text-slate-300 hover:text-ink-900 ${isTeachingActive ? activeNav : ""}`}
+              aria-current={isTeachingActive ? "page" : undefined}
             >
               {shell.nav.teaching}
             </Link>
@@ -229,7 +237,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex flex-col p-6 gap-4 max-w-7xl mx-auto">
                 <Link
                   href={createPageUrl("ProductWork")}
-                  className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 font-semibold text-lg"
+                  className={`text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 font-semibold text-lg ${isProductWorkActive ? activeNav : ""}`}
+                  aria-current={isProductWorkActive ? "page" : undefined}
                 >
                   {shell.nav.productWork}
                 </Link>
@@ -246,7 +255,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
                 <Link
                   href={createPageUrl("Teaching")}
-                  className="text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 text-lg"
+                  className={`text-slate-300 hover:text-ink-900 py-3 px-4 rounded-lg hover:bg-ink-900/5 text-lg ${isTeachingActive ? activeNav : ""}`}
+                  aria-current={isTeachingActive ? "page" : undefined}
                 >
                   {shell.nav.teaching}
                 </Link>
@@ -292,7 +302,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4">
               {/* Indirizzo in chiaro: si puo' selezionare e copiare anche dove mailto non apre nulla */}
-              <CopyEmailLink className="text-sm text-slate-300 hover:text-ink-900 underline underline-offset-4 decoration-ink-900/30 break-all">
+              <CopyEmailLink className="text-sm text-slate-300 hover:text-ink-900 link-underline break-all">
                 {CONTACT_EMAIL}
               </CopyEmailLink>
               <CopyEmailLink

@@ -39,7 +39,7 @@ export default function ExpandableText({
           {shouldTruncate && !isExpanded && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="ml-2 text-sm text-[var(--color-text-brand)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium underline underline-offset-2"
+              className="ml-2 text-sm text-[var(--color-text-link-default)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium link-underline"
             >
               {isExpanded ? shell.ui.expandableText.showLess : shell.ui.expandableText.showMore}
             </button>
@@ -57,7 +57,7 @@ export default function ExpandableText({
           {shouldTruncate && !isExpanded && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="ml-2 text-sm text-[var(--color-text-brand)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium underline underline-offset-2"
+              className="ml-2 text-sm text-[var(--color-text-link-default)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium link-underline"
             >
               {isExpanded ? shell.ui.expandableText.showLess : shell.ui.expandableText.showMore}
             </button>
@@ -90,7 +90,7 @@ export default function ExpandableText({
         >
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-sm text-[var(--color-text-brand)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium underline underline-offset-2"
+            className="text-sm text-[var(--color-text-link-default)] hover:text-[var(--color-text-link-hover)] transition-colors duration-200 font-medium link-underline"
           >
             {shell.ui.expandableText.showLess}
           </button>

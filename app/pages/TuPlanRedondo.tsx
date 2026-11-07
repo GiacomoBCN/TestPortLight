@@ -30,6 +30,7 @@ import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { tuPlanRedondo } from "@/content/tu-plan-redondo";
+import SectionNumber from "../components/casestudy/SectionNumber";
 
 export default function TuPlanRedondo() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -115,12 +116,12 @@ export default function TuPlanRedondo() {
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-accent">
+            <span className="label-tag text-xs">
               {tuPlanRedondo.hero.category}
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-ink-900 mb-4">
+          <h1 className="type-page-title text-ink-900 mb-4">
             {tuPlanRedondo.hero.title}
           </h1>
 
@@ -176,7 +177,7 @@ export default function TuPlanRedondo() {
               </p>
               <ul className="space-y-1">
                 {tuPlanRedondo.role.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -184,7 +185,7 @@ export default function TuPlanRedondo() {
             <OverviewCard icon={GitBranch} title={tuPlanRedondo.scope.title}>
               <ul className="space-y-1">
                 {tuPlanRedondo.scope.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -195,7 +196,7 @@ export default function TuPlanRedondo() {
       {/* Metrics Showcase */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
+          <h2 className="type-section-title text-ink-900 mb-12 text-center">
             {tuPlanRedondo.impact.title}
           </h2>
 
@@ -274,11 +275,9 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {tuPlanRedondo.businessContext.number}
-            </div>
+            <SectionNumber n={Number(tuPlanRedondo.businessContext.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.businessContext.title}
               </h2>
             </div>
@@ -306,11 +305,9 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {tuPlanRedondo.research.number}
-            </div>
+            <SectionNumber n={Number(tuPlanRedondo.research.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.research.title}
               </h2>
             </div>
@@ -348,11 +345,9 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {tuPlanRedondo.keyDecisions.number}
-            </div>
+            <SectionNumber n={Number(tuPlanRedondo.keyDecisions.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.keyDecisions.title}
               </h2>
             </div>
@@ -369,11 +364,9 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {tuPlanRedondo.designImplementation.number}
-            </div>
+            <SectionNumber n={Number(tuPlanRedondo.designImplementation.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.designImplementation.title}
               </h2>
             </div>
@@ -420,11 +413,9 @@ export default function TuPlanRedondo() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {tuPlanRedondo.businessImpact.number}
-            </div>
+            <SectionNumber n={Number(tuPlanRedondo.businessImpact.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {tuPlanRedondo.businessImpact.title}
               </h2>
             </div>
@@ -438,7 +429,7 @@ export default function TuPlanRedondo() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-accent mb-3">
+                  <h3 className="type-work text-lg text-accent mb-3">
                     {tuPlanRedondo.businessImpact.efficiency.title}
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
@@ -453,7 +444,7 @@ export default function TuPlanRedondo() {
 
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-accent mb-3">
+                  <h3 className="type-work text-lg text-accent mb-3">
                     {tuPlanRedondo.businessImpact.cost.title}
                   </h3>
                   <ul className="space-y-2 text-sm text-gray-300">
@@ -476,7 +467,7 @@ export default function TuPlanRedondo() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-ink-900 mb-4">
+              <h2 className="type-section-title text-ink-900 mb-4">
                 {tuPlanRedondo.cta.title}
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">

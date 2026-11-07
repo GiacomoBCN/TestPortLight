@@ -17,7 +17,7 @@ export default function OverviewCard({
         <div className="w-10 h-10 rounded-lg bg-[var(--color-surface-interactive-hover)]/10 flex items-center justify-center">
           <Icon className="w-5 h-5 text-[var(--color-text-link-default)]" />
         </div>
-        <h3 className="text-lg font-semibold text-[var(--color-text-inverse)]">{title}</h3>
+        <h3 className="type-work text-lg text-[var(--color-text-inverse)]">{title}</h3>
       </div>
       <div className="text-[var(--color-text-primary)] text-base leading-relaxed">
         {children}

@@ -28,6 +28,7 @@ import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { vod } from "@/content/vod";
+import SectionNumber from "../components/casestudy/SectionNumber";
 
 export default function VoDPlatform() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -130,11 +131,11 @@ export default function VoDPlatform() {
             {vod.hero.breadcrumb}
           </p>
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-accent">
+            <span className="label-tag text-xs">
               {vod.hero.category}
             </span>
           </div>
-          <h1 className="text-5xl font-bold text-ink-900 mb-4">
+          <h1 className="type-page-title text-ink-900 mb-4">
             {vod.hero.title}
           </h1>
           <p className="text-lg text-gray-400 mb-4">
@@ -182,7 +183,7 @@ export default function VoDPlatform() {
               <p className="font-semibold mb-2">{vod.role.summary}</p>
               <ul className="space-y-1">
                 {vod.role.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span>{` ${item}`}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -190,7 +191,7 @@ export default function VoDPlatform() {
             <OverviewCard icon={TrendingUp} title={vod.impact.title}>
               <ul className="space-y-1">
                 {vod.impact.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span>{` ${item}`}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span>{` ${item}`}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -201,7 +202,7 @@ export default function VoDPlatform() {
       {/* Metrics Showcase */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-12 text-center">
+          <h2 className="type-section-title text-ink-900 mb-12 text-center">
             {vod.achievements.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -241,11 +242,9 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {vod.businessContext.number}
-            </div>
+            <SectionNumber n={Number(vod.businessContext.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {vod.businessContext.title}
               </h2>
             </div>
@@ -270,11 +269,9 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {vod.problem.number}
-            </div>
+            <SectionNumber n={Number(vod.problem.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {vod.problem.title}
               </h2>
             </div>
@@ -314,11 +311,9 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {vod.keyDecisions.number}
-            </div>
+            <SectionNumber n={Number(vod.keyDecisions.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {vod.keyDecisions.title}
               </h2>
             </div>
@@ -333,11 +328,9 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {vod.redesign.number}
-            </div>
+            <SectionNumber n={Number(vod.redesign.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {vod.redesign.title}
               </h2>
             </div>
@@ -346,14 +339,14 @@ export default function VoDPlatform() {
           <div className="pl-0 md:pl-24 grid grid-cols-1 md:grid-cols-2 gap-6">
             <GlassCard>
               <div className="p-3">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {vod.redesign.navigation.title}
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
                   {vod.redesign.navigation.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -363,14 +356,14 @@ export default function VoDPlatform() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {vod.redesign.welcomeScreen.title}
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
                   {vod.redesign.welcomeScreen.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -380,14 +373,14 @@ export default function VoDPlatform() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {vod.redesign.wcag.title}
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
                   {vod.redesign.wcag.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -397,14 +390,14 @@ export default function VoDPlatform() {
 
             <GlassCard>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {vod.redesign.grid.title}
                 </h3>
 
                 <ul className="space-y-2 text-gray-400">
                   {vod.redesign.grid.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-1" aria-hidden="true">•</span>
+                      <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -419,7 +412,7 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="pl-0 md:pl-24 mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-ink-900 mb-2">
+            <h3 className="type-work-title text-ink-900 mb-2">
               {vod.navigationDeepDive.title}
             </h3>
             <p className="text-gray-400">
@@ -570,7 +563,7 @@ export default function VoDPlatform() {
               {/* Structure Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
+                  <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.structure.title}
                   </h3>
 
@@ -607,7 +600,7 @@ export default function VoDPlatform() {
               {/* Movement Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
+                  <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.movement.title}
                   </h3>
 
@@ -646,7 +639,7 @@ export default function VoDPlatform() {
               {/* Focus & Legibility Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
+                  <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.focus.title}
                   </h3>
 
@@ -679,7 +672,7 @@ export default function VoDPlatform() {
               {/* Utility & Feedback Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
+                  <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.utility.title}
                   </h3>
 
@@ -712,7 +705,7 @@ export default function VoDPlatform() {
               {/* Outcome Card */}
               <GlassCard>
                 <div className="p-5">
-                  <h3 className="text-ink-900 font-semibold text-lg mb-4">
+                  <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.outcome.title}
                   </h3>
 
@@ -750,11 +743,9 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {vod.interactionImprovements.number}
-            </div>
+            <SectionNumber n={Number(vod.interactionImprovements.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {vod.interactionImprovements.title}
               </h2>
             </div>
@@ -809,7 +800,7 @@ export default function VoDPlatform() {
                       key={index}
                       className="bg-ink-900/[0.05] border border-ink-900/10 rounded-lg p-4"
                     >
-                      <h3 className="text-ink-900 font-semibold text-base mb-4">
+                      <h3 className="type-work text-ink-900 text-base mb-4">
                         {item.task}
                       </h3>
 
@@ -854,11 +845,9 @@ export default function VoDPlatform() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">
-              {vod.outcomes.number}
-            </div>
+            <SectionNumber n={Number(vod.outcomes.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">
+              <h2 className="type-section-title text-ink-900">
                 {vod.outcomes.title}
               </h2>
             </div>
@@ -871,7 +860,7 @@ export default function VoDPlatform() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-accent mb-3">
+                  <h3 className="type-work text-lg text-accent mb-3">
                     {vod.outcomes.constraints.title}
                   </h3>
 
@@ -889,7 +878,7 @@ export default function VoDPlatform() {
 
               <GlassCard>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-accent mb-3">
+                  <h3 className="type-work text-lg text-accent mb-3">
                     {vod.outcomes.learnings.title}
                   </h3>
                   <ul className="space-y-3 text-gray-300 text-sm">
@@ -947,7 +936,7 @@ export default function VoDPlatform() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-ink-900 mb-4">
+              <h2 className="type-section-title text-ink-900 mb-4">
                 {vod.cta.title}
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">

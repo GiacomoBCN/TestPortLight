@@ -140,10 +140,10 @@ export default function ProjectCard({
 
       {/* Header Section - Fixed height */}
       <div className={compact ? "mb-3" : "mb-6"}>
-        <span className="text-xs uppercase tracking-wider text-[var(--project-card-role-text)] font-semibold block">
+        <span className="label-tag text-xs">
           {role}
         </span>
-        <h3 className={`${compact ? "text-xl mt-1 mb-0.5 line-clamp-1" : "text-2xl mt-2 mb-1 min-h-[64px]"} font-bold text-[var(--project-card-title-default)] transition-colors duration-300 group-hover:text-[var(--project-card-title-hover)]`}>
+        <h3 className={`${compact ? "type-work text-xl mt-1 mb-0.5 line-clamp-1" : "type-work-title mt-2 mb-1 min-h-[64px]"} text-[var(--project-card-title-default)] transition-colors duration-300 group-hover:text-[var(--project-card-title-hover)]`}>
           {title}
         </h3>
         <p className="text-sm text-[var(--project-card-company-text)]">

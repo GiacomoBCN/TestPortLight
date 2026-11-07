@@ -30,6 +30,7 @@ import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { falak, type FalakShotKey } from "@/content/falak";
+import SectionNumber from "../components/casestudy/SectionNumber";
 
 const DEMO_URL = falak.demoUrl;
 const REPO_URL = falak.repoUrl;
@@ -96,12 +97,12 @@ export default function FalakCaseStudy() {
           </p>
 
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-accent">
+            <span className="label-tag text-xs">
               {falak.hero.category}
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold text-ink-900 mb-4">
+          <h1 className="type-page-title text-ink-900 mb-4">
             {falak.hero.title}
           </h1>
 
@@ -178,7 +179,7 @@ export default function FalakCaseStudy() {
               <p className="font-semibold mb-2">{falak.role.summary}</p>
               <ul className="space-y-1">
                 {falak.role.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -186,7 +187,7 @@ export default function FalakCaseStudy() {
             <OverviewCard icon={Users} title={falak.scope.title}>
               <ul className="space-y-1">
                 {falak.scope.items.map((item, i) => (
-                  <li key={i}><span aria-hidden="true">•</span> {item}</li>
+                  <li key={i}><span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span> {item}</li>
                 ))}
               </ul>
             </OverviewCard>
@@ -198,9 +199,9 @@ export default function FalakCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">{falak.approach.number}</div>
+            <SectionNumber n={Number(falak.approach.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">{falak.approach.title}</h2>
+              <h2 className="type-section-title text-ink-900">{falak.approach.title}</h2>
               <p className="text-gray-400 mt-2">
                 {falak.approach.subtitle}
               </p>
@@ -216,7 +217,7 @@ export default function FalakCaseStudy() {
                       <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                         <p.icon className="w-5 h-5 text-accent-icon" />
                       </div>
-                      <h3 className="text-xl font-semibold text-ink-900">{p.title}</h3>
+                      <h3 className="type-work text-xl text-ink-900">{p.title}</h3>
                     </div>
                     <p className="text-gray-300 leading-relaxed">{p.text}</p>
                   </div>
@@ -256,9 +257,9 @@ export default function FalakCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">{falak.keyDecisions.number}</div>
+            <SectionNumber n={Number(falak.keyDecisions.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">{falak.keyDecisions.title}</h2>
+              <h2 className="type-section-title text-ink-900">{falak.keyDecisions.title}</h2>
               <p className="text-gray-400 mt-2">
                 {falak.keyDecisions.subtitle}
               </p>
@@ -280,9 +281,9 @@ export default function FalakCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">{falak.delivered.number}</div>
+            <SectionNumber n={Number(falak.delivered.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">{falak.delivered.title}</h2>
+              <h2 className="type-section-title text-ink-900">{falak.delivered.title}</h2>
             </div>
           </div>
           <div className="pl-0 md:pl-24 space-y-6">
@@ -305,16 +306,16 @@ export default function FalakCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">{falak.learnings.number}</div>
+            <SectionNumber n={Number(falak.learnings.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">{falak.learnings.title}</h2>
+              <h2 className="type-section-title text-ink-900">{falak.learnings.title}</h2>
             </div>
           </div>
           <div className="pl-0 md:pl-24 grid grid-cols-1 md:grid-cols-2 gap-6">
             {learnings.map((l, i) => (
               <GlassCard key={i}>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-ink-900 mb-3">{l.title}</h3>
+                  <h3 className="type-work text-xl text-ink-900 mb-3">{l.title}</h3>
                   <p className="text-gray-300 leading-relaxed">{l.text}</p>
                 </div>
               </GlassCard>
@@ -327,9 +328,9 @@ export default function FalakCaseStudy() {
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-start gap-6 mb-8">
-            <div className="text-6xl font-bold text-accent opacity-20" aria-hidden="true">{falak.regulations.number}</div>
+            <SectionNumber n={Number(falak.regulations.number)} />
             <div className="flex-1 pt-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-900">{falak.regulations.title}</h2>
+              <h2 className="type-section-title text-ink-900">{falak.regulations.title}</h2>
               <p className="text-gray-400 mt-2">
                 {falak.regulations.subtitle}
               </p>
@@ -367,7 +368,7 @@ export default function FalakCaseStudy() {
               {regulations.map((r, i) => (
                 <GlassCard key={i}>
                   <div className="p-5">
-                    <h3 className="text-ink-900 font-semibold text-base mb-3">{r.rule}</h3>
+                    <h3 className="type-work text-ink-900 text-base mb-3">{r.rule}</h3>
                     <div className="space-y-3 text-sm">
                       <div>
                         <div className="text-ink-900/70 text-xs font-semibold uppercase tracking-wide mb-1">{falak.regulations.columns.duty}</div>
@@ -391,7 +392,7 @@ export default function FalakCaseStudy() {
               {falak.regulations.sources.label}{" "}
               {falak.regulations.sources.links.map(({ label, href }, i, arr) => (
                 <React.Fragment key={href}>
-                  <a href={href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink-900">
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="link-underline hover:text-ink-900">
                     {label}
                   </a>
                   {i < arr.length - 1 ? " · " : "."}
@@ -408,7 +409,7 @@ export default function FalakCaseStudy() {
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-ink-900 mb-4">{falak.cta.title}</h2>
+              <h2 className="type-section-title text-ink-900 mb-4">{falak.cta.title}</h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
                 {falak.cta.text}
               </p>

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import SectionNumber from "./SectionNumber";
 
 export default function CaseStudySection({ 
   number, 
@@ -22,11 +23,9 @@ export default function CaseStudySection({
     >
       <div className="max-w-5xl mx-auto">
         <div className="flex items-start gap-6 mb-8">
-          <div className="text-6xl font-bold text-[var(--color-text-brand)] opacity-20">
-            {number}
-          </div>
+          <SectionNumber n={Number(number)} />
           <div className="flex-1 pt-2">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-inverse)]">
+            <h2 className="type-section-title text-[var(--color-text-inverse)]">
               {title}
             </h2>
           </div>

@@ -45,7 +45,7 @@ export default function ProjectGallery({
     <>
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-8 text-center">
+          <h2 className="type-section-title text-ink-900 mb-8 text-center">
             {title}
           </h2>
           <div className="relative group px-12">

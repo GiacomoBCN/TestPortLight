@@ -27,11 +27,11 @@ export default function EcommerceManagement() {
             Home &gt; Product Work &gt; E-Commerce Product Management
           </p>
           <div className="mb-4">
-            <span className="text-xs uppercase tracking-wider text-accent">
+            <span className="label-tag text-xs">
               PRODUCT MANAGEMENT · PORTFOLIO
             </span>
           </div>
-          <h1 className="text-5xl font-bold text-ink-900 mb-4">
+          <h1 className="type-page-title text-ink-900 mb-4">
             E-Commerce Product Management
           </h1>
           <p className="text-lg text-gray-400 mb-4">

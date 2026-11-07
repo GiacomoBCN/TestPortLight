@@ -48,7 +48,6 @@
   --primitive-pure-white: #ffffff;   /* Text on dark fills, image backgrounds */
   --primitive-orange-500: #F28C28;   /* Accent fill - orange, marks only */
   --primitive-yellow-400: #F5C33B;   /* Accent fill - yellow, marks only */
-  --primitive-green-200: #F5C33B;    /* Teaching fills & borders - yellow (no more green) */
 
   /* Opacity Values */
   --primitive-alpha-subtle: 0.08;
@@ -69,16 +68,16 @@
   --color-text-on-light: var(--primitive-white);         /* Text on light backgrounds */
   --color-text-on-dark: var(--primitive-pure-white);     /* Text on dark fills (buttons, overlays) */
   --color-icon-accent: var(--primitive-orange-500);      /* Accent icons - orange */
+  --color-ink: var(--foreground);                        /* Ink: tutto il testo che prima era arancione/brand */
 
   /* Interactive Text */
-  --color-text-link-default: var(--primitive-blue-500);  /* Links default state */
-  --color-text-link-hover: var(--primitive-blue-400);    /* Links hover state */
-  --color-text-brand: var(--primitive-blue-500);         /* Brand-colored text */
-  --color-text-accent: var(--primitive-blue-600);        /* Accent/emphasis text */
+  --color-text-link-default: var(--color-ink);          /* Links default state - ink, underline orange */
+  --color-text-link-hover: var(--color-ink);            /* Links hover state - ink, underline thicker */
+  --color-text-brand: var(--color-ink);                 /* Former brand-colored text - ink */
 
   /* Feedback Text */
   --color-text-success: var(--primitive-emerald-500);    /* Success messages */
-  --color-text-teaching: var(--primitive-emerald-500);   /* Teaching section text */
+  --color-text-teaching: var(--primitive-emerald-500);   /* Usato solo dalle testimonianze (gradiente avatar): residuo voluto */
 
   /* Surface/Background Colors */
   --color-surface-primary: var(--primitive-dark-900);        /* Main background */
@@ -89,18 +88,29 @@
 
   /* Interactive Surfaces */
   --color-surface-interactive-default: var(--primitive-orange-500); /* Accent fills: dots, hover fills, glow */
-  --color-surface-interactive-hover: var(--primitive-yellow-400);   /* Accent fill hover - yellow */
+  --color-surface-interactive-hover: var(--primitive-orange-500);   /* Accent fill hover - orange (azione) */
   --color-surface-glow: transparent; /* No warm glow behind content (palette A) */
 
   /* Border Colors */
   --color-border-default: rgba(7, 9, 11, 0.10);  /* Subtle borders */
   --color-border-interactive: var(--primitive-orange-500);   /* Active/interactive borders - orange */
-  --color-border-interactive-hover: var(--primitive-yellow-400); /* Hover state borders - yellow */
   --color-border-emphasis: var(--primitive-orange-500);      /* Emphasized borders */
 
   /* Decoration & Effects */
   --color-decoration-grid: transparent;  /* Background grid off (palette A) */
   --color-decoration-accent: var(--primitive-orange-500);    /* Accent decorations */
+
+  /* Ruoli colore: giallo = identita', arancione = azione. Mai testo giallo o arancione */
+  --color-label-background: var(--primitive-yellow-400);   /* Etichette: sfondo giallo */
+  --color-label-text: var(--color-ink);                     /* Etichette: testo inchiostro */
+  --color-highlight: var(--primitive-yellow-400);          /* Evidenziatore nei titoli (utility .highlight) */
+  --color-selection-background: var(--primitive-yellow-400);
+  --color-selection-text: var(--color-ink);
+  --color-link-underline: var(--primitive-orange-500);     /* Sottolineatura dei link */
+  --color-nav-active: var(--primitive-orange-500);         /* Voce di menu attiva */
+  --color-focus-ring: var(--primitive-orange-500);         /* Anello di focus 2px */
+  --color-focus-ring-contour: var(--color-ink);            /* Contorno 1px dell'anello (contrasto >= 3:1) */
+  --color-list-bullet: var(--primitive-orange-500);        /* Pallini degli elenchi: segno, non testo */
 
   /* Glass Morphism */
   --color-glass-border: rgba(7, 9, 11, 0.10);
@@ -152,6 +162,7 @@
   --nav-link-default: var(--color-text-primary);
   --nav-link-hover: var(--color-text-link-hover);
   --nav-link-active: var(--color-text-brand);
+  --nav-link-active-underline: var(--color-nav-active);
   --nav-dropdown-hover: #F3DCAA;                 /* Hover dei link nel menu a tendina Product Work: usato solo li' */
 
   /* Hero Section */
@@ -161,13 +172,8 @@
   --hero-grid-decoration: var(--color-decoration-grid);
   --hero-glow-effect: var(--color-surface-glow);
 
-  /* Teaching Section */
-  --teaching-accent-text: var(--color-text-teaching);
-  --teaching-accent-border: var(--primitive-green-200);
-  --teaching-card-background: var(--color-surface-secondary);
-
   /* Metrics/Statistics */
-  --metric-value-text: var(--color-text-brand);
+  --metric-value-text: var(--color-ink);
   --metric-label-text: var(--color-text-tertiary);
   --metric-card-background: var(--color-surface-secondary);
 
@@ -188,10 +194,109 @@
   --color-slate-300: var(--primitive-slate-300);
   --color-slate-400: var(--primitive-slate-400);
   --color-slate-500: var(--primitive-slate-500);
-  --color-emerald: var(--primitive-emerald-500);
-  --color-emerald-500: var(--primitive-emerald-500);
   --color-dark-bg: var(--primitive-dark-900);
   --color-dark-bg-secondary: var(--primitive-dark-800);
+}
+
+/* ============================================
+   THREE-TIER TYPOGRAPHY TOKEN SYSTEM
+   Stessa convenzione dei colori:
+   - TIER 1: primitivi (famiglie, pesi, dimensioni, interlinee, spaziature)
+   - TIER 2: semantici, per ruolo (firma, lavoro, testo, etichette, numeri)
+   - TIER 3: componenti (titolo home, titolo pagina, titoli di sezione, ...)
+   Le famiglie arrivano da next/font in app/layout.tsx (variabili su <html>).
+   ============================================ */
+:root {
+  /* TIER 1: PRIMITIVE TOKENS */
+  --primitive-font-comfortaa: var(--font-comfortaa), "Trebuchet MS", sans-serif;
+  --primitive-font-redhat-display: var(--font-red-hat-display), system-ui, sans-serif;
+  --primitive-font-redhat-text: var(--font-red-hat-text), system-ui, sans-serif;
+  --primitive-font-redhat-mono: var(--font-red-hat-mono), ui-monospace, monospace;
+
+  --primitive-weight-regular: 400;
+  --primitive-weight-medium: 500;
+  --primitive-weight-semibold: 600;
+  --primitive-weight-bold: 700;
+
+  --primitive-size-12: 0.75rem;
+  --primitive-size-14: 0.875rem;
+  --primitive-size-16: 1rem;
+  --primitive-size-18: 1.125rem;
+  --primitive-size-20: 1.25rem;
+  --primitive-size-22: 1.375rem;
+  --primitive-size-24: 1.5rem;
+  --primitive-size-28: 1.75rem;
+  --primitive-size-30: 1.875rem;
+  --primitive-size-36: 2.25rem;
+  --primitive-size-40: 2.5rem;
+  --primitive-size-42: 2.625rem;
+  --primitive-size-46: 2.875rem;
+  --primitive-size-56: 3.5rem;
+  --primitive-size-72: 4.5rem;
+
+  --primitive-leading-none: 1;
+  --primitive-leading-display: 1.08;
+  --primitive-leading-title: 1.2;
+
+  --primitive-tracking-none: 0;
+  --primitive-tracking-text: 0.02em;
+  --primitive-tracking-label: 0.08em;
+
+  --primitive-space-6: 6px;
+  --primitive-space-9: 9px;
+  --primitive-space-12: 12px;
+  --primitive-border-4: 4px;
+
+  /* TIER 2: SEMANTIC TOKENS (ruoli) */
+  /* Firma: logo, titolo della home, titoli di pagina e di sezione */
+  --type-signature-family: var(--primitive-font-comfortaa);
+  --type-signature-weight: var(--primitive-weight-bold);
+  --type-signature-leading: var(--primitive-leading-display);
+  --type-signature-tracking: var(--primitive-tracking-none);
+
+  /* Lavoro: titoli di progetti e schede. Mai piu' di 600 */
+  --type-work-family: var(--primitive-font-redhat-display);
+  --type-work-weight: var(--primitive-weight-medium);
+  --type-work-leading: var(--primitive-leading-title);
+  --type-work-tracking: var(--primitive-tracking-none);
+
+  /* Testo: corpo, lead, pulsanti, link. Dimensioni e interlinee invariate */
+  --type-text-family: var(--primitive-font-redhat-text);
+  --type-text-weight: var(--primitive-weight-regular);
+  --type-text-weight-strong: var(--primitive-weight-semibold);
+  --type-text-tracking: var(--primitive-tracking-text);
+
+  /* Etichette e metadati: maiuscolo */
+  --type-label-family: var(--primitive-font-redhat-mono);
+  --type-label-weight: var(--primitive-weight-medium);
+  --type-label-tracking: var(--primitive-tracking-label);
+  --type-label-transform: uppercase;
+
+  /* Numeri (di sezione e metriche grandi) */
+  --type-number-family: var(--primitive-font-redhat-display);
+  --type-number-weight: var(--primitive-weight-bold);
+  --type-number-leading: var(--primitive-leading-none);
+  --type-number-tracking: var(--primitive-tracking-none);
+
+  /* TIER 3: COMPONENT TOKENS (mobile / desktop da 768px) */
+  --home-title-size-mobile: var(--primitive-size-42);
+  --home-title-size-desktop: var(--primitive-size-72);
+  --page-title-size-mobile: var(--primitive-size-36);
+  --page-title-size-desktop: var(--primitive-size-56);
+  --section-title-size-mobile: var(--primitive-size-30);
+  --section-title-size-desktop: var(--primitive-size-46);
+  --work-title-size-mobile: var(--primitive-size-22);
+  --work-title-size-desktop: var(--primitive-size-28);
+
+  --section-number-size-mobile: var(--primitive-size-30);
+  --section-number-size-desktop: var(--primitive-size-40);
+  --section-number-color: var(--color-ink);
+  --section-number-bar-color: var(--primitive-orange-500);
+  --section-number-bar-width: var(--primitive-border-4);
+  --section-number-bar-gap: var(--primitive-space-12);
+
+  --label-padding-y: var(--primitive-space-6);
+  --label-padding-x: var(--primitive-space-9);
 }
 
 /* Tailwind utility palette remap: legacy classes (text-gray-300, border-gray-800,
@@ -219,15 +324,14 @@
   --color-blue-600: var(--primitive-black);       /* bg-blue-600 primary buttons */
   --color-blue-hover: var(--primitive-gray-900);  /* bg-blue-hover - button hover */
 
-  --color-accent: var(--primitive-blue-500);      /* text-accent - former text-blue-400 */
-  --color-accent-hover: var(--primitive-blue-400);
+  --color-accent: var(--color-ink);               /* text-accent - ink (prima rosso-arancio) */
+  --color-accent-hover: var(--color-ink);
   --color-accent-icon: var(--primitive-orange-500); /* icons - orange */
   --color-ink-900: var(--primitive-white);        /* text-ink-900 - former text-white */
   --color-sand-200: var(--primitive-gray-100);    /* light text on dark overlays (hover) */
 
-  --color-emerald-500: var(--primitive-emerald-500); /* Teaching text - ink black */
   --color-green-400: var(--primitive-emerald-500);
-  --color-green-500: var(--primitive-green-200);   /* bg-green-500/15 fills - yellow */
+  --color-green-500: var(--primitive-yellow-400);  /* bg-green-500/15 fills - yellow (successo, non Teaching) */
   --color-red-400: var(--primitive-blue-500);
   --color-red-500: var(--primitive-orange-500);   /* bg-red-500/15 fills */
 }
@@ -235,8 +339,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--type-text-family);
+  --font-mono: var(--type-label-family);
+  --font-signature: var(--type-signature-family);   /* font-signature */
+  --font-work: var(--type-work-family);             /* font-work */
+  --font-label: var(--type-label-family);           /* font-label */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -250,8 +357,133 @@
   body {
     background: var(--background);
     color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--type-text-family);
+    font-weight: var(--type-text-weight);
+    letter-spacing: var(--type-text-tracking);
   }
+
+  ::selection {
+    background: var(--color-selection-background);
+    color: var(--color-selection-text);
+  }
+
+  /* Focus: anello arancione 2px con contorno inchiostro 1px */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 1px;
+    box-shadow: 0 0 0 1px var(--color-focus-ring-contour);
+    border-radius: 4px;
+  }
+}
+
+/* ============================================
+   RUOLI TIPOGRAFICI (utility)
+   Ogni utility porta famiglia, peso, interlinea, spaziatura e la
+   dimensione mobile -> desktop (768px) dai token qui sopra.
+   ============================================ */
+@utility type-home-title {
+  font-family: var(--type-signature-family);
+  font-weight: var(--type-signature-weight);
+  line-height: var(--type-signature-leading);
+  letter-spacing: var(--type-signature-tracking);
+  font-size: var(--home-title-size-mobile);
+  @media (width >= 48rem) {
+    font-size: var(--home-title-size-desktop);
+  }
+}
+
+@utility type-page-title {
+  font-family: var(--type-signature-family);
+  font-weight: var(--type-signature-weight);
+  line-height: var(--type-signature-leading);
+  letter-spacing: var(--type-signature-tracking);
+  font-size: var(--page-title-size-mobile);
+  @media (width >= 48rem) {
+    font-size: var(--page-title-size-desktop);
+  }
+}
+
+@utility type-section-title {
+  font-family: var(--type-signature-family);
+  font-weight: var(--type-signature-weight);
+  line-height: var(--type-signature-leading);
+  letter-spacing: var(--type-signature-tracking);
+  font-size: var(--section-title-size-mobile);
+  @media (width >= 48rem) {
+    font-size: var(--section-title-size-desktop);
+  }
+}
+
+@utility type-work-title {
+  font-family: var(--type-work-family);
+  font-weight: var(--type-work-weight);
+  line-height: var(--type-work-leading);
+  letter-spacing: var(--type-work-tracking);
+  font-size: var(--work-title-size-mobile);
+  @media (width >= 48rem) {
+    font-size: var(--work-title-size-desktop);
+  }
+}
+
+/* Titoli piccoli (h3/h4 nei contenuti): famiglia e peso del ruolo lavoro, dimensione invariata */
+@utility type-work {
+  font-family: var(--type-work-family);
+  font-weight: var(--type-work-weight);
+  letter-spacing: var(--type-work-tracking);
+}
+
+@utility type-signature {
+  font-family: var(--type-signature-family);
+  font-weight: var(--type-signature-weight);
+  letter-spacing: var(--type-signature-tracking);
+}
+
+@utility type-label {
+  font-family: var(--type-label-family);
+  font-weight: var(--type-label-weight);
+  letter-spacing: var(--type-label-tracking);
+  text-transform: var(--type-label-transform);
+}
+
+/* Etichetta gialla: rettangolo ad angoli dritti, niente bordo, padding piccolo */
+@utility label-tag {
+  display: inline-block;
+  font-family: var(--type-label-family);
+  font-weight: var(--type-label-weight);
+  letter-spacing: var(--type-label-tracking);
+  text-transform: var(--type-label-transform);
+  background: var(--color-label-background);
+  color: var(--color-label-text);
+  padding: var(--label-padding-y) var(--label-padding-x);
+  border: 0;
+  border-radius: 0;
+}
+
+@utility type-number {
+  font-family: var(--type-number-family);
+  font-weight: var(--type-number-weight);
+  letter-spacing: var(--type-number-tracking);
+}
+
+/* Link: testo inchiostro, sottolineatura arancione (piu' spessa in hover) */
+@utility link-underline {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-link-underline);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  &:hover {
+    text-decoration-thickness: 3px;
+  }
+}
+
+/* Evidenziatore nei titoli: pronto, non applicato da nessuna parte */
+@utility highlight {
+  background: linear-gradient(transparent 55%, var(--color-highlight) 55%);
+  color: inherit;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 /* Glass: nel layer components, cosi' le utility (hover:bg-..., border-...) vincono.

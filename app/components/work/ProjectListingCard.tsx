@@ -44,10 +44,10 @@ export default function ProjectListingCard({
       <SketchFrame />
       {/* TOP SECTION - Header (flexible height) */}
       <div className="mb-4 flex-shrink-0">
-        <div className="text-xs uppercase tracking-wider text-[var(--color-text-link-default)] mb-2">
+        <div className="label-tag text-xs mb-2">
           {category}
         </div>
-        <h2 className="text-2xl font-bold text-[var(--color-text-inverse)] mb-2 line-clamp-2 leading-tight">
+        <h2 className="type-work-title text-[var(--color-text-inverse)] mb-2 line-clamp-2">
           {title}
         </h2>
         <p className="text-sm text-[var(--color-text-tertiary)]">
@@ -103,7 +103,7 @@ export default function ProjectListingCard({
       <div className="mt-auto pt-3 border-t border-[var(--color-text-inverse)]/5 flex-shrink-0 text-center">
         <Link
           href={createPageUrl(slug)}
-          className="inline-block text-[var(--color-text-link-default)] underline decoration-[var(--primitive-orange-500)] decoration-2 underline-offset-4 hover:text-[var(--color-text-link-hover)] transition-colors text-sm"
+          className="inline-block text-[var(--color-text-link-default)] link-underline hover:text-[var(--color-text-link-hover)] transition-colors text-sm"
           aria-label={shell.ui.projectListingCard.viewCaseStudyLabel(title)}
         >
           {shell.ui.projectListingCard.viewCaseStudy}

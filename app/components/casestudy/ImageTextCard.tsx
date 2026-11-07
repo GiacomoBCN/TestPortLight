@@ -67,7 +67,7 @@ export default function ImageTextCard({
 
   const textSection = (
     <div className="md:w-2/3">
-      <h3 className="text-xl font-semibold text-[var(--card-text-heading)] mb-4">{title}</h3>
+      <h3 className="type-work text-xl text-[var(--card-text-heading)] mb-4">{title}</h3>
       <div className="text-[var(--card-text-body)] leading-relaxed mb-4 space-y-3">
         {description.split(/\n+/).filter(p => p.trim()).map((paragraph, index) => (
           <p key={index}>{paragraph.trim()}</p>
@@ -76,7 +76,7 @@ export default function ImageTextCard({
       <ul className="space-y-2 text-[var(--card-text-meta)]">
         {bulletPoints.map((point, index) => (
           <li key={index} className="flex items-start gap-2">
-            <span className="text-[var(--color-text-link-default)] mt-1" aria-hidden="true">•</span>
+            <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
             <span>
               <strong>{point.label}:</strong> {point.text}
             </span>

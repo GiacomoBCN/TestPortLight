@@ -146,7 +146,7 @@ export default function CaseStudyTemplate({
       {/* Leadership Profile */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-8 text-center">
+          <h2 className="type-section-title text-ink-900 mb-8 text-center">
             Project Leadership
           </h2>
           <LeadershipProfile
@@ -172,14 +172,14 @@ export default function CaseStudyTemplate({
       <CaseStudySection number="02" title="The Challenge">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <GlassCard>
-            <h3 className="text-xl font-bold text-ink-900 mb-4 flex items-center gap-2">
+            <h3 className="type-work text-xl text-ink-900 mb-4 flex items-center gap-2">
               <span className="text-2xl">👥</span>
               User Problems
             </h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.userProblems.map((problem, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-accent mt-1" aria-hidden="true">•</span>
+                  <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                   {problem}
                 </li>
               ))}
@@ -187,14 +187,14 @@ export default function CaseStudyTemplate({
           </GlassCard>
 
           <GlassCard delay={0.1}>
-            <h3 className="text-xl font-bold text-ink-900 mb-4 flex items-center gap-2">
+            <h3 className="type-work text-xl text-ink-900 mb-4 flex items-center gap-2">
               <span className="text-2xl">💼</span>
               Business Constraints
             </h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.businessConstraints.map((constraint, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-accent mt-1" aria-hidden="true">•</span>
+                  <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                   {constraint}
                 </li>
               ))}
@@ -202,14 +202,14 @@ export default function CaseStudyTemplate({
           </GlassCard>
 
           <GlassCard delay={0.2}>
-            <h3 className="text-xl font-bold text-ink-900 mb-4 flex items-center gap-2">
+            <h3 className="type-work text-xl text-ink-900 mb-4 flex items-center gap-2">
               <span className="text-2xl">⚙️</span>
               Technical Complexity
             </h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               {challenge.technicalComplexity.map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-accent mt-1" aria-hidden="true">•</span>
+                  <span className="text-[var(--color-list-bullet)] mt-1" aria-hidden="true">•</span>
                   {item}
                 </li>
               ))}
@@ -279,10 +279,10 @@ export default function CaseStudyTemplate({
 
         <div className="mt-12">
           <GlassCard>
-            <h3 className="text-2xl font-bold text-ink-900 mb-6">Before → After</h3>
+            <h3 className="type-work-title text-ink-900 mb-6">Before → After</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-lg font-semibold text-ink-900 mb-3 flex items-center gap-2">
+                <h4 className="type-work text-lg text-ink-900 mb-3 flex items-center gap-2">
                   <span className="text-red-400">❌</span> Before
                 </h4>
                 <ul className="space-y-2 text-slate-300 text-sm">
@@ -292,7 +292,7 @@ export default function CaseStudyTemplate({
                 </ul>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-ink-900 mb-3 flex items-center gap-2">
+                <h4 className="type-work text-lg text-ink-900 mb-3 flex items-center gap-2">
                   <span className="text-green-400">✅</span> After
                 </h4>
                 <ul className="space-y-2 text-slate-300 text-sm">
@@ -312,7 +312,7 @@ export default function CaseStudyTemplate({
           <div className="space-y-6">
             {learnings.map((learning, index) => (
               <div key={index}>
-                <h3 className="text-xl font-bold text-ink-900 mb-3">
+                <h3 className="type-work text-xl text-ink-900 mb-3">
                   {learning.title}
                 </h3>
                 <p className="text-slate-300 leading-relaxed">
@@ -327,7 +327,7 @@ export default function CaseStudyTemplate({
       {/* Tech Stack */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-ink-900 mb-8 text-center">Tech Stack</h2>
+          <h2 className="type-section-title text-ink-900 mb-8 text-center">Tech Stack</h2>
           <GlassCard>
             <div className="flex flex-wrap justify-center gap-3">
               {techStack.map((tech, index) => (
@@ -348,7 +348,7 @@ export default function CaseStudyTemplate({
         <div className="max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center py-8">
-              <h2 className="text-3xl font-bold text-ink-900 mb-4">
+              <h2 className="type-section-title text-ink-900 mb-4">
                 Want to see more work?
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
