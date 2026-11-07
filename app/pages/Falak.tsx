@@ -31,6 +31,7 @@ import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { falak, type FalakShotKey } from "@/content/falak";
 import SectionNumber from "../components/casestudy/SectionNumber";
+import HighlightLastWords from "../components/HighlightLastWords";
 
 const DEMO_URL = falak.demoUrl;
 const REPO_URL = falak.repoUrl;
@@ -103,7 +104,7 @@ export default function FalakCaseStudy() {
           </div>
 
           <h1 className="type-page-title text-ink-900 mb-4">
-            {falak.hero.title}
+            <HighlightLastWords text={falak.hero.title} />
           </h1>
 
           <p className="text-lg text-gray-400 mb-4">

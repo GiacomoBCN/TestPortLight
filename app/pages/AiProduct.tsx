@@ -24,6 +24,7 @@ import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { aiProduct } from "@/content/ai-product";
 import SectionNumber from "../components/casestudy/SectionNumber";
+import HighlightLastWords from "../components/HighlightLastWords";
 
 const DEMO_URL = aiProduct.demoUrl;
 
@@ -69,7 +70,7 @@ export default function AiProductCaseStudy({ media }: { media: HeroMediaFiles })
           </div>
 
           <h1 className="type-page-title text-ink-900 mb-4">
-            {aiProduct.hero.title}
+            <HighlightLastWords text={aiProduct.hero.title} />
           </h1>
 
           <p className="text-lg text-gray-400 mb-4">

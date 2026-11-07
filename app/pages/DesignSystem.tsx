@@ -26,6 +26,7 @@ import TokenDemoCard from "../components/casestudy/TokenDemoCard";
 import Lightbox from "../components/Lightbox";
 import { getImagePath } from "@/utils/image";
 import SectionNumber from "../components/casestudy/SectionNumber";
+import HighlightLastWords from "../components/HighlightLastWords";
 
 const DEMO_URL = designSystem.demoUrl;
 
@@ -96,7 +97,7 @@ export default function DesignSystemCaseStudy({
           </div>
 
           <h1 className="type-page-title text-ink-900 mb-4">
-            {designSystem.hero.title}
+            <HighlightLastWords text={designSystem.hero.title} />
           </h1>
 
           <p className="text-lg text-gray-400 mb-4">

@@ -29,6 +29,7 @@ import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import { dowJones } from "@/content/dow-jones";
 import SectionNumber from "../components/casestudy/SectionNumber";
+import HighlightLastWords from "../components/HighlightLastWords";
 
 export default function DowJones() {
   // Icone delle metriche "Team Adoption & Scale", stesso ordine di dowJones.teamAdoption.metrics
@@ -64,7 +65,7 @@ export default function DowJones() {
             </span>
           </div>
           <h1 className="type-page-title text-ink-900 mb-4">
-            {dowJones.hero.title}
+            <HighlightLastWords text={dowJones.hero.title} />
           </h1>
           <p className="text-lg text-gray-400 mb-4">
             {dowJones.hero.subtitle}

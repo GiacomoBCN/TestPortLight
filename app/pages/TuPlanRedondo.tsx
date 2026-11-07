@@ -31,6 +31,7 @@ import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { tuPlanRedondo } from "@/content/tu-plan-redondo";
 import SectionNumber from "../components/casestudy/SectionNumber";
+import HighlightLastWords from "../components/HighlightLastWords";
 
 export default function TuPlanRedondo() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -122,7 +123,7 @@ export default function TuPlanRedondo() {
           </div>
 
           <h1 className="type-page-title text-ink-900 mb-4">
-            {tuPlanRedondo.hero.title}
+            <HighlightLastWords text={tuPlanRedondo.hero.title} />
           </h1>
 
           <p className="text-lg text-gray-400 mb-4">{tuPlanRedondo.hero.subtitle}</p>

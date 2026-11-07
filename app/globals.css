@@ -290,13 +290,16 @@
 
   --section-number-size-mobile: var(--primitive-size-30);
   --section-number-size-desktop: var(--primitive-size-40);
-  --section-number-color: var(--color-ink);
+  --section-number-color: var(--primitive-yellow-400);  /* prova: numeri gialli (decorativi, aria-hidden). Per tornare: var(--color-ink) */
   --section-number-bar-color: var(--primitive-orange-500);
   --section-number-bar-width: var(--primitive-border-4);
   --section-number-bar-gap: var(--primitive-space-12);
 
   --label-padding-y: var(--primitive-space-6);
   --label-padding-x: var(--primitive-space-9);
+
+  --highlight-from: 62%;   /* dove comincia la fascia dell'evidenziatore (dall'alto della riga) */
+  --highlight-to: 92%;     /* dove finisce */
 }
 
 /* Tailwind utility palette remap: legacy classes (text-gray-300, border-gray-800,
@@ -478,9 +481,15 @@
   }
 }
 
-/* Evidenziatore nei titoli: pronto, non applicato da nessuna parte */
+/* Evidenziatore nei titoli: fascia gialla bassa, sotto le ultime parole del titolo
+   delle pagine progetto (componente HighlightLastWords) */
 @utility highlight {
-  background: linear-gradient(transparent 55%, var(--color-highlight) 55%);
+  background: linear-gradient(
+    transparent var(--highlight-from),
+    var(--color-highlight) var(--highlight-from),
+    var(--color-highlight) var(--highlight-to),
+    transparent var(--highlight-to)
+  );
   color: inherit;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;

@@ -29,6 +29,7 @@ import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { backOffice } from "@/content/back-office";
 import SectionNumber from "../components/casestudy/SectionNumber";
+import HighlightLastWords from "../components/HighlightLastWords";
 
 export default function OnlineBackOfficeCaseStudy() {
   const keyDecisions = backOffice.keyDecisions.decisions;
@@ -71,7 +72,7 @@ export default function OnlineBackOfficeCaseStudy() {
           </div>
 
           <h1 className="type-page-title text-ink-900 mb-4">
-            {backOffice.hero.title}
+            <HighlightLastWords text={backOffice.hero.title} />
           </h1>
 
           <p className="text-lg text-gray-400 mb-4">

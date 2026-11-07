@@ -32,7 +32,7 @@ export default function EcommerceManagement() {
             </span>
           </div>
           <h1 className="type-page-title text-ink-900 mb-4">
-            E-Commerce Product Management
+            E-Commerce <span className="highlight">Product Management</span>
           </h1>
           <p className="text-lg text-gray-400 mb-4">
             Project Manager & Product Designer
