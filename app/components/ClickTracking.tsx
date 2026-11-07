@@ -25,6 +25,9 @@ import { useEffect } from "react";
 
 const CASE_STUDIES = [
   "dowjones",
+  "falak",
+  "ai-product",
+  "design-system",
   "vodplatform",
   "sgpvevolution",
   "xpuntocero",
