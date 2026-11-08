@@ -11,7 +11,7 @@ export const home = {
       "I build AI products end to end. When something matters and I don't know it yet, I learn it, cross-check it and prove it with tests. Before that, I co-led the Dow Jones design system across 8 brands and taught product design to 1,000+ students.",
     productWorkCta: "View Product Work",
     teachingCta: "View Teaching Portfolio",
-    scrollCueLabel: "Scroll to Driving Measurable Impact",
+    scrollCueLabel: "Scroll to Selected work",
   },
 
   impact: {
@@ -81,8 +81,7 @@ export const home = {
   },
 
   featuredWork: {
-    title: "Featured Work",
-    subtitle: "Strategic product leadership with measurable impact",
+    title: "Selected work",
     // image: percorso sotto public/ (passato a getImagePath nella pagina)
     projects: {
       dowJones: projects.dowJones.homeCard,

@@ -100,7 +100,7 @@ export default function Home() {
           </div>
 
           <motion.a
-            href="#impact"
+            href="#work"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
@@ -115,6 +115,73 @@ export default function Home() {
           >
             <ChevronDown size={32} className="text-[var(--color-icon-accent)] glow-blue" aria-hidden="true" />
           </motion.a>
+        </div>
+      </section>
+
+      {/* Featured Work Section */}
+      <section id="work" className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader title={featuredWork.title} className="mb-8" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <ProjectCard
+              compact
+              role={featuredWork.projects.dowJones.role}
+              title={featuredWork.projects.dowJones.title}
+              company={featuredWork.projects.dowJones.company}
+              timeframe={featuredWork.projects.dowJones.timeframe}
+              description={featuredWork.projects.dowJones.description}
+              image={getImagePath(featuredWork.projects.dowJones.image)}
+              imageFit="contain"
+              imageBg="#ffffff"
+              metrics={featuredWork.projects.dowJones.metrics}
+              link={createPageUrl("DowJones")}
+              delay={0}
+            />
+
+            <ProjectCard
+              compact
+              role={featuredWork.projects.designSystem.role}
+              title={featuredWork.projects.designSystem.title}
+              company={featuredWork.projects.designSystem.company}
+              timeframe={featuredWork.projects.designSystem.timeframe}
+              description={featuredWork.projects.designSystem.description}
+              video={featuredWork.projects.designSystem.video}
+              videoLabels={featuredWork.videoLabels}
+              metrics={featuredWork.projects.designSystem.metrics}
+              link={createPageUrl("DesignSystem")}
+              delay={0.1}
+            />
+
+            <ProjectCard
+              compact
+              role={featuredWork.projects.aiProduct.role}
+              title={featuredWork.projects.aiProduct.title}
+              company={featuredWork.projects.aiProduct.company}
+              timeframe={featuredWork.projects.aiProduct.timeframe}
+              description={featuredWork.projects.aiProduct.description}
+              video={featuredWork.projects.aiProduct.video}
+              videoLabels={featuredWork.videoLabels}
+              metrics={featuredWork.projects.aiProduct.metrics}
+              link={createPageUrl("AiProduct")}
+              delay={0.2}
+            />
+
+            <ProjectCard
+              compact
+              role={featuredWork.projects.falak.role}
+              title={featuredWork.projects.falak.title}
+              company={featuredWork.projects.falak.company}
+              timeframe={featuredWork.projects.falak.timeframe}
+              description={featuredWork.projects.falak.description}
+              image={getImagePath(featuredWork.projects.falak.image)}
+              imageFit="contain"
+              imageBg="#eaece9"
+              metrics={featuredWork.projects.falak.metrics}
+              link={createPageUrl("Falak")}
+              delay={0.3}
+            />
+          </div>
         </div>
       </section>
 
@@ -184,77 +251,6 @@ export default function Home() {
               title={howILead.cards.strategy.title}
               points={howILead.cards.strategy.points}
               delay={0.2}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Work Section */}
-      <section id="work" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            title={featuredWork.title}
-            subtitle={featuredWork.subtitle}
-            className="mb-8"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <ProjectCard
-              compact
-              role={featuredWork.projects.dowJones.role}
-              title={featuredWork.projects.dowJones.title}
-              company={featuredWork.projects.dowJones.company}
-              timeframe={featuredWork.projects.dowJones.timeframe}
-              description={featuredWork.projects.dowJones.description}
-              image={getImagePath(featuredWork.projects.dowJones.image)}
-              imageFit="contain"
-              imageBg="#ffffff"
-              metrics={featuredWork.projects.dowJones.metrics}
-              link={createPageUrl("DowJones")}
-              delay={0}
-            />
-
-            <ProjectCard
-              compact
-              role={featuredWork.projects.designSystem.role}
-              title={featuredWork.projects.designSystem.title}
-              company={featuredWork.projects.designSystem.company}
-              timeframe={featuredWork.projects.designSystem.timeframe}
-              description={featuredWork.projects.designSystem.description}
-              video={featuredWork.projects.designSystem.video}
-              videoLabels={featuredWork.videoLabels}
-              metrics={featuredWork.projects.designSystem.metrics}
-              link={createPageUrl("DesignSystem")}
-              delay={0.1}
-            />
-
-            <ProjectCard
-              compact
-              role={featuredWork.projects.aiProduct.role}
-              title={featuredWork.projects.aiProduct.title}
-              company={featuredWork.projects.aiProduct.company}
-              timeframe={featuredWork.projects.aiProduct.timeframe}
-              description={featuredWork.projects.aiProduct.description}
-              video={featuredWork.projects.aiProduct.video}
-              videoLabels={featuredWork.videoLabels}
-              metrics={featuredWork.projects.aiProduct.metrics}
-              link={createPageUrl("AiProduct")}
-              delay={0.2}
-            />
-
-            <ProjectCard
-              compact
-              role={featuredWork.projects.falak.role}
-              title={featuredWork.projects.falak.title}
-              company={featuredWork.projects.falak.company}
-              timeframe={featuredWork.projects.falak.timeframe}
-              description={featuredWork.projects.falak.description}
-              image={getImagePath(featuredWork.projects.falak.image)}
-              imageFit="contain"
-              imageBg="#eaece9"
-              metrics={featuredWork.projects.falak.metrics}
-              link={createPageUrl("Falak")}
-              delay={0.3}
             />
           </div>
         </div>
