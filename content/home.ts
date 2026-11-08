@@ -14,41 +14,6 @@ export const home = {
     scrollCueLabel: "Scroll to Selected work",
   },
 
-  impact: {
-    title: "Driving Measurable Impact",
-    subtitle:
-      "From leading design systems at Dow Jones to teaching at EAE. I focus on systems that scale and teams that succeed.",
-    cards: {
-      dowJones: {
-        headline: "60 +",
-        subHeadline: "DOW JONES - 8 BRANDS ALIGNED",
-        before:
-          "8 brands with separate design and engineering teams. Each team had different processes, priorities, and platforms.",
-        after:
-          "Co-owned roadmap and led adoption across 60+ designers, 120+ stakeholders. Spearheaded token-first architecture. Reduced component complexity 20%.",
-        impact:
-          "200K+ components in production. 30% productivity increase through improved workflows. WCAG 2.2 compliant.",
-      },
-      vod: {
-        headline: "40 %",
-        subHeadline: "INTERACTION FRICTION",
-        before:
-          "VOD platform required 10+ button presses to switch profiles. 3-axis navigation confused users.",
-        after: "Heuristic evaluation identified friction. Redesigned to 4 presses. Clear 2-axis structure.",
-        impact:
-          "60% fewer presses to switch profiles. WCAG AA accessible. Scaled across TV, mobile, tablet, car.",
-      },
-      teaching: {
-        headline: "1000 +",
-        subHeadline: "STUDENTS MENTORED",
-        before: "Theory-heavy lectures with limited real-world application.",
-        after: "Project-driven learning across design and management disciplines.",
-        impact:
-          "7 years teaching at EAE Business School. 2 master's programs. 19 project teams annually.",
-      },
-    },
-  },
-
   howILead: {
     title: "How I Lead",
     subtitle: "Through people, product, and strategy",

@@ -113,7 +113,7 @@ export const projects = {
       company: "Dow Jones",
       timeframe: "",
       description:
-        "Co-led design system adoption across B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%.",
+        "Co-led design system adoption across 8 B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%.",
       image: "images/projects/DJ1.webp",
       metrics: [
         { value: "60+", label: "Designers" },

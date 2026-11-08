@@ -5,8 +5,6 @@ import { createPageUrl } from "@/utils";
 import { getImagePath } from "@/utils/image";
 import {
   ChevronDown,
-  Layers,
-  TrendingUp,
   GraduationCap,
   Users,
   Package,
@@ -14,24 +12,20 @@ import {
   Code,
   Sparkles,
   Briefcase,
-  MonitorCog,
   DraftingCompass,
   SquareDashedKanban,
 } from "lucide-react";
 
 import { motion, useReducedMotion } from "framer-motion";
 import SectionHeader from "../components/portfolio/SectionHeader";
-import MetricCard from "../components/portfolio/MetricCard";
 import LeadershipCard from "../components/portfolio/LeadershipCard";
 import ProjectCard from "../components/portfolio/ProjectCard";
 import GlassCard from "../components/portfolio/GlassCard";
-import ExpandableText from "../components/ExpandableText";
-import BeforeAfterImpactCard from "../components/portfolio/BeforeAfterImpactCard";
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import SketchFrame from "../components/SketchFrame";
 import { home } from "@/content/home";
 
-const { hero, impact, howILead, featuredWork, howIWork, testimonials, cta } = home;
+const { hero, howILead, featuredWork, howIWork, testimonials, cta } = home;
 
 export default function Home() {
   const reduceMotion = useReducedMotion();
@@ -180,46 +174,6 @@ export default function Home() {
               metrics={featuredWork.projects.falak.metrics}
               link={createPageUrl("Falak")}
               delay={0.3}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Impact Metrics Section */}
-      <section id="impact" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            title={impact.title}
-            subtitle={impact.subtitle}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <BeforeAfterImpactCard
-              icon={MonitorCog}
-              headline={impact.cards.dowJones.headline}
-              subHeadline={impact.cards.dowJones.subHeadline}
-              before={impact.cards.dowJones.before}
-              after={impact.cards.dowJones.after}
-              impact={impact.cards.dowJones.impact}
-              delay={0}
-            />
-            <BeforeAfterImpactCard
-              icon={TrendingUp}
-              headline={impact.cards.vod.headline}
-              subHeadline={impact.cards.vod.subHeadline}
-              before={impact.cards.vod.before}
-              after={impact.cards.vod.after}
-              impact={impact.cards.vod.impact}
-              delay={0.1}
-            />
-            <BeforeAfterImpactCard
-              icon={GraduationCap}
-              headline={impact.cards.teaching.headline}
-              subHeadline={impact.cards.teaching.subHeadline}
-              before={impact.cards.teaching.before}
-              after={impact.cards.teaching.after}
-              impact={impact.cards.teaching.impact}
-              delay={0.2}
             />
           </div>
         </div>
