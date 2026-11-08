@@ -40,6 +40,7 @@ export default function SGPVEvolution() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   // Fase 1 chiusa di default: aperta mostra Context, Approach, Results, Reflection e la galleria P1
   const [isPhase1Open, setIsPhase1Open] = useState(false);
+  const [isPhase1Animating, setIsPhase1Animating] = useState(false);
   const reduceMotion = useReducedMotion();
   const [galleryImages, setGalleryImages] = useState<
     { src: string; alt: string }[]
@@ -248,7 +249,10 @@ export default function SGPVEvolution() {
                 </ul>
                 <button
                   type="button"
-                  onClick={() => setIsPhase1Open((o) => !o)}
+                  onClick={() => {
+                    setIsPhase1Animating(true);
+                    setIsPhase1Open((o) => !o);
+                  }}
                   aria-expanded={isPhase1Open}
                   aria-controls="sgpv-phase1-content"
                   className="mt-6 inline-flex items-center gap-2 px-5 sm:px-6 py-3 whitespace-nowrap glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
@@ -276,7 +280,11 @@ export default function SGPVEvolution() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeOut" }}
-              style={{ overflow: "hidden" }}
+              // overflow hidden solo durante l'animazione: da aperta la cornice delle card
+              // (che sporge oltre il bordo) non deve essere tagliata
+              onAnimationStart={() => setIsPhase1Animating(true)}
+              onAnimationComplete={() => setIsPhase1Animating(false)}
+              style={{ overflow: isPhase1Animating ? "hidden" : "visible" }}
             >
               <section className="pb-16 px-6">
                 <div className="max-w-5xl mx-auto">
