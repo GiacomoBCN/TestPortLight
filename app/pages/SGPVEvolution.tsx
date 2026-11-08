@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import {
@@ -17,6 +18,7 @@ import {
   Sparkles,
   GitBranch,
   CheckCircle,
+  ChevronDown,
 } from "lucide-react";
 import Lightbox from "../components/Lightbox";
 import OverviewCard from "../components/work/OverviewCard";
@@ -36,6 +38,9 @@ export default function SGPVEvolution() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [modalImageSrc, setModalImageSrc] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // Fase 1 chiusa di default: aperta mostra Context, Approach, Results, Reflection e la galleria P1
+  const [isPhase1Open, setIsPhase1Open] = useState(false);
+  const reduceMotion = useReducedMotion();
   const [galleryImages, setGalleryImages] = useState<
     { src: string; alt: string }[]
   >([]);
@@ -83,7 +88,7 @@ export default function SGPVEvolution() {
   const keyDecisions = sgpv.keyDecisions.decisions;
 
   // Icone delle card di impatto, nello stesso ordine di sgpv.impactSnapshot.achievements
-  const achievementIcons = [Smartphone, Layers, Target, Zap, CheckCircle, Users];
+  const achievementIcons = [Zap, CheckCircle, Users, Smartphone, Layers, Target];
   const achievements = sgpv.impactSnapshot.achievements.map((a, i) => ({
     icon: achievementIcons[i],
     ...a,
@@ -215,7 +220,7 @@ export default function SGPVEvolution() {
           </div>
         </div>
       </section>
-      {/* PHASE 1 */}
+      {/* PHASE 1 — riassunto chiuso di default; il contenuto completo si apre con il bottone */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-baseline gap-6 mb-8">
@@ -227,59 +232,111 @@ export default function SGPVEvolution() {
             </div>
           </div>
 
-          <div className="pl-0 md:pl-24 space-y-6">
+          <div className="pl-0 md:pl-24">
             <GlassCard>
               <div className="p-6">
-                <h3 className="type-work text-xl text-ink-900 mb-3">
-                  {sgpv.phase1.context.title}
-                </h3>
-
                 <p className="text-gray-300 leading-relaxed">
-                  {sgpv.phase1.context.text}
+                  {sgpv.phase1.summary}
                 </p>
-              </div>
-            </GlassCard>
-
-            {/* Heuristic Review Card - Images on LEFT */}
-            <ImageTextCard
-              title={sgpv.phase1.approach.title}
-              description={sgpv.phase1.approach.description}
-              bulletPoints={[]}
-              images={sgpv.phase1.approach.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
-              imagePosition="left"
-              onOpenGallery={openGallery}
-              additionalText=""
-            />
-
-            <ImageTextCard
-              title={sgpv.phase1.results.title}
-              description=""
-              bulletPoints={sgpv.phase1.results.bulletPoints}
-              images={sgpv.phase1.results.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
-              imagePosition="left"
-              onOpenGallery={openGallery}
-              additionalText=""
-            />
-
-            <GlassCard>
-              <div className="p-6">
-                <h3 className="type-work text-xl text-ink-900 mb-3">
-                  {sgpv.phase1.reflection.title}
-                </h3>
-
-                <p className="text-gray-300 leading-relaxed">
-                  {sgpv.phase1.reflection.text}
-                </p>
+                <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
+                  {sgpv.phase1.summaryMetrics.map((m, i) => (
+                    <li key={i} className="flex items-baseline gap-2">
+                      <span className="text-2xl font-bold text-ink-900">{m.metric}</span>
+                      <span className="text-sm font-semibold text-accent">{m.label}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  onClick={() => setIsPhase1Open((o) => !o)}
+                  aria-expanded={isPhase1Open}
+                  aria-controls="sgpv-phase1-content"
+                  className="mt-6 inline-flex items-center gap-2 px-5 sm:px-6 py-3 whitespace-nowrap glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
+                >
+                  {isPhase1Open ? sgpv.phase1.toggle.close : sgpv.phase1.toggle.open}
+                  <ChevronDown
+                    size={18}
+                    aria-hidden="true"
+                    className={`transition-transform motion-reduce:transition-none ${isPhase1Open ? "rotate-180" : ""}`}
+                  />
+                </button>
               </div>
             </GlassCard>
           </div>
         </div>
       </section>
-      {/* Phase 1 Gallery */}
-      <ProjectGallery
-        title={sgpv.phase1Gallery.title}
-        images={sgpv.phase1Gallery.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
-      />
+
+      {/* Contenuto completo della Fase 1: non renderizzato da chiuso (niente focus, niente screen reader, niente immagini caricate) */}
+      <div id="sgpv-phase1-content">
+        <AnimatePresence initial={false}>
+          {isPhase1Open && (
+            <motion.div
+              key="phase1-content"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeOut" }}
+              style={{ overflow: "hidden" }}
+            >
+              <section className="pb-16 px-6">
+                <div className="max-w-5xl mx-auto">
+                  <div className="pl-0 md:pl-24 space-y-6">
+                    <GlassCard>
+                      <div className="p-6">
+                        <h3 className="type-work text-xl text-ink-900 mb-3">
+                          {sgpv.phase1.context.title}
+                        </h3>
+
+                        <p className="text-gray-300 leading-relaxed">
+                          {sgpv.phase1.context.text}
+                        </p>
+                      </div>
+                    </GlassCard>
+
+                    {/* Heuristic Review Card - Images on LEFT */}
+                    <ImageTextCard
+                      title={sgpv.phase1.approach.title}
+                      description={sgpv.phase1.approach.description}
+                      bulletPoints={[]}
+                      images={sgpv.phase1.approach.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
+                      imagePosition="left"
+                      onOpenGallery={openGallery}
+                      additionalText=""
+                    />
+
+                    <ImageTextCard
+                      title={sgpv.phase1.results.title}
+                      description=""
+                      bulletPoints={sgpv.phase1.results.bulletPoints}
+                      images={sgpv.phase1.results.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
+                      imagePosition="left"
+                      onOpenGallery={openGallery}
+                      additionalText=""
+                    />
+
+                    <GlassCard>
+                      <div className="p-6">
+                        <h3 className="type-work text-xl text-ink-900 mb-3">
+                          {sgpv.phase1.reflection.title}
+                        </h3>
+
+                        <p className="text-gray-300 leading-relaxed">
+                          {sgpv.phase1.reflection.text}
+                        </p>
+                      </div>
+                    </GlassCard>
+                  </div>
+                </div>
+              </section>
+              {/* Phase 1 Gallery */}
+              <ProjectGallery
+                title={sgpv.phase1Gallery.title}
+                images={sgpv.phase1Gallery.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* PHASE 2 - Research */}
       <section className="py-16 px-6">

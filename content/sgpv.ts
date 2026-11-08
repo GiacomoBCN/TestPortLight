@@ -49,18 +49,31 @@ export const sgpv = {
     title: "Project Impact Snapshot",
     // "[Phase01]" / "[Phase02]" sono testo letterale (non passano da RichText)
     achievements: [
-      { metric: "−20%", label: "Hardware Cost", description: "Mobile-first eliminated tablet dependency [Phase01]" },
-      { metric: "+80%", label: "Dev Efficiency", description: "Centralized styling streamlined releases [Phase01]" },
-      { metric: "15", label: "FMCG Clients", description: "Unified app with per-client branding and consistent UX [Phase01]" },
+      // Prima la Fase 2 (il lavoro principale), poi la Fase 1
       { metric: "−25%", label: "Task Time", description: "AI image recognition & optimized workflows [Phase02]" },
       { metric: "+30%", label: "Satisfaction", description: "Performance + usability improvements [Phase02]" },
       { metric: "25+", label: "Research Sessions", description: "Interviews, contextual inquiry, and usability testing across client teams [Phase02]" },
+      { metric: "−20%", label: "Hardware Cost", description: "Mobile-first eliminated tablet dependency [Phase01]" },
+      { metric: "+80%", label: "Dev Efficiency", description: "Centralized styling streamlined releases [Phase01]" },
+      { metric: "15", label: "FMCG Clients", description: "Unified app with per-client branding and consistent UX [Phase01]" },
     ],
   },
 
   phase1: {
     number: "01",
     title: "Phase 1 (v5→v6): Responsive Redesign",
+    // Blocco riassuntivo mostrato al posto della Fase 1 completa (chiusa di default)
+    summary:
+      "Fifteen client-specific versions consolidated into one responsive app with centralized styling: one update now reaches every client, and field teams no longer need tablets.",
+    summaryMetrics: [
+      { metric: "−20%", label: "hardware cost" },
+      { metric: "+80%", label: "dev efficiency" },
+      { metric: "15", label: "FMCG clients" },
+    ],
+    toggle: {
+      open: "Read Phase 1 in full",
+      close: "Hide Phase 1",
+    },
     context: {
       title: "Context",
       text: "SGPV began as a cross-platform B2B field app for tablets. Over time, client-specific customizations created many divergent versions that were hard to update and maintain. As smartphone adoption grew among field merchandisers, the tablet-only constraint became costly and inconvenient for clients.",
