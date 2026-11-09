@@ -111,11 +111,9 @@ export const home = {
     ],
   },
 
-  // Chiusura della home: titolo e tre bottoni (Let's talk copia l'email come Contact)
+  // Chiusura della home: titolo e "Let's talk" (copia l'email come Contact; l'indirizzo e' in CopyEmailLink)
   cta: {
     title: "Building your product or scaling your design system?",
     button: "Let's talk",
-    productWork: "Product work",
-    teaching: "Teaching & research",
   },
 };
