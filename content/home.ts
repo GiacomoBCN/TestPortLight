@@ -14,37 +14,6 @@ export const home = {
     scrollCueLabel: "Scroll to Selected work",
   },
 
-  howILead: {
-    title: "How I Lead",
-    subtitle: "Through people, product, and strategy",
-    cards: {
-      people: {
-        title: "Through People",
-        points: [
-          "Facilitated cross-brand collaboration and design critiques at Dow Jones",
-          "Bridged design-engineering gap through 1:1 key role relationships and problem-solving meetings",
-          "Taught 1000+ students across 2 official master's programs at EAE Business School",
-        ],
-      },
-      product: {
-        title: "Through Product",
-        points: [
-          "Co-owned design system roadmap and sprint planning",
-          "Led SGPV product evolution over 18 months (PhoneGap → Flutter + AI) serving 15 FMCG clients",
-          "Balanced user value with technical constraints across B2B and B2C platforms",
-        ],
-      },
-      strategy: {
-        title: "Through Strategy",
-        points: [
-          "Improved UAT/QA workflows - 30% team productivity increase",
-          "Proposed removing the VOD welcome screen, prioritizing user value over convention",
-          "Managed feature backlog and prioritization for B2B platforms - balanced user value with technical constraints",
-        ],
-      },
-    },
-  },
-
   featuredWork: {
     title: "Selected work",
     // image: percorso sotto public/ (passato a getImagePath nella pagina)
@@ -59,36 +28,21 @@ export const home = {
     videoLabels: { pause: "Pause video", play: "Play video" },
   },
 
-  howIWork: {
-    title: "How I Work",
-    subtitle: "Merging strategy, design, and technology through empathy and clarity",
+  // Sezione About (id="about"): foto, testo, quattro regole, competenze
+  about: {
+    title: "About",
     portrait: { image: "images/profile/gb.ven_2.webp", alt: "Giacomo Bianchi portrait" },
-    // Card: title (h3), tools (riga in grassetto), text
-    cards: {
-      productDesign: {
-        title: "Product Design",
-        tools: "Research → Strategy → Design → Testing → Delivery.",
-        text: "I run heuristic evaluations, user interviews, and usability tests to validate decisions before engineering builds.",
-      },
-      productStrategy: {
-        title: "Product Strategy",
-        tools: "Roadmaps, Prioritization, Stakeholder Alignment.",
-        text: "I co-own product roadmaps and prioritize features based on user research, business goals, and technical constraints. I have driven strategic decisions across design systems, mobile apps, and B2B platforms.",
-      },
-      frontEnd: {
-        title: "Front-End Development",
-        tools: "React, Flutter, Dart, HTML5, CSS3, JavaScript, TypeScript, Tailwind.",
-        text: "I code functional prototypes to bridge design and engineering. This shared language helps me validate feasibility early and align teams on technical approach.",
-      },
-      aiNative: {
-        title: "AI-Native Builder",
-        tools:
-          "Cursor, Claude Code, Claude API, n8n, Vercel, Ollama, GitHub Copilot, Vertex AI, ChatGPT, Midjourney.",
-        text: "ML/AI certified (Python, TensorFlow, Deep Learning). I build with Cursor, Claude Code, and local LLMs, shipping functional prototypes and AI-powered workflows, not just designing around them. Genuine technical fluency at the intersection of design craft and AI.",
-      },
-    },
-    summary:
-      "My technical background allows me to bridge design and engineering - prototyping rapidly and participating in architecture discussions. I use AI tools to validate ideas in hours instead of weeks, building working prototypes that teams can react to instead of debating abstract specs.",
+    intro:
+      "I work where people and systems meet. I hold a PhD in human capital, taught product design for seven years at EAE Business School and co-led the Dow Jones design system as Lead Design Technologist. Today I design and build StayKeel on my own, from research to production.",
+    rulesTitle: "How I work, in four rules:",
+    rules: [
+      "Design for the culture you ship to, and lead for the culture you work in.",
+      "A token is chosen for its role, never for its value.",
+      "What the product doesn’t use, I don’t build, and I write down why.",
+      "When something matters and I don’t know it yet, I learn it, cross-check it and prove it with tests.",
+    ],
+    // Mostrate come etichette gialle (label-tag), come le etichette delle card
+    skills: ["Product design", "Product strategy", "Design systems", "AI products", "Front-end"],
   },
 
   testimonials: {

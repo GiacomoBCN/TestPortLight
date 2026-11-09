@@ -6,26 +6,17 @@ import { getImagePath } from "@/utils/image";
 import {
   ChevronDown,
   GraduationCap,
-  Users,
-  Package,
-  Zap,
-  Code,
-  Sparkles,
   Briefcase,
-  DraftingCompass,
-  SquareDashedKanban,
 } from "lucide-react";
 
 import { motion, useReducedMotion } from "framer-motion";
 import SectionHeader from "../components/portfolio/SectionHeader";
-import LeadershipCard from "../components/portfolio/LeadershipCard";
 import ProjectCard from "../components/portfolio/ProjectCard";
-import GlassCard from "../components/portfolio/GlassCard";
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import SketchFrame from "../components/SketchFrame";
 import { home } from "@/content/home";
 
-const { hero, howILead, featuredWork, howIWork, testimonials, cta } = home;
+const { hero, featuredWork, about, testimonials, cta } = home;
 
 export default function Home() {
   const reduceMotion = useReducedMotion();
@@ -179,46 +170,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How I Lead Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            title={howILead.title}
-            subtitle={howILead.subtitle}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <LeadershipCard
-              icon={Users}
-              title={howILead.cards.people.title}
-              points={howILead.cards.people.points}
-              delay={0}
-            />
-            <LeadershipCard
-              icon={Package}
-              title={howILead.cards.product.title}
-              points={howILead.cards.product.points}
-              delay={0.1}
-            />
-            <LeadershipCard
-              icon={Zap}
-              title={howILead.cards.strategy.title}
-              points={howILead.cards.strategy.points}
-              delay={0.2}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* How I Work Section (updated layout with portrait) */}
+      {/* About Section (id="about": link del menu /#about) */}
       <section id="about" className="py-24 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-surface-interactive-default)]/5 to-transparent"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <SectionHeader
-            title={howIWork.title}
-            subtitle={howIWork.subtitle}
-          />
+          <SectionHeader title={about.title} />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Portrait */}
@@ -231,8 +188,8 @@ export default function Home() {
             >
               <div className="overflow-hidden rounded-2xl ring-1 ring-ink-900/10 shadow-2xl max-w-sm">
                 <Image
-                  src={getImagePath(howIWork.portrait.image)}
-                  alt={howIWork.portrait.alt}
+                  src={getImagePath(about.portrait.image)}
+                  alt={about.portrait.alt}
                   width={480}
                   height={640}
                   className="object-cover w-full h-auto grayscale"
@@ -240,7 +197,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Cards + Description */}
+            {/* Testo, regole, competenze */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -248,90 +205,33 @@ export default function Home() {
               viewport={{ once: true }}
               className="lg:col-span-7 space-y-8"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <GlassCard hover={false}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <DraftingCompass size={24} className="text-[var(--color-icon-accent)]" />
-                    </div>
-                    <div>
-                      <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-2">
-                        {howIWork.cards.productDesign.title}
-                      </h3>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        {howIWork.cards.productDesign.tools}
-                      </p>
-                      <p className="text-sm text-[var(--color-text-tertiary)]">
-                        {howIWork.cards.productDesign.text}
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
+              <p className="text-lg md:text-xl text-[var(--color-text-primary)] leading-relaxed">
+                {about.intro}
+              </p>
 
-                <GlassCard hover={false} delay={0.1}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <SquareDashedKanban
-                        size={24}
-                        className="text-[var(--color-icon-accent)]"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-2">
-                        {howIWork.cards.productStrategy.title}
-                      </h3>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        {howIWork.cards.productStrategy.tools}
-                      </p>
-                      <p className="text-sm text-[var(--color-text-tertiary)]">
-                        {howIWork.cards.productStrategy.text}
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
-
-                <GlassCard hover={false}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <Code size={24} className="text-[var(--color-icon-accent)]" />
-                    </div>
-                    <div>
-                      <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-2">
-                        {howIWork.cards.frontEnd.title}
-                      </h3>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        {howIWork.cards.frontEnd.tools}
-                      </p>
-                      <p className="text-sm text-[var(--color-text-tertiary)]">
-                        {howIWork.cards.frontEnd.text}
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
-
-                <GlassCard hover={false} delay={0.1}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue">
-                      <Sparkles size={24} className="text-[var(--color-icon-accent)]" />
-                    </div>
-                    <div>
-                      <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-2">{howIWork.cards.aiNative.title}
-                      </h3>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
-                        {howIWork.cards.aiNative.tools}
-                      </p>
-                      <p className="text-sm text-[var(--color-text-tertiary)]">
-                        {howIWork.cards.aiNative.text}
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
+              <div>
+                <h3 className="type-work text-xl text-[var(--color-text-inverse)] mb-4">
+                  {about.rulesTitle}
+                </h3>
+                <ol className="space-y-3">
+                  {about.rules.map((rule, i) => (
+                    <li key={i} className="flex items-baseline gap-4 text-lg text-[var(--color-text-primary)] leading-relaxed">
+                      <span className="type-label text-sm text-[var(--color-text-inverse)]" aria-hidden="true">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span>{rule}</span>
+                    </li>
+                  ))}
+                </ol>
               </div>
-              <GlassCard hover={false} delay={0.1}>
-                <p className="text-lg text-[var(--color-text-primary)] leading-relaxed ">
-                  {howIWork.summary}
-                </p>
-              </GlassCard>
+
+              <ul className="flex flex-wrap gap-2">
+                {about.skills.map((skill) => (
+                  <li key={skill} className="label-tag text-xs">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           </div>
         </div>
