@@ -501,7 +501,8 @@ export default function TestimonialSphere({
             if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setHold(false);
           }}
         >
-          <div className="flex-1 min-h-0 overflow-y-auto pr-2 flex flex-col">
+          {/* -m-1 p-1: spazio per l'anello delle foto, che la colonna (che scorre) altrimenti taglierebbe */}
+          <div className="flex-1 min-h-0 overflow-y-auto -m-1 p-1 pr-3 flex flex-col">
             <AnimatePresence mode="wait" initial={false}>
               <motion.figure
                 key={active.id}
@@ -514,7 +515,7 @@ export default function TestimonialSphere({
               >
                 <div className="flex items-center gap-4 mb-5">
                   <Avatar name={active.name} image={active.image} size={56} />
-                  <figcaption>
+                  <figcaption className="min-w-0">
                     <p className="type-work text-xl text-[var(--color-text-inverse)]">{active.name}</p>
                     <p className="text-sm text-[var(--color-text-tertiary)]">{active.role}</p>
                   </figcaption>
