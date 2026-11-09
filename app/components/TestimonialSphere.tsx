@@ -5,20 +5,22 @@ import { X } from "lucide-react";
 import { getImagePath } from "@/utils/image";
 
 /**
- * Testimonianze come sfera di punti e linee in continuo movimento (da 768px).
- * Canvas 2D fatto a mano, nessuna libreria: qualche centinaio di punti su una sfera,
- * maglia di linee sottili e "ciuffi" a raggiera. Le cinque persone sono nodi della sfera
- * con la foto: ruotano con il resto, in primo piano mostrano il nome, dietro si allontanano.
- *  - mouse sulla sfera: rallenta; clic su una persona: la sfera si ferma e si apre la scatola
- *    con foto, nome, ruolo e frase; il testo completo (<details> nativo) scorre dentro la scatola,
- *    che ha altezza fissa, cosi' i testi lunghi non allargano la sezione;
- *  - se nessuno interagisce, dopo qualche secondo con la sezione visibile si apre da sola
- *    la persona piu' in primo piano (una volta sola);
- *  - prefers-reduced-motion: sfera ferma;
+ * Testimonianze come sfera di punti e linee sempre in movimento (da 768px).
+ * Canvas 2D fatto a mano, nessuna libreria: circa 220 punti su una sfera che ruota su due assi,
+ * maglia di linee sottili, corde e "ciuffi" a raggiera. Le cinque persone sono nodi con la foto:
+ * ruotano con il resto, in primo piano mostrano il nome, dietro si allontanano.
+ *  - la sfera non si ferma mai; col mouse sopra i punti vicini si scostano e tornano al loro posto
+ *    (come le bande laterali) e il movimento del mouse da' una spinta alla rotazione;
+ *  - clic su una persona: si apre un pop-up al centro, sopra la sfera, con foto, nome, ruolo e frase;
+ *    il testo completo (<details> nativo) scorre dentro il pop-up, che ha altezza massima fissa;
+ *    passando da una persona all'altra il pop-up si dissolve e riappare (mai due insieme);
+ *    si chiude con la X, con Esc o cliccando fuori;
+ *  - se nessuno clicca, dopo qualche secondo con la sezione visibile si apre da solo il pop-up
+ *    della persona piu' in primo piano (una volta sola, senza spostare il focus);
+ *  - prefers-reduced-motion: sfera ferma, nessuna reazione al mouse;
  *  - l'animazione gira solo quando la sezione e' visibile.
- * Accessibilita': canvas e foto in movimento sono solo per il puntatore (aria-hidden);
- * sotto la sfera una riga di pulsanti con i nomi apre le stesse scatole da tastiera e screen reader.
- * Sotto 768px niente sfera: lista verticale con gli stessi contenuti.
+ * Tastiera e screen reader: le foto sono pulsanti (nome e ruolo come etichetta); con il focus su una
+ * foto la sfera si ferma, cosi' il pulsante non scappa. Sotto 768px niente sfera: lista verticale.
  */
 
 export interface Testimonial {
@@ -32,7 +34,6 @@ export interface Testimonial {
 
 interface Props {
   items: Testimonial[];
-  groupLabel: string;
   close: string;
   readFull: string;
   seeOnLinkedIn: string;
@@ -40,7 +41,10 @@ interface Props {
 }
 
 const AUTO_OPEN_MS = 6000;
-const SPEED = 0.0016; // radianti per frame (circa 60 fps)
+const YAW_SPEED = 0.0045; // rotazione di base attorno all'asse verticale, radianti per frame (~60 fps)
+const PITCH_SPEED = 0.0013; // rotazione di base attorno all'asse orizzontale
+const PUSH_RADIUS = 120; // px: raggio d'influenza del mouse sui punti
+const PUSH_MAX = 14; // px: spostamento massimo del punto piu' vicino al mouse
 const INK = "17, 20, 24"; // --foreground #111418
 const ORANGE = "242, 140, 40"; // --primitive-orange-500 #F28C28
 
@@ -222,29 +226,51 @@ function Recommendation({
 
 // ---------- Sfera ----------
 
-export default function TestimonialSphere({ items, groupLabel, close, readFull, seeOnLinkedIn, linkedInUrl }: Props) {
+export default function TestimonialSphere({ items, close, readFull, seeOnLinkedIn, linkedInUrl }: Props) {
   const people = items.slice(0, PERSON_LATS.length);
   const [activeId, setActiveId] = useState<string | null>(null);
   const reduceMotion = useReducedMotion();
 
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const popupRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const geoRef = useRef<Geometry | null>(null);
-  const angleRef = useRef(0.4);
-  const hoverRef = useRef(false);
   const activeRef = useRef<number>(-1);
   const interactedRef = useRef(false);
+  const focusPausedRef = useRef(false);
   const depthRef = useRef<number[]>([]); // profondita' corrente delle persone (per l'apertura automatica)
+  const pointerRef = useRef<{ x: number; y: number } | null>(null);
+  const focusOnOpenRef = useRef(false);
 
   const activeIndex = people.findIndex((p) => p.id === activeId);
   activeRef.current = activeIndex;
   const active = activeIndex >= 0 ? people[activeIndex] : null;
 
-  const open = (id: string) => {
+  const open = (id: string, moveFocus: boolean) => {
     interactedRef.current = true;
+    focusOnOpenRef.current = moveFocus;
     setActiveId(id);
   };
+  const closePopup = () => {
+    const i = activeRef.current;
+    interactedRef.current = true;
+    setActiveId(null);
+    // il focus torna alla foto da cui si era aperto, se era nel pop-up
+    if (i >= 0 && popupRef.current?.contains(document.activeElement)) buttonRefs.current[i]?.focus();
+  };
+
+  // Esc chiude (il focus entra nel pop-up dal ref, solo se lo apre l'utente da tastiera)
+  useEffect(() => {
+    if (!active) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closePopup();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeId]);
 
   // Disegno e animazione
   useEffect(() => {
@@ -257,6 +283,8 @@ export default function TestimonialSphere({ items, groupLabel, close, readFull, 
     const geo = geoRef.current;
     const all = [...geo.points, ...geo.tips];
     const personStart = geo.points.length - people.length;
+    // spostamento a schermo di ogni punto (reazione al mouse), che torna a zero da solo
+    const off = all.map(() => ({ x: 0, y: 0 }));
 
     let w = 0;
     let h = 0;
@@ -271,29 +299,51 @@ export default function TestimonialSphere({ items, groupLabel, close, readFull, 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
-    const ro = new ResizeObserver(() => {
-      resize();
-      draw();
-    });
-    ro.observe(wrap);
 
-    const tilt = 0.35;
-    const project = (v: V3, a: number) => {
-      // rotazione attorno a Y, poi inclinazione fissa attorno a X
-      const x1 = v[0] * Math.cos(a) + v[2] * Math.sin(a);
-      const z1 = -v[0] * Math.sin(a) + v[2] * Math.cos(a);
-      const y2 = v[1] * Math.cos(tilt) - z1 * Math.sin(tilt);
-      const z2 = v[1] * Math.sin(tilt) + z1 * Math.cos(tilt);
-      const R = Math.min(w, h) * 0.42;
+    let yaw = 0.4;
+    let pitch = 0.35;
+    let vYaw = YAW_SPEED;
+    let vPitch = PITCH_SPEED;
+    let t = 0;
+
+    const project = (v: V3) => {
+      const cy = Math.cos(yaw);
+      const sy = Math.sin(yaw);
+      const x1 = v[0] * cy + v[2] * sy;
+      const z1 = -v[0] * sy + v[2] * cy;
+      const cp = Math.cos(pitch);
+      const sp = Math.sin(pitch);
+      const y2 = v[1] * cp - z1 * sp;
+      const z2 = v[1] * sp + z1 * cp;
+      const R = Math.min(w, h) * 0.44;
       const s = 3 / (3 - z2);
       return { x: w / 2 + x1 * R * s, y: h / 2 + y2 * R * s, z: z2 };
     };
 
     function draw() {
-      const a = angleRef.current;
-      const pr = all.map((v) => project(v, a));
+      const pr = all.map(project);
+      const ptr = pointerRef.current;
+      // reazione al mouse: i punti vicini si scostano, poi tornano (molla)
+      pr.forEach((p, i) => {
+        let tx = 0;
+        let ty = 0;
+        if (ptr && !reduceMotion) {
+          const dx = p.x - ptr.x;
+          const dy = p.y - ptr.y;
+          const d = Math.hypot(dx, dy);
+          if (d < PUSH_RADIUS && d > 0.01) {
+            const f = PUSH_MAX * (1 - d / PUSH_RADIUS) * (0.4 + ((p.z + 1) / 2) * 0.6);
+            tx = (dx / d) * f;
+            ty = (dy / d) * f;
+          }
+        }
+        off[i].x += (tx - off[i].x) * 0.18;
+        off[i].y += (ty - off[i].y) * 0.18;
+        p.x += off[i].x;
+        p.y += off[i].y;
+      });
+
       ctx!.clearRect(0, 0, w, h);
-      ctx!.lineWidth = 0.6;
       const activeSet = new Set(activeRef.current >= 0 ? geo.personEdges[activeRef.current] : []);
       geo.edges.forEach(([i, j], k) => {
         const p = pr[i];
@@ -330,39 +380,68 @@ export default function TestimonialSphere({ items, groupLabel, close, readFull, 
         const scale = 0.55 + depth * 0.55;
         el.style.transform = `translate(${p.x}px, ${p.y}px) translate(-50%, -50%) scale(${isActive ? Math.max(scale, 1) : scale})`;
         el.style.opacity = String(isActive ? 1 : 0.25 + depth * 0.75);
-        el.style.zIndex = String(Math.round(depth * 100) + (isActive ? 100 : 0));
-        el.style.pointerEvents = p.z > -0.2 || isActive ? "auto" : "none";
+        el.style.zIndex = String(Math.round(depth * 100));
+        el.style.pointerEvents = p.z > -0.2 ? "auto" : "none";
         el.dataset.front = p.z > 0.15 || isActive ? "1" : "0";
       });
     }
 
     let raf = 0;
-    let visible = false;
     const tick = () => {
-      if (!reduceMotion && activeRef.current < 0) {
-        angleRef.current += hoverRef.current ? SPEED * 0.25 : SPEED;
+      if (!reduceMotion && !focusPausedRef.current) {
+        t += 1;
+        // la spinta data dal mouse si smorza e torna alla velocita' di base
+        vYaw += (YAW_SPEED - vYaw) * 0.02;
+        vPitch += (PITCH_SPEED * Math.sin(t / 400) - vPitch) * 0.02;
+        yaw += vYaw;
+        pitch += vPitch;
       }
       draw();
       raf = requestAnimationFrame(tick);
     };
     draw();
 
-    // Anima solo quando la sezione e' visibile; apertura automatica dopo AUTO_OPEN_MS senza interazioni
+    const ro = new ResizeObserver(() => {
+      resize();
+      draw();
+    });
+    ro.observe(wrap);
+
+    // Mouse: posizione per lo scostamento dei punti e spinta alla rotazione
+    let last: { x: number; y: number } | null = null;
+    const onMove = (e: PointerEvent) => {
+      const r = wrap.getBoundingClientRect();
+      const p = { x: e.clientX - r.left, y: e.clientY - r.top };
+      if (last && !reduceMotion) {
+        vYaw = Math.max(-0.04, Math.min(0.04, vYaw + (p.x - last.x) * 0.00012));
+        vPitch = Math.max(-0.03, Math.min(0.03, vPitch + (p.y - last.y) * 0.00008));
+      }
+      last = p;
+      pointerRef.current = p;
+    };
+    const onLeave = () => {
+      last = null;
+      pointerRef.current = null;
+    };
+    wrap.addEventListener("pointermove", onMove);
+    wrap.addEventListener("pointerleave", onLeave);
+
+    // Anima solo quando la sezione e' visibile; apertura automatica dopo AUTO_OPEN_MS senza clic
     let autoTimer: ReturnType<typeof setTimeout> | undefined;
     const io = new IntersectionObserver(
       ([entry]) => {
-        visible = entry.isIntersecting;
         cancelAnimationFrame(raf);
-        if (visible) raf = requestAnimationFrame(tick);
-        if (visible && entry.intersectionRatio >= 0.5 && !interactedRef.current && autoTimer === undefined) {
+        if (entry.isIntersecting) raf = requestAnimationFrame(tick);
+        if (entry.intersectionRatio >= 0.5 && !interactedRef.current && autoTimer === undefined) {
           autoTimer = setTimeout(() => {
             if (interactedRef.current || activeRef.current >= 0) return;
             const z = depthRef.current;
             const front = z.reduce((best, v, i) => (v > z[best] ? i : best), 0);
+            focusOnOpenRef.current = false;
             setActiveId(people[front].id);
           }, AUTO_OPEN_MS);
         }
-        if (!visible && autoTimer !== undefined && !interactedRef.current) {
+        if (!entry.isIntersecting && autoTimer !== undefined && !interactedRef.current) {
           clearTimeout(autoTimer);
           autoTimer = undefined;
         }
@@ -376,106 +455,100 @@ export default function TestimonialSphere({ items, groupLabel, close, readFull, 
       clearTimeout(autoTimer);
       io.disconnect();
       ro.disconnect();
+      wrap.removeEventListener("pointermove", onMove);
+      wrap.removeEventListener("pointerleave", onLeave);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduceMotion, people.length]);
 
   return (
     <>
-      {/* Sfera: solo da 768px */}
-      <div className="hidden md:block">
-        <div className="grid grid-cols-12 gap-8 items-center">
+      {/* Sfera con pop-up sopra: solo da 768px */}
+      <div
+        ref={wrapRef}
+        className="hidden md:block relative h-[600px]"
+        onClick={(e) => {
+          // clic fuori dal pop-up e fuori dalle foto: chiude
+          if (active && e.target === e.currentTarget.querySelector("canvas")) closePopup();
+        }}
+      >
+        <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0" />
+        {people.map((t, i) => (
           <div
-            ref={wrapRef}
-            className={`relative h-[520px] ${active ? "col-span-7" : "col-span-12"} transition-[grid-column] motion-reduce:transition-none`}
-            onPointerEnter={() => (hoverRef.current = true)}
-            onPointerLeave={() => (hoverRef.current = false)}
+            key={t.id}
+            ref={(el) => {
+              nodeRefs.current[i] = el;
+            }}
+            className="group absolute left-0 top-0 flex flex-col items-center will-change-transform"
+            data-front="0"
           >
-            <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0" />
-            {people.map((t, i) => (
-              <div
-                key={t.id}
-                ref={(el) => {
-                  nodeRefs.current[i] = el;
-                }}
-                className="group absolute left-0 top-0 flex flex-col items-center will-change-transform"
-                data-front="0"
-              >
-                <button
-                  type="button"
-                  tabIndex={-1}
-                  aria-hidden="true"
-                  title={t.name}
-                  onClick={() => open(t.id)}
-                  className="rounded-full cursor-pointer transition-transform duration-200 hover:scale-110 motion-reduce:transition-none"
-                >
-                  <Avatar name={t.name} image={t.image} size={44} />
-                </button>
-                <span
-                  aria-hidden="true"
-                  className="type-label mt-2 text-[11px] whitespace-nowrap text-[var(--color-text-inverse)] bg-[var(--background)] px-1 opacity-0 transition-opacity duration-300 group-data-[front=1]:opacity-100"
-                >
-                  {t.name}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Scatola: altezza fissa, il testo lungo scorre dentro */}
-          <AnimatePresence>
-            {active && (
-              <motion.div
-                key={active.id}
-                role="region"
-                aria-label={active.name}
-                initial={{ opacity: 0, x: reduceMotion ? 0 : 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: reduceMotion ? 0 : 0.25, ease: "easeOut" }}
-                className="col-span-5 relative glass rounded-xl p-6 max-h-[520px] overflow-y-auto"
-              >
-                <button
-                  type="button"
-                  onClick={() => {
-                    interactedRef.current = true;
-                    setActiveId(null);
-                  }}
-                  aria-label={close}
-                  className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-border-interactive)]"
-                >
-                  <X size={18} aria-hidden="true" />
-                </button>
-                <div className="flex items-center gap-4 mb-5 pr-8">
-                  <Avatar name={active.name} image={active.image} size={64} />
-                  <div>
-                    <p className="type-work text-xl text-[var(--color-text-inverse)]">{active.name}</p>
-                    <p className="text-sm text-[var(--color-text-tertiary)]">{active.role}</p>
-                  </div>
-                </div>
-                <Recommendation t={active} readFull={readFull} seeOnLinkedIn={seeOnLinkedIn} linkedInUrl={linkedInUrl} />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* Nomi: stessa scelta da tastiera e screen reader */}
-        <div role="group" aria-label={groupLabel} className="mt-6 flex flex-wrap justify-center gap-2">
-          {people.map((t) => (
             <button
-              key={t.id}
+              ref={(el) => {
+                buttonRefs.current[i] = el;
+              }}
               type="button"
-              aria-pressed={t.id === activeId}
-              onClick={() => (t.id === activeId ? setActiveId(null) : open(t.id))}
-              className={`type-label text-xs px-3 py-2 rounded-full border transition-colors ${
-                t.id === activeId
-                  ? "bg-[var(--color-label-background)] border-[var(--color-label-background)] text-[var(--color-label-text)]"
-                  : "border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:border-[var(--color-border-interactive)]"
-              }`}
+              aria-label={`${t.name}, ${t.role}`}
+              aria-expanded={t.id === activeId}
+              onClick={(e) => open(t.id, e.detail === 0)}
+              // pausa solo con il focus da tastiera (dopo un clic la sfera continua a girare)
+              onFocus={(e) => (focusPausedRef.current = e.currentTarget.matches(":focus-visible"))}
+              onBlur={() => (focusPausedRef.current = false)}
+              className="rounded-full cursor-pointer transition-transform duration-200 hover:scale-110 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-border-interactive)]"
+            >
+              <Avatar name={t.name} image={t.image} size={44} />
+            </button>
+            <span
+              aria-hidden="true"
+              className="type-label mt-2 text-[11px] whitespace-nowrap text-[var(--color-text-inverse)] bg-[var(--background)] px-1 opacity-0 transition-opacity duration-300 group-data-[front=1]:opacity-100"
             >
               {t.name}
-            </button>
-          ))}
-        </div>
+            </span>
+          </div>
+        ))}
+
+        {/* Pop-up al centro: altezza massima fissa, il testo lungo scorre dentro.
+            mode="wait": esce il vecchio, poi entra il nuovo (mai due pop-up insieme). */}
+        <AnimatePresence mode="wait">
+          {active && (
+            <motion.div
+              key={active.id}
+              ref={(el: HTMLDivElement | null) => {
+                popupRef.current = el;
+                // il pop-up nuovo entra dopo l'uscita del vecchio: il focus va dato quando esiste
+                if (el && focusOnOpenRef.current) {
+                  focusOnOpenRef.current = false;
+                  el.focus({ preventScroll: true });
+                }
+              }}
+              role="dialog"
+              aria-label={active.name}
+              tabIndex={-1}
+              initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: reduceMotion ? 1 : 0.98 }}
+              transition={{ duration: reduceMotion ? 0 : 0.22, ease: "easeOut" }}
+              className="absolute z-[300] left-1/2 top-1/2 w-[min(28rem,90%)] max-h-[440px] overflow-y-auto rounded-xl p-6 bg-[var(--background)]/95 backdrop-blur-sm border border-[var(--color-border-default)] shadow-2xl outline-none"
+              style={{ x: "-50%", y: "-50%" }}
+            >
+              <button
+                type="button"
+                onClick={closePopup}
+                aria-label={close}
+                className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-border-interactive)]"
+              >
+                <X size={18} aria-hidden="true" />
+              </button>
+              <div className="flex items-center gap-4 mb-5 pr-8">
+                <Avatar name={active.name} image={active.image} size={64} />
+                <div>
+                  <p className="type-work text-xl text-[var(--color-text-inverse)]">{active.name}</p>
+                  <p className="text-sm text-[var(--color-text-tertiary)]">{active.role}</p>
+                </div>
+              </div>
+              <Recommendation t={active} readFull={readFull} seeOnLinkedIn={seeOnLinkedIn} linkedInUrl={linkedInUrl} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Lista: solo sotto 768px */}

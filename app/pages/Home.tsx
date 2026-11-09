@@ -242,7 +242,6 @@ export default function Home() {
           <SectionHeader title={testimonials.title} />
           <TestimonialSphere
             items={testimonials.items}
-            groupLabel={testimonials.title}
             close={testimonials.close}
             readFull={testimonials.readFull}
             seeOnLinkedIn={testimonials.seeOnLinkedIn}
