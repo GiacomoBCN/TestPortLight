@@ -13,7 +13,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import SectionHeader from "../components/portfolio/SectionHeader";
 import SectionNumber from "../components/casestudy/SectionNumber";
 import ProjectCard from "../components/portfolio/ProjectCard";
-import TestimonialGraph from "../components/TestimonialGraph";
+import TestimonialSphere from "../components/TestimonialSphere";
 import SketchFrame from "../components/SketchFrame";
 import { home } from "@/content/home";
 
@@ -240,10 +240,10 @@ export default function Home() {
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <SectionHeader title={testimonials.title} />
-          <TestimonialGraph
+          <TestimonialSphere
             items={testimonials.items}
-            defaultActive={testimonials.defaultActive}
-            centerLabel={testimonials.centerLabel}
+            groupLabel={testimonials.title}
+            close={testimonials.close}
             readFull={testimonials.readFull}
             seeOnLinkedIn={testimonials.seeOnLinkedIn}
             linkedInUrl={testimonials.linkedInUrl}

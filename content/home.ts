@@ -45,17 +45,15 @@ export const home = {
     skills: ["Product design", "Product strategy", "Design systems", "AI products", "Front-end"],
   },
 
-  // Testimonianze: grafo (da 768px) e lista (mobile e screen reader). Testi parola per parola.
+  // Testimonianze: sfera animata (da 768px) e lista (sotto 768px). Testi parola per parola.
   // quote = frase scelta; text = raccomandazione completa (un paragrafo per riga, separati da "\n").
   // image: percorso sotto public/; se manca, il cerchio mostra le iniziali.
   testimonials: {
     title: "What Colleagues Say",
-    centerLabel: "Giacomo Bianchi",
     readFull: "Read full recommendation",
     seeOnLinkedIn: "See on LinkedIn",
     linkedInUrl: "https://www.linkedin.com/in/giacomobianchi00/details/recommendations/",
-    // Persona attiva al caricamento
-    defaultActive: "antonella",
+    close: "Close",
     items: [
       {
         id: "antonella",
