@@ -48,7 +48,7 @@ export const home = {
   // Testimonianze: sfera animata (da 768px) e lista (sotto 768px). Testi parola per parola.
   // quote = frase scelta; text = raccomandazione completa (un paragrafo per riga, separati da "\n").
   // image: percorso sotto public/; se manca, il cerchio mostra le iniziali.
-  // group: chi ha lo stesso gruppo e' collegato sulla sfera da archi (arancioni quando uno di loro e' evidenziato).
+  // group: chi ha lo stesso gruppo e' collegato sulla sfera da linee rette (arancioni quando uno di loro e' evidenziato).
   testimonials: {
     title: "What Colleagues Say",
     readFull: "Read full recommendation",

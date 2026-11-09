@@ -81,7 +81,7 @@ interface Geometry {
   tips: V3[]; // estremi dei raggi (senza puntino)
   edges: [number, number][]; // indici su all = points ++ tips
   personEdges: number[][]; // per ogni persona, gli indici dei suoi raggi in edges
-  groupEdges: Set<number>; // archi tra persone dello stesso gruppo (disegnati piu' marcati)
+  groupEdges: Set<number>; // linee tra persone dello stesso gruppo (disegnate piu' marcate)
 }
 
 function buildGeometry(groups: (string | undefined)[]): Geometry {
@@ -145,34 +145,16 @@ function buildGeometry(groups: (string | undefined)[]): Geometry {
       personEdges[p].push(edges.length - 1);
     }
   });
-  // Archi tra le persone dello stesso gruppo: seguono la superficie della sfera.
-  // Ogni arco appartiene a entrambe le persone, cosi' si accende con l'una o con l'altra.
-  const ARC_STEPS = 16;
+  // Linee rette tra le persone dello stesso gruppo: attraversano la sfera.
+  // Ogni linea appartiene a entrambe le persone, cosi' si accende con l'una o con l'altra.
   const groupEdges = new Set<number>();
   for (let a = 0; a < personCount; a++) {
     for (let b = a + 1; b < personCount; b++) {
       if (!groups[a] || groups[a] !== groups[b]) continue;
-      const pa = points[personIdx[a]];
-      const pb = points[personIdx[b]];
-      let prev = personIdx[a];
-      for (let k = 1; k <= ARC_STEPS; k++) {
-        const t = k / ARC_STEPS;
-        let next: number;
-        if (k === ARC_STEPS) {
-          next = personIdx[b];
-        } else {
-          // interpolazione normalizzata sulla sfera, un po' sollevata a meta' arco
-          const lift = 1 + 0.08 * Math.sin(Math.PI * t);
-          const v = norm([pa[0] + (pb[0] - pa[0]) * t, pa[1] + (pb[1] - pa[1]) * t, pa[2] + (pb[2] - pa[2]) * t]);
-          tips.push([v[0] * lift, v[1] * lift, v[2] * lift]);
-          next = tipIndex();
-        }
-        edges.push([prev, next]);
-        groupEdges.add(edges.length - 1);
-        personEdges[a].push(edges.length - 1);
-        personEdges[b].push(edges.length - 1);
-        prev = next;
-      }
+      edges.push([personIdx[a], personIdx[b]]);
+      groupEdges.add(edges.length - 1);
+      personEdges[a].push(edges.length - 1);
+      personEdges[b].push(edges.length - 1);
     }
   }
   return { points, tips, edges, personEdges, groupEdges };
