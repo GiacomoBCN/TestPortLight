@@ -16,7 +16,7 @@ export const dowJones = {
     paragraphs: [
       "Dow Jones operates multiple B2B and B2C brands including The Wall Street Journal, Barron's, MarketWatch and Factiva (B2B), with more in the pipeline (B2C and B2B). Each brand had evolved independently with its own design team, which drove rapid innovation and brand-specific optimization. As the company scaled, the opportunity emerged to unify these learnings into a shared foundation while preserving each brand's unique identity.",
       "As Lead Design Technologist and Product Owner for the design system, I co-owned the product roadmap with design and engineering leadership. The challenge was establishing governance that 8 autonomous brands would embrace, not as a constraint, but as an accelerator.",
-      "We succeeded by reorganizing the architecture (20% less complexity), streamlining workflows (30% productivity boost), and embedding accessibility (WCAG 2.2) from day one. Today, the system powers 200K+ component instances used by 60+ designers and 120+ stakeholders across web, iOS, and Android.",
+      "We succeeded by reorganizing the architecture (20% less complexity), streamlining workflows (30% less back-and-forth between design and engineering), and embedding accessibility (WCAG 2.2) from day one. Today, the system powers 200K+ component instances used by 60+ designers and 120+ stakeholders across web, iOS, and Android.",
     ],
   },
 
@@ -182,7 +182,7 @@ export const dowJones = {
         ],
         rationale:
           "Storybook integration kept docs close to code, increasing usage and reducing maintenance burden. I also improved team workflows for handoffs, UAT, QA, and design acceptance, streamlining how designers and engineers collaborated.",
-        impact: "30% productivity boost",
+        impact: "30% less back-and-forth in reviews",
       },
     ],
   },
@@ -196,13 +196,13 @@ export const dowJones = {
       listLabel: "What this looked like:",
       items: [
         "Collaborated with analytics teams using Google Analytics and internal dashboards to inform product improvements and support data-driven prioritization",
-        "Demonstrated a \"make things happen\" mindset through ownership and speed (no waiting for perfect conditions)",
+        "Ran 15-minute online coffee chats with stakeholders and their managers to understand their constraints before asking them for anything",
         "Regular sync meetings across time zones to keep 8 brands aligned",
       ],
     },
     accessibility: {
       title: "Accessibility & Quality",
-      text: "Ensured accessibility (A11y) best practices were embedded into the design system from day one, meeting EU and U.S. compliance standards (WCAG 2.2). This wasn't a checklist. It was baked into our workflow.",
+      text: "Ensured accessibility (A11y) best practices were embedded into the design system from day one, meeting EU and U.S. compliance standards (WCAG 2.2). The accessibility lead reviewed every new or changed component in UAT, before it could reach the production library.",
       listLabel: "How we validated:",
       items: [
         "Collaborated with the accessibility lead on validation strategy and testing protocols",
@@ -224,13 +224,14 @@ export const dowJones = {
       "The design system contributed to improved UX consistency across all Dow Jones digital properties, reduced friction in user journeys, and delivered measurable gains in how teams work. The system enabled scalable cross-platform development and faster time-to-market for new features.",
     productivity: {
       value: "30%",
-      title: "Productivity Boost",
-      text: "Streamlined workflows, improved documentation, and reduced design-to-code inconsistency. Teams spend less time reinventing solutions and more time solving user problems.",
+      title: "Less back-and-forth",
+      text: "Approving one component could take two weeks of open questions in GitHub threads. I analysed the threads and found the arguments were about who could close a discussion, not about what the spec said. Measured by comparing GitHub review threads before and after the pilot.",
       listLabel: "How we got there:",
       items: [
-        "Better Storybook organization makes component discovery faster",
-        "Token automation eliminates manual sync between design and code",
-        "Clear contribution guidelines reduce back-and-forth in reviews",
+        "Questions written to be closed, not open",
+        "A short ceremony before every handoff",
+        "A 15-minute call, with me moderating, once a thread stalled",
+        "Piloted on one team, then extended to all eight",
       ],
     },
     complexity: {
@@ -246,7 +247,7 @@ export const dowJones = {
     },
     wcag: {
       title: "WCAG 2.2 Compliance Across All Brands",
-      text: "Accessibility isn't a feature. It's a requirement. Every component meets EU and U.S. compliance standards, validated through automated testing and manual review. This benefits all users, not just those with disabilities.",
+      text: "The system was built to WCAG 2.2, the EU and U.S. standard. No component reached the production library without the accessibility lead’s sign-off in UAT.",
     },
     image: {
       file: "images/projects/brand-ds.webp",
