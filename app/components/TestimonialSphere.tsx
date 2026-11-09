@@ -461,7 +461,8 @@ export default function TestimonialSphere({
     <>
       {/* Desktop: sfera a sinistra, citazione sempre leggibile a destra */}
       <div className="hidden md:grid grid-cols-12 gap-10 items-center">
-        <div ref={wrapRef} className="col-span-6 relative" style={{ height: SPHERE_H }}>
+        {/* isolate: lo z-index delle foto resta dentro la sfera (non passano sopra il menu fisso) */}
+        <div ref={wrapRef} className="col-span-6 relative isolate" style={{ height: SPHERE_H }}>
           <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0" />
           {people.map((t, i) => (
             <div
