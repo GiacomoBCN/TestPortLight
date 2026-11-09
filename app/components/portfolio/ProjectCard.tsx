@@ -143,7 +143,7 @@ export default function ProjectCard({
         <span className="label-tag text-xs">
           {role}
         </span>
-        <h3 className={`${compact ? "type-work text-xl mt-1 mb-0.5 line-clamp-1" : "type-work-title mt-2 mb-1 min-h-[64px]"} text-[var(--project-card-title-default)] transition-colors duration-300 group-hover:text-[var(--project-card-title-hover)]`}>
+        <h3 className={`${compact ? "type-work text-xl mt-1 mb-0.5" : "type-work-title mt-2 mb-1 min-h-[64px]"} text-[var(--project-card-title-default)] transition-colors duration-300 group-hover:text-[var(--project-card-title-hover)]`}>
           {title}
         </h3>
         <p className="text-sm text-[var(--project-card-company-text)]">
@@ -153,7 +153,7 @@ export default function ProjectCard({
       </div>
 
       {/* Description - Fixed height */}
-      <p className={`text-[var(--project-card-description-text)] ${compact ? "text-sm mb-3 line-clamp-2" : "mb-6 min-h-[72px]"}`}>{description}</p>
+      <p className={`text-[var(--project-card-description-text)] ${compact ? "text-sm mb-3 xl:line-clamp-3" : "mb-6 min-h-[72px]"}`}>{description}</p>
 
       {/* Spacer to push metrics and tags to bottom */}
       <div className="flex-1"></div>

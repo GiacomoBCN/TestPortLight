@@ -17,10 +17,10 @@ export const projects = {
       company: "StayKeel",
       timeframe: "",
       description:
-        "Designed, built and run in production by one person: a multilingual AI product that turns any link into a summary you can act on, and a chat that answers only from what you saved.",
+        "A multilingual AI product I designed, built and run alone. I chose models on a blind benchmark of 8, cutting answer cost about 10x and lifting retrieval from 43% to 73%.",
       metrics: [
         { value: "8", label: "Models tested" },
-        { value: "3", label: "Models in production" },
+        { value: "~10x", label: "Lower answer cost" },
         { value: "73%", label: "Retrieval hit@10" },
       ],
       // Video al posto dell'immagine nella scheda della Home (percorsi sotto public/; bg = fondo del video)
@@ -65,7 +65,7 @@ export const projects = {
       company: "StayKeel",
       timeframe: "",
       description:
-        "A three-level token architecture where the content source is the theme. Everything in it exists because the product uses it; what it doesn't use, I didn't build, and wrote down why.",
+        "A three-level token architecture where the content source is the theme. I built only what the product uses, and generated the Figma library from the code.",
       metrics: [
         { value: "3", label: "Token levels" },
         { value: "1:1", label: "Figma ↔ code" },
@@ -181,7 +181,7 @@ export const projects = {
       company: "Concept & Coded Prototype",
       timeframe: "",
       description:
-        "Research-led study of how a banking AI assistant should handle uncertainty, hand over to people and keep human oversight honest. Eight patterns checked against the literature, built as an LTR/RTL Flutter prototype (English and Arabic).",
+        "How should a banking AI assistant handle uncertainty and hand over to people? I checked eight patterns against the research and built them as a Flutter prototype in English and Arabic.",
       image: "images/projects/falak/04-desktop-spending-range.webp",
       metrics: [
         { value: "8", label: "Patterns" },
