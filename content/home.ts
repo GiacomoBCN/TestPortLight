@@ -45,44 +45,61 @@ export const home = {
     skills: ["Product design", "Product strategy", "Design systems", "AI products", "Front-end"],
   },
 
+  // Testimonianze: grafo (da 768px) e lista (mobile e screen reader). Testi parola per parola.
+  // quote = frase scelta; text = raccomandazione completa (un paragrafo per riga, separati da "\n").
+  // image: percorso sotto public/; se manca, il cerchio mostra le iniziali.
   testimonials: {
     title: "What Colleagues Say",
-    // image: percorso sotto public/ (TestimonialCarousel lo passa a getImagePath)
+    centerLabel: "Giacomo Bianchi",
+    readFull: "Read full recommendation",
+    seeOnLinkedIn: "See on LinkedIn",
+    linkedInUrl: "https://www.linkedin.com/in/giacomobianchi00/details/recommendations/",
+    // Persona attiva al caricamento
+    defaultActive: "antonella",
     items: [
       {
-        quote: "Giacomo is a very good asset when it comes to building bridges between design and tech. Not only does he have a very good understanding of both sides; his best characteristic is the ability to talk to both in their own languages and to be the medium across the two worlds, communicating needs, constraints and opportunities efficiently. Last but not least, he is a good team player, able to build bonds with everyone in the office, which is a benefit to the design team. He is also very good at research and brings a humanistic approach. His ability to capture requirements and information out of interviews and focus groups is fantastic. Something I really value in a person in his position.",
+        id: "antonella",
         name: "Antonella Sassu",
-        title: "Senior Design Manager • Dow Jones",
+        role: "Senior Design Manager • Dow Jones",
         image: "images/profile/1756901959970.webp",
-        alt: "Antonella Sassu",
+        quote:
+          "His best characteristic is the ability to talk to both in their own languages and to be the medium across the two worlds.",
+        text: "Giacomo is a very good asset when it comes to building bridges between design and tech. Not only does he have a very good understanding of both sides; his best characteristic is the ability to talk to both in their own languages and to be the medium across the two worlds, communicating needs, constraints and opportunities efficiently. Last but not least, he is a good team player, able to build bonds with everyone in the office, which is a benefit to the design team. He is also very good at research and brings a humanistic approach. His ability to capture requirements and information out of interviews and focus groups is fantastic. Something I really value in a person in his position.",
       },
       {
-        quote: "I had the pleasure of working closely with Giacomo as a Design Lead Technologist at Dow Jones, and I can confidently say he is an exceptional professional. Giacomo played a critical role as a bridge between engineering and UX, which was instrumental in driving the success of our projects and ensuring smooth handoffs between teams. Additionally, I had the opportunity to collaborate with Giacomo on improving the User Acceptance Testing (UAT), Quality Assurance (QA), and Design acceptance processes. During this collaboration, Giacomo demonstrated his meticulous attention to detail, problem-solving skills, and dedication to optimizing workflows.",
+        id: "oana",
         name: "Oana Stroe",
-        title: "Product Design Lead • UX Mentor",
+        role: "Product Design Lead • UX Mentor",
         image: "images/profile/1710886367232.webp",
-        alt: "Oana Stroe",
+        quote:
+          "Giacomo demonstrated his meticulous attention to detail, problem-solving skills, and dedication to optimizing workflows.",
+        text: "I had the pleasure of working closely with Giacomo as a Design Lead Technologist at Dow Jones, and I can confidently say he is an exceptional professional. Giacomo played a critical role as a bridge between engineering and UX, which was instrumental in driving the success of our projects and ensuring smooth handoffs between teams. Additionally, I had the opportunity to collaborate with Giacomo on improving the User Acceptance Testing (UAT), Quality Assurance (QA), and Design acceptance processes. During this collaboration, Giacomo demonstrated his meticulous attention to detail, problem-solving skills, and dedication to optimizing workflows.",
       },
       {
-        quote: "I had the pleasure of working with Giacomo while teaching Intelligent Capital and Talent Management in the Master's in International Business program at EAE Business School. He not only helped organize the course and structure content but also brought invaluable expertise in cross-cultural management, ensuring students gained a truly global perspective.\n\nHaving taught Inclusive Leadership, I can confidently say that Giacomo embodies its principles. He fosters diverse perspectives, builds trust, and creates space where all voices are heard. He doesn't just lead - he empowers, ensuring that learning and collaboration thrive.\n\nHis communication skills stand out - clear, engaging, and adaptable. Whether leading discussions, mentoring students, or working with colleagues, he knows how to connect with people, spark thoughtful conversations, and bring key insights to life. And when it comes to collaboration, Giacomo strengthens every team he's part of.\n\nHis leadership reflects the core values of global citizenship: inclusiveness, cultural competence, adaptability, and a genuine commitment to making a positive impact. I would highly recommend him for any role that values strong leadership, strategic management, and the ability to foster inclusive, cross-cultural collaboration. Any organization would be lucky to have him on board!",
+        id: "frank",
         name: "Frank Longo",
-        title: "Higher Education Leader • University",
+        role: "Higher Education Leader • University",
         image: "images/profile/1685965339196.webp",
-        alt: "Frank Longo",
+        quote: "He fosters diverse perspectives, builds trust, and creates space where all voices are heard.",
+        text: "I had the pleasure of working with Giacomo while teaching Intelligent Capital and Talent Management in the Master’s in International Business program at EAE Business School. He not only helped organize the course and structure content but also brought invaluable expertise in cross-cultural management, ensuring students gained a truly global perspective.\nHaving taught Inclusive Leadership, I can confidently say that Giacomo embodies its principles. He fosters diverse perspectives, builds trust, and creates space where all voices are heard. He doesn’t just lead - he empowers, ensuring that learning and collaboration thrive.\nHis communication skills stand out - clear, engaging, and adaptable. Whether leading discussions, mentoring students, or working with colleagues, he knows how to connect with people, spark thoughtful conversations, and bring key insights to life. And when it comes to collaboration, Giacomo strengthens every team he’s part of.\nHis leadership reflects the core values of global citizenship: inclusiveness, cultural competence, adaptability, and a genuine commitment to making a positive impact. I would highly recommend him for any role that values strong leadership, strategic management, and the ability to foster inclusive, cross-cultural collaboration. Any organization would be lucky to have him on board!",
       },
       {
-        quote: "I had the opportunity to be instructed by Giacomo in UX/UI at EAE. Giacomo's extensive experience and insightful perspective in this field provided me a solid foundation to effectively prepare and manage digital products. He is truly a great professional.",
+        id: "ismael",
         name: "Ismael Ruiz Gutierrez",
-        title: "Marketing Manager • Former Student",
+        role: "Marketing Manager • Former Student",
         image: "images/profile/1685897244209.webp",
-        alt: "Ismael Ruiz",
+        quote:
+          "Giacomo’s extensive experience and insightful perspective in this field provided me a solid foundation to effectively prepare and manage digital products.",
+        text: "I had the opportunity to be instructed by Giacomo in UX/UI at EAE. Giacomo’s extensive experience and insightful perspective in this field provided me a solid foundation to effectively prepare and manage digital products. He is truly a great professional.",
       },
       {
-        quote: "Giacomo acted as consultant on a personal project that involved the design and implementation of a website. He mentored me and guided me through several difficult choices pointing at the direction to take for each of them. The project would not have been possible without his input. He is very professional and also fun to work with. Thanks, wish you all the best.",
-        name: "Sergio D'Argenio",
-        title: "Data Analyst • Tech Company",
+        id: "sergio",
+        name: "Sergio D’Argenio",
+        role: "Data Analyst • Tech Company",
         image: "images/profile/1517687171761.webp",
-        alt: "Sergio D'Argenio",
+        quote:
+          "He mentored me and guided me through several difficult choices pointing at the direction to take for each of them.",
+        text: "Giacomo acted as consultant on a personal project that involved the design and implementation of a website. He mentored me and guided me through several difficult choices pointing at the direction to take for each of them. The project would not have been possible without his input. He is very professional and also fun to work with. Thanks, wish you all the best.",
       },
     ],
   },

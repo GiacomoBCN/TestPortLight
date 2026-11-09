@@ -125,14 +125,6 @@ export const shell = {
       showMore: "Show more",
       showLess: "Show less",
     },
-    testimonials: {
-      readMore: "Read more",
-      readMoreLabel: (name: string) => `Read more: testimonial from ${name}`,
-      previous: "Previous testimonials",
-      next: "Next testimonials",
-      goToPage: (n: number) => `Go to page ${n}`,
-      closeModal: "Close modal",
-    },
     projectListingCard: {
       viewCaseStudy: "View Case Study",
       viewCaseStudyLabel: (title: string) => `View Case Study: ${title}`,
