@@ -3,18 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { createPageUrl } from "@/utils";
 import { getImagePath } from "@/utils/image";
-import {
-  ChevronDown,
-  GraduationCap,
-  Briefcase,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { motion, useReducedMotion } from "framer-motion";
 import SectionHeader from "../components/portfolio/SectionHeader";
 import SectionNumber from "../components/casestudy/SectionNumber";
 import ProjectCard from "../components/portfolio/ProjectCard";
 import TestimonialSphere from "../components/TestimonialSphere";
-import SketchFrame from "../components/SketchFrame";
 import { home } from "@/content/home";
 
 const { hero, featuredWork, about, testimonials, cta } = home;
@@ -252,60 +247,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Dual Path CTA Section */}
+      {/* Chiusura: titolo, bottone email e due link testuali */}
       <section className="py-24 px-6">
-        {/* Due box separate, ognuna con la sua cornice */}
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Product & Design Leadership */}
-            <div className="glass sketch rounded-2xl p-8 md:p-10 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300">
-              <SketchFrame />
-              <div className="absolute top-0 left-0 w-full h-full rounded-2xl bg-gradient-to-br from-[var(--color-surface-interactive-default)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-14 h-14 glass rounded-full flex items-center justify-center mb-5 glow-blue">
-                  <Briefcase size={28} className="text-[var(--color-icon-accent)]" />
-                </div>
-                <h3 className="type-work-title text-[var(--color-text-inverse)] mb-3">
-                  {cta.productLeadership.title}
-                </h3>
-                <p className="text-[var(--color-text-primary)] mb-6 leading-relaxed">
-                  {cta.productLeadership.text}
-                </p>
-                <Link
-                  href={createPageUrl("ProductWork")}
-                  className="inline-block px-7 py-3.5 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105"
-                >
-                  {cta.productLeadership.button}
-                </Link>
-              </div>
-            </div>
-
-            {/* Teaching & Research */}
-            <div className="glass sketch rounded-2xl p-8 md:p-10 relative group hover:bg-[rgba(245,195,59,0.1)] transition-all duration-300">
-              <SketchFrame />
-              <div className="absolute top-0 left-0 w-full h-full rounded-2xl bg-gradient-to-br from-[var(--color-surface-interactive-default)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div
-                  className="w-14 h-14 glass rounded-full flex items-center justify-center mb-5 glow-blue"
-                >
-                  <GraduationCap size={28} className="text-[var(--color-icon-accent)]" />
-                </div>
-                <h3 className="type-work-title text-[var(--color-text-inverse)] mb-3">
-                  {cta.teaching.title}
-                </h3>
-                <p className="text-[var(--color-text-primary)] mb-6 leading-relaxed">
-                  {cta.teaching.text}
-                </p>
-                <Link
-                  href={createPageUrl("Teaching")}
-                  className="inline-block px-7 py-3.5 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold border-2 border-[var(--button-secondary-border)] hover:bg-[var(--color-surface-interactive-hover)] active:bg-[var(--color-surface-interactive-hover)] active:text-[var(--color-text-inverse)] active:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105"
-                >
-                  {cta.teaching.button}{" "}
-                </Link>
-              </div>
-            </div>
+        <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
+          <h2 className="type-section-title text-[var(--color-text-inverse)] mb-8">{cta.title}</h2>
+          <a
+            href={`mailto:${cta.email}`}
+            className="inline-block px-7 py-3.5 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105"
+          >
+            {cta.button}
+          </a>
+          <div className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-3">
+            <Link href={createPageUrl("ProductWork")} className="font-medium text-[var(--color-text-link-default)] link-underline">
+              {cta.productWork}
+            </Link>
+            <Link href={createPageUrl("Teaching")} className="font-medium text-[var(--color-text-link-default)] link-underline">
+              {cta.teaching}
+            </Link>
           </div>
         </div>
       </section>

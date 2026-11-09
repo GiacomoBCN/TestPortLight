@@ -50,7 +50,7 @@ export const home = {
   // image: percorso sotto public/; se manca, il cerchio mostra le iniziali.
   // group: chi ha lo stesso gruppo e' collegato sulla sfera da linee rette (arancioni quando uno di loro e' evidenziato).
   testimonials: {
-    title: "What Colleagues Say",
+    title: "In their words",
     readFull: "Read full recommendation",
     seeOnLinkedIn: "See on LinkedIn",
     linkedInUrl: "https://www.linkedin.com/in/giacomobianchi00/details/recommendations/",
@@ -76,7 +76,7 @@ export const home = {
         role: "Product Design Lead • UX Mentor",
         image: "images/profile/1710886367232.webp",
         quote:
-          "Giacomo demonstrated his meticulous attention to detail, problem-solving skills, and dedication to optimizing workflows.",
+          "Giacomo played a critical role as a bridge between engineering and UX, which was instrumental in driving the success of our projects and ensuring smooth handoffs between teams.",
         text: "I had the pleasure of working closely with Giacomo as a Design Lead Technologist at Dow Jones, and I can confidently say he is an exceptional professional. Giacomo played a critical role as a bridge between engineering and UX, which was instrumental in driving the success of our projects and ensuring smooth handoffs between teams. Additionally, I had the opportunity to collaborate with Giacomo on improving the User Acceptance Testing (UAT), Quality Assurance (QA), and Design acceptance processes. During this collaboration, Giacomo demonstrated his meticulous attention to detail, problem-solving skills, and dedication to optimizing workflows.",
       },
       {
@@ -111,17 +111,12 @@ export const home = {
     ],
   },
 
+  // Chiusura della home: un blocco centrato con titolo, bottone email e due link testuali
   cta: {
-    productLeadership: {
-      title: "Product & Design Leadership",
-      text: "Explore my work leading cross-functional teams, building design systems, and driving measurable business impact.",
-      button: "Explore Product Work",
-    },
-    teaching: {
-      title: "Teaching & Research",
-      text: "Discover my experience teaching 1000+ students and bridging academic research with industry practice.",
-      // nel JSX seguito da {" "} (nodo di testo separato), come nell'originale
-      button: "View Teaching Portfolio",
-    },
+    title: "Building your product or scaling your design system?",
+    button: "Let's talk",
+    email: "consulting@giacomobianchi.tech",
+    productWork: "Product work",
+    teaching: "Teaching & research",
   },
 };

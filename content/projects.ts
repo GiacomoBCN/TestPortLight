@@ -113,12 +113,12 @@ export const projects = {
       company: "Dow Jones",
       timeframe: "",
       description:
-        "Co-led design system adoption across 8 B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%.",
+        "I co-led the design system behind 8 products and was its final quality gate. When approving one component took two weeks of GitHub threads, I redesigned the review and cut back-and-forth by 30%.",
       image: "images/projects/DJ1.webp",
       metrics: [
         { value: "60+", label: "Designers" },
-        { value: "200K+", label: "Component Refs" },
-        { value: "30%", label: "Efficiency" },
+        { value: "200K+", label: "Component refs" },
+        { value: "30%", label: "Less back-and-forth" },
       ],
     },
     productWorkCard: {
