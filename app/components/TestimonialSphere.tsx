@@ -1,26 +1,25 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { X } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 import { getImagePath } from "@/utils/image";
 
 /**
- * Testimonianze come sfera di punti e linee sempre in movimento (da 768px).
- * Canvas 2D fatto a mano, nessuna libreria: circa 220 punti su una sfera che ruota su due assi,
- * maglia di linee sottili, corde e "ciuffi" a raggiera. Le cinque persone sono nodi con la foto:
- * ruotano con il resto, in primo piano mostrano il nome, dietro si allontanano.
- *  - la sfera non si ferma mai; col mouse sopra i punti vicini si scostano e tornano al loro posto
- *    (come le bande laterali) e il movimento del mouse da' una spinta alla rotazione;
- *  - clic su una persona: si apre un pop-up al centro, sopra la sfera, con foto, nome, ruolo e frase;
- *    il testo completo (<details> nativo) scorre dentro il pop-up, che ha altezza massima fissa;
- *    passando da una persona all'altra il pop-up si dissolve e riappare (mai due insieme);
- *    si chiude con la X, con Esc o cliccando fuori;
- *  - se nessuno clicca, dopo qualche secondo con la sezione visibile si apre da solo il pop-up
- *    della persona piu' in primo piano (una volta sola, senza spostare il focus);
- *  - prefers-reduced-motion: sfera ferma, nessuna reazione al mouse;
+ * Testimonianze (da 768px): sfera di punti e linee sempre in movimento a sinistra,
+ * citazione sempre leggibile a destra. Canvas 2D fatto a mano, nessuna libreria.
+ *  - la sfera (circa meta' schermo) ruota su due assi e non si ferma mai; col mouse sopra i punti
+ *    vicini si scostano e tornano (come le bande laterali) e la rotazione prende una spinta;
+ *  - le cinque persone sono nodi con la foto; quella della citazione e' evidenziata
+ *    (linee arancioni, foto piena e piu' grande, nome sempre visibile);
+ *  - la citazione cambia da sola ogni ROTATE_MS, insieme alla persona evidenziata;
+ *    si ferma con mouse o focus sulla citazione, con il testo completo aperto e con il pulsante pausa;
+ *    con prefers-reduced-motion non cambia da sola e la sfera e' ferma;
+ *  - clic su una foto o su un pallino sotto la citazione: mostra quella persona;
+ *  - il testo completo (<details> nativo) scorre dentro la colonna, che ha altezza fissa:
+ *    la sezione non cambia altezza;
  *  - l'animazione gira solo quando la sezione e' visibile.
- * Tastiera e screen reader: le foto sono pulsanti (nome e ruolo come etichetta); con il focus su una
- * foto la sfera si ferma, cosi' il pulsante non scappa. Sotto 768px niente sfera: lista verticale.
+ * Accessibilita': canvas e foto sulla sfera sono solo per il puntatore (aria-hidden); pallini e
+ * pulsante pausa sono pulsanti veri. Sotto 768px niente sfera: lista verticale.
  */
 
 export interface Testimonial {
@@ -34,17 +33,20 @@ export interface Testimonial {
 
 interface Props {
   items: Testimonial[];
-  close: string;
   readFull: string;
   seeOnLinkedIn: string;
   linkedInUrl: string;
+  pause: string;
+  play: string;
+  showQuoteFrom: string;
 }
 
-const AUTO_OPEN_MS = 6000;
+const ROTATE_MS = 7000; // ogni quanto cambia la citazione
+const SPHERE_H = 440; // px: altezza della sfera (circa meta' schermo)
 const YAW_SPEED = 0.0045; // rotazione di base attorno all'asse verticale, radianti per frame (~60 fps)
 const PITCH_SPEED = 0.0013; // rotazione di base attorno all'asse orizzontale
-const PUSH_RADIUS = 120; // px: raggio d'influenza del mouse sui punti
-const PUSH_MAX = 14; // px: spostamento massimo del punto piu' vicino al mouse
+const PUSH_RADIUS = 100; // px: raggio d'influenza del mouse sui punti
+const PUSH_MAX = 12; // px: spostamento massimo del punto piu' vicino al mouse
 const INK = "17, 20, 24"; // --foreground #111418
 const ORANGE = "242, 140, 40"; // --primitive-orange-500 #F28C28
 
@@ -191,16 +193,20 @@ function Recommendation({
   readFull,
   seeOnLinkedIn,
   linkedInUrl,
+  onToggle,
+  large = false,
 }: {
   t: Testimonial;
   readFull: string;
   seeOnLinkedIn: string;
   linkedInUrl: string;
+  onToggle?: (open: boolean) => void;
+  large?: boolean;
 }) {
   return (
     <>
-      <blockquote className="text-lg text-[var(--color-text-inverse)] leading-relaxed">“{t.quote}”</blockquote>
-      <details className="mt-4">
+      <blockquote className={`${large ? "text-xl md:text-2xl" : "text-lg"} text-[var(--color-text-inverse)] leading-relaxed`}>“{t.quote}”</blockquote>
+      <details className="mt-4" onToggle={(e) => onToggle?.(e.currentTarget.open)}>
         <summary className="cursor-pointer w-fit text-sm font-medium text-[var(--color-text-link-default)] link-underline marker:text-[var(--color-list-bullet)]">
           {readFull}
         </summary>
@@ -224,55 +230,49 @@ function Recommendation({
   );
 }
 
-// ---------- Sfera ----------
 
-export default function TestimonialSphere({ items, close, readFull, seeOnLinkedIn, linkedInUrl }: Props) {
+// ---------- Sfera + citazione ----------
+
+export default function TestimonialSphere({
+  items,
+  readFull,
+  seeOnLinkedIn,
+  linkedInUrl,
+  pause,
+  play,
+  showQuoteFrom,
+}: Props) {
   const people = items.slice(0, PERSON_LATS.length);
-  const [activeId, setActiveId] = useState<string | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false); // pausa scelta dall'utente
+  const [hold, setHold] = useState(false); // mouse/focus sulla citazione
+  const [detailsOpen, setDetailsOpen] = useState(false);
+  const [inView, setInView] = useState(false);
   const reduceMotion = useReducedMotion();
 
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const popupRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const geoRef = useRef<Geometry | null>(null);
-  const activeRef = useRef<number>(-1);
-  const interactedRef = useRef(false);
-  const focusPausedRef = useRef(false);
-  const depthRef = useRef<number[]>([]); // profondita' corrente delle persone (per l'apertura automatica)
+  const activeRef = useRef(0);
   const pointerRef = useRef<{ x: number; y: number } | null>(null);
-  const focusOnOpenRef = useRef(false);
-
-  const activeIndex = people.findIndex((p) => p.id === activeId);
   activeRef.current = activeIndex;
-  const active = activeIndex >= 0 ? people[activeIndex] : null;
+  const active = people[activeIndex];
 
-  const open = (id: string, moveFocus: boolean) => {
-    interactedRef.current = true;
-    focusOnOpenRef.current = moveFocus;
-    setActiveId(id);
-  };
-  const closePopup = () => {
-    const i = activeRef.current;
-    interactedRef.current = true;
-    setActiveId(null);
-    // il focus torna alla foto da cui si era aperto, se era nel pop-up
-    if (i >= 0 && popupRef.current?.contains(document.activeElement)) buttonRefs.current[i]?.focus();
+  const show = (i: number) => {
+    setDetailsOpen(false);
+    setActiveIndex(i);
   };
 
-  // Esc chiude (il focus entra nel pop-up dal ref, solo se lo apre l'utente da tastiera)
+  // Cambio automatico della citazione
+  const rotating = !reduceMotion && !paused && !hold && !detailsOpen && inView;
   useEffect(() => {
-    if (!active) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closePopup();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeId]);
+    if (!rotating) return;
+    const id = setTimeout(() => show((activeIndex + 1) % people.length), ROTATE_MS);
+    return () => clearTimeout(id);
+  }, [rotating, activeIndex, people.length]);
 
-  // Disegno e animazione
+  // Disegno e animazione della sfera
   useEffect(() => {
     const wrap = wrapRef.current;
     const canvas = canvasRef.current;
@@ -283,8 +283,7 @@ export default function TestimonialSphere({ items, close, readFull, seeOnLinkedI
     const geo = geoRef.current;
     const all = [...geo.points, ...geo.tips];
     const personStart = geo.points.length - people.length;
-    // spostamento a schermo di ogni punto (reazione al mouse), che torna a zero da solo
-    const off = all.map(() => ({ x: 0, y: 0 }));
+    const off = all.map(() => ({ x: 0, y: 0 })); // spostamento a schermo dovuto al mouse
 
     let w = 0;
     let h = 0;
@@ -315,7 +314,7 @@ export default function TestimonialSphere({ items, close, readFull, seeOnLinkedI
       const sp = Math.sin(pitch);
       const y2 = v[1] * cp - z1 * sp;
       const z2 = v[1] * sp + z1 * cp;
-      const R = Math.min(w, h) * 0.44;
+      const R = Math.min(w, h) * 0.42;
       const s = 3 / (3 - z2);
       return { x: w / 2 + x1 * R * s, y: h / 2 + y2 * R * s, z: z2 };
     };
@@ -323,7 +322,6 @@ export default function TestimonialSphere({ items, close, readFull, seeOnLinkedI
     function draw() {
       const pr = all.map(project);
       const ptr = pointerRef.current;
-      // reazione al mouse: i punti vicini si scostano, poi tornano (molla)
       pr.forEach((p, i) => {
         let tx = 0;
         let ty = 0;
@@ -344,7 +342,7 @@ export default function TestimonialSphere({ items, close, readFull, seeOnLinkedI
       });
 
       ctx!.clearRect(0, 0, w, h);
-      const activeSet = new Set(activeRef.current >= 0 ? geo.personEdges[activeRef.current] : []);
+      const activeSet = new Set(geo.personEdges[activeRef.current] ?? []);
       geo.edges.forEach(([i, j], k) => {
         const p = pr[i];
         const q = pr[j];
@@ -369,28 +367,25 @@ export default function TestimonialSphere({ items, close, readFull, seeOnLinkedI
         ctx!.arc(p.x, p.y, 1 + depth * 1.2, 0, Math.PI * 2);
         ctx!.fill();
       }
-      // Nodi delle persone (HTML sopra il canvas)
       people.forEach((_, i) => {
         const el = nodeRefs.current[i];
         const p = pr[personStart + i];
-        depthRef.current[i] = p.z;
         if (!el) return;
         const depth = (p.z + 1) / 2;
         const isActive = activeRef.current === i;
-        const scale = 0.55 + depth * 0.55;
+        const scale = 0.5 + depth * 0.5;
         el.style.transform = `translate(${p.x}px, ${p.y}px) translate(-50%, -50%) scale(${isActive ? Math.max(scale, 1) : scale})`;
         el.style.opacity = String(isActive ? 1 : 0.25 + depth * 0.75);
-        el.style.zIndex = String(Math.round(depth * 100));
-        el.style.pointerEvents = p.z > -0.2 ? "auto" : "none";
-        el.dataset.front = p.z > 0.15 || isActive ? "1" : "0";
+        el.style.zIndex = String(Math.round(depth * 100) + (isActive ? 100 : 0));
+        el.style.pointerEvents = p.z > -0.2 || isActive ? "auto" : "none";
+        el.dataset.active = isActive ? "1" : "0";
       });
     }
 
     let raf = 0;
     const tick = () => {
-      if (!reduceMotion && !focusPausedRef.current) {
+      if (!reduceMotion) {
         t += 1;
-        // la spinta data dal mouse si smorza e torna alla velocita' di base
         vYaw += (YAW_SPEED - vYaw) * 0.02;
         vPitch += (PITCH_SPEED * Math.sin(t / 400) - vPitch) * 0.02;
         yaw += vYaw;
@@ -407,7 +402,6 @@ export default function TestimonialSphere({ items, close, readFull, seeOnLinkedI
     });
     ro.observe(wrap);
 
-    // Mouse: posizione per lo scostamento dei punti e spinta alla rotazione
     let last: { x: number; y: number } | null = null;
     const onMove = (e: PointerEvent) => {
       const r = wrap.getBoundingClientRect();
@@ -426,33 +420,16 @@ export default function TestimonialSphere({ items, close, readFull, seeOnLinkedI
     wrap.addEventListener("pointermove", onMove);
     wrap.addEventListener("pointerleave", onLeave);
 
-    // Anima solo quando la sezione e' visibile; apertura automatica dopo AUTO_OPEN_MS senza clic
-    let autoTimer: ReturnType<typeof setTimeout> | undefined;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        cancelAnimationFrame(raf);
-        if (entry.isIntersecting) raf = requestAnimationFrame(tick);
-        if (entry.intersectionRatio >= 0.5 && !interactedRef.current && autoTimer === undefined) {
-          autoTimer = setTimeout(() => {
-            if (interactedRef.current || activeRef.current >= 0) return;
-            const z = depthRef.current;
-            const front = z.reduce((best, v, i) => (v > z[best] ? i : best), 0);
-            focusOnOpenRef.current = false;
-            setActiveId(people[front].id);
-          }, AUTO_OPEN_MS);
-        }
-        if (!entry.isIntersecting && autoTimer !== undefined && !interactedRef.current) {
-          clearTimeout(autoTimer);
-          autoTimer = undefined;
-        }
-      },
-      { threshold: [0, 0.5] }
-    );
+    // Animazione e cambio automatico solo con la sezione visibile
+    const io = new IntersectionObserver(([entry]) => {
+      cancelAnimationFrame(raf);
+      if (entry.isIntersecting) raf = requestAnimationFrame(tick);
+      setInView(entry.isIntersecting);
+    });
     io.observe(wrap);
 
     return () => {
       cancelAnimationFrame(raf);
-      clearTimeout(autoTimer);
       io.disconnect();
       ro.disconnect();
       wrap.removeEventListener("pointermove", onMove);
@@ -463,92 +440,109 @@ export default function TestimonialSphere({ items, close, readFull, seeOnLinkedI
 
   return (
     <>
-      {/* Sfera con pop-up sopra: solo da 768px */}
-      <div
-        ref={wrapRef}
-        className="hidden md:block relative h-[600px]"
-        onClick={(e) => {
-          // clic fuori dal pop-up e fuori dalle foto: chiude
-          if (active && e.target === e.currentTarget.querySelector("canvas")) closePopup();
-        }}
-      >
-        <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0" />
-        {people.map((t, i) => (
-          <div
-            key={t.id}
-            ref={(el) => {
-              nodeRefs.current[i] = el;
-            }}
-            className="group absolute left-0 top-0 flex flex-col items-center will-change-transform"
-            data-front="0"
-          >
-            <button
+      {/* Desktop: sfera a sinistra, citazione sempre leggibile a destra */}
+      <div className="hidden md:grid grid-cols-12 gap-10 items-center">
+        <div ref={wrapRef} className="col-span-6 relative" style={{ height: SPHERE_H }}>
+          <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0" />
+          {people.map((t, i) => (
+            <div
+              key={t.id}
               ref={(el) => {
-                buttonRefs.current[i] = el;
+                nodeRefs.current[i] = el;
               }}
-              type="button"
-              aria-label={`${t.name}, ${t.role}`}
-              aria-expanded={t.id === activeId}
-              onClick={(e) => open(t.id, e.detail === 0)}
-              // pausa solo con il focus da tastiera (dopo un clic la sfera continua a girare)
-              onFocus={(e) => (focusPausedRef.current = e.currentTarget.matches(":focus-visible"))}
-              onBlur={() => (focusPausedRef.current = false)}
-              className="rounded-full cursor-pointer transition-transform duration-200 hover:scale-110 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-border-interactive)]"
-            >
-              <Avatar name={t.name} image={t.image} size={44} />
-            </button>
-            <span
               aria-hidden="true"
-              className="type-label mt-2 text-[11px] whitespace-nowrap text-[var(--color-text-inverse)] bg-[var(--background)] px-1 opacity-0 transition-opacity duration-300 group-data-[front=1]:opacity-100"
-            >
-              {t.name}
-            </span>
-          </div>
-        ))}
-
-        {/* Pop-up al centro: altezza massima fissa, il testo lungo scorre dentro.
-            mode="wait": esce il vecchio, poi entra il nuovo (mai due pop-up insieme). */}
-        <AnimatePresence mode="wait">
-          {active && (
-            <motion.div
-              key={active.id}
-              ref={(el: HTMLDivElement | null) => {
-                popupRef.current = el;
-                // il pop-up nuovo entra dopo l'uscita del vecchio: il focus va dato quando esiste
-                if (el && focusOnOpenRef.current) {
-                  focusOnOpenRef.current = false;
-                  el.focus({ preventScroll: true });
-                }
-              }}
-              role="dialog"
-              aria-label={active.name}
-              tabIndex={-1}
-              initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: reduceMotion ? 1 : 0.98 }}
-              transition={{ duration: reduceMotion ? 0 : 0.22, ease: "easeOut" }}
-              className="absolute z-[300] left-1/2 top-1/2 w-[min(28rem,90%)] max-h-[440px] overflow-y-auto rounded-xl p-6 bg-[var(--background)]/95 backdrop-blur-sm border border-[var(--color-border-default)] shadow-2xl outline-none"
-              style={{ x: "-50%", y: "-50%" }}
+              data-active="0"
+              className="group absolute left-0 top-0 flex flex-col items-center will-change-transform"
             >
               <button
                 type="button"
-                onClick={closePopup}
-                aria-label={close}
-                className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center text-[var(--color-text-inverse)] hover:bg-[var(--color-surface-interactive-default)] hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-border-interactive)]"
+                tabIndex={-1}
+                title={t.name}
+                onClick={() => show(i)}
+                className="rounded-full cursor-pointer transition-transform duration-200 hover:scale-110 motion-reduce:transition-none"
               >
-                <X size={18} aria-hidden="true" />
+                <Avatar name={t.name} image={t.image} size={40} />
               </button>
-              <div className="flex items-center gap-4 mb-5 pr-8">
-                <Avatar name={active.name} image={active.image} size={64} />
-                <div>
-                  <p className="type-work text-xl text-[var(--color-text-inverse)]">{active.name}</p>
-                  <p className="text-sm text-[var(--color-text-tertiary)]">{active.role}</p>
+              <span className="type-label mt-1.5 text-[10px] whitespace-nowrap text-[var(--color-text-inverse)] bg-[var(--background)] px-1 opacity-0 transition-opacity duration-300 group-data-[active=1]:opacity-100">
+                {t.name}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Citazione: altezza fissa, il testo completo scorre dentro */}
+        <div
+          className="col-span-6 flex flex-col"
+          style={{ height: SPHERE_H }}
+          onPointerEnter={() => setHold(true)}
+          onPointerLeave={() => setHold(false)}
+          onFocus={() => setHold(true)}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setHold(false);
+          }}
+        >
+          <div className="flex-1 min-h-0 overflow-y-auto pr-2 flex flex-col">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.figure
+                key={active.id}
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeOut" }}
+                // my-auto centra senza tagliare l'inizio quando il testo completo scorre
+                className="my-auto"
+              >
+                <div className="flex items-center gap-4 mb-5">
+                  <Avatar name={active.name} image={active.image} size={56} />
+                  <figcaption>
+                    <p className="type-work text-xl text-[var(--color-text-inverse)]">{active.name}</p>
+                    <p className="text-sm text-[var(--color-text-tertiary)]">{active.role}</p>
+                  </figcaption>
                 </div>
-              </div>
-              <Recommendation t={active} readFull={readFull} seeOnLinkedIn={seeOnLinkedIn} linkedInUrl={linkedInUrl} />
-            </motion.div>
-          )}
-        </AnimatePresence>
+                <Recommendation
+                  t={active}
+                  readFull={readFull}
+                  seeOnLinkedIn={seeOnLinkedIn}
+                  linkedInUrl={linkedInUrl}
+                  onToggle={setDetailsOpen}
+                  large
+                />
+              </motion.figure>
+            </AnimatePresence>
+          </div>
+
+          {/* Pallini (una persona ciascuno) e pausa */}
+          <div className="pt-5 flex items-center gap-1">
+            {people.map((t, i) => (
+              <button
+                key={t.id}
+                type="button"
+                aria-label={`${showQuoteFrom} ${t.name}`}
+                aria-current={i === activeIndex ? "true" : undefined}
+                onClick={() => show(i)}
+                className="group w-6 h-6 flex items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-[var(--color-border-interactive)]"
+              >
+                <span
+                  className={`block rounded-full transition-all duration-300 motion-reduce:transition-none ${
+                    i === activeIndex
+                      ? "w-5 h-2 bg-[var(--color-surface-interactive-default)]"
+                      : "w-2 h-2 bg-[var(--color-ink)]/25 group-hover:bg-[var(--color-ink)]/50"
+                  }`}
+                />
+              </button>
+            ))}
+            {!reduceMotion && (
+              <button
+                type="button"
+                onClick={() => setPaused((p) => !p)}
+                aria-label={paused ? play : pause}
+                className="ml-2 w-8 h-8 flex items-center justify-center rounded-full text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] focus-visible:outline-2 focus-visible:outline-[var(--color-border-interactive)]"
+              >
+                {paused ? <Play size={14} aria-hidden="true" /> : <Pause size={14} aria-hidden="true" />}
+              </button>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Lista: solo sotto 768px */}

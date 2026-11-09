@@ -53,7 +53,10 @@ export const home = {
     readFull: "Read full recommendation",
     seeOnLinkedIn: "See on LinkedIn",
     linkedInUrl: "https://www.linkedin.com/in/giacomobianchi00/details/recommendations/",
-    close: "Close",
+    // Controlli della citazione che cambia da sola (desktop)
+    pause: "Pause rotating quotes",
+    play: "Play rotating quotes",
+    showQuoteFrom: "Show recommendation from",
     items: [
       {
         id: "antonella",
