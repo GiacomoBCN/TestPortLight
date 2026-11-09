@@ -5,7 +5,7 @@ import { Pause, Play } from "lucide-react";
 import { getImagePath } from "@/utils/image";
 
 /**
- * Testimonianze (da 768px): sfera di punti e linee sempre in movimento a sinistra,
+ * Testimonianze (da 768px): sfera di punti e linee azzurre sempre in movimento a sinistra,
  * citazione sempre leggibile a destra. Canvas 2D fatto a mano, nessuna libreria.
  *  - la sfera (circa meta' schermo) ruota su due assi e non si ferma mai; col mouse sopra i punti
  *    vicini si scostano e tornano (come le bande laterali) e la rotazione prende una spinta;
@@ -47,7 +47,7 @@ const YAW_SPEED = 0.0045; // rotazione di base attorno all'asse verticale, radia
 const PITCH_SPEED = 0.0013; // rotazione di base attorno all'asse orizzontale
 const PUSH_RADIUS = 100; // px: raggio d'influenza del mouse sui punti
 const PUSH_MAX = 12; // px: spostamento massimo del punto piu' vicino al mouse
-const INK = "17, 20, 24"; // --foreground #111418
+const BLUE = "13, 153, 255"; // #0D99FF, lo stesso azzurro delle cornici (--sf-line-color)
 const ORANGE = "242, 140, 40"; // --primitive-orange-500 #F28C28
 
 type V3 = [number, number, number];
@@ -351,7 +351,7 @@ export default function TestimonialSphere({
           ctx!.strokeStyle = `rgba(${ORANGE}, ${0.35 + depth * 0.6})`;
           ctx!.lineWidth = 0.9;
         } else {
-          ctx!.strokeStyle = `rgba(${INK}, ${0.05 + depth * 0.3})`;
+          ctx!.strokeStyle = `rgba(${BLUE}, ${0.08 + depth * 0.4})`;
           ctx!.lineWidth = 0.6;
         }
         ctx!.beginPath();
@@ -362,7 +362,7 @@ export default function TestimonialSphere({
       for (let i = 0; i < personStart; i++) {
         const p = pr[i];
         const depth = (p.z + 1) / 2;
-        ctx!.fillStyle = `rgba(${INK}, ${0.15 + depth * 0.55})`;
+        ctx!.fillStyle = `rgba(${BLUE}, ${0.2 + depth * 0.6})`;
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, 1 + depth * 1.2, 0, Math.PI * 2);
         ctx!.fill();
