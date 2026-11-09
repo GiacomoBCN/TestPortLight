@@ -10,6 +10,7 @@ import SectionHeader from "../components/portfolio/SectionHeader";
 import SectionNumber from "../components/casestudy/SectionNumber";
 import ProjectCard from "../components/portfolio/ProjectCard";
 import TestimonialSphere from "../components/TestimonialSphere";
+import CopyEmailLink from "../components/CopyEmailLink";
 import { home } from "@/content/home";
 
 const { hero, featuredWork, about, testimonials, cta } = home;
@@ -247,21 +248,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chiusura: titolo, bottone email e due link testuali */}
+      {/* Chiusura: titolo e tre bottoni sulla stessa riga (su mobile uno sotto l'altro, come nell'hero).
+          "Let's talk" e' lo stesso componente di Contact: apre la posta e copia l'indirizzo ("Email copied"). */}
       <section className="py-24 px-6">
-        <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
-          <h2 className="type-section-title text-[var(--color-text-inverse)] mb-8">{cta.title}</h2>
-          <a
-            href={`mailto:${cta.email}`}
-            className="inline-block px-7 py-3.5 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105"
-          >
-            {cta.button}
-          </a>
-          <div className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-3">
-            <Link href={createPageUrl("ProductWork")} className="font-medium text-[var(--color-text-link-default)] link-underline">
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+          <h2 className="type-section-title text-[var(--color-text-inverse)] mb-10">{cta.title}</h2>
+          <div className="w-full sm:w-auto flex flex-col sm:flex-row gap-4 justify-center">
+            <CopyEmailLink className="px-8 py-4 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105">
+              {cta.button}
+            </CopyEmailLink>
+            <Link href={createPageUrl("ProductWork")} className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold hover:bg-[var(--color-surface-interactive-hover)] active:bg-[var(--color-surface-interactive-hover)] active:text-[var(--color-text-inverse)] active:border-[var(--color-border-interactive)] hover:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105">
               {cta.productWork}
             </Link>
-            <Link href={createPageUrl("Teaching")} className="font-medium text-[var(--color-text-link-default)] link-underline">
+            <Link href={createPageUrl("Teaching")} className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold hover:bg-[var(--color-surface-interactive-hover)] active:bg-[var(--color-surface-interactive-hover)] active:text-[var(--color-text-inverse)] active:border-[var(--color-border-interactive)] hover:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105">
               {cta.teaching}
             </Link>
           </div>

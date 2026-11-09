@@ -111,11 +111,10 @@ export const home = {
     ],
   },
 
-  // Chiusura della home: un blocco centrato con titolo, bottone email e due link testuali
+  // Chiusura della home: titolo e tre bottoni (Let's talk copia l'email come Contact)
   cta: {
     title: "Building your product or scaling your design system?",
     button: "Let's talk",
-    email: "consulting@giacomobianchi.tech",
     productWork: "Product work",
     teaching: "Teaching & research",
   },
