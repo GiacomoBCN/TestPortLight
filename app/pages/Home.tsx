@@ -11,6 +11,7 @@ import {
 
 import { motion, useReducedMotion } from "framer-motion";
 import SectionHeader from "../components/portfolio/SectionHeader";
+import SectionNumber from "../components/casestudy/SectionNumber";
 import ProjectCard from "../components/portfolio/ProjectCard";
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import SketchFrame from "../components/SketchFrame";
@@ -216,9 +217,7 @@ export default function Home() {
                 <ol className="space-y-3">
                   {about.rules.map((rule, i) => (
                     <li key={i} className="flex items-baseline gap-4 text-lg text-[var(--color-text-primary)] leading-relaxed">
-                      <span className="type-label text-sm text-[var(--color-text-inverse)]" aria-hidden="true">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                      <SectionNumber n={i + 1} size="sm" />
                       <span>{rule}</span>
                     </li>
                   ))}
