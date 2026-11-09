@@ -26,6 +26,7 @@ export interface Testimonial {
   id: string;
   name: string;
   role: string;
+  group?: string; // stesso gruppo = collegati da archi sulla sfera
   image?: string;
   quote: string;
   text: string;
@@ -80,9 +81,11 @@ interface Geometry {
   tips: V3[]; // estremi dei raggi (senza puntino)
   edges: [number, number][]; // indici su all = points ++ tips
   personEdges: number[][]; // per ogni persona, gli indici dei suoi raggi in edges
+  groupEdges: Set<number>; // archi tra persone dello stesso gruppo (disegnati piu' marcati)
 }
 
-function buildGeometry(personCount: number): Geometry {
+function buildGeometry(groups: (string | undefined)[]): Geometry {
+  const personCount = groups.length;
   const r = rng(7);
   const N = 220;
   const points: V3[] = [];
@@ -142,7 +145,37 @@ function buildGeometry(personCount: number): Geometry {
       personEdges[p].push(edges.length - 1);
     }
   });
-  return { points, tips, edges, personEdges };
+  // Archi tra le persone dello stesso gruppo: seguono la superficie della sfera.
+  // Ogni arco appartiene a entrambe le persone, cosi' si accende con l'una o con l'altra.
+  const ARC_STEPS = 16;
+  const groupEdges = new Set<number>();
+  for (let a = 0; a < personCount; a++) {
+    for (let b = a + 1; b < personCount; b++) {
+      if (!groups[a] || groups[a] !== groups[b]) continue;
+      const pa = points[personIdx[a]];
+      const pb = points[personIdx[b]];
+      let prev = personIdx[a];
+      for (let k = 1; k <= ARC_STEPS; k++) {
+        const t = k / ARC_STEPS;
+        let next: number;
+        if (k === ARC_STEPS) {
+          next = personIdx[b];
+        } else {
+          // interpolazione normalizzata sulla sfera, un po' sollevata a meta' arco
+          const lift = 1 + 0.08 * Math.sin(Math.PI * t);
+          const v = norm([pa[0] + (pb[0] - pa[0]) * t, pa[1] + (pb[1] - pa[1]) * t, pa[2] + (pb[2] - pa[2]) * t]);
+          tips.push([v[0] * lift, v[1] * lift, v[2] * lift]);
+          next = tipIndex();
+        }
+        edges.push([prev, next]);
+        groupEdges.add(edges.length - 1);
+        personEdges[a].push(edges.length - 1);
+        personEdges[b].push(edges.length - 1);
+        prev = next;
+      }
+    }
+  }
+  return { points, tips, edges, personEdges, groupEdges };
 }
 
 // ---------- Componenti di contenuto ----------
@@ -279,7 +312,7 @@ export default function TestimonialSphere({
     if (!wrap || !canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    if (!geoRef.current) geoRef.current = buildGeometry(people.length);
+    if (!geoRef.current) geoRef.current = buildGeometry(people.map((p) => p.group));
     const geo = geoRef.current;
     const all = [...geo.points, ...geo.tips];
     const personStart = geo.points.length - people.length;
@@ -347,7 +380,11 @@ export default function TestimonialSphere({
         const p = pr[i];
         const q = pr[j];
         const depth = ((p.z + q.z) / 2 + 1) / 2; // 0 dietro, 1 davanti
-        if (activeSet.has(k)) {
+        if (activeSet.has(k) && geo.groupEdges.has(k)) {
+          // collegamento con le persone dello stesso gruppo: piu' marcato, visibile anche sul retro
+          ctx!.strokeStyle = `rgba(${ORANGE}, ${0.55 + depth * 0.45})`;
+          ctx!.lineWidth = 2;
+        } else if (activeSet.has(k)) {
           ctx!.strokeStyle = `rgba(${ORANGE}, ${0.35 + depth * 0.6})`;
           ctx!.lineWidth = 0.9;
         } else {

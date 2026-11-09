@@ -48,6 +48,7 @@ export const home = {
   // Testimonianze: sfera animata (da 768px) e lista (sotto 768px). Testi parola per parola.
   // quote = frase scelta; text = raccomandazione completa (un paragrafo per riga, separati da "\n").
   // image: percorso sotto public/; se manca, il cerchio mostra le iniziali.
+  // group: chi ha lo stesso gruppo e' collegato sulla sfera da archi (arancioni quando uno di loro e' evidenziato).
   testimonials: {
     title: "What Colleagues Say",
     readFull: "Read full recommendation",
@@ -60,6 +61,7 @@ export const home = {
     items: [
       {
         id: "antonella",
+        group: "dowjones",
         name: "Antonella Sassu",
         role: "Senior Design Manager • Dow Jones",
         image: "images/profile/1756901959970.webp",
@@ -69,6 +71,7 @@ export const home = {
       },
       {
         id: "oana",
+        group: "dowjones",
         name: "Oana Stroe",
         role: "Product Design Lead • UX Mentor",
         image: "images/profile/1710886367232.webp",
@@ -78,6 +81,7 @@ export const home = {
       },
       {
         id: "frank",
+        group: "eae",
         name: "Frank Longo",
         role: "Higher Education Leader • University",
         image: "images/profile/1685965339196.webp",
@@ -86,6 +90,7 @@ export const home = {
       },
       {
         id: "ismael",
+        group: "eae",
         name: "Ismael Ruiz Gutierrez",
         role: "Marketing Manager • Former Student",
         image: "images/profile/1685897244209.webp",
@@ -95,6 +100,7 @@ export const home = {
       },
       {
         id: "sergio",
+        group: "dowjones",
         name: "Sergio D’Argenio",
         role: "Data Analyst • Tech Company",
         image: "images/profile/1517687171761.webp",
