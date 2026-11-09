@@ -10,7 +10,7 @@ import SectionHeader from "../components/portfolio/SectionHeader";
 import SectionNumber from "../components/casestudy/SectionNumber";
 import ProjectCard from "../components/portfolio/ProjectCard";
 import TestimonialSphere from "../components/TestimonialSphere";
-import CopyEmailLink, { CONTACT_EMAIL } from "../components/CopyEmailLink";
+import CopyEmailLink from "../components/CopyEmailLink";
 import SketchFrame from "../components/SketchFrame";
 import { home } from "@/content/home";
 
@@ -249,18 +249,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chiusura: una banda con il titolo a sinistra e, a destra, "Let's talk" con l'email sotto.
+      {/* Chiusura: una banda con il titolo a sinistra e "Let's talk" a destra.
           "Let's talk" e' lo stesso componente di Contact: apre la posta e copia l'indirizzo ("Email copied").
           Su mobile titolo, bottone ed email uno sotto l'altro, allineati a sinistra. */}
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto glass sketch rounded-2xl p-8 md:p-12 relative flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <SketchFrame />
           <h2 className="type-section-title text-[var(--color-text-inverse)] md:max-w-xl">{cta.title}</h2>
-          <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
+          <div className="shrink-0">
             <CopyEmailLink className="px-8 py-4 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105">
               {cta.button}
             </CopyEmailLink>
-            <span className="text-sm text-[var(--color-text-tertiary)] select-all">{CONTACT_EMAIL}</span>
           </div>
         </div>
       </section>
