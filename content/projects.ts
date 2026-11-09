@@ -155,7 +155,7 @@ export const projects = {
       title: "Dow Jones Design System",
       subtitle: "Lead Design Technologist | Design System Product Owner",
       description:
-        "I co-led design system adoption across 8 brands at Dow Jones, from The Wall Street Journal to Factiva (B2C & B2B). We unified teams, reduced component complexity by 20%, and boosted productivity by 30%.",
+        "I co-led the design system behind 8 brands at Dow Jones, from The Wall Street Journal to Factiva (B2C & B2B). I reorganized the library to cut component complexity by 20%, and redesigned how design and engineering reviewed components to cut back-and-forth by 30%.",
       tags: [
         "Leadership",
         "AI-Enhanced",
