@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import {
@@ -215,7 +216,23 @@ export default function DowJones() {
         </div>
       </section>
 
-      {/* Chiusura: stesso blocco delle altre pagine; il sistema Dow Jones non e' pubblico, quindi solo il contatto */}
+      {/* Il sistema in produzione sui brand */}
+      <section className="px-6">
+        <figure className="max-w-5xl mx-auto md:pl-24">
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+            <Image
+              src={getImagePath(dowJones.closingImage.file)}
+              alt={dowJones.closingImage.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 900px"
+              className="object-contain"
+            />
+          </div>
+          <figcaption className="text-sm text-gray-400 mt-3 text-center">{dowJones.closingImage.caption}</figcaption>
+        </figure>
+      </section>
+
+      {/* Chiusura: stesso blocco delle altre pagine; il sistema Dow Jones non e' pubblico, quindi niente demo */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <GlassCard>
@@ -226,6 +243,12 @@ export default function DowJones() {
                 <CopyEmailLink className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all">
                   {dowJones.cta.talk}
                 </CopyEmailLink>
+                <Link
+                  href={createPageUrl("ProductWork")}
+                  className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
+                >
+                  {dowJones.cta.allProjects}
+                </Link>
               </div>
             </div>
           </GlassCard>

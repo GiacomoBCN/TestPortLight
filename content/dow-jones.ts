@@ -236,10 +236,18 @@ export const dowJones = {
     ],
   },
 
-  // Chiusura: il sistema non e' pubblico, quindi solo il bottone di contatto
+  // Immagine prima della chiusura (la stessa dell'introduzione), con didascalia
+  closingImage: {
+    file: "images/projects/brand-ds.webp",
+    alt: "Design system deployed across WSJ, Barron's, Factiva, and MarketWatch on multiple devices",
+    caption: "The system in production across B2B & B2C brands and 3 platforms",
+  },
+
+  // Chiusura: il sistema non e' pubblico, quindi niente demo; contatto e tutti i progetti
   cta: {
     title: "Talk about the system",
     text: "The system is internal to Dow Jones, so there is no public link. I’m happy to walk you through the architecture, the review process and the decisions behind them.",
     talk: shell.caseStudy.letsTalk,
+    allProjects: shell.caseStudy.allProjects,
   },
 };
