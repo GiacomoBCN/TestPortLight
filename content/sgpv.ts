@@ -204,7 +204,7 @@ export const sgpv = {
     solution: {
       title: "The AI Solution",
       description:
-        "I designed a new workflow enabling one-tap capture through image recognition. Users simply photograph shelf labels, barcodes, or displays; the AI automatically identifies products, prices, quantities, and placement details — removing the need for manual entry.",
+        "I designed a new workflow enabling one-tap capture through image recognition. Users simply photograph shelf labels, barcodes, or displays; the AI automatically identifies products, prices, quantities, and placement details, removing the need for manual entry.",
       bulletPoints: [
         { label: "One-tap capture", text: "Reduced data entry time by 25% through photo-based input" },
         { label: "Error reduction", text: "Automated extraction eliminated transcription mistakes" },
@@ -317,7 +317,7 @@ export const sgpv = {
   learnings: {
     number: "06",
     title: "Key Learnings",
-    intro: "Scaling SGPV taught us that sustainable impact comes from structure, empathy, and clarity—not just code.",
+    intro: "Scaling SGPV taught us that sustainable impact comes from structure, empathy, and clarity, not just code.",
     items: [
       {
         title: "1. Governance Beats Heroics",
@@ -340,7 +340,7 @@ export const sgpv = {
 
   cta: {
     title: shell.caseStudy.moreWorkTitle,
-    text: "This project shows how I lead multi-client product evolution—turning research insights and governance into scalable design systems.",
+    text: "This project shows how I lead multi-client product evolution, turning research insights and governance into scalable design systems.",
     allProjects: shell.caseStudy.allProjects,
     talk: shell.caseStudy.letsTalk,
   },

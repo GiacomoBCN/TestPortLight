@@ -301,8 +301,8 @@ export const vod = {
       },
       structure: {
         category: "Structure",
-        old: "1️⃣ **Top icon belt** — horizontal row (Home, Games, Learning, Shop…)\n2️⃣ **Second horizontal tab row** — (Live TV, VOD, Catch-up, TV Guide)\n3️⃣ **Content rows** — horizontal carousels of shows/movies",
-        new: "1️⃣ **Vertical rail (left)** — primary sections (Watch, Play, Learn, Shop…)\n2️⃣ **Top horizontal tabs** — filter within the section (Live TV, VOD, Catch-up…)",
+        old: "1️⃣ **Top icon belt**: horizontal row (Home, Games, Learning, Shop…)\n2️⃣ **Second horizontal tab row**: Live TV, VOD, Catch-up, TV Guide\n3️⃣ **Content rows**: horizontal carousels of shows/movies",
+        new: "1️⃣ **Vertical rail (left)**: primary sections (Watch, Play, Learn, Shop…)\n2️⃣ **Top horizontal tabs**: filter within the section (Live TV, VOD, Catch-up…)",
       },
       movement: {
         category: "Movement",
@@ -334,14 +334,14 @@ export const vod = {
         title: "Structure",
         oldLabel: "🟥 OLD (3-Axis)",
         old: [
-          "1️⃣ **Top icon belt** — horizontal row (Home, Games, Learning, Shop…)",
-          "2️⃣ **Second horizontal tab row** — (Live TV, VOD, Catch-up, TV Guide)",
-          "3️⃣ **Content rows** — horizontal carousels of shows/movies",
+          "1️⃣ **Top icon belt**: horizontal row (Home, Games, Learning, Shop…)",
+          "2️⃣ **Second horizontal tab row**: Live TV, VOD, Catch-up, TV Guide",
+          "3️⃣ **Content rows**: horizontal carousels of shows/movies",
         ],
         newLabel: "🟦 NEW (2-Axis)",
         new: [
-          "1️⃣ **Vertical rail (left)** — primary sections (Watch, Play, Learn, Shop…)",
-          "2️⃣ **Top horizontal tabs** — filter within the section (Live TV, VOD, Catch-up…)",
+          "1️⃣ **Vertical rail (left)**: primary sections (Watch, Play, Learn, Shop…)",
+          "2️⃣ **Top horizontal tabs**: filter within the section (Live TV, VOD, Catch-up…)",
         ],
       },
       movement: {

@@ -14,7 +14,7 @@ export const tuPlanRedondo = {
     paragraphs: [
       "A McDonald’s franchise needed to replace its manual evaluation forms with a centralized digital solution.",
       "While working at XpuntoCero, I led the project from user research to interface design and front-end development, delivering a lightweight Progressive Web App (PWA) that runs on any device without installation.",
-      "The app streamlined how supervisors evaluated team performance, synced results in real time, and gave management a live dashboard to track data across locations — all at a fraction of the cost of a native app.",
+      "The app streamlined how supervisors evaluated team performance, synced results in real time, and gave management a live dashboard to track data across locations, all at a fraction of the cost of a native app.",
     ],
   },
 
