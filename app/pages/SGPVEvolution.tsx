@@ -202,7 +202,7 @@ export default function SGPVEvolution() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {achievements.map((achievement, index) => (
               <GlassCard key={index}>
-                <div className="flex flex-col items-center text-center p-6">
+                <div className="flex flex-col items-center text-center">
                   <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
                     <achievement.icon className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                   </div>

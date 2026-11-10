@@ -203,7 +203,7 @@ export default function TuPlanRedondo() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <GlassCard>
-              <div className="flex flex-col items-center text-center p-6">
+              <div className="flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
                   <Zap className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                 </div>
@@ -218,7 +218,7 @@ export default function TuPlanRedondo() {
             </GlassCard>
 
             <GlassCard>
-              <div className="flex flex-col items-center text-center p-6">
+              <div className="flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
                   <SmilePlus className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                 </div>
@@ -233,7 +233,7 @@ export default function TuPlanRedondo() {
             </GlassCard>
 
             <GlassCard>
-              <div className="flex flex-col items-center text-center p-6">
+              <div className="flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
                   <CircleDollarSign className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                 </div>
@@ -248,7 +248,7 @@ export default function TuPlanRedondo() {
             </GlassCard>
 
             <GlassCard>
-              <div className="flex flex-col items-center text-center p-6">
+              <div className="flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
                   <BarChart3 className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                 </div>
