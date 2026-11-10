@@ -137,6 +137,8 @@ export const designSystem = {
       { id: "linkedin", label: "LinkedIn", glyph: "in" },
       { id: "instagram", label: "Instagram", glyph: "IG" },
       { id: "article", label: "Article", glyph: "Aa" },
+      // PDF: per StayKeel e' un articolo, quindi usa lo scope (i colori) di Article; cambia solo il simbolo
+      { id: "pdf", label: "PDF", glyph: "pdf", scope: "article" },
       { id: "github", label: "GitHub", glyph: "GH" },
       { id: "unknown", label: "Unknown source", glyph: "?" },
     ],

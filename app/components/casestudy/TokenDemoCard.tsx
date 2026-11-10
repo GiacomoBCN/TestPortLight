@@ -39,6 +39,9 @@ const FACES = [Laugh, Smile, Meh, Frown];
 export default function TokenDemoCard() {
   const [sourceId, setSourceId] = React.useState<string>(demo.sources[0].id);
   const source = demo.sources.find((s) => s.id === sourceId) ?? demo.sources[0];
+  // Una fonte puo' usare lo scope di un'altra (PDF usa i colori di Article): colori e tabella seguono lo scope
+  const scopeId = "scope" in source && source.scope ? source.scope : source.id;
+  const scopeSource = demo.sources.find((s) => s.id === scopeId) ?? source;
 
   // Valori risolti dal vivo: ogni token e' applicato a una sonda nascosta (senza transizione)
   // e il colore calcolato viene letto con getComputedStyle.
@@ -51,7 +54,7 @@ export default function TokenDemoCard() {
   }, [sourceId]);
 
   return (
-    <div className={styles.root} data-source={source.id}>
+    <div className={styles.root} data-source={scopeId}>
       {/* Chip delle fonti */}
       <div role="group" aria-label={demo.chipsLabel} className="flex flex-wrap gap-2 mb-6">
         {demo.sources.map((s) => {
@@ -123,13 +126,13 @@ export default function TokenDemoCard() {
         <div>
           {/* Su mobile la tabella diventa un elenco: nome del token sopra, valore sotto */}
           <p className="sm:hidden text-sm font-semibold text-ink-900 pb-2 border-b border-ink-900/10">
-            {demo.table.valueHeader(source.label)}
+            {demo.table.valueHeader(scopeSource.label)}
           </p>
           <table className="block sm:table w-full text-left text-sm">
             <thead className="hidden sm:table-header-group">
               <tr className="border-b border-ink-900/10">
                 <th scope="col" className="pb-3 pr-4 font-semibold text-ink-900">{demo.table.tokenHeader}</th>
-                <th scope="col" className="pb-3 font-semibold text-ink-900">{demo.table.valueHeader(source.label)}</th>
+                <th scope="col" className="pb-3 font-semibold text-ink-900">{demo.table.valueHeader(scopeSource.label)}</th>
               </tr>
             </thead>
             <tbody className="block sm:table-row-group" aria-live="polite">
