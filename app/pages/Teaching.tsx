@@ -79,7 +79,8 @@ export default function Teaching() {
         <div className="max-w-7xl mx-auto">
           <SectionHeader title={teaching.courses.title} subtitle={teaching.courses.subtitle} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Tre corsi sulla stessa riga da 1024px; sotto, uno sotto l'altro (mai una card da sola) */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {courses.map((course, index) => (
               <GlassCard key={index} delay={index * 0.1}>
                 <div className="mb-4">
