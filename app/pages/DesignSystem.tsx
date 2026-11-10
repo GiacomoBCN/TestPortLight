@@ -104,6 +104,10 @@ export default function DesignSystemCaseStudy({
             {designSystem.hero.subtitle}
           </p>
 
+          <p className="text-lg text-gray-400 mb-4">
+            {designSystem.hero.tagline}
+          </p>
+
           <p className="text-xl text-gray-300 mb-8">
             <RichText
               text={designSystem.hero.description}

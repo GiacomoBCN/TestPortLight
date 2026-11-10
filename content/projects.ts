@@ -50,7 +50,7 @@ export const projects = {
       breadcrumb: "Home > Product Work > AI product, end to end",
       category: "AI PRODUCT · RESEARCH · DESIGN SYSTEM · DEPLOY",
       title: "AI product, end to end",
-      subtitle: "Founder & Product Builder",
+      subtitle: "Founder · Product Builder",
       description:
         "[StayKeel](https://staykeel.com) turns any link into a structured summary and lets you ask questions across everything you saved, in any language. I did the research, chose the models by measurement, designed the system and the interface, and run it in production.",
       tags: ["AI Product", "RAG", "Model Evaluation", "Product Research", "Design Tokens", "PWA", "Multilingual"],
@@ -98,7 +98,9 @@ export const projects = {
       breadcrumb: "Home > Product Work > A design system sized to its product",
       category: "DESIGN SYSTEM · DESIGN TOKENS · FIGMA ↔ CODE",
       title: "A design system sized to its product",
-      subtitle: "Only what the product uses, and the reasons for not building more · Design Technologist, solo",
+      subtitle: "Founder · Design Engineer",
+      // Riga sua, sotto il ruolo (solo nella pagina /design-system/)
+      tagline: "Only what the product uses, and the reasons for not building more",
       description:
         "After co-leading a design system for eight brands at Dow Jones, I built one for a single product, [StayKeel](https://staykeel.com). The rules are the same. The question was how many of them one product actually needs.",
       tags: ["Design System", "Design Tokens", "Atomic Design", "Component Library", "CSS Custom Properties", "Figma Variables", "Theming", "Accessibility"],
@@ -153,7 +155,7 @@ export const projects = {
       breadcrumb: "Home > Product Work > Dow Jones Design System",
       category: "DESIGN SYSTEMS · PRODUCT OWNERSHIP · ENTERPRISE",
       title: "Dow Jones Design System",
-      subtitle: "Lead Design Technologist | Design System Product Owner",
+      subtitle: "Lead Design Technologist · Design System Product Owner",
       description:
         "I co-led the design system behind 8 brands at Dow Jones, from The Wall Street Journal to Factiva (B2C & B2B). I reorganized the library to cut component complexity by 20%, and redesigned how design and engineering reviewed components to cut back-and-forth by 30%.",
       tags: [
@@ -217,7 +219,7 @@ export const projects = {
       breadcrumb: "Home > Product Work > Falak AI Assistant",
       category: "AI INTERACTION DESIGN · TRUST & ACCOUNTABILITY · BANKING",
       title: "Falak: trust is earned, not displayed",
-      subtitle: "Concept, Research & Coded Prototype",
+      subtitle: "Product Designer · Research & Coded Prototype",
       // Riassunto in tre righe sotto il sottotitolo; **...** = etichetta in grassetto
       summary: [
         "**Role:** Concept, research, interaction design and Flutter build (with Claude Code).",
