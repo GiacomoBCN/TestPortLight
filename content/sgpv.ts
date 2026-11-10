@@ -16,7 +16,7 @@ export const sgpv = {
     title: "From Client Forks to a Unified, Scalable Platform",
     paragraphs: [
       "SGPV is a field operations app used by merchandisers and sales representatives from 15 leading FMCG companies, including national and international brands across Spain, Portugal, and Italy. These field teams visit retail locations to audit shelf placement, negotiate product visibility, track promotional compliance, and secure better in-store positioning.",
-      "Over time, versions 5 and 6 had split into multiple client-specific forks to meet unique branding and workflow needs. This fragmentation increased maintenance costs and created inconsistent user experiences. I led an 18-month effort to modernize and consolidate SGPV while maintaining uninterrupted service for all 15 active clients.",
+      "Over time, versions 5 and 6 had split into multiple client-specific forks to meet unique branding and workflow needs. This fragmentation increased maintenance costs and created inconsistent user experiences. I worked for 18 months on modernizing and consolidating SGPV while maintaining uninterrupted service for all 15 active clients.",
       "Phase 1 introduced a responsive redesign and centralized assets, restoring delivery speed and removing the tablet-only limitation.\nPhase 2 unified all clients under a single Flutter app and redesigned critical workflows such as AI-based photo data capture, which reduced task time and improved user satisfaction.",
     ],
   },
@@ -28,7 +28,7 @@ export const sgpv = {
 
   role: {
     title: "My Role",
-    summary: "Product Designer · UX Lead · Front-End Developer",
+    summary: "Product Designer & Front-End Developer",
     paragraphs: [
       "Led research, UX strategy, and product consolidation.",
       "Defined responsive patterns, unified assets, and collaborated on the Flutter rebuild to enable a single scalable app.",
@@ -172,7 +172,7 @@ export const sgpv = {
         },
         {
           phase: "Validate",
-          methods: "10 usability tests",
+          methods: "10+ usability tests, in several rounds",
           purpose: "Verify task time reductions and error rate improvements",
           outputs: "Task completion benchmarks, issue log, refinements",
         },
@@ -340,7 +340,7 @@ export const sgpv = {
 
   cta: {
     title: shell.caseStudy.moreWorkTitle,
-    text: "This project shows how I lead multi-client product evolution, turning research insights and governance into scalable design systems.",
+    text: "This project shows how I take a product from user research to a shipped app, for 15 clients at once.",
     allProjects: shell.caseStudy.allProjects,
     talk: shell.caseStudy.letsTalk,
   },

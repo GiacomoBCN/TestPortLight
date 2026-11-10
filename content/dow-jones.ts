@@ -17,7 +17,7 @@ export const dowJones = {
     title: "Eight brands, one system, adopted by choice",
     paragraphs: [
       "Dow Jones operates multiple B2B and B2C brands including The Wall Street Journal, Barron's, MarketWatch and Factiva (B2B), with more in the pipeline (B2C and B2B). Each brand had evolved independently with its own design team, which drove rapid innovation and brand-specific optimization. As the company scaled, the opportunity emerged to unify these learnings into a shared foundation while preserving each brand's unique identity.",
-      "As Lead Design Technologist and Product Owner for the design system, I co-owned the product roadmap with design and engineering leadership. The challenge was establishing governance that 8 autonomous brands would embrace, not as a constraint, but as an accelerator.",
+      "As Lead Design Technologist and Product Owner for the design system, I co-owned the product roadmap with design and engineering leadership. The challenge was a governance model that 8 autonomous brands would adopt by choice.",
       "We succeeded by reorganizing the architecture (20% less complexity), streamlining workflows (30% less back-and-forth between design and engineering), and embedding accessibility (WCAG 2.2) from day one. Today, the system powers 200K+ component instances used by 60+ designers and 120+ stakeholders across web, iOS, and Android.",
     ],
   },
@@ -29,13 +29,21 @@ export const dowJones = {
 
   role: {
     title: "My Role",
-    summary: "Lead Design Technologist",
-    items: [
-      "Product roadmap co-ownership",
-      "Design system governance",
-      "Component architecture",
-      "Stakeholder alignment & conflict resolution",
-      "Bridge between design vision and technical implementation",
+    summary: "Lead Design Technologist, one of two.",
+    // label in grassetto, poi il testo
+    groups: [
+      {
+        label: "Owned:",
+        text: "the review and handoff process between design and engineering. The final quality check on every project using the system, from PRD to QA. The reorganization of the library across Figma, repositories and Storybook.",
+      },
+      {
+        label: "Co-led:",
+        text: "governance and adoption across 8 brands. Roadmap and backlog, with design and engineering leadership.",
+      },
+      {
+        label: "Contributed to:",
+        text: "the token architecture, led by Kevin Muldoon. The move to Style Dictionary, built with the engineers.",
+      },
     ],
   },
 
@@ -132,17 +140,9 @@ export const dowJones = {
         title: "Accessibility in UAT",
         paragraphs: [
           "The system was built to WCAG 2.2, the EU and U.S. standard. The accessibility lead reviewed every new or changed component in UAT, and nothing reached the production library without that sign-off.",
+          "Semantic markup and keyboard behaviour were written as component requirements, not left to an audit. I was the final check from PRD to QA, and no project closed with an open gap in UX, design or accessibility deliverables.",
         ],
-        lists: [
-          {
-            label: "How we validated:",
-            items: [
-              "Collaborated with the accessibility lead on validation strategy and testing protocols",
-              "Facilitated alignment between design, engineering, and accessibility teams on component compliance",
-              "Improved workflows for accessibility review and design acceptance",
-            ],
-          },
-        ],
+        lists: [],
       },
       {
         title: "Cross-functional partnership",
@@ -153,7 +153,7 @@ export const dowJones = {
           {
             label: "What this looked like:",
             items: [
-              "Collaborated with analytics teams using Google Analytics and internal dashboards to inform product improvements and support data-driven prioritization",
+              "Used internal dashboards to track how the system was used, and turned that into roadmap priorities",
               "Ran 15-minute online coffee chats with stakeholders and their managers to understand their constraints before asking them for anything",
               "Regular sync meetings across time zones to keep 8 brands aligned",
             ],

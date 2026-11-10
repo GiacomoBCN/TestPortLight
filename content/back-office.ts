@@ -25,7 +25,7 @@ export const backOffice = {
 
   role: {
     title: "My Role",
-    summary: "Product Designer & Platform Strategist",
+    summary: "Product Designer & Front-End Developer",
     items: [
       "Diagnosed fragmented client forks and unsustainable update cycles.",
       "Led the back-office unification, built one shared core applied across 15+ client portals.",

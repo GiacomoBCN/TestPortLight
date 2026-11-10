@@ -90,14 +90,14 @@ export default function DowJones() {
 
             <OverviewCard icon={User} title={dowJones.role.title}>
               <p className="font-semibold mb-2">{dowJones.role.summary}</p>
-              <ul className="space-y-1">
-                {dowJones.role.items.map((item, i) => (
-                  <li key={i}>
-                    <span className="text-[var(--color-list-bullet)]" aria-hidden="true">•</span>
-                    {` ${item}`}
-                  </li>
+              <div className="space-y-2">
+                {dowJones.role.groups.map((group, i) => (
+                  <p key={i}>
+                    <strong className="font-semibold">{group.label}</strong>
+                    {` ${group.text}`}
+                  </p>
                 ))}
-              </ul>
+              </div>
             </OverviewCard>
 
             <OverviewCard icon={GitBranch} title={dowJones.scope.title}>

@@ -6,9 +6,9 @@ export const productWork = {
   hero: {
     eyebrow: "All Projects",
     title: "Product Work",
-    subtitle: "Strategic product leadership with measurable business impact",
+    subtitle: "Design systems, AI products and internal tools, designed and built.",
     description:
-      "Over 8 years, I've led digital product initiatives across B2B, B2C, and enterprise environments - from design systems to SaaS transformations. Each project reflects hands-on leadership, clear strategy, and tangible results.",
+      "Eight years of work between design and code. At Dow Jones I co-led a design system for 8 brands. At XpuntoCero I designed products and wrote their front end. Today I build StayKeel, my own AI product, from research to production.",
   },
 
   // Schede progetto, nell'ordine della griglia (props di ProjectListingCard)

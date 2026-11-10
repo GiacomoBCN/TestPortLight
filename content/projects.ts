@@ -17,7 +17,7 @@ export const projects = {
       company: "StayKeel",
       timeframe: "",
       description:
-        "A multilingual AI product I designed, built and run alone. I chose models on a blind benchmark of 8, cutting answer cost about 10x and lifting retrieval from 43% to 73%.",
+        "A multilingual AI product I designed, built and run alone. I chose models on a blind benchmark of 8, cutting answer cost about 10x and lifting retrieval from 43% to 73%. User isolation is proven by tests.",
       metrics: [
         { value: "8", label: "Models tested" },
         { value: "~10x", label: "Lower answer cost" },
@@ -129,18 +129,15 @@ export const projects = {
       role: "Lead Design Technologist | Design System Product Owner",
       year: "",
       description:
-        "Co-led design system adoption across B2B and B2C brands, boosting team productivity by 30% and reducing component complexity by 20%.",
+        "I co-led the design system behind 8 brands, from The Wall Street Journal to Factiva. I reorganized the library to cut component complexity by 20%, and redesigned the review between design and engineering to cut back-and-forth by 30%.",
       metrics: [
         { value: "60+", label: "Designers" },
-        { value: "200K+", label: "References" },
-        { value: "30%", label: "Efficiency" },
+        { value: "200K+", label: "Component references" },
+        { value: "30%", label: "Less back-and-forth" },
       ],
       tags: [
-        "Leadership",
-        "AI-Enhanced",
-        "Product Strategy",
         "Design Systems",
-        "SAFe Agile",
+        "SAFe",
         "WCAG 2.2",
         "CI/CD",
         "Storybook",
@@ -159,11 +156,8 @@ export const projects = {
       description:
         "I co-led the design system behind 8 brands at Dow Jones, from The Wall Street Journal to Factiva (B2C & B2B). I reorganized the library to cut component complexity by 20%, and redesigned how design and engineering reviewed components to cut back-and-forth by 30%.",
       tags: [
-        "Leadership",
-        "AI-Enhanced",
-        "Product Strategy",
         "Design Systems",
-        "SAFe Agile",
+        "SAFe",
         "WCAG 2.2",
         "CI/CD",
         "Storybook",
@@ -351,7 +345,7 @@ export const projects = {
       breadcrumb: "Home > Product Work > SGPV Product Evolution",
       category: "MULTI-CLIENT PLATFORM · UX & PRODUCT EVOLUTION",
       title: "SGPV Product Evolution",
-      subtitle: "Product Designer & UX Lead",
+      subtitle: "Product Designer & Front-End Developer",
       // **...** = <span className="text-ink-900 font-semibold">
       description:
         "Led the modernization of a multi-client field app used by 15 FMCG brands. Unified fragmented versions into a single responsive platform and later migrated to Flutter, introducing AI-based data capture.\n The evolution cut hardware costs by **20%**, improved deployment efficiency by **80%**, and raised user satisfaction by **30%**.",
@@ -435,7 +429,7 @@ export const projects = {
       breadcrumb: "Home > Product Work > Back Office Unification",
       category: "PLATFORM ARCHITECTURE · FRONT-END SCALABILITY",
       title: "Back Office Unification",
-      subtitle: "Product Designer & Platform Strategist",
+      subtitle: "Product Designer & Front-End Developer",
       // **...** = <span className="text-ink-900 font-semibold">; gli spazi dentro ** ** sono voluti
       // (nell'originale lo spazio sta dentro lo span: "** 80%**", "** 15+**").
       description:
@@ -483,7 +477,7 @@ export const projects = {
       breadcrumb: "Home > Product Work > TuPlanRedondo PWA",
       category: "FULL-STACK DESIGN · RESEARCH → DESIGN → BUILD",
       title: "TuPlanRedondo PWA",
-      subtitle: "Full-Stack Designer",
+      subtitle: "Product Designer & Front-End Developer",
       // **...** = <span className="text-ink-900 font-semibold">
       description:
         "I designed and built a Progressive Web App that replaced a paper-based employee evaluation process across multiple McDonald’s restaurants. \nThe new system reduced manual work by **30%** and cut delivery costs by **45%**.",
