@@ -65,20 +65,19 @@ export default function Teaching() {
       </section>
 
       {/* Card con i numeri */}
+      {/* Stesso markup delle card dei numeri delle altre pagine (es. SGPV, Project Impact Snapshot) */}
       <section id="teaching-overview" className="py-24 px-6 scroll-mt-20">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {teaching.stats.map((stat, i) => {
             const Icon = statIcons[i];
             return (
-              <GlassCard key={i} delay={i * 0.05}>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                    <Icon size={20} className="text-accent-icon" aria-hidden="true" />
+              <GlassCard key={i}>
+                <div className="flex flex-col items-center text-center p-6">
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                   </div>
-                  <div>
-                    <div className="text-3xl type-number text-[var(--metric-value-text)]">{stat.value}</div>
-                    <div className="text-sm text-slate-400">{stat.label}</div>
-                  </div>
+                  <div className="text-4xl font-bold text-ink-900 mb-2">{stat.value}</div>
+                  <div className="text-sm font-semibold text-accent">{stat.label}</div>
                 </div>
               </GlassCard>
             );
@@ -103,11 +102,12 @@ export default function Teaching() {
         <div className="max-w-7xl mx-auto">
           <SectionHeader title={teaching.courses.title} />
 
-          {/* Tre corsi sulla stessa riga da 1024px; sotto, uno sotto l'altro (mai una card da sola) */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Tre corsi sulla stessa riga da 1024px; sotto, uno sotto l'altro (mai una card da sola).
+              Da 1024px ogni card usa le righe della griglia comune (subgrid): immagine, titolo, programma,
+              Format, testo e Topics hanno la stessa altezza nelle tre card, e Topics resta in fondo. */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-y-0">
             {courses.map((course, index) => (
-              <GlassCard key={index} delay={index * 0.1}>
-                <div className="mb-4">
+              <GlassCard key={index} delay={index * 0.1} className="lg:grid lg:grid-rows-subgrid lg:row-span-6">
                   <div className="mb-6 -mx-6 -mt-6 overflow-hidden rounded-t-xl">
                     <div className="relative aspect-video overflow-hidden group/image">
                       <Image
@@ -122,22 +122,16 @@ export default function Teaching() {
                   </div>
 
                   <h3 className="type-work-title text-ink-900 mb-2">{course.name}</h3>
-                  <p className="text-sm text-[var(--color-text-tertiary)]">{course.program}</p>
-                </div>
-
-                <div className="space-y-4 text-slate-300 leading-relaxed">
-                  {course.format && (
-                    <p className="text-sm">
-                      <span className="type-label text-ink-900">{teaching.courses.formatLabel}</span> {course.format}
-                    </p>
-                  )}
-                  <p>
+                  <p className="text-sm text-[var(--color-text-tertiary)] mb-4">{course.program}</p>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-4">
+                    <span className="type-label text-ink-900">{teaching.courses.formatLabel}</span> {course.format}
+                  </p>
+                  <p className="text-slate-300 leading-relaxed mb-6">
                     <RichText text={course.text} boldClassName={BOLD} />
                   </p>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-slate-400 leading-relaxed pt-4 border-t border-[var(--color-border-default)]">
                     <span className="type-label text-ink-900">{teaching.courses.topicsLabel}</span> {course.topics}
                   </p>
-                </div>
               </GlassCard>
             ))}
           </div>

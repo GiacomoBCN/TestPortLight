@@ -44,7 +44,7 @@ export const teaching = {
         name: "Cross-Cultural Management",
         program: "Master in International Business",
         image: "images/univerity/CCM.webp",
-        format: "50 minutes of theory, then the rest of each session on group work, case studies and role plays.",
+        format: "135-minute sessions, 60 minutes of theory, then the rest of each session on group work, case studies and role plays.",
         text: "Students explore how culture shapes communication, leadership and teamwork, applying **Hofstede’s dimensions**, the **Global Mindset** and **negotiation strategies** to realistic scenarios. Across ten sessions they run simulations and presentations that build intercultural competence and reflective leadership.",
         topics: "Management across cultures · Global leadership · Organizational culture · Intercultural communication · Negotiation · Managing global teams · Ethics in global contexts",
       },
@@ -52,7 +52,8 @@ export const teaching = {
         name: "AI Workshop",
         program: "Executive Education",
         image: "images/univerity/AI_tools.webp",
-        format: "",
+        // Proposta da confermare: il brief non dava il formato del workshop
+        format: "135-minute sessions, hands-on from start to finish.",
         text: "Hands-on workshops within the master’s programme on bringing AI into design work: **prompt engineering**, AI-assisted ideation and **rapid prototyping** with Figma, ChatGPT and Midjourney.",
         topics: "AI in design workflows · Prompt engineering · Rapid prototyping",
       },
