@@ -1,7 +1,7 @@
 // Testi della pagina Dow Jones Design System (app/pages/DowJones.tsx), nell'ordine delle sezioni.
+// Stessa struttura di /design-system/, /ai-product/ e /falak/: titolo e frase tesi, Challenge · Role · Scope,
+// Approach, Key Decisions & Trade-offs, What I Learned, chiusura.
 // Testo semplice: nessun mini-markup in questa pagina.
-// Le voci degli elenchi con il pallino "•" (role.items, outcomes.*.items) sono rese come
-// " " + testo dopo lo span aria-hidden, come nell'originale.
 import { projects } from "./projects";
 import { shell } from "./shell";
 
@@ -9,10 +9,12 @@ export const dowJones = {
   backLink: shell.caseStudy.backLink,
 
   hero: projects.dowJones.caseStudyHero,
+  // Riga sotto il paragrafo di apertura (hero.description)
+  scale: "8 brands · 3 platforms · 60+ designers · 120+ stakeholders · 200K+ component references · WCAG 2.2",
 
   intro: {
     image: "images/projects/brand-ds.webp",
-    title: "Building a Unified System at Scale",
+    title: "Eight brands, one system, adopted by choice",
     paragraphs: [
       "Dow Jones operates multiple B2B and B2C brands including The Wall Street Journal, Barron's, MarketWatch and Factiva (B2B), with more in the pipeline (B2C and B2B). Each brand had evolved independently with its own design team, which drove rapid innovation and brand-specific optimization. As the company scaled, the opportunity emerged to unify these learnings into a shared foundation while preserving each brand's unique identity.",
       "As Lead Design Technologist and Product Owner for the design system, I co-owned the product roadmap with design and engineering leadership. The challenge was establishing governance that 8 autonomous brands would embrace, not as a constraint, but as an accelerator.",
@@ -42,45 +44,6 @@ export const dowJones = {
     text: "Cross-platform system · 8 brands · Web, iOS, Android · WCAG 2.2 compliant",
   },
 
-  teamAdoption: {
-    title: "Team Adoption & Scale",
-    subtitle: "Who uses the system and where it's deployed",
-    // Icone nella pagina (teamAdoptionIcons), stesso ordine
-    metrics: [
-      {
-        metric: "60+",
-        label: "Designers Aligned",
-        description: "Unified design teams across 8 brands",
-      },
-      {
-        metric: "200K+",
-        label: "Component References",
-        description: "System adoption at scale across all products",
-      },
-      {
-        metric: "120+",
-        label: "Stakeholders",
-        description:
-          "Cross-functional collaboration (business, product, engineering, accessibility)",
-      },
-      {
-        metric: "8",
-        label: "Brands",
-        description: "WSJ, Factiva, Barron's, MarketWatch, and more",
-      },
-      {
-        metric: "3",
-        label: "Platforms",
-        description: "Web, iOS (SwiftUI), Android (native)",
-      },
-      {
-        metric: "WCAG 2.2",
-        label: "Accessibility",
-        description: "EU & U.S. compliance standards",
-      },
-    ],
-  },
-
   gallery: {
     title: "Project Gallery",
     images: [
@@ -90,62 +53,125 @@ export const dowJones = {
     ],
   },
 
-  businessContext: {
+  // Approach: una card per sottosezione, nell'ordine della pagina.
+  // stat (facoltativo): il numero del vecchio blocco di Business Outcomes, mostrato in cima alla card.
+  // lists: elenchi con la loro etichetta. closing (facoltativo): frase finale.
+  // Icone nella pagina (approachIcons), stesso ordine.
+  approach: {
     number: "01",
-    title: "Business Context",
-    card: {
-      title: "From Autonomy to Unified Scale",
-      paragraphs: [
-        "As Dow Jones grew its portfolio—The Wall Street Journal, Barron's, MarketWatch, Factiva, and more—each brand developed its own design approaches and workflows. This autonomy was a strength: teams moved fast, optimized for their specific audiences, and built strong brand identities.",
-        "The opportunity emerged as the company scaled: could we preserve that brand autonomy while creating a shared foundation that would accelerate everyone? The goal wasn't to standardize everything. It was to enable teams to move faster by solving common problems once, then customizing where it mattered.",
-      ],
-      needsLabel: "What we needed:",
-      needs: [
-        "A governance model that brands would adopt voluntarily (not mandated from above)",
-        "Technical architecture flexible enough to support B2C and B2B contexts",
-        "A system that preserved brand identity while enabling cross-brand efficiency",
-      ],
-    },
-  },
-
-  governance: {
-    number: "02",
-    title: "Governance & Architecture",
-    tokenFirst: {
-      title: "Token-First Architecture",
-      paragraphs: [
-        "Our team proposed a token-first strategy to enable multi-brand scale. Design tokens are variables that store foundational design attributes: colors, spacing, typography, shadows. Think of them like Lego bricks. You build the component structure once (the brick shape), then snap on different tokens (colors and styles) to create brand-specific versions.",
-        "All brands use the same token structure, but each assigns different values. For example, \"Ink\" is a token family for typography and iconography. Within that family, there are specific tokens like InkBrand. Both The Wall Street Journal and Factiva have the same Ink family with the same InkBrand token, but each brand assigns different values to it. Same structure, different brand expression.",
-        "My role was bridging the technical vision with designers and stakeholders, helping them understand how \"variables\" would speed up their work. Many struggled with the abstraction, so I translated it simply: \"Design once, the system adapts it to every brand automatically.\" I also worked with teams when system rules felt too strict, explaining the reasoning behind governance decisions and helping stakeholders see why consistency mattered for long-term scale.",
-      ],
-      enabledLabel: "What this enabled:",
-      enabled: [
-        "Migrated to platform-agnostic Style Dictionary (one source for web, iOS, and Android)",
-        "Automated token distribution via CI/CD (designers update Figma, tokens flow to all platforms)",
-        "Single source of truth for visual properties (no more \"which blue?\" debates)",
-        "White-label theming and dark mode without rebuilding components",
-      ],
-      conclusion:
-        "Instead of 8 separate design systems, we had one flexible system expressing 8 brand identities. The technical architecture made it possible; my role was ensuring adoption and governance.",
-    },
-    repository: {
-      title: "Repository & Documentation Overhaul",
-      paragraphs: [
-        "Led the reorganization of core repositories and Storybook architecture, reducing component complexity by 20% and dramatically improving discoverability for both engineers and designers. This wasn't just technical cleanup. It required careful coordination across 8 brands.",
-        "I moderated every handoff and pre-handoff session, acting as problem solver when brand-specific needs conflicted with system-wide goals. These sessions were where the real governance work happened: finding solutions that satisfied individual brand requirements while maintaining system integrity.",
-      ],
-      resultsLabel: "Results:",
-      results: [
-        "Improved component organization and documentation structure",
-        "Streamlined contribution workflows and approval processes",
-        "Facilitated handoff sessions as moderator, resolving conflicts between brand needs and system goals",
-        "Faster onboarding (new team members reached productivity sooner)",
-      ],
-    },
+    title: "Approach",
+    items: [
+      {
+        title: "Token-first architecture",
+        paragraphs: [
+          "Our team proposed a token-first strategy to enable multi-brand scale. Design tokens are variables that store foundational design attributes: colors, spacing, typography, shadows. Think of them like Lego bricks. You build the component structure once (the brick shape), then snap on different tokens (colors and styles) to create brand-specific versions.",
+          "All brands use the same token structure, but each assigns different values. For example, \"Ink\" is a token family for typography and iconography. Within that family, there are specific tokens like InkBrand. Both The Wall Street Journal and Factiva have the same Ink family with the same InkBrand token, but each brand assigns different values to it. Same structure, different brand expression.",
+          "My role was bridging the technical vision with designers and stakeholders, helping them understand how \"variables\" would speed up their work. Many struggled with the abstraction, so I translated it simply: \"Design once, the system adapts it to every brand automatically.\" I also worked with teams when system rules felt too strict, explaining the reasoning behind governance decisions and helping stakeholders see why consistency mattered for long-term scale.",
+        ],
+        lists: [
+          {
+            label: "What this enabled:",
+            items: [
+              "Migrated to platform-agnostic Style Dictionary (one source for web, iOS, and Android)",
+              "Automated token distribution via CI/CD (designers update Figma, tokens flow to all platforms)",
+              "Single source of truth for visual properties (no more \"which blue?\" debates)",
+              "White-label theming and dark mode without rebuilding components",
+            ],
+          },
+        ],
+        closing:
+          "Instead of 8 separate design systems, we had one flexible system expressing 8 brand identities. The technical architecture made it possible; my role was ensuring adoption and governance.",
+      },
+      {
+        title: "Repository & documentation overhaul",
+        stat: { value: "20%", label: "Complexity Reduction" },
+        paragraphs: [
+          "Led the reorganization of core repositories and Storybook architecture, reducing component complexity by 20% and dramatically improving discoverability for both engineers and designers. This wasn't just technical cleanup. It required careful coordination across 8 brands.",
+          "I moderated every handoff and pre-handoff session, acting as problem solver when brand-specific needs conflicted with system-wide goals. These sessions were where the real governance work happened: finding solutions that satisfied individual brand requirements while maintaining system integrity.",
+          "Repository reorganization and architectural simplification made the system easier to maintain and extend. Simpler code means fewer bugs and faster onboarding.",
+        ],
+        lists: [
+          {
+            label: "Results:",
+            items: [
+              "Improved component organization and documentation structure",
+              "Streamlined contribution workflows and approval processes",
+              "Facilitated handoff sessions as moderator, resolving conflicts between brand needs and system goals",
+              "Faster onboarding (new team members reached productivity sooner)",
+            ],
+          },
+          {
+            label: "What changed:",
+            items: [
+              "Consolidated redundant components",
+              "Clearer component hierarchy in Storybook",
+              "Platform-agnostic tokens reduced platform-specific code",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Review and handoff",
+        stat: { value: "30%", label: "Less back-and-forth" },
+        paragraphs: [
+          "Approving one component could take two weeks of open questions in GitHub threads. I analysed the threads and found the arguments were about who could close a discussion, not about what the spec said. Measured by comparing GitHub review threads before and after the pilot.",
+        ],
+        lists: [
+          {
+            label: "How we got there:",
+            items: [
+              "Questions written to be closed, not open",
+              "A short ceremony before every handoff",
+              "A 15-minute call, with me moderating, once a thread stalled",
+              "Piloted on one team, then extended to all eight",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Accessibility in UAT",
+        paragraphs: [
+          "The system was built to WCAG 2.2, the EU and U.S. standard. The accessibility lead reviewed every new or changed component in UAT, and nothing reached the production library without that sign-off.",
+        ],
+        lists: [
+          {
+            label: "How we validated:",
+            items: [
+              "Collaborated with the accessibility lead on validation strategy and testing protocols",
+              "Facilitated alignment between design, engineering, and accessibility teams on component compliance",
+              "Improved workflows for accessibility review and design acceptance",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Cross-functional partnership",
+        paragraphs: [
+          "Partnered with over 120 stakeholders from product, engineering, and accessibility teams to ensure scalable implementation and alignment across all brands.",
+        ],
+        lists: [
+          {
+            label: "What this looked like:",
+            items: [
+              "Collaborated with analytics teams using Google Analytics and internal dashboards to inform product improvements and support data-driven prioritization",
+              "Ran 15-minute online coffee chats with stakeholders and their managers to understand their constraints before asking them for anything",
+              "Regular sync meetings across time zones to keep 8 brands aligned",
+            ],
+          },
+        ],
+      },
+      {
+        title: "AI-assisted workflow",
+        paragraphs: [
+          "I used AI throughout this work. ChatGPT and Vertex AI for speeding up documentation, component specs, and prototyping. Also automated quality checks and consistency validation. It's not magic, but it does let you iterate faster and catch more issues.",
+        ],
+        lists: [],
+      },
+    ],
   },
 
   keyDecisions: {
-    number: "03",
+    number: "02",
     title: "Key Decisions & Trade-offs",
     decisions: [
       {
@@ -187,79 +213,33 @@ export const dowJones = {
     ],
   },
 
-  collaboration: {
-    number: "04",
-    title: "How We Worked: Process, Quality & Collaboration",
-    partnership: {
-      title: "Cross-Functional Partnership",
-      text: "Partnered with over 120 stakeholders from product, engineering, and accessibility teams to ensure scalable implementation and alignment across all brands.",
-      listLabel: "What this looked like:",
-      items: [
-        "Collaborated with analytics teams using Google Analytics and internal dashboards to inform product improvements and support data-driven prioritization",
-        "Ran 15-minute online coffee chats with stakeholders and their managers to understand their constraints before asking them for anything",
-        "Regular sync meetings across time zones to keep 8 brands aligned",
-      ],
-    },
-    accessibility: {
-      title: "Accessibility & Quality",
-      text: "Ensured accessibility (A11y) best practices were embedded into the design system from day one, meeting EU and U.S. compliance standards (WCAG 2.2). The accessibility lead reviewed every new or changed component in UAT, before it could reach the production library.",
-      listLabel: "How we validated:",
-      items: [
-        "Collaborated with the accessibility lead on validation strategy and testing protocols",
-        "Facilitated alignment between design, engineering, and accessibility teams on component compliance",
-        "Improved workflows for accessibility review and design acceptance",
-      ],
-    },
-    aiWorkflow: {
-      title: "AI-Assisted Workflow",
-      text: "I used AI throughout this work. ChatGPT and Vertex AI for speeding up documentation, component specs, and prototyping. Also automated quality checks and consistency validation. It's not magic, but it does let you iterate faster and catch more issues.",
-    },
+  learnings: {
+    number: "03",
+    title: "What I Learned",
+    items: [
+      {
+        title: "The system was never the hard part. The handoff was.",
+        text: "Tokens, components and documentation could be planned. What slowed delivery was the moment work passed from design to engineering, across teams and time zones. I moderated every handoff, and that is where the biggest gain came from.",
+      },
+      {
+        title: "Friction moves upstream: talk before the handoff, not after it.",
+        text: "Many questions in review came from designs that did not fit technical constraints. Adding two or three short meetings between designers and engineers before the handoff meant those questions were answered while the design could still change.",
+      },
+      {
+        title: "A component earns its place when more than one product needs it.",
+        text: "A request from one product stayed in that product’s library. We logged it, and promoted it to the shared system only when two or three products needed the same thing. Exceptions needed numbers, not opinions.",
+      },
+      {
+        title: "Without numbers you trust, every no is just an opinion.",
+        text: "We tracked adoption by hand, and the data was always behind. Figma showed where designers detached components, a script showed where code imported them, and neither showed how often people actually saw them. Next time I would measure all three from day one.",
+      },
+    ],
   },
 
-  outcomes: {
-    number: "05",
-    title: "Business Outcomes",
-    subtitle: "How the system improved velocity and quality",
-    intro:
-      "The design system contributed to improved UX consistency across all Dow Jones digital properties, reduced friction in user journeys, and delivered measurable gains in how teams work. The system enabled scalable cross-platform development and faster time-to-market for new features.",
-    productivity: {
-      value: "30%",
-      title: "Less back-and-forth",
-      text: "Approving one component could take two weeks of open questions in GitHub threads. I analysed the threads and found the arguments were about who could close a discussion, not about what the spec said. Measured by comparing GitHub review threads before and after the pilot.",
-      listLabel: "How we got there:",
-      items: [
-        "Questions written to be closed, not open",
-        "A short ceremony before every handoff",
-        "A 15-minute call, with me moderating, once a thread stalled",
-        "Piloted on one team, then extended to all eight",
-      ],
-    },
-    complexity: {
-      value: "20%",
-      title: "Complexity Reduction",
-      text: "Repository reorganization and architectural simplification made the system easier to maintain and extend. Simpler code means fewer bugs and faster onboarding.",
-      listLabel: "What changed:",
-      items: [
-        "Consolidated redundant components",
-        "Clearer component hierarchy in Storybook",
-        "Platform-agnostic tokens reduced platform-specific code",
-      ],
-    },
-    wcag: {
-      title: "WCAG 2.2 Compliance Across All Brands",
-      text: "The system was built to WCAG 2.2, the EU and U.S. standard. No component reached the production library without the accessibility lead’s sign-off in UAT.",
-    },
-    image: {
-      file: "images/projects/brand-ds.webp",
-      alt: "Design system deployed across WSJ, Barron's, Factiva, and MarketWatch on multiple devices",
-      caption: "The system in production across B2B & B2C brands and 3 platforms",
-    },
-  },
-
+  // Chiusura: il sistema non e' pubblico, quindi solo il bottone di contatto
   cta: {
-    title: shell.caseStudy.moreWorkTitle,
-    text: "This is just one example of how I lead cross-functional teams to deliver measurable business impact through strategic design and technical leadership.",
-    primary: shell.caseStudy.allProjects,
-    secondary: shell.caseStudy.letsTalk,
+    title: "Talk about the system",
+    text: "The system is internal to Dow Jones, so there is no public link. I’m happy to walk you through the architecture, the review process and the decisions behind them.",
+    talk: shell.caseStudy.letsTalk,
   },
 };
