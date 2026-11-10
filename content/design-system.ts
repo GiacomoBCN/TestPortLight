@@ -135,9 +135,9 @@ export const designSystem = {
     sources: [
       { id: "youtube", label: "YouTube", glyph: "▶" },
       { id: "linkedin", label: "LinkedIn", glyph: "in" },
-      { id: "instagram", label: "Instagram", glyph: "◎" },
+      { id: "instagram", label: "Instagram", glyph: "IG" },
       { id: "article", label: "Article", glyph: "Aa" },
-      { id: "github", label: "GitHub", glyph: "</>" },
+      { id: "github", label: "GitHub", glyph: "GH" },
       { id: "unknown", label: "Unknown source", glyph: "?" },
     ],
     card: {
