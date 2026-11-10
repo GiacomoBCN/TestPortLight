@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { createPageUrl } from "@/utils";
 import {
@@ -24,13 +25,12 @@ import { designSystem, type DesignSystemShotKey } from "@/content/design-system"
 import TokenDemoCard from "../components/casestudy/TokenDemoCard";
 import Lightbox from "../components/Lightbox";
 import { getImagePath } from "@/utils/image";
-import ImageTextCard, { type CaseStudyImage } from "../components/casestudy/ImageTextCard";
 import SectionNumber from "../components/casestudy/SectionNumber";
 import HighlightLastWords from "../components/HighlightLastWords";
 
 const DEMO_URL = designSystem.demoUrl;
 
-type Shot = CaseStudyImage;
+type Shot = { src: string; alt: string };
 
 export default function DesignSystemCaseStudy({
   media,
@@ -49,8 +49,8 @@ export default function DesignSystemCaseStudy({
   };
 
   const shot = (k: DesignSystemShotKey): Shot => ({
-    ...(designSystem.shots[k] as Omit<Shot, "src">),
     src: getImagePath(`images/projects/design-system/${designSystem.shots[k].file}`),
+    alt: designSystem.shots[k].alt,
   });
 
   // Icone delle card dell'approccio, nello stesso ordine di designSystem.approach.patterns
@@ -188,30 +188,10 @@ export default function DesignSystemCaseStudy({
           </div>
 
           <div className="pl-0 md:pl-24 space-y-6">
-            {patterns.map((p, i) =>
-              p.images.length > 0 ? (
-                <ImageTextCard
-                  key={i}
-                  images={p.images}
-                  imagePosition="right"
-                  onOpenGallery={open}
-                  enlargeLabel={designSystem.approach.enlargeImageLabel}
-                  enlargeText={designSystem.approach.enlarge}
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                      <p.icon className="w-5 h-5 text-accent-icon" />
-                    </div>
-                    <h3 className="type-work text-xl text-ink-900">{p.title}</h3>
-                  </div>
-                  <p className="text-gray-300 leading-relaxed">
-                    <RichText text={p.text} linkClassName="link-underline hover:text-ink-900" />
-                  </p>
-                </ImageTextCard>
-              ) : (
+            {patterns.map((p, i) => (
               <GlassCard key={i} hover={!p.demo} className={p.demo ? "!p-3 sm:!p-8" : ""}>
                 <div className={`${p.demo ? "p-3 sm:p-6 flex-wrap" : "p-6"} flex flex-col md:flex-row gap-6`}>
-                  <div className="w-full">
+                  <div className={p.images.length > 0 ? "md:w-3/5" : "w-full"}>
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                         <p.icon className="w-5 h-5 text-accent-icon" />
@@ -222,6 +202,43 @@ export default function DesignSystemCaseStudy({
                       <RichText text={p.text} linkClassName="link-underline hover:text-ink-900" />
                     </p>
                   </div>
+                  {p.images.length > 0 && (
+                    <div className="w-full md:w-2/5 md:flex-shrink-0">
+                      {/* Solo la prima immagine; se ce ne sono altre, "+N" e il clic apre la galleria */}
+                      <button
+                        type="button"
+                        onClick={() => open(p.images, 0)}
+                        className="relative block w-full aspect-[4/5] rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer"
+                        aria-label={
+                          p.images.length > 1
+                            ? designSystem.approach.galleryLabel(p.images[0].alt, p.images.length)
+                            : designSystem.approach.enlargeImageLabel(p.images[0].alt)
+                        }
+                      >
+                        <Image
+                          src={p.images[0].src}
+                          alt={p.images[0].alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 30vw"
+                          className="object-contain p-2"
+                        />
+                        {p.images.length > 1 && (
+                          <span
+                            className="absolute bottom-2 right-2 px-2.5 py-1 rounded-full bg-ink-900 text-white text-xs font-semibold"
+                            aria-hidden="true"
+                          >
+                            {designSystem.approach.moreImages(p.images.length - 1)}
+                          </span>
+                        )}
+                        <div
+                          className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center"
+                          aria-hidden="true"
+                        >
+                          <span className="text-white text-xs font-medium">{designSystem.approach.enlarge}</span>
+                        </div>
+                      </button>
+                    </div>
+                  )}
                   {p.demo && (
                     <div className="w-full pt-2">
                       <TokenDemoCard />
@@ -229,8 +246,7 @@ export default function DesignSystemCaseStudy({
                   )}
                 </div>
               </GlassCard>
-              )
-            )}
+            ))}
           </div>
         </div>
       </section>

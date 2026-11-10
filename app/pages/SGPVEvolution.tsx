@@ -306,7 +306,7 @@ export default function SGPVEvolution() {
                       title={sgpv.phase1.approach.title}
                       description={sgpv.phase1.approach.description}
                       bulletPoints={[]}
-                      images={sgpv.phase1.approach.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
+                      images={sgpv.phase1.approach.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
                       imagePosition="left"
                       onOpenGallery={openGallery}
                       additionalText=""
@@ -316,7 +316,7 @@ export default function SGPVEvolution() {
                       title={sgpv.phase1.results.title}
                       description=""
                       bulletPoints={sgpv.phase1.results.bulletPoints}
-                      images={sgpv.phase1.results.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
+                      images={sgpv.phase1.results.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
                       imagePosition="left"
                       onOpenGallery={openGallery}
                       additionalText=""
@@ -339,7 +339,7 @@ export default function SGPVEvolution() {
               {/* Phase 1 Gallery */}
               <ProjectGallery
                 title={sgpv.phase1Gallery.title}
-                images={sgpv.phase1Gallery.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
+                images={sgpv.phase1Gallery.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
               />
             </motion.div>
           )}
@@ -363,7 +363,7 @@ export default function SGPVEvolution() {
               title={sgpv.phase2.technologyResearch.title}
               description={sgpv.phase2.technologyResearch.description}
               bulletPoints={[]}
-              images={sgpv.phase2.technologyResearch.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
+              images={sgpv.phase2.technologyResearch.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText=""
@@ -474,7 +474,7 @@ export default function SGPVEvolution() {
               title={sgpv.aiDataCapture.problem.title}
               description={sgpv.aiDataCapture.problem.description}
               bulletPoints={[]}
-              images={sgpv.aiDataCapture.problem.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
+              images={sgpv.aiDataCapture.problem.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText=""
@@ -484,7 +484,7 @@ export default function SGPVEvolution() {
               title={sgpv.aiDataCapture.solution.title}
               description={sgpv.aiDataCapture.solution.description}
               bulletPoints={sgpv.aiDataCapture.solution.bulletPoints}
-              images={sgpv.aiDataCapture.solution.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
+              images={sgpv.aiDataCapture.solution.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText=""
@@ -495,7 +495,7 @@ export default function SGPVEvolution() {
       {/* Phase 2 Gallery */}
       <ProjectGallery
         title={sgpv.phase2Gallery.title}
-        images={sgpv.phase2Gallery.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
+        images={sgpv.phase2Gallery.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
       />
 
       {/* Key Decisions */}

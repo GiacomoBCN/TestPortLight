@@ -2,8 +2,6 @@
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 // Nei paragrafi i numeri evidenziati usano **...** con boldClassName="text-ink-900 font-semibold";
 // lo spazio dentro gli asterischi (es. "** +40%**") e' voluto: nell'originale stava dentro lo span.
-// Immagini dei box testo+immagine (ImageTextCard): campo facoltativo `position` = punto di fuoco
-// (valore CSS object-position, es. "center" o "50% 20%"); senza, "top".
 import { projects } from "./projects";
 import { shell } from "./shell";
 

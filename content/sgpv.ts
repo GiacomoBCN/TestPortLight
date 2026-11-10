@@ -3,8 +3,6 @@
 // Le immagini sono percorsi relativi a public/ (la pagina applica getImagePath).
 // Nota: le description di ImageTextCard sono divise in paragrafi su "\n" e ogni paragrafo
 // viene trim()-mato dal componente.
-// Immagini dei box testo+immagine (ImageTextCard): campo facoltativo `position` = punto di fuoco
-// (valore CSS object-position, es. "center" o "50% 20%"); senza, "top".
 import { projects } from "./projects";
 import { shell } from "./shell";
 

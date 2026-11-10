@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { createPageUrl } from "@/utils";
 import {
   ArrowLeft,
@@ -26,7 +27,6 @@ import ProjectIntroCard from "../components/work/ProjectIntroCard";
 import ProjectGallery from "../components/work/ProjectGallery";
 import Lightbox from "../components/Lightbox";
 import { getImagePath } from "@/utils/image";
-import ImageTextCard, { type CaseStudyImage } from "../components/casestudy/ImageTextCard";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import RichText from "@/app/components/RichText";
 import { falak, type FalakShotKey } from "@/content/falak";
@@ -38,7 +38,7 @@ const REPO_URL = falak.repoUrl;
 
 const img = (file: string) => getImagePath(`images/projects/falak/${file}`);
 
-type Shot = CaseStudyImage;
+type Shot = { src: string; alt: string };
 
 export default function FalakCaseStudy() {
   // Lightbox condivisa dalle card dell'approccio
@@ -50,7 +50,7 @@ export default function FalakCaseStudy() {
   };
 
   const shots = Object.fromEntries(
-    Object.entries(falak.shots).map(([k, s]) => [k, { ...s, src: img(s.file) } as Shot])
+    Object.entries(falak.shots).map(([k, s]) => [k, { src: img(s.file), alt: s.alt }])
   ) as Record<FalakShotKey, Shot>;
 
   // Icone delle card dell'approccio, nello stesso ordine di falak.approach.patterns
@@ -211,22 +211,44 @@ export default function FalakCaseStudy() {
 
           <div className="pl-0 md:pl-24 space-y-6">
             {patterns.map((p, i) => (
-              <ImageTextCard
-                key={i}
-                images={p.images}
-                imagePosition="right"
-                onOpenGallery={open}
-                enlargeLabel={falak.approach.enlargeImageLabel}
-                enlargeText={falak.approach.enlarge}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                    <p.icon className="w-5 h-5 text-accent-icon" />
+              <GlassCard key={i}>
+                <div className="p-6 flex flex-col md:flex-row gap-6">
+                  <div className="md:w-3/5">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                        <p.icon className="w-5 h-5 text-accent-icon" />
+                      </div>
+                      <h3 className="type-work text-xl text-ink-900">{p.title}</h3>
+                    </div>
+                    <p className="text-gray-300 leading-relaxed">{p.text}</p>
                   </div>
-                  <h3 className="type-work text-xl text-ink-900">{p.title}</h3>
+                  <div className="md:w-2/5 grid grid-cols-2 gap-3 content-start">
+                    {p.images.map((im, j) => (
+                      <button
+                        type="button"
+                        key={j}
+                        onClick={() => open(p.images, j)}
+                        className="relative aspect-[3/2] rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer"
+                        aria-label={falak.approach.enlargeImageLabel(im.alt)}
+                      >
+                        <Image
+                          src={im.src}
+                          alt={im.alt}
+                          fill
+                          sizes="(max-width: 768px) 50vw, 20vw"
+                          className="object-cover object-top"
+                        />
+                        <div
+                          className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center"
+                          aria-hidden="true"
+                        >
+                          <span className="text-white text-xs font-medium">{falak.approach.enlarge}</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-gray-300 leading-relaxed">{p.text}</p>
-              </ImageTextCard>
+              </GlassCard>
             ))}
           </div>
         </div>
