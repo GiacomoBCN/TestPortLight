@@ -1,134 +1,67 @@
 // Testi della pagina Teaching (app/pages/Teaching.tsx), nell'ordine delle sezioni.
+// Mini-markup (vedi app/components/RichText.tsx): **grassetto**.
 
 export const teaching = {
   hero: {
+    // label-tag e' in maiuscolo da CSS: si vede "PHD · 7 YEARS TEACHING"
     eyebrow: "PhD · 7 years teaching",
     title: "Teaching & Research",
     description:
-      "I bring real-world product expertise into the classroom, helping 1000+ students design impactful products and navigate the challenges of cross-cultural collaboration.",
-    scrollLabel: "Scroll to Teaching Experience",
+      "I build digital products and teach students how to create them. Seven years at **EAE Business School**, more than **1,000 master’s students**, and a research background in **work and organizational psychology** behind the method.",
+    // Riga dei numeri sotto il testo
+    numbers: "7 years · 1,000+ master’s students · 2 official master’s programmes · 19 teams a year",
+    scrollLabel: "Scroll to How a session works",
   },
 
-  experience: {
-    title: "Teaching Experience",
-    // Icone nella pagina, nello stesso ordine: GraduationCap, Users, BookOpen, TrendingUp
-    stats: [
-      { value: "7 years", label: "EAE Business School" },
-      { value: "1000+", label: "Students mentored" },
-      { value: "2", label: "Master's courses across official programs" },
-      { value: "19 teams", label: "Guided through full product design projects each year" },
-    ],
-  },
-
-  approach: {
-    title: "Teaching Approach",
-    items: [
-      {
-        title: "Experiential Learning",
-        text: "My teaching approach combines theory with real-world application. Students learn by doing - designing, collaborating, and reflecting - through hands-on experiences that connect academic concepts to professional practice.",
-      },
-      {
-        title: "Collaborative Learning Environments",
-        text: "Teamwork is central to both courses. In Product Design (UX/UI), students work in design teams to deliver complete e-commerce projects. In Cross-Cultural Management, they collaborate through case studies and role plays, learning how cultural differences shape communication, leadership, and teamwork.",
-      },
-      {
-        title: "Skill Development through Practice",
-        text: "Through project-based and interactive activities, students develop critical thinking, adaptability, and creative problem-solving skills. Each exercise is designed to help them perform effectively in diverse, multidisciplinary environments.",
-      },
-      {
-        title: "Mentorship & Reflection",
-        text: "I guide students throughout their learning journey, fostering awareness of their strengths and areas for growth. Reflection and feedback are key to helping them translate classroom experience into professional confidence and real-world competence.",
-      },
-    ],
+  session: {
+    title: "How a session works",
+    text: "Every session lasts **135 minutes**: 60 for theory, 75 for practice. Students apply each framework the same day, in their teams. Through the course they deliver progressive artefacts: research reports, wireframes, prototypes and usability tests. I move between groups and give feedback in real time, so theory is tested while it is still fresh.",
   },
 
   courses: {
-    title: "Courses Taught",
+    title: "Courses",
     subtitle: "Bridging academic theory with industry practice",
-    topicsLabel: "Key Topics",
-    outcomesLabel: "Learning Outcomes",
-    toolsLabel: "Tools & Technologies",
     // name e' anche il testo alternativo dell'immagine
     list: [
       {
         name: "Product Design (UX/UI)",
         program: "Master in Digital Marketing",
         image: "images/univerity/Product_D_GB.webp",
-        topics: [
-          "User Research",
-          "Information Architecture",
-          "Wireframing & Prototyping",
-          "UI Design Patterns",
-          "Usability Testing",
-          "Design Systems",
-          "Cross-Cultural Communication",
-        ],
-        outcomes: [
-          "End-to-End Design Process",
-          "Practical Team Projects",
-          "Design Thinking & Tools",
-        ],
-        tools: ["Figma", "Miro", "Maze", "Notion"],
+        text: "Teams research, prototype and test a full e-commerce platform, using **Double Diamond**, **Design Thinking** and **Lean UX**. Each class moves between concept and experiment, and the design changes in response to feedback.",
       },
       {
         name: "Cross-Cultural Management",
         program: "Master in International Business",
         image: "images/univerity/CCM.webp",
-        topics: [
-          "Management Across Cultures",
-          "Global Leadership",
-          "Cultural Environment",
-          "Organizational Culture",
-          "Intercultural Communication",
-          "Negotiation",
-          "Managing Global Teams",
-          "Ethics & Responsibility in Global Contexts",
-        ],
-        outcomes: [
-          "Managing global and multicultural teams",
-          "Cross-cultural negotiation and communication",
-          "Ethical decision-making in global contexts",
-        ],
-        tools: ["Case Studies", "Role-Play Simulations", "Miro", "Notion"],
+        text: "Over ten sessions, students work through case studies, simulations and role plays, applying **Hofstede’s dimensions**, the **Global Mindset** and negotiation strategies to realistic scenarios.",
       },
       {
         name: "AI Workshop",
         program: "Executive Education",
         image: "images/univerity/AI_tools.webp",
-        topics: ["AI in Design Workflows", "Prompt Engineering", "Rapid Prototyping"],
-        outcomes: [
-          "AI-Enhanced Creativity",
-          "Prompt Engineering for Design",
-          "AI Integration in UX Workflows",
-        ],
-        tools: ["Figma", "ChatGPT", "Midjourney"],
+        text: "Hands-on workshops on using AI in design work: prompt engineering and rapid prototyping with Figma, ChatGPT and Midjourney.",
       },
-    ],
-  },
-
-  philosophy: {
-    title: "Teaching Philosophy",
-    paragraphs: [
-      "I see teaching as a dialogue between theory and practice. My goal is to help students connect what they learn in class to the complexity of real professional life - where outcomes are uncertain, collaboration is essential, and critical thinking makes the difference.",
-      "Drawing on my background in psychology and design, I approach education as a process of guided discovery. I encourage students to question, test, and refine their ideas through practice rather than memorization. Mistakes are treated as learning moments, and reflection is a constant part of the process.",
-      "Ultimately, I aim to prepare students who can think independently and work effectively across disciplines and cultures. Beyond technical skills, I want them to leave the classroom with a clear sense of responsibility, curiosity, and confidence in their ability to contribute meaningfully to the world around them.",
     ],
   },
 
   research: {
     title: "Research Background",
-    degree: "PhD in Human Capital Formation and Labour Relations",
-    institution: "University of Bergamo • Focus: Human Factors, Behavioral Systems & Labour Regulations",
-    focus: {
-      title: "Research Focus",
-      paragraphs: [
-        "My academic journey began with a PhD at the University of Bergamo, where I explored how work environments, organizational design, and labour relations shape team performance, well-being, and collaboration. Through field research in SMEs and collaborations with healthcare organizations, I co-developed a scalable model for assessing work-related stress - integrating insights from human factors, behavioural systems, and labour law.",
-        "Over time, my focus evolved from occupational health and organizational psychology toward technology - exploring how digital products are created, experienced, and improved through user interaction. This progression allowed me to apply evidence-based research methods to UX/UI design, team dynamics, and design system governance.",
-      ],
-    },
-    practice: {
-      title: "Applied to Practice and Teaching",
-      text: "Today, my work bridges research and practice through industry-driven methodologies in UX/UI design and cross-cultural management. I guide teams and students in understanding how human behaviour, collaboration, and organizational design intersect - fostering scalable, people-centred frameworks that connect academic insight with real-world impact.",
-    },
+    blocks: [
+      {
+        title: "Same method, different domain",
+        text: "My PhD in **Human Capital Formation and Labour Relations** (University of Bergamo) studied how work environments shape wellbeing and performance. I co-developed the **Consortium Model**, a multi-method stress-risk assessment piloted at AO Papa Giovanni XXIII Hospital. Moving from workplace stress to digital usability was a change of domain, not of method: in both, the job is to find the friction, model the behaviour and design an intervention that improves the outcome.",
+      },
+      {
+        title: "What comes after the screen",
+        text: "As AI moves into daily life, I keep asking whether the smartphone is still the right device for it, and how trust works when the interface disappears. My first planned study, **Trust Without Touch**, compares screen, voice and ambient interaction. **Falak**, my prototype of a banking AI assistant that shows its own uncertainty, is the applied side of the same question.",
+        // Link alla pagina /falak/ sotto il testo
+        link: "Falak →",
+      },
+    ],
+  },
+
+  // Chiusura: solo il bottone email, come nella home (copia l'indirizzo come Contact)
+  closing: {
+    button: "Let's talk",
   },
 };

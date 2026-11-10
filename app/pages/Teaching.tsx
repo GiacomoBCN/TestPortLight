@@ -1,19 +1,18 @@
 "use client";
 import React from "react";
-import {
-  GraduationCap,
-  Users,
-  BookOpen,
-  TrendingUp,
-  Award,
-  ChevronDown,
-} from "lucide-react";
+import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { createPageUrl } from "@/utils";
 import { getImagePath } from "@/utils/image";
-import ExpandableText from "@/Components/ExpandableText";
 import GlassCard from "@/Components/portfolio/GlassCard";
 import SectionHeader from "@/Components/portfolio/SectionHeader";
+import CopyEmailLink from "@/app/components/CopyEmailLink";
+import RichText from "@/app/components/RichText";
 import { teaching } from "@/content/teaching";
+
+// Grassetti dei testi: stesso inchiostro dei titoli
+const BOLD = "text-ink-900 font-semibold";
 
 export default function Teaching() {
   const courses = teaching.courses.list.map((course) => ({
@@ -33,23 +32,23 @@ export default function Teaching() {
         {/* Entrata della hero in CSS: parte al primo paint, senza aspettare il JS */}
         <div className="hero-in hero-in-container max-w-4xl mx-auto text-center relative z-10">
           <div className="hero-in hero-in-fade mb-6" style={{ animationDelay: "0.2s" }}>
-            <span className="label-tag text-base md:text-lg">
-              {teaching.hero.eyebrow}
-            </span>
+            <span className="label-tag text-base md:text-lg">{teaching.hero.eyebrow}</span>
           </div>
 
-          <h1
-            className="hero-in type-page-title text-ink-900 mb-6"
-            style={{ animationDelay: "0.3s" }}
-          >
+          <h1 className="hero-in type-page-title text-ink-900 mb-6" style={{ animationDelay: "0.3s" }}>
             {teaching.hero.title}
           </h1>
 
           <p
             style={{ animationDelay: "0.4s" }}
-            className="hero-in text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="hero-in text-xl md:text-2xl text-slate-300 mb-6 max-w-3xl mx-auto leading-relaxed"
           >
-            {teaching.hero.description}
+            <RichText text={teaching.hero.description} boldClassName={BOLD} />
+          </p>
+
+          {/* Numeri, in una riga */}
+          <p style={{ animationDelay: "0.5s" }} className="hero-in text-gray-400 mb-8 max-w-3xl mx-auto">
+            {teaching.hero.numbers}
           </p>
         </div>
 
@@ -63,134 +62,22 @@ export default function Teaching() {
         </a>
       </section>
 
-      {/* Overview Stats */}
+      {/* How a session works */}
       <section id="teaching-overview" className="py-24 px-6 scroll-mt-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Left: Teaching Stats */}
-            <GlassCard>
-              <h2 className="type-work-title text-ink-900 mb-6">
-                {teaching.experience.title}
-              </h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"
-                  >
-                    <GraduationCap size={20} className="text-accent-icon" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <div className="text-3xl type-number text-[var(--metric-value-text)]">
-                      {teaching.experience.stats[0].value}
-                    </div>
-                    <div className="text-sm text-slate-400">
-                      {teaching.experience.stats[0].label}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"
-                  >
-                    <Users size={20} className="text-accent-icon" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <div className="text-3xl type-number text-[var(--metric-value-text)]">
-                      {teaching.experience.stats[1].value}
-                    </div>
-                    <div className="text-sm text-slate-400">
-                      {teaching.experience.stats[1].label}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"
-                  >
-                    <BookOpen size={20} className="text-accent-icon" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <div className="text-3xl type-number text-[var(--metric-value-text)]">{teaching.experience.stats[2].value}</div>
-                    <div className="text-sm text-slate-400">
-                      {teaching.experience.stats[2].label}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"
-                  >
-                    <TrendingUp size={20} className="text-accent-icon" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <div className="text-3xl type-number text-[var(--metric-value-text)]">
-                      {teaching.experience.stats[3].value}
-                    </div>
-                    <div className="text-sm text-slate-400">
-                      {teaching.experience.stats[3].label}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </GlassCard>
-
-            {/* Right: Quick Facts */}
-            <GlassCard delay={0.1}>
-              <h2 className="type-work-title text-ink-900 mb-6">
-                {teaching.approach.title}
-              </h2>
-              <div className="space-y-4">
-                <div className="pb-4 border-b border-[rgba(7,9,11,0.10)]">
-                  <h3 className="type-work text-ink-900 mb-2">
-                    {teaching.approach.items[0].title}
-                  </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                    {teaching.approach.items[0].text}
-                  </p>
-                </div>
-
-                <div className="pb-4 border-b border-[rgba(7,9,11,0.10)]">
-                  <h3 className="type-work text-ink-900 mb-2">
-                    {teaching.approach.items[1].title}
-                  </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                    {teaching.approach.items[1].text}
-                  </p>
-                </div>
-
-                <div className="pb-4 border-b border-[rgba(7,9,11,0.10)]">
-                  <h3 className="type-work text-ink-900 mb-2">
-                    {teaching.approach.items[2].title}
-                  </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                    {teaching.approach.items[2].text}
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="type-work text-ink-900 mb-2">
-                    {teaching.approach.items[3].title}
-                  </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                    {teaching.approach.items[3].text}
-                  </p>
-                </div>
-              </div>
-            </GlassCard>
-          </div>
+        <div className="max-w-4xl mx-auto">
+          <SectionHeader title={teaching.session.title} />
+          <GlassCard>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              <RichText text={teaching.session.text} boldClassName={BOLD} />
+            </p>
+          </GlassCard>
         </div>
       </section>
 
-      {/* Courses Section */}
+      {/* Courses */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            title={teaching.courses.title}
-            subtitle={teaching.courses.subtitle}
-          />
+          <SectionHeader title={teaching.courses.title} subtitle={teaching.courses.subtitle} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {courses.map((course, index) => (
@@ -209,137 +96,50 @@ export default function Teaching() {
                     </div>
                   </div>
 
-                  <h3 className="type-work-title text-ink-900 mb-2">
-                    {course.name}
-                  </h3>
+                  <h3 className="type-work-title text-ink-900 mb-2">{course.name}</h3>
                   <p className="text-sm text-[var(--color-text-tertiary)]">{course.program}</p>
                 </div>
 
-                <div className="mb-6">
-                  <h4 className="type-label text-sm text-ink-900 mb-3">
-                    {teaching.courses.topicsLabel}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {course.topics.map((topic, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 text-xs glass rounded-full border border-[rgba(7,9,11,0.12)] text-slate-300"
-                      >
-                        {topic}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <h4 className="type-label text-sm text-ink-900 mb-3">
-                    {teaching.courses.outcomesLabel}
-                  </h4>
-                  <ul className="space-y-2">
-                    {course.outcomes.map((outcome, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2 text-slate-300 text-sm"
-                      >
-                        <span
-                          className="w-1.5 h-1.5 rounded-full bg-[var(--color-list-bullet)] mt-1.5 flex-shrink-0"
-                        ></span>
-                        {outcome}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="type-label text-sm text-ink-900 mb-3">
-                    {teaching.courses.toolsLabel}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {course.tools.map((tool, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 text-xs glass rounded-full border border-[var(--tag-border)] text-[var(--tag-text)]"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                <p className="text-slate-300 leading-relaxed">
+                  <RichText text={course.text} boldClassName={BOLD} />
+                </p>
               </GlassCard>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Teaching Philosophy */}
+      {/* Research Background */}
       <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <SectionHeader title={teaching.philosophy.title} />
+        <div className="max-w-5xl mx-auto">
+          <SectionHeader title={teaching.research.title} />
 
-          <GlassCard>
-            <div className="prose prose-invert max-w-none">
-              <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                {teaching.philosophy.paragraphs[0]}
-              </p>
-
-              <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                {teaching.philosophy.paragraphs[1]}
-              </p>
-
-              <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                {teaching.philosophy.paragraphs[2]}
-              </p>
-            </div>
-          </GlassCard>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {teaching.research.blocks.map((block, i) => (
+              <GlassCard key={i} delay={i * 0.1}>
+                <h3 className="type-work text-xl text-ink-900 mb-3">{block.title}</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  <RichText text={block.text} boldClassName={BOLD} />
+                </p>
+                {"link" in block && block.link && (
+                  <p className="mt-4">
+                    <Link href={createPageUrl("Falak")} className="font-medium text-[var(--color-text-link-default)] link-underline">
+                      {block.link}
+                    </Link>
+                  </p>
+                )}
+              </GlassCard>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Research Background */}
+      {/* Chiusura: solo il bottone email, come nella home */}
       <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <SectionHeader title={teaching.research.title} />
-
-          <GlassCard>
-            <div className="flex items-start gap-6">
-              <div
-                className="w-10 h-10 rounded-lg bg-blue-500/10 items-center justify-center flex-shrink-0 hidden md:flex"
-              >
-                <Award size={20} className="text-accent-icon" aria-hidden="true" />
-              </div>
-
-              <div className="flex-1">
-                <h3 className="type-work-title text-ink-900 mb-2">
-                  {teaching.research.degree}
-                </h3>
-                <p className="text-slate-300 mb-4">
-                  {teaching.research.institution}
-                </p>
-
-                <div className="space-y-4 mt-6">
-                  <div>
-                    <h4 className="type-work text-ink-900 mb-2">
-                      {teaching.research.focus.title}
-                    </h4>
-                    <p className="text-slate-300 text-sm leading-relaxed">
-                      {teaching.research.focus.paragraphs[0]}
-                    </p>
-                    <p className="text-slate-300 text-sm leading-relaxed">
-                      {teaching.research.focus.paragraphs[1]}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="type-work text-ink-900 mb-2">
-                      {teaching.research.practice.title}
-                    </h4>
-                    <p className="text-slate-300 text-sm leading-relaxed">
-                      {teaching.research.practice.text}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </GlassCard>
+        <div className="flex justify-center">
+          <CopyEmailLink className="px-8 py-4 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105">
+            {teaching.closing.button}
+          </CopyEmailLink>
         </div>
       </section>
     </div>
