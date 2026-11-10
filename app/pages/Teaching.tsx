@@ -1,8 +1,16 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import {
+  ChevronDown,
+  GraduationCap,
+  Users,
+  BookOpen,
+  UsersRound,
+  TrendingUp,
+  Languages,
+} from "lucide-react";
 import { createPageUrl } from "@/utils";
 import { getImagePath } from "@/utils/image";
 import GlassCard from "@/Components/portfolio/GlassCard";
@@ -14,6 +22,9 @@ import { teaching } from "@/content/teaching";
 // Grassetti dei testi: stesso inchiostro dei titoli
 const BOLD = "text-ink-900 font-semibold";
 
+// Icone delle card con i numeri, nello stesso ordine di teaching.stats
+const statIcons = [GraduationCap, Users, BookOpen, UsersRound, TrendingUp, Languages];
+
 export default function Teaching() {
   const courses = teaching.courses.list.map((course) => ({
     ...course,
@@ -22,13 +33,9 @@ export default function Teaching() {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
-      {/* Su telefono la hero riempie lo schermo (meno la nav), cosi' la card sotto non si vede a meta' */}
-      <section className="min-h-[calc(100svh-5rem)] md:min-h-[70vh] flex items-center justify-center relative px-6 pt-20 pb-24 md:pb-20">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] bg-transparent rounded-full opacity-10 blur-3xl"></div>
-        </div>
-
+      {/* Hero: occupa la prima schermata (meno la nav) a ogni larghezza, cosi' la sezione dopo inizia sotto,
+          non a meta'. pb lascia spazio alla freccia, che non si sovrappone mai al testo. */}
+      <section className="min-h-[calc(100svh-5rem)] flex items-center justify-center relative px-6 pt-16 pb-28">
         {/* Entrata della hero in CSS: parte al primo paint, senza aspettare il JS */}
         <div className="hero-in hero-in-container max-w-4xl mx-auto text-center relative z-10">
           <div className="hero-in hero-in-fade mb-6" style={{ animationDelay: "0.2s" }}>
@@ -41,14 +48,9 @@ export default function Teaching() {
 
           <p
             style={{ animationDelay: "0.4s" }}
-            className="hero-in text-xl md:text-2xl text-slate-300 mb-6 max-w-3xl mx-auto leading-relaxed"
+            className="hero-in text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
             <RichText text={teaching.hero.description} boldClassName={BOLD} />
-          </p>
-
-          {/* Numeri, in una riga */}
-          <p style={{ animationDelay: "0.5s" }} className="hero-in text-gray-400 mb-8 max-w-3xl mx-auto">
-            {teaching.hero.numbers}
           </p>
         </div>
 
@@ -62,13 +64,35 @@ export default function Teaching() {
         </a>
       </section>
 
-      {/* How a session works */}
+      {/* Card con i numeri */}
       <section id="teaching-overview" className="py-24 px-6 scroll-mt-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {teaching.stats.map((stat, i) => {
+            const Icon = statIcons[i];
+            return (
+              <GlassCard key={i} delay={i * 0.05}>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                    <Icon size={20} className="text-accent-icon" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <div className="text-3xl type-number text-[var(--metric-value-text)]">{stat.value}</div>
+                    <div className="text-sm text-slate-400">{stat.label}</div>
+                  </div>
+                </div>
+              </GlassCard>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Teaching Philosophy */}
+      <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
-          <SectionHeader title={teaching.session.title} />
+          <SectionHeader title={teaching.philosophy.title} />
           <GlassCard>
             <p className="text-lg text-slate-300 leading-relaxed">
-              <RichText text={teaching.session.text} boldClassName={BOLD} />
+              <RichText text={teaching.philosophy.text} boldClassName={BOLD} />
             </p>
           </GlassCard>
         </div>
@@ -77,7 +101,7 @@ export default function Teaching() {
       {/* Courses */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader title={teaching.courses.title} subtitle={teaching.courses.subtitle} />
+          <SectionHeader title={teaching.courses.title} />
 
           {/* Tre corsi sulla stessa riga da 1024px; sotto, uno sotto l'altro (mai una card da sola) */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -101,18 +125,28 @@ export default function Teaching() {
                   <p className="text-sm text-[var(--color-text-tertiary)]">{course.program}</p>
                 </div>
 
-                <p className="text-slate-300 leading-relaxed">
-                  <RichText text={course.text} boldClassName={BOLD} />
-                </p>
+                <div className="space-y-4 text-slate-300 leading-relaxed">
+                  {course.format && (
+                    <p className="text-sm">
+                      <span className="type-label text-ink-900">{teaching.courses.formatLabel}</span> {course.format}
+                    </p>
+                  )}
+                  <p>
+                    <RichText text={course.text} boldClassName={BOLD} />
+                  </p>
+                  <p className="text-sm text-slate-400">
+                    <span className="type-label text-ink-900">{teaching.courses.topicsLabel}</span> {course.topics}
+                  </p>
+                </div>
               </GlassCard>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Research Background */}
+      {/* Research Background: due box affiancati */}
       <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <SectionHeader title={teaching.research.title} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -122,7 +156,7 @@ export default function Teaching() {
                 <p className="text-slate-300 leading-relaxed">
                   <RichText text={block.text} boldClassName={BOLD} />
                 </p>
-                {"link" in block && block.link && (
+                {block.link && (
                   <p className="mt-4">
                     <Link href={createPageUrl("Falak")} className="font-medium text-[var(--color-text-link-default)] link-underline">
                       {block.link}
@@ -132,6 +166,18 @@ export default function Teaching() {
               </GlassCard>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Beyond the classroom */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeader title={teaching.beyond.title} />
+          <GlassCard>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              <RichText text={teaching.beyond.text} boldClassName={BOLD} />
+            </p>
+          </GlassCard>
         </div>
       </section>
 
