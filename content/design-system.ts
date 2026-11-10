@@ -142,11 +142,11 @@ export const designSystem = {
     ],
     card: {
       title: "One card, five sources",
-      author: "AUTHOR",
+      author: "GIACOMO BIANCHI",
       saved: "SAVED 7 NOV 26",
       tabs: ["Short", "Medium", "Original"],
       body: "This card changes its colour and icon with each of its five sources. The layout and the tokens behind it stay the same.",
-      chips: ["Elit", "Consectetur Dolores", "Ipsum Ligula"],
+      chips: ["Tokens", "Theming", "Design systems"],
       rated: "RATED: LOVE IT",
       focus: "READ IN FOCUS",
     },
