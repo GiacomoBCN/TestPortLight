@@ -232,10 +232,7 @@ export default function VoDPlatform() {
       {/* Project Gallery Slider */}
       <ProjectGallery
         title={vod.gallery.title}
-        images={vod.gallery.images.map((im) => ({
-          src: getImagePath(im.src),
-          alt: im.alt,
-        }))}
+        images={vod.gallery.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
       />
 
       {/* Section 1: Business Context */}
@@ -283,10 +280,7 @@ export default function VoDPlatform() {
               title={heuristicData.title}
               description={heuristicData.description}
               bulletPoints={heuristicData.bulletPoints}
-              images={heuristicData.images.map((im) => ({
-                src: getImagePath(im.src),
-                alt: im.alt,
-              }))}
+              images={heuristicData.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText={heuristicData.additionalText}
@@ -297,10 +291,7 @@ export default function VoDPlatform() {
               title={accessibilityData.title}
               description={accessibilityData.description}
               bulletPoints={accessibilityData.bulletPoints}
-              images={accessibilityData.images.map((im) => ({
-                src: getImagePath(im.src),
-                alt: im.alt,
-              }))}
+              images={accessibilityData.images.map((im) => ({ ...im, src: getImagePath(im.src) }))}
               imagePosition="right"
               onOpenGallery={openGallery}
             />

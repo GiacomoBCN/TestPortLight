@@ -1,6 +1,7 @@
 // Uso: node scripts/build-image-sizes.mjs
 // Genera le versioni ridotte delle immagini di public/images in public/images/_w/<larghezza>/...
-// (stesso percorso relativo) e utils/image-widths.json con la larghezza originale di ogni file.
+// (stesso percorso relativo), utils/image-widths.json con la larghezza originale di ogni file
+// e utils/image-dimensions.json con larghezza e altezza.
 // utils/image-loader.ts le usa per il srcset di next/image: il browser scarica la misura
 // adatta allo spazio occupato. Gli originali restano invariati (lightbox, link diretti).
 // Da rilanciare quando si aggiunge o cambia un'immagine: senza, il loader usa l'originale.
@@ -26,11 +27,13 @@ const files = [];
 })(SRC);
 
 const widths = {};
+const dimensions = {};
 let before = 0, written = 0;
 for (const file of files.sort()) {
   const rel = path.relative(SRC, file).split(path.sep).join("/");
-  const { width } = await sharp(file).metadata();
+  const { width, height } = await sharp(file).metadata();
   widths[rel] = width;
+  dimensions[rel] = [width, height];
   for (const w of WIDTHS) {
     if (w >= width) break;
     const dest = path.join(OUT, String(w), rel);
@@ -42,4 +45,7 @@ for (const file of files.sort()) {
   before += fs.statSync(file).size;
 }
 fs.writeFileSync(path.join(ROOT, "utils", "image-widths.json"), JSON.stringify(widths, null, 1) + "\n");
+// Larghezza e altezza di ogni originale: utils/image.ts (getImageSize) le mette su <img>,
+// cosi' il browser riserva lo spazio prima del caricamento
+fs.writeFileSync(path.join(ROOT, "utils", "image-dimensions.json"), JSON.stringify(dimensions) + "\n");
 console.log(`${files.length} immagini, ${(before / 1e6).toFixed(1)} MB originali, ${(written / 1e6).toFixed(1)} MB di versioni ridotte`);

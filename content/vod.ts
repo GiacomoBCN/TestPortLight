@@ -1,6 +1,8 @@
 // Testi della pagina VOD Platform (app/pages/VODplatform.tsx), nell'ordine delle sezioni.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 // I percorsi immagine passano da getImagePath() nella pagina.
+// Immagini dei box testo+immagine (ImageTextCard): campo facoltativo `position` = punto di fuoco
+// (valore CSS object-position, es. "center" o "50% 20%"); senza, "top".
 import { projects } from "./projects";
 import { shell } from "./shell";
 

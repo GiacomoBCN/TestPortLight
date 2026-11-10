@@ -1,6 +1,8 @@
 // Testi della pagina Design System (app/pages/DesignSystem.tsx), nell'ordine delle sezioni.
 // Stesso schema di content/falak.ts e content/ai-product.ts.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), `codice`, \n = <br />.
+// Immagini dei box testo+immagine (ImageTextCard): campo facoltativo `position` = punto di fuoco
+// (valore CSS object-position, es. "center" o "50% 20%"); senza, "top".
 import { projects } from "./projects";
 import { shell } from "./shell";
 
