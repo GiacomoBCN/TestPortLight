@@ -232,7 +232,7 @@ export default function XpuntoCero() {
             {xpuntoCero.projectImpact.title}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-[minmax(0,20rem)] md:grid-cols-[repeat(3,14rem)] justify-center gap-6">
             <GlassCard className="!p-5">
               <div className="flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-3">

@@ -206,7 +206,7 @@ export default function VoDPlatform() {
           <h2 className="type-section-title text-ink-900 mb-12 text-center">
             {vod.achievements.title}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-[minmax(0,20rem)] md:grid-cols-[repeat(2,14rem)] lg:grid-cols-[repeat(4,14rem)] justify-center gap-6">
             {achievements.map((achievement, index) => (
               <GlassCard key={index} className="!p-5">
                 <div className="flex flex-col items-center text-center">

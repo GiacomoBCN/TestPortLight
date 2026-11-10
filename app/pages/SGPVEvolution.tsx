@@ -199,7 +199,7 @@ export default function SGPVEvolution() {
           <h2 className="type-section-title text-ink-900 mb-12 text-center">
             {sgpv.impactSnapshot.title}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-[minmax(0,20rem)] md:grid-cols-[repeat(3,14rem)] justify-center gap-6">
             {achievements.map((achievement, index) => (
               <GlassCard key={index} className="!p-5">
                 <div className="flex flex-col items-center text-center">
