@@ -98,7 +98,7 @@ export const projects = {
       breadcrumb: "Home > Product Work > A design system sized to its product",
       category: "DESIGN SYSTEM · DESIGN TOKENS · FIGMA ↔ CODE",
       title: "A design system sized to its product",
-      subtitle: "Only what the product uses, and the reasons for not building more · Design Technologist, solo · 2026",
+      subtitle: "Only what the product uses, and the reasons for not building more · Design Technologist, solo",
       description:
         "After co-leading a design system for eight brands at Dow Jones, I built one for a single product, [StayKeel](https://staykeel.com). The rules are the same. The question was how many of them one product actually needs.",
       tags: ["Design System", "Design Tokens", "Atomic Design", "Component Library", "CSS Custom Properties", "Figma Variables", "Theming", "Accessibility"],
