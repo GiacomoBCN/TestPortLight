@@ -67,7 +67,9 @@ export default function Teaching() {
       {/* Card con i numeri */}
       {/* Stesso markup delle card dei numeri delle altre pagine (es. SGPV, Project Impact Snapshot) */}
       <section id="teaching-overview" className="py-24 px-6 scroll-mt-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Card strette, centrate, larghe solo quanto serve (quasi quadrate):
+            2 per riga su mobile, 3 per riga da 640px, tutte e 6 su una riga da 1280px */}
+        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-[repeat(3,11rem)] xl:grid-cols-[repeat(6,11rem)] justify-center gap-4 sm:gap-6">
           {teaching.stats.map((stat, i) => {
             const Icon = statIcons[i];
             return (
@@ -76,7 +78,7 @@ export default function Teaching() {
                   <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-3">
                     <Icon className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                   </div>
-                  <div className="text-3xl font-bold text-ink-900 mb-1">{stat.value}</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-ink-900 mb-1 whitespace-nowrap">{stat.value}</div>
                   <div className="text-sm font-semibold text-accent">{stat.label}</div>
                 </div>
               </GlassCard>
