@@ -2,11 +2,10 @@
 import React, { useId } from "react";
 
 /**
- * Cornice delle box (.sketch), copiata dal bordo esterno del disegno delle fasce
- * (scripts/fascia/lato-sinistro-linee.svg), senza il disegno:
- *  - .sf-band    banda azzurra chiara sui 4 lati
- *  - .sf-line    un tratto "a matita" per lato dentro la banda (vedi regola dello schizzo)
- *  - .sf-corner  angoli irregolari, ognuno con la sua forma
+ * Cornice delle box (.sketch): continua le linee del disegno delle fasce
+ * (scripts/fascia/lato-sinistro-linee.svg), con lo stesso colore e lo stesso spessore:
+ *  - .sf-line    un tratto "a matita" per lato (vedi regola dello schizzo)
+ * Niente banda chiara e niente angoli (tolti il 10 novembre 2026).
  * Misure, colori e opacita' in globals.css (sezione CORNICI DELLE BOX), variabili --sf-*.
  *
  * I tratti sono "casuali" ma diversi per ogni box: il seme viene da useId(),
@@ -22,9 +21,7 @@ const LEN_MAX = 95; // lunghezza massima
 const SKIP = 0.17; // probabilita' che un lato manchi (almeno 3 lati restano sempre)
 const TILT = 0.25; // inclinazione massima, in gradi
 const TILT_MIN = 0.12; // inclinazione minima: un tratto perfettamente dritto viene netto e sembra piu' scuro degli altri
-const WIDTHS = [1]; // spessore in px (1,5 era troppo)
-const OPACITY_MIN = 0.3; // intensita' minima del tratto
-const OPACITY_MAX = 0.5; // massima (0,7 e 0,95 erano troppo blu)
+// Spessore e colore: quelli delle linee del disegno (--sf-line, --sf-line-color in globals.css), pieni.
 
 // Numero pseudo-casuale ripetibile a partire da una stringa
 function seeded(seed: string) {
@@ -53,14 +50,10 @@ function stroke(rand: () => number, side: Side, hidden: boolean): React.CSSPrope
   const end = start + len;
   const dir = side === "top" || side === "bottom" ? "to right" : "to bottom";
   const image = `linear-gradient(${dir}, transparent 0 ${start.toFixed(1)}%, #000 ${start.toFixed(1)}% ${end.toFixed(1)}%, transparent ${end.toFixed(1)}% 100%)`;
-  const width = WIDTHS[Math.floor(rand() * WIDTHS.length)];
-  const size = side === "top" || side === "bottom" ? { height: `${width}px` } : { width: `${width}px` };
   return {
     maskImage: image,
     WebkitMaskImage: image,
     transform: `rotate(${((rand() < 0.5 ? -1 : 1) * between(TILT_MIN, TILT)).toFixed(2)}deg)`,
-    opacity: between(OPACITY_MIN, OPACITY_MAX).toFixed(2),
-    ...size,
   };
 }
 
@@ -74,18 +67,10 @@ export default function SketchFrame() {
 
   return (
     <span className="sketch-frame" aria-hidden="true">
-      <span className="sf-band sf-band-top" />
-      <span className="sf-band sf-band-bottom" />
-      <span className="sf-band sf-band-left" />
-      <span className="sf-band sf-band-right" />
       <span className="sf-line sf-line-top" style={top} />
       <span className="sf-line sf-line-bottom" style={bottom} />
       <span className="sf-line sf-line-left" style={left} />
       <span className="sf-line sf-line-right" style={right} />
-      <span className="sf-corner sf-corner-tl" />
-      <span className="sf-corner sf-corner-tr" />
-      <span className="sf-corner sf-corner-br" />
-      <span className="sf-corner sf-corner-bl" />
     </span>
   );
 }

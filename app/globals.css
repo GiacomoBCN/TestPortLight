@@ -710,25 +710,22 @@ body[data-palette="b"] {
 
 /* ============================================
    CORNICI DELLE BOX (.sketch + <SketchFrame/>)
-   Copiate dal bordo esterno del disegno delle fasce
-   (scripts/fascia/lato-sinistro-linee.svg), senza il disegno:
-   - banda azzurra chiara (#9DD0FF al 66%, come Frame_1.svg)
-   - dentro la banda un tratto "a matita" per lato: non tocca gli angoli, a volte
-     manca, appena storto; diverso per ogni box (calcolato in SketchFrame.tsx)
-   - angoli irregolari: forma presa dal contorno del disegno,
-     ognuno diverso, opacita' 69/61/66/58%
+   Continuano le linee del disegno delle fasce (scripts/fascia/lato-sinistro-linee.svg):
+   un tratto "a matita" per lato, stesso blu (#0D99FF, pieno) e stesso spessore delle linee
+   del disegno. Il tratto non tocca gli angoli, a volte manca, ed e' appena storto;
+   diverso per ogni box (calcolato in SketchFrame.tsx).
+   Dal 10 novembre 2026 niente banda chiara e niente angoli irregolari.
    Misure in "unita' del disegno" x --sf-u (px per unita').
-   Tutto regolabile dall'ispettore con le variabili qui sotto.
    ============================================ */
 :root {
   --sf-u: 0.3px;                              /* scala: 1 unita' del disegno = 0,3 px (fasce a ~1080 px di altezza) */
-  --sf-color: #9DD0FF;                        /* azzurro della banda e degli angoli */
-  --sf-band-mix: 66%;                         /* quanto azzurro nella banda (resto bianco) */
   --sf-offset: calc(9.57 * var(--sf-u));      /* quanto l'angolo sporge oltre la banda */
-  --sf-band: calc(12 * var(--sf-u));          /* spessore della banda */
-  --sf-line: 1px;                             /* spessore della linea definita dentro la banda */
+  --sf-band: calc(12 * var(--sf-u));          /* spazio della vecchia banda: la linea sta a meta' */
+  /* linea della cornice: stesso spessore delle linee del disegno (2,11 unita' del viewBox alto 3798,
+     disegnato alto quanto lo schermo: ~0,5 px a 900 px di altezza, ~0,6 px a 1080) */
+  --sf-line: calc(2.11014 * 100vh / 3798);
   --sf-line-color: #0D99FF;                   /* stesso blu di --fascia-linee (che sta sul body, qui non si vede) */
-  --sf-line-opacity: 0.85;
+  --sf-line-opacity: 1;                       /* piena, come le linee del disegno */
   --sf-ext: calc(var(--sf-offset) + var(--sf-band)); /* quanto la cornice esce dal box */
 }
 
@@ -750,13 +747,6 @@ body[data-palette="b"] {
   display: block;
 }
 
-/* banda chiara sui 4 lati, il lato interno coincide col bordo del box */
-.sf-band { background: color-mix(in srgb, var(--sf-color) var(--sf-band-mix), white); }
-.sf-band-top    { top: var(--sf-offset); left: var(--sf-offset); right: var(--sf-offset); height: var(--sf-band); }
-.sf-band-bottom { bottom: var(--sf-offset); left: var(--sf-offset); right: var(--sf-offset); height: var(--sf-band); }
-.sf-band-left   { left: var(--sf-offset); top: var(--sf-offset); bottom: var(--sf-offset); width: var(--sf-band); }
-.sf-band-right  { right: var(--sf-offset); top: var(--sf-offset); bottom: var(--sf-offset); width: var(--sf-band); }
-
 /* tratto a matita dentro la banda, a meta' del suo spessore. Lunghezza, inclinazione,
    spessore e intensita' li decide SketchFrame.tsx, diversi per ogni box e ogni lato */
 .sf-line { background: var(--sf-line-color); opacity: var(--sf-line-opacity); }
@@ -765,11 +755,6 @@ body[data-palette="b"] {
 .sf-line-left   { left: calc(var(--sf-offset) + (var(--sf-band) - var(--sf-line)) / 2); top: var(--sf-offset); bottom: var(--sf-offset); width: var(--sf-line); }
 .sf-line-right  { right: calc(var(--sf-offset) + (var(--sf-band) - var(--sf-line)) / 2); top: var(--sf-offset); bottom: var(--sf-offset); width: var(--sf-line); }
 
-/* angoli irregolari, dal contorno del disegno */
-.sf-corner-tl { top: 0; left: 0; width: calc(47.82 * var(--sf-u)); height: calc(49.75 * var(--sf-u)); background: color-mix(in srgb, var(--sf-color) 69%, white); clip-path: polygon(15.4% 0.0%, 73.1% 0.0%, 100.0% 19.2%, 100.0% 61.5%, 73.1% 92.3%, 57.7% 100.0%, 15.4% 100.0%, 0.0% 76.9%, 0.0% 15.4%); }
-.sf-corner-tr { top: 0; right: 0; width: calc(47.82 * var(--sf-u)); height: calc(55.49 * var(--sf-u)); background: color-mix(in srgb, var(--sf-color) 61%, white); clip-path: polygon(0.0% 17.2%, 26.9% 0.0%, 80.8% 0.0%, 100.0% 17.2%, 100.0% 65.5%, 73.1% 100.0%, 32.4% 92.8%, 0.0% 55.9%); }
-.sf-corner-br { bottom: 0; right: 0; width: calc(38.63 * var(--sf-u)); height: calc(53.58 * var(--sf-u)); background: color-mix(in srgb, var(--sf-color) 66%, white); clip-path: polygon(44.3% 0.0%, 66.7% 3.6%, 100.0% 35.7%, 100.0% 82.1%, 76.2% 100.0%, 33.3% 100.0%, 9.5% 82.1%, 0.0% 71.4%, 0.0% 50.0%, 28.6% 25.0%); }
-.sf-corner-bl { bottom: 0; left: 0; width: calc(45.98 * var(--sf-u)); height: calc(53.58 * var(--sf-u)); background: color-mix(in srgb, var(--sf-color) 58%, white); clip-path: polygon(28.0% 0.0%, 0.0% 32.1%, 0.0% 85.7%, 20.0% 100.0%, 56.0% 100.0%, 60.0% 92.9%, 80.0% 75.0%, 100.0% 57.1%, 65.2% 43.1%, 46.9% 8.5%); }
 
 /* Sotto i 1280px (niente fasce laterali) le cornici non si mostrano da nessuna parte:
    nav, footer, card. Da 1280px in su restano come sono. */
