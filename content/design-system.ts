@@ -141,11 +141,11 @@ export const designSystem = {
       { id: "unknown", label: "Unknown source", glyph: "?" },
     ],
     card: {
-      title: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor",
+      title: "One card, five sources",
       author: "AUTHOR",
       saved: "SAVED 7 NOV 26",
       tabs: ["Short", "Medium", "Original"],
-      body: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      body: "This card changes its colour and icon with each of its five sources. The layout and the tokens behind it stay the same.",
       chips: ["Elit", "Consectetur Dolores", "Ipsum Ligula"],
       rated: "RATED: LOVE IT",
       focus: "READ IN FOCUS",
