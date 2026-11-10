@@ -10,7 +10,7 @@ export const dowJones = {
 
   hero: projects.dowJones.caseStudyHero,
   // Riga sotto il paragrafo di apertura (hero.description)
-  scale: "8 brands · 3 platforms · 60+ designers · 120+ stakeholders · 200K+ component references · WCAG 2.2",
+  scale: "8 brands · 18+ brand versions across web, iOS and Android · 60+ designers · 120+ stakeholders · 200K+ component references · WCAG 2.2",
 
   intro: {
     image: "images/projects/brand-ds.webp",
@@ -64,7 +64,7 @@ export const dowJones = {
       {
         title: "Token-first architecture",
         paragraphs: [
-          "Our team proposed a token-first strategy to enable multi-brand scale. Design tokens are variables that store foundational design attributes: colors, spacing, typography, shadows. Think of them like Lego bricks. You build the component structure once (the brick shape), then snap on different tokens (colors and styles) to create brand-specific versions.",
+          "Our team proposed a token-first strategy to enable multi-brand scale. Design tokens are variables that store foundational design attributes: colors, spacing, typography, shadows.",
           "All brands use the same token structure, but each assigns different values. For example, \"Ink\" is a token family for typography and iconography. Within that family, there are specific tokens like InkBrand. Both The Wall Street Journal and Factiva have the same Ink family with the same InkBrand token, but each brand assigns different values to it. Same structure, different brand expression.",
           "My role was bridging the technical vision with designers and stakeholders, helping them understand how \"variables\" would speed up their work. Many struggled with the abstraction, so I translated it simply: \"Design once, the system adapts it to every brand automatically.\" I also worked with teams when system rules felt too strict, explaining the reasoning behind governance decisions and helping stakeholders see why consistency mattered for long-term scale.",
         ],
@@ -80,7 +80,7 @@ export const dowJones = {
           },
         ],
         closing:
-          "Instead of 8 separate design systems, we had one flexible system expressing 8 brand identities. The technical architecture made it possible; my role was ensuring adoption and governance.",
+          "Instead of 8 separate design systems, we had one flexible system expressing 8 brand identities. Kevin Muldoon and I were the two Lead Design Technologists. He led the token architecture; I contributed to it and co-led governance and adoption across eight brands.",
       },
       {
         title: "Repository & documentation overhaul",
@@ -114,7 +114,7 @@ export const dowJones = {
         title: "Review and handoff",
         stat: { value: "30%", label: "Less back-and-forth" },
         paragraphs: [
-          "Approving one component could take two weeks of open questions in GitHub threads. I analysed the threads and found the arguments were about who could close a discussion, not about what the spec said. Measured by comparing GitHub review threads before and after the pilot.",
+          "I had no direct authority over designers or engineers, so the change had to be earned, not imposed. Approving one component could take two weeks of open questions in GitHub threads. I analysed the threads and found the arguments were about who could close a discussion, not about what the spec said. Measured by comparing GitHub review threads before and after the pilot.",
         ],
         lists: [
           {
@@ -163,7 +163,7 @@ export const dowJones = {
       {
         title: "AI-assisted workflow",
         paragraphs: [
-          "I used AI throughout this work. ChatGPT and Vertex AI for speeding up documentation, component specs, and prototyping. Also automated quality checks and consistency validation. It's not magic, but it does let you iterate faster and catch more issues.",
+          "I used AI throughout this work. ChatGPT and Vertex AI for speeding up documentation, component specs, and prototyping. Also automated quality checks and consistency validation.",
         ],
         lists: [],
       },
