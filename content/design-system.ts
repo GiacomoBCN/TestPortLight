@@ -142,7 +142,7 @@ export const designSystem = {
     ],
     card: {
       title: "One card, five sources",
-      author: "GIACOMO BIANCHI",
+      author: "G. Bianchi",
       saved: "SAVED 7 NOV 26",
       tabs: ["Short", "Medium", "Original"],
       body: "This card changes its colour and icon with each of its five sources. The layout and the tokens behind it stay the same.",
