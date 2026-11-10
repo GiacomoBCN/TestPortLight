@@ -69,7 +69,7 @@ export const projects = {
       metrics: [
         { value: "3", label: "Token levels" },
         { value: "1:1", label: "Figma ↔ code" },
-        { value: "5→1", label: "Sources, one card" },
+        { value: "6→1", label: "Sources, one card" },
       ],
       // Video al posto dell'immagine nella scheda della Home (percorsi sotto public/; bg = fondo del video)
       video: {
@@ -89,7 +89,7 @@ export const projects = {
       metrics: [
         { value: "3", label: "Token levels" },
         { value: "1:1", label: "Figma ↔ code" },
-        { value: "5→1", label: "Sources, one card" },
+        { value: "6→1", label: "Sources, one card" },
       ],
       tags: ["Design System", "Design Tokens", "Atomic Design", "Component Library", "CSS Custom Properties", "Figma Variables", "Theming", "Accessibility"],
       slug: "DesignSystem",

@@ -52,7 +52,7 @@ export const designSystem = {
   intro: {
     title: "The source is the theme",
     paragraphs: [
-      "In a multi-brand system, one theme keeps every product on the same structure: same token names, different values. Here there is one product, but five kinds of content, and each needs its own colour on the card. So I treated the five sources as five themes. Articles and PDFs share one theme, because a PDF is almost always an article in another format. The colour is the theme, and the theme is where the token architecture starts.",
+      "In a multi-brand system, one theme keeps every product on the same structure: same token names, different values. Here there is one product, but five kinds of content, and each needs its own colour on the card. So I treated the five kinds of content as five themes. Articles and PDFs share one theme, because a PDF is almost always an article in another format. The colour is the theme, and the theme is where the token architecture starts.",
       "Three levels. Raw values that no component ever reads. A scope per source that remaps six contextual tokens. And the contextual tokens, which are the only thing a component reads. The card does not know YouTube exists. Adding a source tomorrow is one block of CSS and zero lines in any component.",
     ],
   },
@@ -77,7 +77,7 @@ export const designSystem = {
     title: "Scope",
     items: [
       "113 tokens, each with a documented role",
-      "Five content sources as theme scopes, plus a fallback",
+      "Six content sources in five theme scopes, plus a fallback",
       "38 components and 162 variants in Figma, every one shipped and labelled IN CODE; nothing designed that is not in production",
       "Figma variables that mirror the code one to one",
     ],
