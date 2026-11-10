@@ -75,9 +75,9 @@ export default function Teaching() {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div
-                    className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue"
+                    className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"
                   >
-                    <GraduationCap size={24} className="text-[var(--color-icon-accent)]" />
+                    <GraduationCap size={20} className="text-accent-icon" aria-hidden="true" />
                   </div>
                   <div>
                     <div className="text-3xl type-number text-[var(--metric-value-text)]">
@@ -91,9 +91,9 @@ export default function Teaching() {
 
                 <div className="flex items-start gap-4">
                   <div
-                    className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue"
+                    className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"
                   >
-                    <Users size={24} className="text-[var(--color-icon-accent)]" />
+                    <Users size={20} className="text-accent-icon" aria-hidden="true" />
                   </div>
                   <div>
                     <div className="text-3xl type-number text-[var(--metric-value-text)]">
@@ -107,9 +107,9 @@ export default function Teaching() {
 
                 <div className="flex items-start gap-4">
                   <div
-                    className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue"
+                    className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"
                   >
-                    <BookOpen size={24} className="text-[var(--color-icon-accent)]" />
+                    <BookOpen size={20} className="text-accent-icon" aria-hidden="true" />
                   </div>
                   <div>
                     <div className="text-3xl type-number text-[var(--metric-value-text)]">{teaching.experience.stats[2].value}</div>
@@ -121,9 +121,9 @@ export default function Teaching() {
 
                 <div className="flex items-start gap-4">
                   <div
-                    className="w-12 h-12 glass rounded-full flex items-center justify-center flex-shrink-0 glow-blue"
+                    className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"
                   >
-                    <TrendingUp size={24} className="text-[var(--color-icon-accent)]" />
+                    <TrendingUp size={20} className="text-accent-icon" aria-hidden="true" />
                   </div>
                   <div>
                     <div className="text-3xl type-number text-[var(--metric-value-text)]">
@@ -302,9 +302,9 @@ export default function Teaching() {
           <GlassCard>
             <div className="flex items-start gap-6">
               <div
-                className="w-16 h-16 glass rounded-full flex items-center justify-center flex-shrink-0 hidden md:flex glow-blue"
+                className="w-10 h-10 rounded-lg bg-blue-500/10 items-center justify-center flex-shrink-0 hidden md:flex"
               >
-                <Award size={32} className="text-[var(--color-icon-accent)]" />
+                <Award size={20} className="text-accent-icon" aria-hidden="true" />
               </div>
 
               <div className="flex-1">

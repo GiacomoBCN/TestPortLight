@@ -152,8 +152,8 @@ export default function OnlineBackOfficeCaseStudy() {
             {achievements.map((a, i) => (
               <GlassCard key={i}>
                 <div className="flex flex-col items-center text-center p-6">
-                  <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                    <a.icon className="w-6 h-6 text-accent-icon" />
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+                    <a.icon className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                   </div>
                   <div className="text-4xl font-bold text-ink-900 mb-2">
                     {a.metric}
@@ -248,8 +248,8 @@ export default function OnlineBackOfficeCaseStudy() {
               <div className="p-6">
                 {/* Styled header */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-9 h-9 rounded-full bg-red-500/15 flex items-center justify-center">
-                    <AlertCircle className="w-5 h-5 text-red-400" />
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                    <AlertCircle className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                   </div>
                   <h3 className="type-work text-xl text-ink-900">
                     {backOffice.problemHypothesis.problem.title}
@@ -270,8 +270,8 @@ export default function OnlineBackOfficeCaseStudy() {
               <div className="p-6">
                 {/* Styled header */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-9 h-9 rounded-full bg-green-500/15 flex items-center justify-center">
-                    <Wrench className="w-5 h-5 text-green-400" />
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                    <Wrench className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                   </div>
                   <h3 className="type-work text-xl text-ink-900">
                     {backOffice.problemHypothesis.hypothesis.title}

@@ -14,8 +14,9 @@ export default function OverviewCard({
     <div className="sketch bg-[var(--color-text-inverse)]/[0.03] backdrop-blur-xl border border-[var(--color-text-inverse)]/10 rounded-xl p-6">
       <SketchFrame />
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-lg bg-[var(--color-surface-interactive-hover)]/10 flex items-center justify-center">
-          <Icon className="w-5 h-5 text-[var(--color-text-link-default)]" />
+        {/* Stessa icona delle card dell'Approach: arancione su fondo chiaro */}
+        <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+          <Icon className="w-5 h-5 text-accent-icon" aria-hidden="true" />
         </div>
         <h3 className="type-work text-lg text-[var(--color-text-inverse)]">{title}</h3>
       </div>

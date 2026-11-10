@@ -15,8 +15,8 @@ export default function LeadershipCard({
   return (
     <GlassCard hover={false} delay={delay}>
       <div className="flex flex-col h-full">
-        <div className="w-14 h-14 glass rounded-full flex items-center justify-center mb-4 glow-blue mx-auto">
-          <Icon size={28} className="text-[var(--color-icon-accent)]" />
+        <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4 mx-auto">
+          <Icon size={20} className="text-accent-icon" aria-hidden="true" />
         </div>
         <h3 className="type-work-title text-[var(--color-text-brand)] mb-6 text-center">{title}</h3>
         <ul className="space-y-3 flex-1">

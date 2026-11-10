@@ -65,8 +65,8 @@ export default function BeforeAfterImpactCard({
       onViewportEnter={() => setIsVisible(true)}
     >
       <div className="flex flex-col items-center text-center h-full">
-        <div className="w-16 h-16 glass rounded-full flex items-center justify-center mb-6 glow-blue">
-          <Icon size={32} className="text-[var(--color-icon-accent)]" />
+        <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6">
+          <Icon size={20} className="text-accent-icon" aria-hidden="true" />
         </div>
 
         <h3 className="type-number text-5xl text-[var(--metric-value-text)] mb-6">

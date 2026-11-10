@@ -235,8 +235,8 @@ export default function XpuntoCero() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <Smartphone className="w-6 h-6 text-accent-icon" />
+                <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+                  <Smartphone className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                 </div>
                 <div className="text-4xl font-bold text-ink-900 mb-2">{xpuntoCero.projectImpact.metrics[0].value}</div>
                 <div className="text-sm font-semibold text-accent mb-2">
@@ -250,8 +250,8 @@ export default function XpuntoCero() {
 
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <Target className="w-6 h-6 text-accent-icon" />
+                <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+                  <Target className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                 </div>
                 <div className="text-4xl font-bold text-ink-900 mb-2">{xpuntoCero.projectImpact.metrics[1].value}</div>
                 <div className="text-sm font-semibold text-accent mb-2">
@@ -265,8 +265,8 @@ export default function XpuntoCero() {
 
             <GlassCard>
               <div className="flex flex-col items-center text-center p-6">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <CheckCircle className="w-6 h-6 text-accent-icon" />
+                <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+                  <CheckCircle className="w-5 h-5 text-accent-icon" aria-hidden="true" />
                 </div>
                 <div className="text-4xl font-bold text-ink-900 mb-2">{xpuntoCero.projectImpact.metrics[2].value}</div>
                 <div className="text-sm font-semibold text-accent mb-2">
