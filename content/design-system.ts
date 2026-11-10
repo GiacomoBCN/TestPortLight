@@ -52,7 +52,7 @@ export const designSystem = {
   intro: {
     title: "The source is the theme",
     paragraphs: [
-      "In a multi-brand system, one theme keeps every product on the same structure: same token names, different values. Here there is one product, but five kinds of content, and each needs its own colour on the card. So I treated the five sources as five themes. The colour is the theme, and the theme is where the token architecture starts.",
+      "In a multi-brand system, one theme keeps every product on the same structure: same token names, different values. Here there is one product, but five kinds of content, and each needs its own colour on the card. So I treated the five sources as five themes. Articles and PDFs share one theme, because a PDF is almost always an article in another format. The colour is the theme, and the theme is where the token architecture starts.",
       "Three levels. Raw values that no component ever reads. A scope per source that remaps six contextual tokens. And the contextual tokens, which are the only thing a component reads. The card does not know YouTube exists. Adding a source tomorrow is one block of CSS and zero lines in any component.",
     ],
   },
@@ -143,11 +143,11 @@ export const designSystem = {
       { id: "unknown", label: "Unknown source", glyph: "?" },
     ],
     card: {
-      title: "One card, five sources",
+      title: "One card, five themes",
       author: "G.B.",
       saved: "SAVED 7 NOV 26",
       tabs: ["Short", "Medium", "Original"],
-      body: "This card changes its colour and icon with each of its five sources. The layout and the tokens behind it stay the same.",
+      body: "This card changes its colour and icon with its source. Six sources share five colour themes, and the layout and the tokens behind it stay the same.",
       chips: ["Tokens", "Theming", "Design systems"],
       rated: "RATED: LOVE IT",
       focus: "READ IN FOCUS",
