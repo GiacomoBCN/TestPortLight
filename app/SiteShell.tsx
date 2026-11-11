@@ -241,6 +241,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               id="mobile-menu"
               ref={mobileMenuRef}
               className="md:hidden fixed top-[72px] left-0 right-0 max-h-[calc(100vh-72px)] overflow-y-auto overscroll-contain mobile-menu-overlay border-t border-ink-900/10"
+              // Un link verso un'ancora della stessa pagina (es. /#about) non cambia rotta:
+              // il menu si chiude al click su qualsiasi link, non solo al cambio di pathname.
+              onClick={(e) => {
+                if ((e.target as HTMLElement).closest("a")) setIsMobileMenuOpen(false);
+              }}
             >
               <div className="flex flex-col p-6 gap-4 max-w-7xl mx-auto">
                 <Link
