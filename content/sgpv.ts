@@ -84,7 +84,7 @@ export const sgpv = {
         "I led the responsive redesign of the app, making it fully usable on both tablets and smartphones. We centralized the CSS, icon system, and shared assets so that updates and fixes could be deployed once and applied across all client builds. This effort unified fifteen client versions without interrupting ongoing operations, laying the technical and visual foundation for future releases.",
       images: [
         {
-          src: "images/projects/SGPV_V6_Old_New.webp",
+          src: "images/projects/SGPV_V6_Old_New.webp", width: 1841, height: 1134,
           alt: "Legacy tablet app redesigned into responsive v6 for mobile and tablet.",
         },
       ],
@@ -99,7 +99,7 @@ export const sgpv = {
       ],
       images: [
         {
-          src: "images/projects/SGPV_V6_New_Diag.webp",
+          src: "images/projects/SGPV_V6_New_Diag.webp", width: 1850, height: 1031,
           alt: "Diagram summarizing Phase 1 impact: centralized styling enabled scalability, 20% lower hardware cost, 80% higher deployment efficiency, and 15% higher user satisfaction.",
         },
       ],
@@ -129,7 +129,7 @@ export const sgpv = {
         "After Phase 1, we still faced performance bottlenecks on iOS and structural limits in the PhoneGap framework.\n\nI led a comparative study of React Native, Ionic, and Flutter to identify a cross-platform solution that could deliver native performance from a single codebase.\n\nAlthough React Native had the larger ecosystem, Flutter's coherent widget architecture, faster rendering engine, and shorter learning curve provided a more scalable foundation for our needs.\n\nI mapped all major SGPV v6 components to Flutter's widget library and built prototypes to test parity and performance.\n\nThis validation proved that Flutter could reduce build complexity and accelerate releases across all client implementations.",
       images: [
         {
-          src: "images/projects/SGPV_Research_01.webp",
+          src: "images/projects/SGPV_Research_01.webp", width: 1850, height: 1031,
           alt: "Diagram summarizing the process and output of the tech research.",
         },
       ],
@@ -196,7 +196,7 @@ export const sgpv = {
         "Before migration, merchandisers visiting retail stores had to manually type product codes, shelf data, and promotion details.\nIt was a repetitive, error-prone process that slowed each store visit and reduced data reliability. A single audit could involve dozens of entries, making productivity and consistency difficult to sustain.",
       images: [
         {
-          src: "images/projects/sgpv_7_AI_flow_to colect_data.webp",
+          src: "images/projects/sgpv_7_AI_flow_to colect_data.webp", width: 1850, height: 1031,
           alt: "Flow diagram showing the redesigned AI-powered data capture process in SGPV v7. Users take photos of shelves or products instead of typing. The system extracts data automatically through image recognition, simplifying the field workflow.",
         },
       ],
@@ -213,7 +213,7 @@ export const sgpv = {
       ],
       images: [
         {
-          src: "images/projects/sgpv_7_AI_Diagram_benefit.webp",
+          src: "images/projects/sgpv_7_AI_Diagram_benefit.webp", width: 1850, height: 1031,
           alt: "Diagram showing the impact of migrating to Flutter and adding AI image recognition in SGPV v7. Highlights include performance boost, task time reduced by 25%, and user satisfaction increased by 30%.",
         },
       ],

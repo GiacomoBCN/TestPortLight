@@ -306,7 +306,7 @@ export default function SGPVEvolution() {
                       title={sgpv.phase1.approach.title}
                       description={sgpv.phase1.approach.description}
                       bulletPoints={[]}
-                      images={sgpv.phase1.approach.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
+                      images={sgpv.phase1.approach.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
                       imagePosition="left"
                       onOpenGallery={openGallery}
                       additionalText=""
@@ -316,7 +316,7 @@ export default function SGPVEvolution() {
                       title={sgpv.phase1.results.title}
                       description=""
                       bulletPoints={sgpv.phase1.results.bulletPoints}
-                      images={sgpv.phase1.results.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
+                      images={sgpv.phase1.results.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
                       imagePosition="left"
                       onOpenGallery={openGallery}
                       additionalText=""
@@ -363,7 +363,7 @@ export default function SGPVEvolution() {
               title={sgpv.phase2.technologyResearch.title}
               description={sgpv.phase2.technologyResearch.description}
               bulletPoints={[]}
-              images={sgpv.phase2.technologyResearch.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
+              images={sgpv.phase2.technologyResearch.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText=""
@@ -474,7 +474,7 @@ export default function SGPVEvolution() {
               title={sgpv.aiDataCapture.problem.title}
               description={sgpv.aiDataCapture.problem.description}
               bulletPoints={[]}
-              images={sgpv.aiDataCapture.problem.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
+              images={sgpv.aiDataCapture.problem.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText=""
@@ -484,7 +484,7 @@ export default function SGPVEvolution() {
               title={sgpv.aiDataCapture.solution.title}
               description={sgpv.aiDataCapture.solution.description}
               bulletPoints={sgpv.aiDataCapture.solution.bulletPoints}
-              images={sgpv.aiDataCapture.solution.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt }))}
+              images={sgpv.aiDataCapture.solution.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText=""

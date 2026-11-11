@@ -14,7 +14,7 @@ interface ImageTextCardProps {
     src: string;
     alt: string;
     // Facoltativi: se ci sono, la cornice prende le proporzioni dell'immagine invece del 16:9
-    // (oggi solo Tu Plan Redondo, immagini quadrate che nel 16:9 restavano piccole)
+    // (Tu Plan Redondo, XpuntoCero, SGPV: immagini che nel 16:9 restavano piccole)
     width?: number;
     height?: number;
   }[];

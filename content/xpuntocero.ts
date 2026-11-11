@@ -103,7 +103,7 @@ export const xpuntoCero = {
         ],
         images: [
           {
-            src: "images/projects/XP0-SaaS_Platform_Analysis.webp",
+            src: "images/projects/XP0-SaaS_Platform_Analysis.webp", width: 2802, height: 2589,
             alt: "Brand perception map positioning XpuntoCero as reliable but outdated in the SaaS landscape.",
           },
         ],
@@ -120,7 +120,7 @@ export const xpuntoCero = {
         ],
         images: [
           {
-            src: "images/projects/XP0-ux_Issues_Stem_from_Deeper_Problems..webp",
+            src: "images/projects/XP0-ux_Issues_Stem_from_Deeper_Problems..webp", width: 2802, height: 2589,
             alt: "Iceberg diagram showing how surface usability issues stemmed from deeper UX and information architecture problems.",
           },
         ],
@@ -137,7 +137,7 @@ export const xpuntoCero = {
         ],
         images: [
           {
-            src: "images/projects/XP0-ux_laptop_mobile.webp",
+            src: "images/projects/XP0-ux_laptop_mobile.webp", width: 2802, height: 2589,
             alt: "Responsive redesign preview of XpuntoCero’s platform on laptop and smartphone screens.",
           },
         ],
@@ -212,7 +212,7 @@ export const xpuntoCero = {
         ],
         images: [
           {
-            src: "images/projects/XP0-logo-colors-icons.webp",
+            src: "images/projects/XP0-logo-colors-icons.webp", width: 2802, height: 2802,
             alt: "XpuntoCero logo old vs new, anchor colors, and core product icons/logos",
           },
         ],
@@ -230,7 +230,7 @@ export const xpuntoCero = {
         ],
         images: [
           {
-            src: "images/projects/XP0-Custom_isometric_illustration.webp",
+            src: "images/projects/XP0-Custom_isometric_illustration.webp", width: 2802, height: 2802,
             alt: "Custom isometric illustration showing mobile, tablet, and retail environments linked through XpuntoCero’s SaaS solution.",
           },
         ],

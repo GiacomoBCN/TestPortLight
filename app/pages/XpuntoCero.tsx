@@ -340,10 +340,7 @@ export default function XpuntoCero() {
               title={xpuntoCero.research.cards.discovery.title}
               description={xpuntoCero.research.cards.discovery.description}
               bulletPoints={xpuntoCero.research.cards.discovery.bulletPoints}
-              images={xpuntoCero.research.cards.discovery.images.map((im) => ({
-                src: getImagePath(im.src),
-                alt: im.alt,
-              }))}
+              images={xpuntoCero.research.cards.discovery.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText={xpuntoCero.research.cards.discovery.additionalText}
@@ -354,10 +351,7 @@ export default function XpuntoCero() {
               title={xpuntoCero.research.cards.keyInsights.title}
               description={xpuntoCero.research.cards.keyInsights.description}
               bulletPoints={xpuntoCero.research.cards.keyInsights.bulletPoints}
-              images={xpuntoCero.research.cards.keyInsights.images.map((im) => ({
-                src: getImagePath(im.src),
-                alt: im.alt,
-              }))}
+              images={xpuntoCero.research.cards.keyInsights.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
               imagePosition="right"
               onOpenGallery={openGallery}
               additionalText={xpuntoCero.research.cards.keyInsights.additionalText}
@@ -368,10 +362,7 @@ export default function XpuntoCero() {
               title={xpuntoCero.research.cards.designDirection.title}
               description={xpuntoCero.research.cards.designDirection.description}
               bulletPoints={xpuntoCero.research.cards.designDirection.bulletPoints}
-              images={xpuntoCero.research.cards.designDirection.images.map((im) => ({
-                src: getImagePath(im.src),
-                alt: im.alt,
-              }))}
+              images={xpuntoCero.research.cards.designDirection.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText={xpuntoCero.research.cards.designDirection.additionalText}
@@ -416,10 +407,7 @@ export default function XpuntoCero() {
               title={xpuntoCero.visualIdentity.cards.visualKit.title}
               description={xpuntoCero.visualIdentity.cards.visualKit.description}
               bulletPoints={xpuntoCero.visualIdentity.cards.visualKit.bulletPoints}
-              images={xpuntoCero.visualIdentity.cards.visualKit.images.map((im) => ({
-                src: getImagePath(im.src),
-                alt: im.alt,
-              }))}
+              images={xpuntoCero.visualIdentity.cards.visualKit.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
               imagePosition="left"
               onOpenGallery={openGallery}
               additionalText={xpuntoCero.visualIdentity.cards.visualKit.additionalText}
@@ -430,10 +418,7 @@ export default function XpuntoCero() {
               title={xpuntoCero.visualIdentity.cards.isometricIllustrations.title}
               description={xpuntoCero.visualIdentity.cards.isometricIllustrations.description}
               bulletPoints={xpuntoCero.visualIdentity.cards.isometricIllustrations.bulletPoints}
-              images={xpuntoCero.visualIdentity.cards.isometricIllustrations.images.map((im) => ({
-                src: getImagePath(im.src),
-                alt: im.alt,
-              }))}
+              images={xpuntoCero.visualIdentity.cards.isometricIllustrations.images.map((im) => ({ src: getImagePath(im.src), alt: im.alt, width: im.width, height: im.height }))}
               imagePosition="right"
               onOpenGallery={openGallery}
               additionalText={xpuntoCero.visualIdentity.cards.isometricIllustrations.additionalText}
