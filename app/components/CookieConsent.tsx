@@ -60,35 +60,36 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-50"
+          className="fixed bottom-0 left-0 right-0 md:bottom-6 md:left-auto md:right-[calc(var(--band)+1.5rem)] md:max-w-md z-50"
           data-track-area="cookie"
           role="region"
           aria-label={shell.cookieConsent.ariaLabel}
-        style={{ right: "calc(var(--band) + 1.5rem)" }}
         >
           <div
-            className="rounded-xl bg-[#ffffff]/80 backdrop-blur-xl shadow-2xl border border-ink-900/20 p-4"
+            className="bg-[#ffffff]/90 backdrop-blur-xl border-t border-ink-900/20 px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] md:rounded-xl md:bg-[#ffffff]/80 md:shadow-2xl md:border md:p-4"
             style={{
               boxShadow:
                 "0 8px 32px 0 rgba(242, 140, 40, 0.15), 0 0 0 1px rgba(7, 9, 11, 0.12)",
             }}
           >
-            <div className="flex flex-col gap-3">
-              <p className="text-sm text-[var(--color-text-primary)] leading-relaxed">
-                {shell.cookieConsent.message}
+            {/* Telefono: una sola riga in basso (testo a sinistra, pulsanti a destra). Da 768px: la card di prima */}
+            <div className="flex items-center gap-3 md:flex-col md:items-stretch">
+              <p className="flex-1 min-w-0 text-xs leading-snug md:flex-none md:text-sm md:leading-relaxed text-[var(--color-text-primary)]">
+                <span className="md:hidden">{shell.cookieConsent.messageShort}</span>
+                <span className="hidden md:inline">{shell.cookieConsent.message}</span>
               </p>
-              <div className="flex gap-2">
+              <div className="flex flex-shrink-0 gap-2">
                 <button
                   type="button"
                   onClick={handleDecline}
-                  className="flex-1 px-4 py-2 text-xs font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] bg-[var(--color-text-inverse)]/5 hover:bg-[var(--color-text-inverse)]/10 rounded-lg transition-all border border-[var(--color-text-inverse)]/10"
+                  className="md:flex-1 px-3 md:px-4 py-2 min-h-[36px] md:min-h-0 text-xs font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] bg-[var(--color-text-inverse)]/5 hover:bg-[var(--color-text-inverse)]/10 rounded-lg transition-all border border-[var(--color-text-inverse)]/10"
                 >
                   {shell.cookieConsent.decline}
                 </button>
                 <button
                   type="button"
                   onClick={handleAccept}
-                  className="flex-1 px-4 py-2 text-xs font-medium text-[var(--button-primary-text)] bg-[var(--button-primary-background-default)] hover:bg-[var(--button-primary-background-hover)] rounded-lg transition-all"
+                  className="md:flex-1 px-3 md:px-4 py-2 min-h-[36px] md:min-h-0 text-xs font-medium text-[var(--button-primary-text)] bg-[var(--button-primary-background-default)] hover:bg-[var(--button-primary-background-hover)] rounded-lg transition-all"
                   style={{ boxShadow: "0 0 20px var(--color-surface-glow)" }}
                 >
                   {shell.cookieConsent.accept}

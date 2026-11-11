@@ -63,6 +63,8 @@ export const shell = {
   cookieConsent: {
     ariaLabel: "Cookie consent",
     message: "We use cookies to analyze site traffic and improve your experience.",
+    // sotto i 768px il banner e' una riga sola: versione corta della stessa frase
+    messageShort: "We use analytics cookies.",
     decline: "Decline",
     accept: "Accept",
   },
