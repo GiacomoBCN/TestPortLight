@@ -90,9 +90,12 @@ export default function ProjectCard({
         type="button"
         onClick={toggleVideo}
         aria-label={playing ? videoLabels.pause : videoLabels.play}
-        className="pointer-events-auto absolute bottom-2 right-2 w-8 h-8 rounded-full bg-white/90 border border-ink-900/15 shadow-sm flex items-center justify-center text-ink-900 hover:bg-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-interactive)]"
+        // Area di tocco 44x44 (invisibile); il cerchio che si vede resta 32x32 nello stesso punto.
+        className="group/video pointer-events-auto absolute bottom-0.5 right-0.5 w-11 h-11 flex items-center justify-center rounded-full focus-visible:outline-none"
       >
-        {playing ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
+        <span className="w-8 h-8 rounded-full bg-white/90 border border-ink-900/15 shadow-sm flex items-center justify-center text-ink-900 group-hover/video:bg-white transition-colors group-focus-visible/video:ring-2 group-focus-visible/video:ring-[var(--color-border-interactive)]">
+          {playing ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
+        </span>
       </button>
     </div>
   );
@@ -106,9 +109,12 @@ export default function ProjectCard({
             <Image
               src={image}
               alt={title}
-              fill
+              // width/height dichiarati (stesse proporzioni del contenitore): il browser
+              // riserva lo spazio prima che l'immagine arrivi.
+              width={1200}
+              height={compact ? 500 : 675}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className={`${imageFit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-105`}
+              className={`absolute inset-0 w-full h-full ${imageFit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-105`}
             />
             {imageFit === "cover" && (
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-secondary)] via-transparent to-transparent opacity-60"></div>

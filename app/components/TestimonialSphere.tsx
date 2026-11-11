@@ -222,7 +222,7 @@ function Recommendation({
     <>
       <blockquote className={`${large ? "text-xl md:text-2xl" : "text-lg"} text-[var(--color-text-inverse)] leading-relaxed`}>“{t.quote}”</blockquote>
       <details className="mt-4" onToggle={(e) => onToggle?.(e.currentTarget.open)}>
-        <summary className="cursor-pointer w-fit text-sm font-medium text-[var(--color-text-link-default)] link-underline marker:text-[var(--color-list-bullet)]">
+        <summary className="cursor-pointer w-fit py-3 -my-3 text-sm font-medium text-[var(--color-text-link-default)] link-underline marker:text-[var(--color-list-bullet)]">
           {readFull}
         </summary>
         <div className="mt-4 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
@@ -234,7 +234,7 @@ function Recommendation({
               href={linkedInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-[var(--color-text-link-default)] link-underline"
+              className="inline-block py-3 -my-3 text-sm font-medium text-[var(--color-text-link-default)] link-underline"
             >
               {seeOnLinkedIn}
             </a>
@@ -479,7 +479,7 @@ export default function TestimonialSphere({
                 tabIndex={-1}
                 title={t.name}
                 onClick={() => show(i)}
-                className="rounded-full cursor-pointer transition-transform duration-200 hover:scale-110 motion-reduce:transition-none"
+                className="relative before:absolute before:-inset-3 before:content-[''] rounded-full cursor-pointer transition-transform duration-200 hover:scale-110 motion-reduce:transition-none"
               >
                 <Avatar name={t.name} image={t.image} size={40} />
               </button>
@@ -557,7 +557,7 @@ export default function TestimonialSphere({
                 type="button"
                 onClick={() => setPaused((p) => !p)}
                 aria-label={paused ? play : pause}
-                className="ml-2 w-8 h-8 flex items-center justify-center rounded-full text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] focus-visible:outline-2 focus-visible:outline-[var(--color-border-interactive)]"
+                className="ml-0.5 -mr-1.5 -my-1.5 w-11 h-11 flex items-center justify-center rounded-full text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] focus-visible:outline-2 focus-visible:outline-[var(--color-border-interactive)]"
               >
                 {paused ? <Play size={14} aria-hidden="true" /> : <Pause size={14} aria-hidden="true" />}
               </button>

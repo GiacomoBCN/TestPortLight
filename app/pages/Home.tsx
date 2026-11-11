@@ -93,7 +93,7 @@ export default function Home() {
               repeatType: "reverse",
               duration: 1.5,
             }}
-            className="flex justify-center cursor-pointer"
+            className="flex justify-center cursor-pointer py-1.5 -my-1.5"
             aria-label={hero.scrollCueLabel}
           >
             <ChevronDown size={32} className="text-[var(--color-icon-accent)] glow-blue" aria-hidden="true" />

@@ -82,14 +82,14 @@ export default function CookieConsent() {
                 <button
                   type="button"
                   onClick={handleDecline}
-                  className="md:flex-1 px-3 md:px-4 py-2 min-h-[36px] md:min-h-0 text-xs font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] bg-[var(--color-text-inverse)]/5 hover:bg-[var(--color-text-inverse)]/10 rounded-lg transition-all border border-[var(--color-text-inverse)]/10"
+                  className="md:flex-1 px-3 md:px-4 py-2 min-h-11 md:min-h-0 text-xs font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text-inverse)] bg-[var(--color-text-inverse)]/5 hover:bg-[var(--color-text-inverse)]/10 rounded-lg transition-all border border-[var(--color-text-inverse)]/10"
                 >
                   {shell.cookieConsent.decline}
                 </button>
                 <button
                   type="button"
                   onClick={handleAccept}
-                  className="md:flex-1 px-3 md:px-4 py-2 min-h-[36px] md:min-h-0 text-xs font-medium text-[var(--button-primary-text)] bg-[var(--button-primary-background-default)] hover:bg-[var(--button-primary-background-hover)] rounded-lg transition-all"
+                  className="md:flex-1 px-3 md:px-4 py-2 min-h-11 md:min-h-0 text-xs font-medium text-[var(--button-primary-text)] bg-[var(--button-primary-background-default)] hover:bg-[var(--button-primary-background-hover)] rounded-lg transition-all"
                   style={{ boxShadow: "0 0 20px var(--color-surface-glow)" }}
                 >
                   {shell.cookieConsent.accept}
