@@ -90,9 +90,11 @@ export default function TuPlanRedondo() {
     ...a,
   }));
 
-  const img = (im: { file: string; alt: string }) => ({
+  const img = (im: { file: string; alt: string; width?: number; height?: number }) => ({
     src: getImagePath(im.file),
     alt: im.alt,
+    width: im.width,
+    height: im.height,
   });
 
   return (

@@ -115,7 +115,7 @@ export const tuPlanRedondo = {
       ],
       images: [
         {
-          file: "images/projects/mc-userflowEvol_Difprofiles.webp",
+          file: "images/projects/mc-userflowEvol_Difprofiles.webp", width: 2000, height: 2000,
           alt: "User flow boards showing administrator/restaurant manager/supervisors/crew paths",
         },
       ],
@@ -135,7 +135,7 @@ export const tuPlanRedondo = {
           text: "Administrator, restaurant manager, supervisor and crew members under one streamlined workflow.",
         },
       ],
-      images: [{ file: "images/projects/mc-painPoints.webp", alt: "Pain points in product development" }],
+      images: [{ file: "images/projects/mc-painPoints.webp", width: 2802, height: 2802, alt: "Pain points in product development" }],
     },
   },
 
@@ -186,7 +186,7 @@ export const tuPlanRedondo = {
         },
         { label: "Autosave", text: "Prevents data loss if evaluators are interrupted" },
       ],
-      images: [{ file: "images/projects/mc-iconsVisualElements.webp", alt: "Brand-aligned components and icons" }],
+      images: [{ file: "images/projects/mc-iconsVisualElements.webp", width: 2000, height: 2000, alt: "Brand-aligned components and icons" }],
     },
     evaluationInterface: {
       title: "Streamlined Evaluation Interface",
@@ -206,7 +206,7 @@ export const tuPlanRedondo = {
       ],
       images: [
         {
-          file: "images/projects/mc-userflowEvol-restaurantManager.webp",
+          file: "images/projects/mc-userflowEvol-restaurantManager.webp", width: 2000, height: 2000,
           alt: "Mockup of evaluation flow of general restaurant manager",
         },
       ],
@@ -221,7 +221,7 @@ export const tuPlanRedondo = {
         { label: "Autosave", text: "No data loss if an evaluation is interrupted" },
       ],
       images: [
-        { file: "images/projects/mc-PerformanceEvaluation.webp", alt: "PWA screenshot of performance evaluation page" },
+        { file: "images/projects/mc-PerformanceEvaluation.webp", width: 2000, height: 2000, alt: "PWA screenshot of performance evaluation page" },
       ],
     },
   },

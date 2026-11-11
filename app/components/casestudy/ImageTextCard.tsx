@@ -13,6 +13,10 @@ interface ImageTextCardProps {
   images: {
     src: string;
     alt: string;
+    // Facoltativi: se ci sono, la cornice prende le proporzioni dell'immagine invece del 16:9
+    // (oggi solo Tu Plan Redondo, immagini quadrate che nel 16:9 restavano piccole)
+    width?: number;
+    height?: number;
   }[];
   imagePosition?: "left" | "right";
   onOpenGallery: (
@@ -45,7 +49,10 @@ export default function ImageTextCard({
             onClick={() => onOpenGallery(imagesWithPath, index)}
             aria-label={shell.ui.enlargeImageLabel(image.alt)}
           >
-            <div className="relative w-full aspect-video">
+            <div
+              className={`relative w-full ${image.width && image.height ? "" : "aspect-video"}`}
+              style={image.width && image.height ? { aspectRatio: `${image.width} / ${image.height}` } : undefined}
+            >
               <Image
                 src={image.src}
                 alt={image.alt}
