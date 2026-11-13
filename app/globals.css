@@ -189,10 +189,19 @@
   --hero-glow-orange-size-mobile: 18rem;
   --hero-glow-yellow-size-mobile: 24rem;
   --hero-glow-bleed-top: 5rem;               /* sale sotto il menu: uguale al pt-20 di <main> */
-  --hero-glow-speed: 24s;                    /* durata di un'andata dell'arancio (il giallo e' piu' lento) */
-  --hero-glow-drift: 5rem;                   /* di quanto si spostano le due luci */
-  --hero-glow-drift-mobile: 2rem;
-  --hero-glow-breathe: 0.7;                  /* opacita' minima durante il movimento (1 = non cala mai) */
+  --hero-glow-speed: 11s;                    /* durata di un'andata dell'arancio (il giallo e' piu' lento) */
+  --hero-glow-drift: 10rem;                  /* di quanto si spostano le due luci d'angolo */
+  --hero-glow-drift-mobile: 4rem;
+  --hero-glow-breathe: 0.45;                 /* opacita' minima durante il movimento (1 = non cala mai) */
+  /* Fasci di luce che attraversano l'hero (tipo "light leak") */
+  --hero-glow-streak-opacity: 0.5;           /* intensita' al centro del fascio */
+  --hero-glow-streak-opacity-mobile: 0.38;
+  --hero-glow-streak-length: 62rem;
+  --hero-glow-streak-length-mobile: 26rem;
+  --hero-glow-streak-width: 17rem;
+  --hero-glow-streak-width-mobile: 9rem;
+  --hero-glow-streak-angle: -32deg;          /* inclinazione dei fasci */
+  --hero-glow-streak-speed: 9s;              /* durata di un passaggio (gli altri due fasci sono piu' lenti) */
   --hero-grain-opacity: 0.04;
   --hero-grain-size: 160px;                  /* lato della tessera di rumore */
 
@@ -588,13 +597,15 @@
 /* ============================================
    LUCE CALDA DELL'HERO (solo home) - classe .hero-glow sulla section
    Fondo bianco; due luci (arancio e gialla) entrano dall'angolo in alto a
-   destra e si muovono lentissime, ognuna col suo tempo, con una grana
-   leggerissima sopra. Solo CSS: niente immagini, niente JS, niente blur.
+   destra e si muovono, e tre fasci di luce attraversano l'hero e svaniscono
+   (tipo "light leak" di una pellicola), con una grana leggera sopra.
+   Solo CSS: niente immagini, niente video, niente JS, niente blur.
 
    Struttura:
    - .hero-glow-layer (div vuoto, aria-hidden, dentro la section): ritaglia le
      luci sull'hero e le lascia salire sotto il menu.
-     ::before = arancio, ::after = giallo. Ogni luce e' un quadrato con un
+     ::before = arancio, ::after = giallo; i tre <span class="hero-glow-streak">
+     sono i fasci. Ogni luce e' un riquadro con un
      radial-gradient disegnato una volta sola; l'animazione cambia solo
      transform e opacity, quindi la muove la scheda grafica senza ridisegnare.
    - .hero-glow::after = grana, ferma.
@@ -612,6 +623,9 @@
   --_os: var(--hero-glow-orange-size-mobile);
   --_ys: var(--hero-glow-yellow-size-mobile);
   --_d: var(--hero-glow-drift-mobile);
+  --_so: var(--hero-glow-streak-opacity-mobile);
+  --_sl: var(--hero-glow-streak-length-mobile);
+  --_sw: var(--hero-glow-streak-width-mobile);
 }
 @media (min-width: 768px) {
   .hero-glow {
@@ -620,6 +634,9 @@
     --_os: var(--hero-glow-orange-size);
     --_ys: var(--hero-glow-yellow-size);
     --_d: var(--hero-glow-drift);
+    --_so: var(--hero-glow-streak-opacity);
+    --_sl: var(--hero-glow-streak-length);
+    --_sw: var(--hero-glow-streak-width);
   }
 }
 
@@ -688,9 +705,63 @@
   from { transform: translate3d(calc(-0.5 * var(--_d)), calc(0.4 * var(--_d)), 0) scale(1.1); opacity: var(--hero-glow-breathe); }
   to   { transform: translate3d(calc(0.7 * var(--_d)), calc(-0.3 * var(--_d)), 0) scale(0.94); opacity: 1; }
 }
+
+/* Fasci di luce: tre ellissi allungate e inclinate, gialle sopra e arancio sotto, che
+   attraversano l'hero e svaniscono. Ognuna ha il suo percorso (--fx/--fy -> --tx/--ty,
+   in multipli della propria lunghezza) e il suo tempo, sfasati con un ritardo negativo. */
+.hero-glow .hero-glow-streak {
+  position: absolute;
+  width: var(--_sl);
+  height: var(--_sw);
+  opacity: 0;
+  background-image:
+    radial-gradient(
+      ellipse 50% 36% at 50% 38%,
+      rgb(var(--hero-glow-yellow) / calc(var(--_so) * 1)) 0%,
+      rgb(var(--hero-glow-yellow) / calc(var(--_so) * 0.5)) 40%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 50% 36% at 50% 62%,
+      rgb(var(--hero-glow-orange) / calc(var(--_so) * 0.85)) 0%,
+      rgb(var(--hero-glow-orange) / calc(var(--_so) * 0.4)) 40%,
+      transparent 100%
+    );
+  will-change: transform, opacity;
+  animation: hero-glow-sweep var(--_dur) ease-in-out var(--_delay) infinite;
+}
+.hero-glow .hero-glow-streak:nth-child(1) {
+  left: 48%; top: 6%;
+  --fx: 0.55; --fy: -0.12; --tx: -0.5; --ty: 0.16; --_s: 1.15;
+  --_dur: var(--hero-glow-streak-speed); --_delay: -2s;
+}
+.hero-glow .hero-glow-streak:nth-child(2) {
+  left: -12%; top: 46%;
+  --fx: -0.35; --fy: 0.12; --tx: 0.55; --ty: -0.1; --_s: 0.9;
+  --_dur: calc(var(--hero-glow-streak-speed) * 1.45); --_delay: -6s;
+}
+.hero-glow .hero-glow-streak:nth-child(3) {
+  left: 38%; top: 68%;
+  --fx: 0.6; --fy: 0.02; --tx: -0.45; --ty: 0.1; --_s: 1;
+  --_dur: calc(var(--hero-glow-streak-speed) * 1.2); --_delay: -9s;
+}
+@keyframes hero-glow-sweep {
+  0% {
+    transform: translate3d(calc(var(--fx) * var(--_sl)), calc(var(--fy) * var(--_sl)), 0) rotate(var(--hero-glow-streak-angle)) scale(calc(var(--_s) * 0.85));
+    opacity: 0;
+  }
+  30%, 62% { opacity: 1; }
+  100% {
+    transform: translate3d(calc(var(--tx) * var(--_sl)), calc(var(--ty) * var(--_sl)), 0) rotate(var(--hero-glow-streak-angle)) scale(calc(var(--_s) * 1.15));
+    opacity: 0;
+  }
+}
+
+/* Riduci movimento: luci d'angolo ferme, fasci nascosti */
 @media (prefers-reduced-motion: reduce) {
   .hero-glow > .hero-glow-layer::before,
-  .hero-glow > .hero-glow-layer::after {
+  .hero-glow > .hero-glow-layer::after,
+  .hero-glow .hero-glow-streak {
     animation: none;
     will-change: auto;
   }

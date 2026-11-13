@@ -246,7 +246,7 @@ All primitive colors are documented with their contrast ratios to ensure WCAG AA
 
 #### Hero glow (home, class `.hero-glow`)
 
-Warm light entering from the top-right corner of the home hero, on a white background, with a very light grain on top. The two lights drift very slowly, each on its own timing (only `transform` and `opacity` are animated; still with `prefers-reduced-motion`). CSS only. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
+Warm light entering from the top-right corner of the home hero, on a white background, with a very light grain on top. The two corner lights drift and three light streaks sweep across the hero and fade, like film light leaks, each on its own timing (only `transform` and `opacity` are animated; with `prefers-reduced-motion` the corner lights stay still and the streaks are hidden). CSS only: no image, no video, no JS. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
 
 ```css
 --hero-glow-orange: 242 140 40;            /* = --primitive-orange-500 #F28C28, as RGB channels so an opacity can be applied */
@@ -264,10 +264,18 @@ Warm light entering from the top-right corner of the home hero, on a white backg
 --hero-glow-orange-size-mobile: 18rem;
 --hero-glow-yellow-size-mobile: 24rem;
 --hero-glow-bleed-top: 5rem;               /* runs up under the nav (= <main> pt-20) */
---hero-glow-speed: 24s;                    /* one way of the orange light (yellow is slower) */
---hero-glow-drift: 5rem;                   /* how far the lights move */
---hero-glow-drift-mobile: 2rem;
---hero-glow-breathe: 0.7;                  /* lowest opacity while moving (1 = never dims) */
+--hero-glow-speed: 11s;                    /* one way of the orange light (yellow is slower) */
+--hero-glow-drift: 10rem;                  /* how far the corner lights move */
+--hero-glow-drift-mobile: 4rem;
+--hero-glow-breathe: 0.45;                 /* lowest opacity while moving (1 = never dims) */
+--hero-glow-streak-opacity: 0.5;           /* intensity at the centre of a streak */
+--hero-glow-streak-opacity-mobile: 0.38;
+--hero-glow-streak-length: 62rem;
+--hero-glow-streak-length-mobile: 26rem;
+--hero-glow-streak-width: 17rem;
+--hero-glow-streak-width-mobile: 9rem;
+--hero-glow-streak-angle: -32deg;
+--hero-glow-streak-speed: 9s;              /* one pass (the other two streaks are slower) */
 --hero-grain-opacity: 0.04;
 --hero-grain-size: 160px;
 ```
