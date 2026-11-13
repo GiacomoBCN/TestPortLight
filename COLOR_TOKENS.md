@@ -244,6 +244,30 @@ All primitive colors are documented with their contrast ratios to ensure WCAG AA
 --hero-glow-effect: var(--color-surface-glow);
 ```
 
+#### Hero glow (home, class `.hero-glow`)
+
+Warm light entering from the top-right corner of the home hero, on a white background, with a very light grain on top. CSS only. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
+
+```css
+--hero-glow-orange: 242 140 40;            /* = --primitive-orange-500 #F28C28, as RGB channels so an opacity can be applied */
+--hero-glow-yellow: 245 195 59;            /* = --primitive-yellow-400 #F5C33B */
+--hero-glow-orange-opacity: 0.18;          /* strongest point */
+--hero-glow-yellow-opacity: 0.22;
+--hero-glow-orange-opacity-mobile: 0.12;   /* below 768px */
+--hero-glow-yellow-opacity-mobile: 0.15;
+--hero-glow-position: 100% 0%;             /* orange centre: top-right corner */
+--hero-glow-yellow-position: 86% 4%;       /* yellow, slightly offset inward */
+--hero-glow-orange-size: 46rem;            /* gradient radius */
+--hero-glow-yellow-size: 62rem;
+--hero-glow-orange-size-mobile: 18rem;
+--hero-glow-yellow-size-mobile: 24rem;
+--hero-glow-bleed-top: 5rem;               /* runs up under the nav (= <main> pt-20) */
+--hero-grain-opacity: 0.04;
+--hero-grain-size: 160px;
+```
+
+Contrast at the most coloured point (worst case, `node check-contrast.js`): ink text 13.25:1 on desktop, 14.27:1 on mobile.
+
 ### Teaching Section
 
 ```css

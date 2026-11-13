@@ -169,6 +169,72 @@ console.log('   • Level AAA Normal Text: 7:1 minimum');
 console.log('   • Level AAA Large Text:  4.5:1 minimum');
 console.log('\n   💡 Large text = 18pt (24px) or larger, or 14pt (18.66px) bold or larger\n');
 
+// ---------------------------------------------------------------------------
+// HERO GLOW (home): testo dell'hero sopra la luce calda (.hero-glow)
+// Legge i token da app/globals.css e calcola il fondo nel punto peggiore possibile:
+// bianco + giallo alla massima opacita' + arancio alla massima opacita' sopra,
+// poi scurito dalla grana (multiply) alla sua opacita' massima.
+// E' un caso limite: il testo dell'hero sta al centro, dove la luce e' molto piu' debole.
+// ---------------------------------------------------------------------------
+(function heroGlowCheck() {
+  const fs = require('fs');
+  const path = require('path');
+  const css = fs.readFileSync(path.join(__dirname, 'app', 'globals.css'), 'utf8');
+  const token = (name) => {
+    const m = css.match(new RegExp(name.replace(/[-]/g, '\\-') + '\\s*:\\s*([^;]+);'));
+    if (!m) throw new Error('Token non trovato: ' + name);
+    const v = m[1].trim();
+    const ref = v.match(/^var\((--[\w-]+)\)$/);
+    return ref ? token(ref[1]) : v;
+  };
+  const toHex = (c) => '#' + [c.r, c.g, c.b].map((n) => Math.round(n).toString(16).padStart(2, '0')).join('');
+  const over = (top, alpha, bottom) => ({
+    r: top.r * alpha + bottom.r * (1 - alpha),
+    g: top.g * alpha + bottom.g * (1 - alpha),
+    b: top.b * alpha + bottom.b * (1 - alpha),
+  });
+
+  const white = hexToRgb('#ffffff');
+  // I colori della luce sono scritti come canali RGB ("242 140 40")
+  const channels = (name) => {
+    const [r, g, b] = token(name).split(/\s+/).map(Number);
+    return { r, g, b };
+  };
+  const orange = channels('--hero-glow-orange');
+  const yellow = channels('--hero-glow-yellow');
+  const ink = token('--primitive-white'); // testo piu' forte: titolo, intro, bottone secondario
+  const grain = parseFloat(token('--hero-grain-opacity'));
+
+  console.log('\n\n╔═══════════════════════════════════════════════════════════════════════════╗');
+  console.log('║            HERO GLOW - testo dell\'hero sul punto piu\' colorato            ║');
+  console.log('╚═══════════════════════════════════════════════════════════════════════════╝');
+
+  let ok = true;
+  for (const [label, suffix] of [['Desktop (da 768px)', ''], ['Mobile (sotto 768px)', '-mobile']]) {
+    const o = parseFloat(token('--hero-glow-orange-opacity' + suffix));
+    const y = parseFloat(token('--hero-glow-yellow-opacity' + suffix));
+    let bg = over(orange, o, over(yellow, y, white));
+    bg = { r: bg.r * (1 - grain), g: bg.g * (1 - grain), b: bg.b * (1 - grain) }; // grana: multiply col nero
+    const bgHex = toHex(bg);
+    // Bottone secondario (glass): velo rgba(7, 9, 11, 0.05) sopra il fondo
+    const glassHex = toHex(over({ r: 7, g: 9, b: 11 }, 0.05, bg));
+    const rows = [
+      ['Nome, intro (inchiostro) sul fondo', ink, bgHex],
+      ['Bottone secondario (inchiostro su glass)', ink, glassHex],
+      ['Etichetta (inchiostro su giallo: fondo proprio)', ink, token('--primitive-yellow-400')],
+      ['Bottone primario (bianco su inchiostro: fondo proprio)', '#ffffff', token('--primitive-black')],
+    ];
+    console.log(`\n${label} - arancio ${o}, giallo ${y}, grana ${grain} -> fondo peggiore ${bgHex}`);
+    console.log('─'.repeat(75));
+    for (const [name, fg, bgc] of rows) {
+      const ratio = getContrastRatio(fg, bgc);
+      if (ratio < 4.5) ok = false;
+      console.log(`   ${ratio >= 4.5 ? '✅' : '❌'} ${ratio.toFixed(2).padStart(5)}:1  ${name} (${fg} su ${bgc})`);
+    }
+  }
+  console.log(`\n   ${ok ? '✅ Tutto il testo dell\'hero resta sopra 4,5:1' : '❌ Qualche testo dell\'hero scende sotto 4,5:1'}\n`);
+})();
+
 console.log('─'.repeat(75));
 console.log('Generated: ' + new Date().toLocaleString());
 console.log('─'.repeat(75) + '\n');

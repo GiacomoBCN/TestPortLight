@@ -20,8 +20,9 @@ export default function Home() {
   const reduceMotion = useReducedMotion();
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="min-h-[85vh] md:min-h-screen flex items-center justify-center relative px-6 pt-12 md:pt-0">
+      {/* Hero Section. "hero-glow" = luce calda dall'angolo in alto a destra (globals.css):
+          togliendo la classe l'hero torna com'era. */}
+      <section className="hero-glow min-h-[85vh] md:min-h-screen flex items-center justify-center relative px-6 pt-12 md:pt-0">
         {/* Animated Background Grid */}
         <div className="absolute inset-0 overflow-hidden opacity-20">
           <div

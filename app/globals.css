@@ -172,6 +172,24 @@
   --hero-grid-decoration: var(--color-decoration-grid);
   --hero-glow-effect: var(--color-surface-glow);
 
+  /* Luce calda nell'hero della home (classe .hero-glow). Prova locale: per toglierla
+     basta togliere la classe dalla section. Valori -mobile sotto i 768px. */
+  --hero-glow-orange: 242 140 40;            /* = --primitive-orange-500 #F28C28, in canali RGB per poterci applicare l'opacita' */
+  --hero-glow-yellow: 245 195 59;            /* = --primitive-yellow-400 #F5C33B */
+  --hero-glow-orange-opacity: 0.18;          /* intensita' nel punto piu' forte */
+  --hero-glow-yellow-opacity: 0.22;
+  --hero-glow-orange-opacity-mobile: 0.12;
+  --hero-glow-yellow-opacity-mobile: 0.15;
+  --hero-glow-position: 100% 0%;             /* centro dell'arancio: angolo in alto a destra */
+  --hero-glow-yellow-position: 86% 4%;       /* giallo leggermente sfalsato verso l'interno */
+  --hero-glow-orange-size: 46rem;            /* raggio della sfumatura */
+  --hero-glow-yellow-size: 62rem;
+  --hero-glow-orange-size-mobile: 18rem;
+  --hero-glow-yellow-size-mobile: 24rem;
+  --hero-glow-bleed-top: 5rem;               /* sale sotto il menu: uguale al pt-20 di <main> */
+  --hero-grain-opacity: 0.04;
+  --hero-grain-size: 160px;                  /* lato della tessera di rumore */
+
   /* Metrics/Statistics */
   --metric-value-text: var(--color-ink);
   --metric-label-text: var(--color-text-tertiary);
@@ -560,6 +578,80 @@
 @keyframes hero-in-fade { from { opacity: 0; } }
 @keyframes hero-in-rise { from { transform: translateY(20px); } }
 @keyframes hero-in-rise-30 { from { transform: translateY(30px); } }
+
+/* ============================================
+   LUCE CALDA DELL'HERO (solo home) - classe .hero-glow sulla section
+   Fondo bianco; due radial-gradient (arancio e giallo) entrano dall'angolo
+   in alto a destra, con una grana leggerissima sopra. Solo CSS: niente
+   immagini, niente JS, niente filter: blur.
+   ::before = luce, ::after = grana. Decorativi (content vuoto: non entrano
+   nell'albero di accessibilita'), pointer-events: none, z-index sotto il
+   contenuto dell'hero (z-10). Stanno dentro la colonna centrale: le fasce
+   laterali non vengono toccate.
+   Valori: token --hero-glow-* e --hero-grain-* in :root.
+   Togliendo la classe non resta nulla: anche la regola :has() qui sotto
+   vale solo se la classe c'e'.
+   ============================================ */
+.hero-glow {
+  --_o: var(--hero-glow-orange-opacity-mobile);
+  --_y: var(--hero-glow-yellow-opacity-mobile);
+  --_os: var(--hero-glow-orange-size-mobile);
+  --_ys: var(--hero-glow-yellow-size-mobile);
+}
+@media (min-width: 768px) {
+  .hero-glow {
+    --_o: var(--hero-glow-orange-opacity);
+    --_y: var(--hero-glow-yellow-opacity);
+    --_os: var(--hero-glow-orange-size);
+    --_ys: var(--hero-glow-yellow-size);
+  }
+}
+
+.hero-glow::before,
+.hero-glow::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--hero-glow-bleed-top)) 0 0 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Luce: la sfumatura scende in quattro passi verso il trasparente, cosi' non si vede il bordo del cerchio */
+.hero-glow::before {
+  background-image:
+    radial-gradient(
+      circle var(--_os) at var(--hero-glow-position),
+      rgb(var(--hero-glow-orange) / calc(var(--_o) * 1)) 0%,
+      rgb(var(--hero-glow-orange) / calc(var(--_o) * 0.55)) 30%,
+      rgb(var(--hero-glow-orange) / calc(var(--_o) * 0.18)) 62%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle var(--_ys) at var(--hero-glow-yellow-position),
+      rgb(var(--hero-glow-yellow) / calc(var(--_y) * 1)) 0%,
+      rgb(var(--hero-glow-yellow) / calc(var(--_y) * 0.55)) 30%,
+      rgb(var(--hero-glow-yellow) / calc(var(--_y) * 0.18)) 62%,
+      transparent 100%
+    );
+  background-repeat: no-repeat;
+}
+
+/* Grana: rumore SVG (feTurbulence) inline, solo dove arriva la luce */
+.hero-glow::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: var(--hero-grain-size) var(--hero-grain-size);
+  opacity: var(--hero-grain-opacity);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(circle var(--_ys) at var(--hero-glow-yellow-position), #000 0%, transparent 100%);
+  mask-image: radial-gradient(circle var(--_ys) at var(--hero-glow-yellow-position), #000 0%, transparent 100%);
+}
+
+/* Il contenitore della home taglia in orizzontale ma non piu' in alto,
+   cosi' la luce parte dall'angolo vero della pagina, sotto il menu. */
+div:has(> .hero-glow) {
+  overflow: visible;
+  overflow-x: clip;
+}
 
 .hero-in {
   animation:
