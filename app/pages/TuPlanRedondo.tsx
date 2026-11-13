@@ -477,15 +477,15 @@ export default function TuPlanRedondo() {
                 {tuPlanRedondo.cta.text}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <CopyEmailLink className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105">
+                  {tuPlanRedondo.cta.talk}
+                </CopyEmailLink>
                 <Link
                   href={createPageUrl("ProductWork")}
-                  className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
+                  className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
                 >
                   {tuPlanRedondo.cta.allProjects}
                 </Link>
-                <CopyEmailLink className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all">
-                  {tuPlanRedondo.cta.talk}
-                </CopyEmailLink>
               </div>
             </div>
           </GlassCard>

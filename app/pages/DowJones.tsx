@@ -240,15 +240,15 @@ export default function DowJones() {
               <h2 className="type-section-title text-ink-900 mb-4">{dowJones.cta.title}</h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">{dowJones.cta.text}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <CopyEmailLink className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105">
+                  {dowJones.cta.talk}
+                </CopyEmailLink>
                 <Link
                   href={createPageUrl("ProductWork")}
-                  className="px-8 py-4 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-hover transition-all glow-blue hover:scale-105"
+                  className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all"
                 >
                   {dowJones.cta.allProjects}
                 </Link>
-                <CopyEmailLink className="px-8 py-4 glass rounded-xl text-ink-900 font-semibold hover:bg-blue-600 hover:text-white hover:border-blue transition-all">
-                  {dowJones.cta.talk}
-                </CopyEmailLink>
               </div>
             </div>
           </GlassCard>
