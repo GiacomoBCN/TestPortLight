@@ -172,25 +172,22 @@
   --hero-grid-decoration: var(--color-decoration-grid);
   --hero-glow-effect: var(--color-surface-glow);
 
-  /* Luce dell'hero della home (classe .hero-glow): raggi che partono dai due punti di fuga
-     delle fasce laterali. Per toglierla basta togliere la classe dalla section.
-     Valori -mobile sotto i 768px. */
+  /* Luce dell'hero della home (classe .hero-glow): un solo alone caldo in alto al centro.
+     Per toglierla basta togliere la classe dalla section. Valori -mobile sotto i 768px. */
   --hero-glow-orange: 242 140 40;            /* = --primitive-orange-500 #F28C28, in canali RGB per poterci applicare l'opacita' */
   --hero-glow-yellow: 245 195 59;            /* = --primitive-yellow-400 #F5C33B */
-  --hero-glow-line: 13 153 255;              /* = --fascia-linee #0D99FF, il blu delle linee di costruzione delle fasce */
-  --hero-glow-vp-y: 13.5vh;                  /* altezza del punto di fuga: dove convergono le strisce delle fasce */
-  --hero-glow-reach: 54rem;                  /* fin dove arrivano i raggi dal punto di fuga */
-  --hero-glow-reach-mobile: 16rem;
-  --hero-glow-yellow-opacity: 0.3;           /* raggi gialli, vicino al punto di fuga */
-  --hero-glow-orange-opacity: 0.26;          /* raggi arancio */
-  --hero-glow-yellow-opacity-mobile: 0.18;
-  --hero-glow-orange-opacity-mobile: 0.15;
-  --hero-glow-line-opacity: 0.55;            /* linee di costruzione blu */
-  --hero-glow-line-opacity-mobile: 0.3;
-  --hero-glow-pulse-opacity: 0.9;            /* impulsi di luce che corrono lungo i raggi */
-  --hero-glow-pulse-speed: 6s;               /* durata di una corsa (il secondo impulso e' piu' lento) */
-  --hero-glow-breathe: 0.7;                  /* opacita' minima dei raggi fermi mentre "respirano" */
-  --hero-glow-breathe-speed: 9s;
+  --hero-glow-yellow-opacity: 0.26;          /* cuore giallo, nel punto piu' forte */
+  --hero-glow-orange-opacity: 0.08;          /* bordo arancio, appena accennato */
+  --hero-glow-yellow-opacity-mobile: 0.2;
+  --hero-glow-orange-opacity-mobile: 0.06;
+  --hero-glow-width: 84rem;                  /* larghezza totale dell'alone */
+  --hero-glow-height: 46rem;                 /* altezza totale: se ne vede la meta' sotto, l'altra sta sopra la pagina */
+  --hero-glow-width-mobile: 40rem;
+  --hero-glow-height-mobile: 26rem;
+  --hero-glow-x: 50%;                        /* centro dell'alone: in alto al centro */
+  --hero-glow-y: 0rem;                       /* distanza del centro dal bordo alto della pagina */
+  --hero-glow-breathe: 0.8;                  /* opacita' minima mentre respira (1 = ferma) */
+  --hero-glow-breathe-speed: 14s;            /* durata di un'andata */
   --hero-glow-bleed-top: 5rem;               /* sale sotto il menu: uguale al pt-20 di <main> */
   --hero-grain-opacity: 0.04;
   --hero-grain-size: 160px;                  /* lato della tessera di rumore */
@@ -586,176 +583,86 @@
 
 /* ============================================
    LUCE DELL'HERO (solo home) - classe .hero-glow sulla section
-   Le strisce di ogni fascia laterale partono a ventaglio da un punto di fuga
-   sul bordo interno della fascia, a --hero-glow-vp-y dall'alto. Qui la luce
-   parte dagli stessi due punti e prosegue il ventaglio dentro l'hero:
-   - raggi: spicchi gialli e arancio a bordo netto (come le strisce), che
-     sfumano nel bianco allontanandosi;
-   - linee: tre linee di costruzione blu sottili lungo i bordi dei raggi;
-   - impulsi: gli stessi spicchi, in un anello che si allarga dal punto di
-     fuga verso chi guarda e svanisce (scale attorno al punto di fuga: gli
-     angoli dei raggi non cambiano).
-   Sotto i 1280px le fasce non ci sono: i raggi partono dai due bordi dello
-   schermo, piu' corti e tenui.
-   Solo CSS: niente immagini, video, JS o blur. Si animano solo transform e
-   opacity. Con prefers-reduced-motion resta tutto fermo, senza impulsi.
-
-   Struttura (in Home.tsx): .hero-glow-layer > .hero-glow-vp (x2, il secondo
-   specchiato) > .hero-glow-beams, .hero-glow-lines, .hero-glow-pulse (x2).
-   Tutto e' decorativo (aria-hidden), sotto il contenuto dell'hero (z-10),
-   con pointer-events: none, dentro la colonna centrale.
+   Le strisce delle fasce laterali salgono verso l'alto e verso il centro.
+   L'hero bianco e' il cielo tra le due pareti: un solo alone caldo e morbido
+   in alto al centro, nel punto lontano verso cui puntano le strisce, che
+   svanisce prima del nome. Niente raggi, linee o effetti: il disegno forte
+   resta alle fasce.
+   ::before = alone (giallo al centro, un filo di arancio al bordo), respira
+   lentissimo: cambia solo l'opacita'. ::after = grana, ferma.
+   Solo CSS: niente immagini, video, JS o blur. Tutto decorativo, sotto il
+   contenuto dell'hero (z-10), pointer-events: none.
+   Con prefers-reduced-motion l'alone resta fermo.
    Togliendo la classe hero-glow dalla section non resta nulla.
    ============================================ */
 .hero-glow {
-  --_r: var(--hero-glow-reach-mobile);
   --_y: var(--hero-glow-yellow-opacity-mobile);
   --_o: var(--hero-glow-orange-opacity-mobile);
-  --_lo: var(--hero-glow-line-opacity-mobile);
+  --_w: var(--hero-glow-width-mobile);
+  --_h: var(--hero-glow-height-mobile);
 }
 @media (min-width: 768px) {
   .hero-glow {
-    --_r: var(--hero-glow-reach);
     --_y: var(--hero-glow-yellow-opacity);
     --_o: var(--hero-glow-orange-opacity);
-    --_lo: var(--hero-glow-line-opacity);
+    --_w: var(--hero-glow-width);
+    --_h: var(--hero-glow-height);
   }
 }
-.hero-glow {
-  --_yc: rgb(var(--hero-glow-yellow) / var(--_y));
-  --_oc: rgb(var(--hero-glow-orange) / var(--_o));
-  /* Ventaglio: 0deg = in alto, senso orario. Le strisce delle fasce scendono verso l'esterno
-     tra 33 e 74 gradi sotto l'orizzontale; qui gli stessi angoli, verso l'interno (90deg + angolo). */
-  --_beams: conic-gradient(
-    from 0deg,
-    transparent 0 108deg,
-    var(--_yc) 108deg 117deg,
-    transparent 117deg 123deg,
-    var(--_oc) 123deg 128deg,
-    transparent 128deg 134deg,
-    var(--_yc) 134deg 147deg,
-    transparent 147deg 151deg,
-    var(--_oc) 151deg 154deg,
-    transparent 154deg 159deg,
-    var(--_yc) 159deg 166deg,
-    transparent 166deg
-  );
-}
 
-.hero-glow > .hero-glow-layer,
+.hero-glow::before,
 .hero-glow::after {
   content: "";
   position: absolute;
-  inset: calc(-1 * var(--hero-glow-bleed-top)) 0 0 0;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Ritaglia i raggi sull'hero. Fuori dallo schermo il browser salta il contenuto del livello. */
-.hero-glow > .hero-glow-layer {
-  overflow: clip;
-  content-visibility: auto;
-}
-
-/* Punto di fuga: un punto senza dimensioni sul bordo sinistro; quello destro e' lo stesso, specchiato */
-.hero-glow .hero-glow-vp {
-  position: absolute;
-  left: 0;
-  top: var(--hero-glow-vp-y);
-  width: 0;
-  height: 0;
-}
-.hero-glow .hero-glow-vp-right {
-  left: 100%;
-  transform: scaleX(-1);
-}
-
-/* Ogni strato e' un cerchio di raggio --_r centrato sul punto di fuga */
-.hero-glow .hero-glow-vp > span {
-  position: absolute;
-  left: calc(-1 * var(--_r));
-  top: calc(-1 * var(--_r));
-  width: calc(2 * var(--_r));
-  height: calc(2 * var(--_r));
-  border-radius: 50%;
-}
-
-/* Raggi fermi: pieni vicino al punto di fuga, sfumano nel bianco; piu' un piccolo sole sul punto */
-.hero-glow .hero-glow-beams {
+/* Alone: un'ellisse centrata sul bordo alto della pagina (se ne vede la meta' inferiore).
+   Il giallo occupa il centro, l'arancio arriva fino al bordo dell'ellisse. */
+.hero-glow::before {
+  width: var(--_w);
+  height: var(--_h);
+  left: calc(var(--hero-glow-x) - var(--_w) / 2);
+  top: calc(var(--hero-glow-y) - var(--hero-glow-bleed-top) - var(--_h) / 2);
   background-image:
-    radial-gradient(circle closest-side, rgb(var(--hero-glow-yellow) / calc(var(--_y) * 1.2)) 0%, transparent 16%),
-    var(--_beams);
-  -webkit-mask-image: radial-gradient(circle closest-side, #000 0%, rgb(0 0 0 / 0.75) 30%, rgb(0 0 0 / 0.3) 62%, transparent 100%);
-  mask-image: radial-gradient(circle closest-side, #000 0%, rgb(0 0 0 / 0.75) 30%, rgb(0 0 0 / 0.3) 62%, transparent 100%);
+    radial-gradient(
+      ellipse 36% 36% at 50% 50%,
+      rgb(var(--hero-glow-yellow) / calc(var(--_y) * 1)) 0%,
+      rgb(var(--hero-glow-yellow) / calc(var(--_y) * 0.6)) 35%,
+      rgb(var(--hero-glow-yellow) / calc(var(--_y) * 0.2)) 68%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse closest-side,
+      rgb(var(--hero-glow-orange) / calc(var(--_o) * 1)) 0%,
+      rgb(var(--hero-glow-orange) / calc(var(--_o) * 0.6)) 40%,
+      rgb(var(--hero-glow-orange) / calc(var(--_o) * 0.2)) 72%,
+      transparent 100%
+    );
   will-change: opacity;
   animation: hero-glow-breathe var(--hero-glow-breathe-speed) ease-in-out infinite alternate;
 }
-.hero-glow .hero-glow-vp-right .hero-glow-beams {
-  animation-delay: calc(var(--hero-glow-breathe-speed) * -0.5);
-}
-
-/* Linee di costruzione: 1px, lungo tre bordi dei raggi (123, 147 e 166 gradi) */
-.hero-glow .hero-glow-lines {
-  --_lc: rgb(var(--hero-glow-line) / var(--_lo));
-  --_l0: calc(50% - 0.5px);
-  --_l1: calc(50% + 0.5px);
-  background-image:
-    linear-gradient(213deg, transparent var(--_l0), var(--_lc) var(--_l0) var(--_l1), transparent var(--_l1)),
-    linear-gradient(237deg, transparent var(--_l0), var(--_lc) var(--_l0) var(--_l1), transparent var(--_l1)),
-    linear-gradient(256deg, transparent var(--_l0), var(--_lc) var(--_l0) var(--_l1), transparent var(--_l1));
-  -webkit-mask-image: radial-gradient(circle closest-side, #000 0%, rgb(0 0 0 / 0.6) 45%, transparent 92%);
-  mask-image: radial-gradient(circle closest-side, #000 0%, rgb(0 0 0 / 0.6) 45%, transparent 92%);
-}
-
-/* Impulsi: gli stessi spicchi dentro un anello, che si allarga dal punto di fuga e svanisce */
-.hero-glow .hero-glow-pulse {
-  background-image: var(--_beams);
-  -webkit-mask-image: radial-gradient(circle closest-side, transparent 30%, #000 52%, transparent 74%);
-  mask-image: radial-gradient(circle closest-side, transparent 30%, #000 52%, transparent 74%);
-  opacity: 0;
-  will-change: transform, opacity;
-  animation: hero-glow-pulse var(--hero-glow-pulse-speed) cubic-bezier(0.5, 0, 0.9, 0.6) infinite;
-}
-.hero-glow .hero-glow-pulse + .hero-glow-pulse {
-  animation-duration: calc(var(--hero-glow-pulse-speed) * 1.6);
-  animation-delay: calc(var(--hero-glow-pulse-speed) * -0.7);
-}
-.hero-glow .hero-glow-vp-right .hero-glow-pulse {
-  animation-delay: calc(var(--hero-glow-pulse-speed) * -0.45);
-}
-.hero-glow .hero-glow-vp-right .hero-glow-pulse + .hero-glow-pulse {
-  animation-delay: calc(var(--hero-glow-pulse-speed) * -1.25);
-}
-
 @keyframes hero-glow-breathe {
   from { opacity: 1; }
   to   { opacity: var(--hero-glow-breathe); }
 }
-/* Parte piccolo e lento dal punto di fuga e accelera allargandosi: l'effetto di qualcosa che viene avanti */
-@keyframes hero-glow-pulse {
-  0%   { transform: scale(0.12); opacity: 0; }
-  25%  { opacity: var(--hero-glow-pulse-opacity); }
-  70%  { opacity: var(--hero-glow-pulse-opacity); }
-  100% { transform: scale(1.35); opacity: 0; }
-}
-
-/* Riduci movimento: raggi e linee fermi, niente impulsi */
 @media (prefers-reduced-motion: reduce) {
-  .hero-glow .hero-glow-beams,
-  .hero-glow .hero-glow-pulse {
+  .hero-glow::before {
     animation: none;
     will-change: auto;
   }
 }
 
-/* Grana: rumore SVG (feTurbulence) inline, nella parte alta dell'hero dove arriva la luce. Ferma.
-   Il rumore e' nero: sopra qualsiasi colore il risultato e' identico a mix-blend-mode: multiply,
-   ma senza ricalcolare la fusione a ogni fotogramma mentre la luce si muove. */
+/* Grana: rumore SVG (feTurbulence) inline, solo dove arriva la luce. Ferma.
+   Il rumore e' nero: sopra qualsiasi colore il risultato e' identico a mix-blend-mode: multiply. */
 .hero-glow::after {
+  inset: calc(-1 * var(--hero-glow-bleed-top)) 0 0 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: var(--hero-grain-size) var(--hero-grain-size);
   opacity: var(--hero-grain-opacity);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 80%);
-  mask-image: linear-gradient(to bottom, #000 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse calc(var(--_w) / 2) calc(var(--_h) / 2) at var(--hero-glow-x) var(--hero-glow-y), #000 0%, transparent 100%);
+  mask-image: radial-gradient(ellipse calc(var(--_w) / 2) calc(var(--_h) / 2) at var(--hero-glow-x) var(--hero-glow-y), #000 0%, transparent 100%);
 }
 
 /* Il contenitore della home taglia in orizzontale ma non piu' in alto,

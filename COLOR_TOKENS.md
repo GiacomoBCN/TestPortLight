@@ -246,31 +246,25 @@ All primitive colors are documented with their contrast ratios to ensure WCAG AA
 
 #### Hero glow (home, class `.hero-glow`)
 
-Light in the home hero that continues the side bands. The stripes of each band fan out from a vanishing point on the band's inner edge, 13.5% of the viewport height from the top; the light starts from the same two points and carries the fan into the hero:
+The stripes of the side bands rise toward the top and the centre. The white hero is the sky between the two walls: one soft warm glow at the top centre, at the far point the stripes aim at, gone before the name. No rays, lines or effects: the strong drawing stays with the bands.
 
-- **Rays**: hard-edged yellow and orange wedges (like the stripes), fading into white with distance.
-- **Lines**: three thin blue construction lines along ray edges, the same blue as the lines in the bands.
-- **Pulses**: the same wedges inside a ring that grows from the vanishing point toward the viewer and fades.
-
-CSS only (no image, video, JS or blur); only `transform` and `opacity` are animated; with `prefers-reduced-motion` everything is still and there are no pulses. Below 1280px there are no bands: the rays start from the screen edges, shorter and fainter. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
+CSS only (no image, video, JS or blur). The glow breathes very slowly (opacity only) and stays still with `prefers-reduced-motion`. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
 
 ```css
 --hero-glow-orange: 242 140 40;            /* = --primitive-orange-500 #F28C28, as RGB channels so an opacity can be applied */
 --hero-glow-yellow: 245 195 59;            /* = --primitive-yellow-400 #F5C33B */
---hero-glow-line: 13 153 255;              /* = --fascia-linee #0D99FF */
---hero-glow-vp-y: 13.5vh;                  /* height of the vanishing point */
---hero-glow-reach: 54rem;                  /* how far the rays go */
---hero-glow-reach-mobile: 16rem;           /* below 768px */
---hero-glow-yellow-opacity: 0.3;
---hero-glow-orange-opacity: 0.26;
---hero-glow-yellow-opacity-mobile: 0.18;
---hero-glow-orange-opacity-mobile: 0.15;
---hero-glow-line-opacity: 0.55;
---hero-glow-line-opacity-mobile: 0.3;
---hero-glow-pulse-opacity: 0.9;            /* pulses running along the rays */
---hero-glow-pulse-speed: 6s;               /* one run (the second pulse is slower) */
---hero-glow-breathe: 0.7;                  /* lowest opacity of the still rays */
---hero-glow-breathe-speed: 9s;
+--hero-glow-yellow-opacity: 0.26;          /* yellow core, strongest point */
+--hero-glow-orange-opacity: 0.08;          /* orange edge, barely there */
+--hero-glow-yellow-opacity-mobile: 0.2;    /* below 768px */
+--hero-glow-orange-opacity-mobile: 0.06;
+--hero-glow-width: 84rem;                  /* full width of the glow */
+--hero-glow-height: 46rem;                 /* full height: the lower half shows, the rest is above the page */
+--hero-glow-width-mobile: 40rem;
+--hero-glow-height-mobile: 26rem;
+--hero-glow-x: 50%;                        /* centre of the glow */
+--hero-glow-y: 0rem;                       /* distance of the centre from the top of the page */
+--hero-glow-breathe: 0.8;                  /* lowest opacity while breathing (1 = still) */
+--hero-glow-breathe-speed: 14s;
 --hero-glow-bleed-top: 5rem;               /* runs up under the nav (= <main> pt-20) */
 --hero-grain-opacity: 0.04;
 --hero-grain-size: 160px;
