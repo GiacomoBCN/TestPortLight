@@ -20,14 +20,20 @@ export default function Home() {
   const reduceMotion = useReducedMotion();
   return (
     <div className="overflow-hidden">
-      {/* Hero Section. "hero-glow" = luce calda dall'angolo in alto a destra (globals.css):
+      {/* Hero Section. "hero-glow" = luce che parte dai punti di fuga delle fasce laterali (globals.css):
           togliendo la classe l'hero torna com'era. */}
       <section className="hero-glow min-h-[85vh] md:min-h-screen flex items-center justify-center relative px-6 pt-12 md:pt-0">
-        {/* Luci e fasci di hero-glow: solo decorativi, senza la classe hero-glow non mostrano nulla */}
+        {/* Luce di hero-glow: raggi dai due punti di fuga delle fasce laterali (sinistra, e destra specchiata).
+            Solo decorativa: senza la classe hero-glow sulla section non mostra nulla. */}
         <div className="hero-glow-layer absolute inset-0 pointer-events-none" aria-hidden="true">
-          <span className="hero-glow-streak" />
-          <span className="hero-glow-streak" />
-          <span className="hero-glow-streak" />
+          {["hero-glow-vp", "hero-glow-vp hero-glow-vp-right"].map((side) => (
+            <div key={side} className={side}>
+              <span className="hero-glow-beams" />
+              <span className="hero-glow-lines" />
+              <span className="hero-glow-pulse" />
+              <span className="hero-glow-pulse" />
+            </div>
+          ))}
         </div>
         {/* Animated Background Grid */}
         <div className="absolute inset-0 overflow-hidden opacity-20">

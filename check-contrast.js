@@ -172,10 +172,11 @@ console.log('\n   💡 Large text = 18pt (24px) or larger, or 14pt (18.66px) bol
 // ---------------------------------------------------------------------------
 // HERO GLOW (home): testo dell'hero sopra la luce calda (.hero-glow)
 // Legge i token da app/globals.css e calcola il fondo nel punto peggiore possibile:
-// bianco + le due luci d'angolo alla massima opacita' + i tre fasci tutti sovrapposti
-// nel loro punto piu' forte (giallo e arancio), poi scurito dalla grana.
-// E' un caso limite che a schermo non si verifica: i fasci non si sovrappongono tutti
-// e il testo dell'hero sta al centro, dove le luci d'angolo sono molto piu' deboli.
+// bianco + per ognuno dei due punti di fuga un raggio giallo (con il "sole", x1.2) e uno
+// arancio alla massima opacita', piu' i due impulsi gialli e arancio al loro massimo,
+// poi scurito dalla grana.
+// E' un caso limite che a schermo non si verifica: un punto sta in un raggio giallo
+// oppure arancio, mai in tutti e due, e i raggi sfumano allontanandosi dal punto di fuga.
 // ---------------------------------------------------------------------------
 (function heroGlowCheck() {
   const fs = require('fs');
@@ -214,9 +215,12 @@ console.log('\n   💡 Large text = 18pt (24px) or larger, or 14pt (18.66px) bol
   for (const [label, suffix] of [['Desktop (da 768px)', ''], ['Mobile (sotto 768px)', '-mobile']]) {
     const o = parseFloat(token('--hero-glow-orange-opacity' + suffix));
     const y = parseFloat(token('--hero-glow-yellow-opacity' + suffix));
-    const so = parseFloat(token('--hero-glow-streak-opacity' + suffix));
-    let bg = over(orange, o, over(yellow, y, white));
-    for (let i = 0; i < 3; i++) bg = over(yellow, so, over(orange, so * 0.85, bg)); // tre fasci
+    const pulse = parseFloat(token('--hero-glow-pulse-opacity'));
+    let bg = white;
+    for (let side = 0; side < 2; side++) {
+      bg = over(orange, o, over(yellow, Math.min(1, y * 1.2), bg)); // raggi fermi
+      for (let i = 0; i < 2; i++) bg = over(orange, o * pulse, over(yellow, y * pulse, bg)); // impulsi
+    }
     bg = { r: bg.r * (1 - grain), g: bg.g * (1 - grain), b: bg.b * (1 - grain) }; // grana: multiply col nero
     const bgHex = toHex(bg);
     // Bottone secondario (glass): velo rgba(7, 9, 11, 0.05) sopra il fondo
@@ -227,7 +231,7 @@ console.log('\n   💡 Large text = 18pt (24px) or larger, or 14pt (18.66px) bol
       ['Etichetta (inchiostro su giallo: fondo proprio)', ink, token('--primitive-yellow-400')],
       ['Bottone primario (bianco su inchiostro: fondo proprio)', '#ffffff', token('--primitive-black')],
     ];
-    console.log(`\n${label} - arancio ${o}, giallo ${y}, fasci ${so}, grana ${grain} -> fondo peggiore ${bgHex}`);
+    console.log(`\n${label} - arancio ${o}, giallo ${y}, impulsi x${pulse}, grana ${grain} -> fondo peggiore ${bgHex}`);
     console.log('─'.repeat(75));
     for (const [name, fg, bgc] of rows) {
       const ratio = getContrastRatio(fg, bgc);

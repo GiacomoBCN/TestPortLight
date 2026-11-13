@@ -246,41 +246,37 @@ All primitive colors are documented with their contrast ratios to ensure WCAG AA
 
 #### Hero glow (home, class `.hero-glow`)
 
-Warm light entering from the top-right corner of the home hero, on a white background, with a very light grain on top. The two corner lights drift and three light streaks sweep across the hero and fade, like film light leaks, each on its own timing (only `transform` and `opacity` are animated; with `prefers-reduced-motion` the corner lights stay still and the streaks are hidden). CSS only: no image, no video, no JS. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
+Light in the home hero that continues the side bands. The stripes of each band fan out from a vanishing point on the band's inner edge, 13.5% of the viewport height from the top; the light starts from the same two points and carries the fan into the hero:
+
+- **Rays**: hard-edged yellow and orange wedges (like the stripes), fading into white with distance.
+- **Lines**: three thin blue construction lines along ray edges, the same blue as the lines in the bands.
+- **Pulses**: the same wedges inside a ring that grows from the vanishing point toward the viewer and fades.
+
+CSS only (no image, video, JS or blur); only `transform` and `opacity` are animated; with `prefers-reduced-motion` everything is still and there are no pulses. Below 1280px there are no bands: the rays start from the screen edges, shorter and fainter. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
 
 ```css
 --hero-glow-orange: 242 140 40;            /* = --primitive-orange-500 #F28C28, as RGB channels so an opacity can be applied */
 --hero-glow-yellow: 245 195 59;            /* = --primitive-yellow-400 #F5C33B */
---hero-glow-orange-opacity: 0.18;          /* strongest point */
---hero-glow-yellow-opacity: 0.22;
---hero-glow-orange-opacity-mobile: 0.12;   /* below 768px */
---hero-glow-yellow-opacity-mobile: 0.15;
---hero-glow-orange-x: 100%;                /* orange centre: top-right corner */
---hero-glow-orange-y: 0%;
---hero-glow-yellow-x: 86%;                 /* yellow, slightly offset inward */
---hero-glow-yellow-y: 4%;
---hero-glow-orange-size: 46rem;            /* gradient radius */
---hero-glow-yellow-size: 62rem;
---hero-glow-orange-size-mobile: 18rem;
---hero-glow-yellow-size-mobile: 24rem;
+--hero-glow-line: 13 153 255;              /* = --fascia-linee #0D99FF */
+--hero-glow-vp-y: 13.5vh;                  /* height of the vanishing point */
+--hero-glow-reach: 54rem;                  /* how far the rays go */
+--hero-glow-reach-mobile: 16rem;           /* below 768px */
+--hero-glow-yellow-opacity: 0.3;
+--hero-glow-orange-opacity: 0.26;
+--hero-glow-yellow-opacity-mobile: 0.18;
+--hero-glow-orange-opacity-mobile: 0.15;
+--hero-glow-line-opacity: 0.55;
+--hero-glow-line-opacity-mobile: 0.3;
+--hero-glow-pulse-opacity: 0.9;            /* pulses running along the rays */
+--hero-glow-pulse-speed: 6s;               /* one run (the second pulse is slower) */
+--hero-glow-breathe: 0.7;                  /* lowest opacity of the still rays */
+--hero-glow-breathe-speed: 9s;
 --hero-glow-bleed-top: 5rem;               /* runs up under the nav (= <main> pt-20) */
---hero-glow-speed: 11s;                    /* one way of the orange light (yellow is slower) */
---hero-glow-drift: 10rem;                  /* how far the corner lights move */
---hero-glow-drift-mobile: 4rem;
---hero-glow-breathe: 0.45;                 /* lowest opacity while moving (1 = never dims) */
---hero-glow-streak-opacity: 0.5;           /* intensity at the centre of a streak */
---hero-glow-streak-opacity-mobile: 0.38;
---hero-glow-streak-length: 62rem;
---hero-glow-streak-length-mobile: 26rem;
---hero-glow-streak-width: 17rem;
---hero-glow-streak-width-mobile: 9rem;
---hero-glow-streak-angle: -32deg;
---hero-glow-streak-speed: 9s;              /* one pass (the other two streaks are slower) */
 --hero-grain-opacity: 0.04;
 --hero-grain-size: 160px;
 ```
 
-Contrast at the most coloured point (worst case, `node check-contrast.js`): ink text 13.25:1 on desktop, 14.27:1 on mobile.
+Contrast of the hero text at the worst possible point: run `node check-contrast.js`.
 
 ### Teaching Section
 
