@@ -9,12 +9,20 @@
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 
 // Etichetta "Live" sulle schede dei progetti che si possono provare (Home e Product Work).
-// label = testo visibile; ariaLabel = testo per screen reader. Si apre in una nuova scheda.
+// label = testo visibile; ariaLabel = testo per screen reader.
+// url che inizia con http: sito esterno, si apre in una nuova scheda (freccia in diagonale).
+// url che inizia con "/": punto di una pagina del sito, stessa scheda (freccia a destra).
 const LIVE = {
   stayKeel: {
     label: "Live · StayKeel",
     url: "https://staykeel.com",
     ariaLabel: "Open StayKeel, the live product (opens in a new tab)",
+  },
+  // La demo interattiva dei token dentro il case study del design system (id="token-demo")
+  tokenDemo: {
+    label: "Live · Token demo",
+    url: "/design-system/#token-demo",
+    ariaLabel: "Try the interactive token demo in the design system case study",
   },
   falak: {
     label: "Live demo",
@@ -77,7 +85,7 @@ export const projects = {
   designSystem: {
     navLink: "Design System, One Product",
     homeCard: {
-      live: LIVE.stayKeel,
+      live: LIVE.tokenDemo,
       role: "Design System · Solo",
       title: "A design system sized to its product",
       company: "StayKeel",
@@ -98,7 +106,7 @@ export const projects = {
       },
     },
     productWorkCard: {
-      live: LIVE.stayKeel,
+      live: LIVE.tokenDemo,
       category: "DESIGN SYSTEM · DESIGN TOKENS · FIGMA ↔ CODE",
       title: "A design system sized to its product",
       role: "Design Technologist, solo",

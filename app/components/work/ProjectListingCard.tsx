@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { createPageUrl } from "@/utils";
 import SketchFrame from "../SketchFrame";
 import { shell } from "@/content/shell";
@@ -14,7 +14,8 @@ interface ProjectListingCardProps {
   metrics?: { value: string; label: string }[];
   tags?: string[];
   slug: string;
-  /** progetto che si puo' provare: link "Live" accanto a "View Case Study", in una nuova scheda */
+  /** progetto che si puo' provare: link "Live" accanto a "View Case Study".
+   *  url esterno (http) = nuova scheda; url interno ("/pagina/#punto") = stessa scheda */
   live?: { label: string; url: string; ariaLabel: string };
 }
 
@@ -115,17 +116,16 @@ export default function ProjectListingCard({
           {shell.ui.projectListingCard.viewCaseStudy}
         </Link>
         {live && (
-          <a
+          <Link
             href={live.url}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...(/^https?:/.test(live.url) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             aria-label={live.ariaLabel}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-text-link-default)] link-underline hover:text-[var(--color-text-link-hover)] transition-colors"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-surface-interactive-default)]" aria-hidden="true" />
             {live.label}
-            <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
+            {/^https?:/.test(live.url) ? <ArrowUpRight size={14} aria-hidden="true" /> : <ArrowRight size={14} aria-hidden="true" />}
+          </Link>
         )}
       </div>
     </div>

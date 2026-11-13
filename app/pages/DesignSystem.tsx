@@ -240,7 +240,7 @@ export default function DesignSystemCaseStudy({
                     </div>
                   )}
                   {p.demo && (
-                    <div className="w-full pt-2">
+                    <div id="token-demo" className="w-full pt-2 scroll-mt-28">
                       <TokenDemoCard />
                     </div>
                   )}

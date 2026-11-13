@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight, Pause, Play } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Pause, Play } from "lucide-react";
 import { getImagePath } from "@/utils/image";
 import SketchFrame from "../SketchFrame";
 
@@ -44,7 +44,8 @@ export default function ProjectCard({
   video?: { mp4: string; webm: string; poster: string; bg: string };
   /** etichette del bottone pausa / play (obbligatorie con video) */
   videoLabels?: { pause: string; play: string };
-  /** progetto che si puo' provare: etichetta "Live" sopra l'immagine, apre il sito in una nuova scheda */
+  /** progetto che si puo' provare: etichetta "Live" sopra l'immagine. url esterno (http) = nuova scheda;
+   *  url interno ("/pagina/#punto") = stessa scheda */
   live?: { label: string; url: string; ariaLabel: string };
 }) {
   const ref = React.useRef(null);
@@ -105,21 +106,21 @@ export default function ProjectCard({
 
   // Etichetta "Live": fuori dal link della scheda (un link dentro un link non e' valido),
   // posata sull'angolo in alto a destra dell'immagine o del video. Area di tocco 44px, etichetta 28px.
+  const liveExternal = !!live && /^https?:/.test(live.url);
   const liveLink = live && (image || video) && (
     <div className={`absolute inset-x-0 top-0 ${compact ? "aspect-[2.4/1]" : "aspect-video"} pointer-events-none z-10`}>
-      <a
+      <Link
         href={live.url}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...(liveExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         aria-label={live.ariaLabel}
         className="group/live pointer-events-auto absolute top-0 right-0 p-2 flex focus-visible:outline-none"
       >
         <span className="inline-flex items-center gap-1.5 h-7 px-2.5 rounded-full bg-white/95 border border-ink-900/15 shadow-sm text-xs font-semibold text-ink-900 transition-colors group-hover/live:bg-white group-hover/live:border-ink-900/40 group-focus-visible/live:ring-2 group-focus-visible/live:ring-[var(--color-border-interactive)]">
           <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-surface-interactive-default)]" aria-hidden="true" />
           {live.label}
-          <ArrowUpRight size={13} aria-hidden="true" />
+          {liveExternal ? <ArrowUpRight size={13} aria-hidden="true" /> : <ArrowRight size={13} aria-hidden="true" />}
         </span>
-      </a>
+      </Link>
     </div>
   );
 
