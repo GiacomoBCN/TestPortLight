@@ -11,7 +11,7 @@ export default function EcommerceManagement() {
 
   return (
     <div className="min-h-screen">
-      <div className="fixed top-24 left-6 z-40" style={{ left: "calc(var(--band) + 1.5rem)" }}>
+      <div className="relative z-20 h-0 flex items-start pl-6 [&>*]:mt-4">
         <Link
           href={createPageUrl("ProductWork")}
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 transition-all"

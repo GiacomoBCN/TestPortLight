@@ -38,8 +38,10 @@ export default function ProjectGallery({
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     scrollContainerRef.current?.scrollBy({ left, behavior: reduce ? "auto" : "smooth" });
   };
-  const scrollLeft = () => scrollByPx(-320);
-  const scrollRight = () => scrollByPx(320);
+  // Un passo = circa una miniatura (l'80% della larghezza visibile)
+  const step = () => (scrollContainerRef.current?.clientWidth ?? 400) * 0.8;
+  const scrollLeft = () => scrollByPx(-step());
+  const scrollRight = () => scrollByPx(step());
 
   return (
     <>
@@ -48,13 +50,13 @@ export default function ProjectGallery({
           <h2 className="type-section-title text-ink-900 mb-8 text-center">
             {title}
           </h2>
-          <div className="relative group px-12">
-            {/* Left Arrow - Only show if more than 3 images */}
-            {images.length > 3 && (
+          <div className="relative group sm:px-12">
+            {/* Left Arrow - Only show if more than 2 images (da sm in su: su touch si scorre col dito) */}
+            {images.length > 2 && (
               <button
                 type="button"
                 onClick={scrollLeft}
-                className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
+                className="hidden sm:block absolute -left-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
                 aria-label={shell.ui.projectGallery.scrollLeft}
               >
                 <ChevronLeft size={24} aria-hidden="true" />
@@ -64,7 +66,7 @@ export default function ProjectGallery({
             {/* Gallery Container */}
             <div
               ref={scrollContainerRef}
-              className={`flex ${images.length <= 3 ? 'justify-center' : 'justify-start'} gap-4 overflow-x-auto pb-4`}
+              className="flex gap-4 overflow-x-auto pb-4 w-fit max-w-full mx-auto"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               <style jsx>{`
@@ -76,7 +78,7 @@ export default function ProjectGallery({
                 <button
                   type="button"
                   key={index}
-                  className="block flex-shrink-0 w-80 h-48 bg-white backdrop-blur-xl border border-ink-900/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group"
+                  className="block flex-shrink-0 w-[80vw] sm:w-[28rem] lg:w-[30rem] aspect-[5/3] bg-white backdrop-blur-xl border border-ink-900/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group"
                   onClick={() => setSelectedIndex(index)}
                   aria-label={shell.ui.enlargeImageLabel(image.alt)}
                 >
@@ -84,7 +86,7 @@ export default function ProjectGallery({
                     src={image.src}
                     alt={image.alt}
                     fill
-                    sizes="320px"
+                    sizes="(max-width: 640px) 80vw, (max-width: 1024px) 448px, 480px"
                     className="object-contain"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
@@ -94,12 +96,12 @@ export default function ProjectGallery({
               ))}
             </div>
 
-            {/* Right Arrow - Only show if more than 3 images */}
-            {images.length > 3 && (
+            {/* Right Arrow - Only show if more than 2 images */}
+            {images.length > 2 && (
               <button
                 type="button"
                 onClick={scrollRight}
-                className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
+                className="hidden sm:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 focus-visible:opacity-100"
                 aria-label={shell.ui.projectGallery.scrollRight}
               >
                 <ChevronRight size={24} aria-hidden="true" />

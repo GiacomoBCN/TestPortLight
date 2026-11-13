@@ -19,6 +19,7 @@ export default function LeadershipProfile({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
+      className="scroll-reveal"
     >
       <GlassCard>
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">

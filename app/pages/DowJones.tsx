@@ -35,8 +35,8 @@ const approachIcons = [Layers, FolderTree, MessageSquare, CheckCircle, Users, Sp
 export default function DowJones() {
   return (
     <div className="min-h-screen">
-      {/* Back Button */}
-      <div className="fixed top-24 left-6 z-40" style={{ left: "calc(var(--band) + 1.5rem)" }}>
+      {/* Back Button: in cima alla pagina, scorre via con il contenuto (altezza 0: non sposta nulla) */}
+      <div className="relative z-20 h-0 flex items-start pl-6 [&>*]:mt-4">
         <Link
           href={createPageUrl("ProductWork")}
           className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-slate-300 hover:text-ink-900 hover:border-blue transition-all"

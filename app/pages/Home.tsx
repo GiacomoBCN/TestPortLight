@@ -188,7 +188,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="lg:col-span-5 flex justify-center"
+              className="scroll-reveal lg:col-span-5 flex justify-center"
             >
               <div className="overflow-hidden rounded-2xl ring-1 ring-ink-900/10 shadow-2xl max-w-sm">
                 <Image
@@ -207,7 +207,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
-              className="lg:col-span-7 space-y-8"
+              className="scroll-reveal lg:col-span-7 space-y-8"
             >
               <p className="text-lg md:text-xl text-[var(--color-text-primary)] leading-relaxed">
                 {about.intro}

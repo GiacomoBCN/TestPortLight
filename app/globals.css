@@ -818,6 +818,16 @@ div:has(> .hero-glow) {
    (niente spostamenti, solo dissolvenze). Qui il resto: scroll
    fluido, animazioni CSS infinite, salita della hero.
    ============================================ */
+/* Entrate allo scroll (classe scroll-reveal sugli elementi framer-motion con whileInView).
+   Sotto i 768px il contenuto e' visibile da subito: su telefono, scorrendo in fretta, le sezioni
+   restavano vuote finche' la dissolvenza non scattava. Da 768px in su l'entrata resta. */
+@media (max-width: 767.98px) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html,
   * {

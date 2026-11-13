@@ -19,7 +19,7 @@ export default function CaseStudySection({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className={`py-16 px-6 ${className}`}
+      className={`scroll-reveal py-16 px-6 ${className}`}
     >
       <div className="max-w-5xl mx-auto">
         <div className="flex items-baseline gap-6 mb-8">

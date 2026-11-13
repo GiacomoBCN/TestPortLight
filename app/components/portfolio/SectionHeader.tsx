@@ -16,7 +16,7 @@ export default function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className={`text-center ${/\bmb-/.test(className) ? "" : "mb-16"} ${className}`}
+      className={`scroll-reveal text-center ${/\bmb-/.test(className) ? "" : "mb-16"} ${className}`}
     >
       <h2 className="type-section-title text-[var(--color-text-inverse)] mb-4">{title}</h2>
       {subtitle && (
