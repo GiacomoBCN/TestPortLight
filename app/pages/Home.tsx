@@ -257,13 +257,13 @@ export default function Home() {
 
       {/* Chiusura: una banda con il titolo a sinistra e "Let's talk" a destra.
           "Let's talk" e' lo stesso componente di Contact: apre la posta e copia l'indirizzo ("Email copied").
-          Su mobile il titolo resta in alto a sinistra e il bottone va in basso a destra. */}
+          Su mobile il titolo sta sopra e il bottone sotto, a tutta larghezza (come i bottoni dell'hero). */}
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto glass sketch rounded-2xl p-8 md:p-12 relative flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <SketchFrame />
           <h2 className="type-section-title text-[var(--color-text-inverse)] md:max-w-xl">{cta.title}</h2>
-          <div className="shrink-0 self-end md:self-auto">
-            <CopyEmailLink className="px-8 py-4 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105">
+          <div className="w-full md:w-auto shrink-0">
+            <CopyEmailLink className="block text-center px-8 py-4 bg-[var(--button-primary-background-default)] rounded-xl text-[var(--button-primary-text)] font-semibold hover:bg-[var(--button-primary-background-hover)] transition-all duration-200 glow-blue hover:scale-105">
               {cta.button}
             </CopyEmailLink>
           </div>
