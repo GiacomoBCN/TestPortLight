@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { createPageUrl } from "@/utils";
 import SketchFrame from "../SketchFrame";
 import { shell } from "@/content/shell";
@@ -13,6 +14,8 @@ interface ProjectListingCardProps {
   metrics?: { value: string; label: string }[];
   tags?: string[];
   slug: string;
+  /** progetto che si puo' provare: link "Live" accanto a "View Case Study", in una nuova scheda */
+  live?: { label: string; url: string; ariaLabel: string };
 }
 
 export default function ProjectListingCard({
@@ -24,6 +27,7 @@ export default function ProjectListingCard({
   metrics = [],
   tags = [],
   slug,
+  live,
 }: ProjectListingCardProps) {
   // L'area metriche/tag scorre solo se il contenuto non ci sta (su mobile):
   // in quel caso diventa raggiungibile da tastiera per poterla scorrere
@@ -102,7 +106,7 @@ export default function ProjectListingCard({
       </div>
 
       {/* BOTTOM SECTION - CTA (fixed position, never overflows) */}
-      <div className="mt-auto pt-3 border-t border-[var(--color-text-inverse)]/5 flex-shrink-0 text-center">
+      <div className="mt-auto pt-3 border-t border-[var(--color-text-inverse)]/5 flex-shrink-0 flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
         <Link
           href={createPageUrl(slug)}
           className="inline-block text-[var(--color-text-link-default)] link-underline hover:text-[var(--color-text-link-hover)] transition-colors text-sm"
@@ -110,6 +114,19 @@ export default function ProjectListingCard({
         >
           {shell.ui.projectListingCard.viewCaseStudy}
         </Link>
+        {live && (
+          <a
+            href={live.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={live.ariaLabel}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-text-link-default)] link-underline hover:text-[var(--color-text-link-hover)] transition-colors"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-surface-interactive-default)]" aria-hidden="true" />
+            {live.label}
+            <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
+        )}
       </div>
     </div>
   );

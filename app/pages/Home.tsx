@@ -139,6 +139,7 @@ export default function Home() {
               videoLabels={featuredWork.videoLabels}
               metrics={featuredWork.projects.designSystem.metrics}
               link={createPageUrl("DesignSystem")}
+              live={featuredWork.projects.designSystem.live}
               delay={0.1}
             />
 
@@ -153,6 +154,7 @@ export default function Home() {
               videoLabels={featuredWork.videoLabels}
               metrics={featuredWork.projects.aiProduct.metrics}
               link={createPageUrl("AiProduct")}
+              live={featuredWork.projects.aiProduct.live}
               delay={0.2}
             />
 
@@ -168,6 +170,7 @@ export default function Home() {
               imageBg="#eaece9"
               metrics={featuredWork.projects.falak.metrics}
               link={createPageUrl("Falak")}
+              live={featuredWork.projects.falak.live}
               delay={0.3}
             />
           </div>

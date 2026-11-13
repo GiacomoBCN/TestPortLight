@@ -8,10 +8,26 @@
 // Decidere se devono coincidere e' compito della revisione.
 // Mini-markup (vedi app/components/RichText.tsx): **grassetto**, *corsivo*, [testo](url), \n = <br />.
 
+// Etichetta "Live" sulle schede dei progetti che si possono provare (Home e Product Work).
+// label = testo visibile; ariaLabel = testo per screen reader. Si apre in una nuova scheda.
+const LIVE = {
+  stayKeel: {
+    label: "Live · StayKeel",
+    url: "https://staykeel.com",
+    ariaLabel: "Open StayKeel, the live product (opens in a new tab)",
+  },
+  falak: {
+    label: "Live demo",
+    url: "https://giacomobcn.github.io/chatTest/",
+    ariaLabel: "Open the Falak live demo (opens in a new tab)",
+  },
+};
+
 export const projects = {
   aiProduct: {
     navLink: "AI Product, End to End",
     homeCard: {
+      live: LIVE.stayKeel,
       role: "Founder & Product Builder",
       title: "AI product, end to end",
       company: "StayKeel",
@@ -32,6 +48,7 @@ export const projects = {
       },
     },
     productWorkCard: {
+      live: LIVE.stayKeel,
       category: "AI PRODUCT · RESEARCH · DESIGN SYSTEM · DEPLOY",
       title: "AI product, end to end",
       role: "Founder & Product Builder",
@@ -60,6 +77,7 @@ export const projects = {
   designSystem: {
     navLink: "Design System, One Product",
     homeCard: {
+      live: LIVE.stayKeel,
       role: "Design System · Solo",
       title: "A design system sized to its product",
       company: "StayKeel",
@@ -80,6 +98,7 @@ export const projects = {
       },
     },
     productWorkCard: {
+      live: LIVE.stayKeel,
       category: "DESIGN SYSTEM · DESIGN TOKENS · FIGMA ↔ CODE",
       title: "A design system sized to its product",
       role: "Design Technologist, solo",
@@ -172,6 +191,7 @@ export const projects = {
   falak: {
     navLink: "Falak AI Assistant",
     homeCard: {
+      live: LIVE.falak,
       role: "AI Interaction Design · Banking",
       title: "Falak: AI Assistant for a Bank",
       company: "Concept & Coded Prototype",
@@ -186,6 +206,7 @@ export const projects = {
       ],
     },
     productWorkCard: {
+      live: LIVE.falak,
       category: "AI INTERACTION DESIGN · TRUST & ACCOUNTABILITY · BANKING",
       title: "Falak: AI Assistant for a Bank",
       role: "Concept, Research & Coded Prototype",
