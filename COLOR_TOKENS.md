@@ -246,7 +246,7 @@ All primitive colors are documented with their contrast ratios to ensure WCAG AA
 
 #### Hero glow (home, class `.hero-glow`)
 
-Warm light entering from the top-right corner of the home hero, on a white background, with a very light grain on top. CSS only. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
+Warm light entering from the top-right corner of the home hero, on a white background, with a very light grain on top. The two lights drift very slowly, each on its own timing (only `transform` and `opacity` are animated; still with `prefers-reduced-motion`). CSS only. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
 
 ```css
 --hero-glow-orange: 242 140 40;            /* = --primitive-orange-500 #F28C28, as RGB channels so an opacity can be applied */
@@ -255,13 +255,19 @@ Warm light entering from the top-right corner of the home hero, on a white backg
 --hero-glow-yellow-opacity: 0.22;
 --hero-glow-orange-opacity-mobile: 0.12;   /* below 768px */
 --hero-glow-yellow-opacity-mobile: 0.15;
---hero-glow-position: 100% 0%;             /* orange centre: top-right corner */
---hero-glow-yellow-position: 86% 4%;       /* yellow, slightly offset inward */
+--hero-glow-orange-x: 100%;                /* orange centre: top-right corner */
+--hero-glow-orange-y: 0%;
+--hero-glow-yellow-x: 86%;                 /* yellow, slightly offset inward */
+--hero-glow-yellow-y: 4%;
 --hero-glow-orange-size: 46rem;            /* gradient radius */
 --hero-glow-yellow-size: 62rem;
 --hero-glow-orange-size-mobile: 18rem;
 --hero-glow-yellow-size-mobile: 24rem;
 --hero-glow-bleed-top: 5rem;               /* runs up under the nav (= <main> pt-20) */
+--hero-glow-speed: 24s;                    /* one way of the orange light (yellow is slower) */
+--hero-glow-drift: 5rem;                   /* how far the lights move */
+--hero-glow-drift-mobile: 2rem;
+--hero-glow-breathe: 0.7;                  /* lowest opacity while moving (1 = never dims) */
 --hero-grain-opacity: 0.04;
 --hero-grain-size: 160px;
 ```

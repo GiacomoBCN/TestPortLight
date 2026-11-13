@@ -23,6 +23,8 @@ export default function Home() {
       {/* Hero Section. "hero-glow" = luce calda dall'angolo in alto a destra (globals.css):
           togliendo la classe l'hero torna com'era. */}
       <section className="hero-glow min-h-[85vh] md:min-h-screen flex items-center justify-center relative px-6 pt-12 md:pt-0">
+        {/* Le due luci di hero-glow: div vuoto e decorativo, senza la classe hero-glow non mostra nulla */}
+        <div className="hero-glow-layer absolute inset-0 pointer-events-none" aria-hidden="true" />
         {/* Animated Background Grid */}
         <div className="absolute inset-0 overflow-hidden opacity-20">
           <div
