@@ -246,31 +246,41 @@ All primitive colors are documented with their contrast ratios to ensure WCAG AA
 
 #### Hero glow (home, class `.hero-glow`)
 
-The stripes of the side bands rise toward the top and the centre. The white hero is the sky between the two walls: one soft warm glow at the top centre, at the far point the stripes aim at, gone before the name. No rays, lines or effects: the strong drawing stays with the bands.
-
-CSS only (no image, video, JS or blur). The glow breathes very slowly (opacity only) and stays still with `prefers-reduced-motion`. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
+Warm light entering from the top-right corner of the home hero, on a white background, with a very light grain on top. The two corner lights drift slowly and two light streaks sweep across the hero now and then, with a pause between passes, and fade, like film light leaks, each on its own timing (only `transform` and `opacity` are animated; with `prefers-reduced-motion` the corner lights stay still and the streaks are hidden). CSS only: no image, no video, no JS. Remove the `hero-glow` class from the hero `<section>` in `app/pages/Home.tsx` and the hero is back to plain white.
 
 ```css
 --hero-glow-orange: 242 140 40;            /* = --primitive-orange-500 #F28C28, as RGB channels so an opacity can be applied */
 --hero-glow-yellow: 245 195 59;            /* = --primitive-yellow-400 #F5C33B */
---hero-glow-yellow-opacity: 0.26;          /* yellow core, strongest point */
---hero-glow-orange-opacity: 0.08;          /* orange edge, barely there */
---hero-glow-yellow-opacity-mobile: 0.2;    /* below 768px */
---hero-glow-orange-opacity-mobile: 0.06;
---hero-glow-width: 84rem;                  /* full width of the glow */
---hero-glow-height: 46rem;                 /* full height: the lower half shows, the rest is above the page */
---hero-glow-width-mobile: 40rem;
---hero-glow-height-mobile: 26rem;
---hero-glow-x: 50%;                        /* centre of the glow */
---hero-glow-y: 0rem;                       /* distance of the centre from the top of the page */
---hero-glow-breathe: 0.8;                  /* lowest opacity while breathing (1 = still) */
---hero-glow-breathe-speed: 14s;
+--hero-glow-orange-opacity: 0.18;          /* strongest point */
+--hero-glow-yellow-opacity: 0.22;
+--hero-glow-orange-opacity-mobile: 0.12;   /* below 768px */
+--hero-glow-yellow-opacity-mobile: 0.15;
+--hero-glow-orange-x: 100%;                /* orange centre: top-right corner */
+--hero-glow-orange-y: 0%;
+--hero-glow-yellow-x: 86%;                 /* yellow, slightly offset inward */
+--hero-glow-yellow-y: 4%;
+--hero-glow-orange-size: 46rem;            /* gradient radius */
+--hero-glow-yellow-size: 62rem;
+--hero-glow-orange-size-mobile: 18rem;
+--hero-glow-yellow-size-mobile: 24rem;
 --hero-glow-bleed-top: 5rem;               /* runs up under the nav (= <main> pt-20) */
+--hero-glow-speed: 18s;                    /* one way of the orange light (yellow is slower) */
+--hero-glow-drift: 6rem;                   /* how far the corner lights move */
+--hero-glow-drift-mobile: 2.5rem;
+--hero-glow-breathe: 0.65;                 /* lowest opacity while moving (1 = never dims) */
+--hero-glow-streak-opacity: 0.28;          /* intensity at the centre of a streak */
+--hero-glow-streak-opacity-mobile: 0.2;
+--hero-glow-streak-length: 62rem;
+--hero-glow-streak-length-mobile: 26rem;
+--hero-glow-streak-width: 17rem;
+--hero-glow-streak-width-mobile: 9rem;
+--hero-glow-streak-angle: -32deg;
+--hero-glow-streak-speed: 22s;             /* one cycle of the first streak: it passes for about half of it, then pauses */
 --hero-grain-opacity: 0.04;
 --hero-grain-size: 160px;
 ```
 
-Contrast of the hero text at the worst possible point: run `node check-contrast.js`.
+Contrast at the most coloured point (worst case): run `node check-contrast.js`.
 
 ### Teaching Section
 
