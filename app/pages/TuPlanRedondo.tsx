@@ -288,7 +288,7 @@ export default function TuPlanRedondo() {
 
           <div className="pl-0 md:pl-24">
             <GlassCard>
-              <div className="p-6 space-y-4">
+              <div className="p-2 sm:p-6 space-y-4">
                 <p className="text-gray-300 leading-relaxed">
                   {tuPlanRedondo.businessContext.paragraphs[0]}
                 </p>
@@ -431,7 +431,7 @@ export default function TuPlanRedondo() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-lg text-accent mb-3">
                     {tuPlanRedondo.businessImpact.efficiency.title}
                   </h3>
@@ -446,7 +446,7 @@ export default function TuPlanRedondo() {
               </GlassCard>
 
               <GlassCard>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-lg text-accent mb-3">
                     {tuPlanRedondo.businessImpact.cost.title}
                   </h3>

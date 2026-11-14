@@ -98,7 +98,7 @@ export default function ImageTextCard({
 
   return (
     <GlassCard>
-      <div className="p-6">
+      <div className="p-2 sm:p-6">
         {/* Mobile: Always text first, then images */}
         <div className="flex flex-col md:hidden gap-6">
           {textSection}

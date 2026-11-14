@@ -190,7 +190,7 @@ export default function DesignSystemCaseStudy({
           <div className="pl-0 md:pl-24 space-y-6">
             {patterns.map((p, i) => (
               <GlassCard key={i} hover={!p.demo} className={p.demo ? "!p-3 sm:!p-8" : ""}>
-                <div className={`${p.demo ? "p-3 sm:p-6 flex-wrap" : "p-6"} flex flex-col md:flex-row gap-6`}>
+                <div className={`${p.demo ? "p-3 sm:p-6 flex-wrap" : "p-2 sm:p-6"} flex flex-col md:flex-row gap-6`}>
                   <div className={p.images.length > 0 ? "md:w-3/5" : "w-full"}>
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
@@ -281,7 +281,7 @@ export default function DesignSystemCaseStudy({
           <div className="pl-0 md:pl-24 grid grid-cols-1 md:grid-cols-2 gap-6">
             {learnings.map((l, i) => (
               <GlassCard key={i}>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-xl text-ink-900 mb-3">{l.title}</h3>
                   <p className="text-gray-300 leading-relaxed">{l.text}</p>
                 </div>

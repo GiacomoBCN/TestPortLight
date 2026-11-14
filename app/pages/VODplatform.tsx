@@ -252,7 +252,7 @@ export default function VoDPlatform() {
           </div>
           <div className="pl-0 md:pl-24">
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <p className="text-gray-300 leading-relaxed mb-4">
                   {vod.businessContext.paragraphs[0]}
                 </p>
@@ -356,7 +356,7 @@ export default function VoDPlatform() {
             </GlassCard>
 
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <h3 className="type-work text-xl text-ink-900 mb-3">
                   {vod.redesign.welcomeScreen.title}
                 </h3>
@@ -373,7 +373,7 @@ export default function VoDPlatform() {
             </GlassCard>
 
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <h3 className="type-work text-xl text-ink-900 mb-3">
                   {vod.redesign.wcag.title}
                 </h3>
@@ -390,7 +390,7 @@ export default function VoDPlatform() {
             </GlassCard>
 
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <h3 className="type-work text-xl text-ink-900 mb-3">
                   {vod.redesign.grid.title}
                 </h3>
@@ -476,7 +476,7 @@ export default function VoDPlatform() {
           <div className="pl-0 md:pl-24">
             {/* Desktop Table View - hidden on mobile */}
             <GlassCard className="hidden lg:block">
-              <div className="p-6 overflow-x-auto">
+              <div className="p-2 sm:p-6 overflow-x-auto">
                 <table className="w-full text-left align-top">
                   <thead>
                     <tr className="border-b border-gray-700">
@@ -563,7 +563,7 @@ export default function VoDPlatform() {
             <div className="lg:hidden space-y-6">
               {/* Structure Card */}
               <GlassCard>
-                <div className="p-5">
+                <div className="p-2 sm:p-5">
                   <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.structure.title}
                   </h3>
@@ -600,7 +600,7 @@ export default function VoDPlatform() {
 
               {/* Movement Card */}
               <GlassCard>
-                <div className="p-5">
+                <div className="p-2 sm:p-5">
                   <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.movement.title}
                   </h3>
@@ -639,7 +639,7 @@ export default function VoDPlatform() {
 
               {/* Focus & Legibility Card */}
               <GlassCard>
-                <div className="p-5">
+                <div className="p-2 sm:p-5">
                   <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.focus.title}
                   </h3>
@@ -672,7 +672,7 @@ export default function VoDPlatform() {
 
               {/* Utility & Feedback Card */}
               <GlassCard>
-                <div className="p-5">
+                <div className="p-2 sm:p-5">
                   <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.utility.title}
                   </h3>
@@ -705,7 +705,7 @@ export default function VoDPlatform() {
 
               {/* Outcome Card */}
               <GlassCard>
-                <div className="p-5">
+                <div className="p-2 sm:p-5">
                   <h3 className="type-work text-ink-900 text-lg mb-4">
                     {cards.outcome.title}
                   </h3>
@@ -753,7 +753,7 @@ export default function VoDPlatform() {
           </div>
           <div className="pl-0 md:pl-24">
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <p className="text-gray-300 leading-relaxed mb-6">
                   {vod.interactionImprovements.intro}
                 </p>
@@ -860,7 +860,7 @@ export default function VoDPlatform() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-lg text-accent mb-3">
                     {vod.outcomes.constraints.title}
                   </h3>
@@ -878,7 +878,7 @@ export default function VoDPlatform() {
               </GlassCard>
 
               <GlassCard>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-lg text-accent mb-3">
                     {vod.outcomes.learnings.title}
                   </h3>

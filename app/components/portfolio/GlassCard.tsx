@@ -30,7 +30,9 @@ export default function GlassCard({
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay }}
-      className={`glass sketch rounded-xl p-8 transition-all duration-300 ${
+      // Sotto i 640px il margine interno e' 16px invece di 32: su telefono i margini annidati
+      // (pagina + card + contenuto) lasciavano al testo poco piu' di meta' schermo.
+      className={`glass sketch rounded-xl p-4 sm:p-8 transition-all duration-300 ${
         hover ? "glass-hover cursor-pointer" : ""
       } ${className}`}
     >

@@ -304,7 +304,7 @@ export default function XpuntoCero() {
 
           <div className="pl-0 md:pl-24 space-y-6">
             <GlassCard>
-              <div className="p-6 space-y-4">
+              <div className="p-2 sm:p-6 space-y-4">
                 <p className="text-gray-300 leading-relaxed">
                   <RichText text={xpuntoCero.businessContext.paragraphs[0]} boldClassName="text-ink-900 font-semibold" />
                 </p>
@@ -442,7 +442,7 @@ export default function XpuntoCero() {
           <div className="pl-0 md:pl-24 space-y-8">
             {/* Intro */}
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <p className="text-gray-300 leading-relaxed">
                   {xpuntoCero.outcomes.intro}
                 </p>
@@ -453,7 +453,7 @@ export default function XpuntoCero() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Lead Generation & Marketing */}
               <GlassCard>
-                <div className="p-6 space-y-4">
+                <div className="p-2 sm:p-6 space-y-4">
                   <h3 className="type-work text-lg text-accent mb-2">
                     {xpuntoCero.outcomes.leadGeneration.title}
                   </h3>
@@ -491,7 +491,7 @@ export default function XpuntoCero() {
 
               {/* UX & Performance */}
               <GlassCard>
-                <div className="p-6 space-y-4">
+                <div className="p-2 sm:p-6 space-y-4">
                   <h3 className="type-work text-lg text-accent mb-2">
                     {xpuntoCero.outcomes.uxPerformance.title}
                   </h3>
@@ -510,7 +510,7 @@ export default function XpuntoCero() {
 
             {/* Key Learnings */}
             <GlassCard>
-              <div className="p-6 space-y-3">
+              <div className="p-2 sm:p-6 space-y-3">
                 <h3 className="type-work text-lg text-accent mb-2">
                   {xpuntoCero.outcomes.keyLearnings.title}
                 </h3>

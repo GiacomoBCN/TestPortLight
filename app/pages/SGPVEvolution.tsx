@@ -235,7 +235,7 @@ export default function SGPVEvolution() {
 
           <div className="pl-0 md:pl-24">
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <p className="text-gray-300 leading-relaxed">
                   {sgpv.phase1.summary}
                 </p>
@@ -290,7 +290,7 @@ export default function SGPVEvolution() {
                 <div className="max-w-5xl mx-auto">
                   <div className="pl-0 md:pl-24 space-y-6">
                     <GlassCard>
-                      <div className="p-6">
+                      <div className="p-2 sm:p-6">
                         <h3 className="type-work text-xl text-ink-900 mb-3">
                           {sgpv.phase1.context.title}
                         </h3>
@@ -323,7 +323,7 @@ export default function SGPVEvolution() {
                     />
 
                     <GlassCard>
-                      <div className="p-6">
+                      <div className="p-2 sm:p-6">
                         <h3 className="type-work text-xl text-ink-900 mb-3">
                           {sgpv.phase1.reflection.title}
                         </h3>
@@ -370,7 +370,7 @@ export default function SGPVEvolution() {
             />
 
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <h3 className="type-work text-xl text-ink-900 mb-3">
                   {sgpv.phase2.researchWorkflow.title}
                 </h3>
@@ -537,7 +537,7 @@ export default function SGPVEvolution() {
             {/* Consolidated Results */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-lg text-accent mb-3">
                     {sgpv.businessImpact.productPerformance.title}
                   </h3>
@@ -552,7 +552,7 @@ export default function SGPVEvolution() {
               </GlassCard>
 
               <GlassCard>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-lg text-accent mb-3">
                     {sgpv.businessImpact.operationalOutcomes.title}
                   </h3>
@@ -569,7 +569,7 @@ export default function SGPVEvolution() {
 
             {/* Long-Term Value */}
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <h3 className="type-work text-lg text-accent mb-3">
                   {sgpv.businessImpact.longTermValue.title}
                 </h3>
@@ -616,7 +616,7 @@ export default function SGPVEvolution() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {sgpv.learnings.items.map((item, i) => (
                 <GlassCard key={i}>
-                  <div className="p-6">
+                  <div className="p-2 sm:p-6">
                     <h3 className="type-work text-xl text-ink-900 mb-3">
                       {item.title}
                     </h3>

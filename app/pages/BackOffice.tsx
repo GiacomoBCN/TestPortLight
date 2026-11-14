@@ -192,7 +192,7 @@ export default function OnlineBackOfficeCaseStudy() {
 
           <div className="pl-0 md:pl-24">
             <GlassCard>
-              <div className="p-6 space-y-4">
+              <div className="p-2 sm:p-6 space-y-4">
                 <p className="text-gray-300 leading-relaxed">
                   {backOffice.businessContext.paragraphs[0]}
                 </p>
@@ -245,7 +245,7 @@ export default function OnlineBackOfficeCaseStudy() {
 
           <div className="pl-0 md:pl-24 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 {/* Styled header */}
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
@@ -267,7 +267,7 @@ export default function OnlineBackOfficeCaseStudy() {
             </GlassCard>
 
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 {/* Styled header */}
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
@@ -318,7 +318,7 @@ export default function OnlineBackOfficeCaseStudy() {
           </div>
           <div className="pl-0 md:pl-24 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <h3 className="type-work text-xl text-ink-900 mb-3">
                   {backOffice.solution.sharedAssets.title}
                 </h3>
@@ -334,7 +334,7 @@ export default function OnlineBackOfficeCaseStudy() {
               </div>
             </GlassCard>
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <h3 className="type-work text-xl text-ink-900 mb-3">
                   {backOffice.solution.gitPropagation.title}
                 </h3>
@@ -363,7 +363,7 @@ export default function OnlineBackOfficeCaseStudy() {
           </div>
           <div className="pl-0 md:pl-24">
             <GlassCard className="hidden lg:block">
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <p className="text-gray-300 leading-relaxed mb-6">
                   {backOffice.operationalImprovements.intro}
                 </p>
@@ -466,7 +466,7 @@ export default function OnlineBackOfficeCaseStudy() {
           <div className="pl-0 md:pl-24 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-lg text-accent mb-3">
                     {backOffice.deliverables.frontEnd.title}
                   </h3>
@@ -478,7 +478,7 @@ export default function OnlineBackOfficeCaseStudy() {
                 </div>
               </GlassCard>
               <GlassCard>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-lg text-accent mb-3">
                     {backOffice.deliverables.process.title}
                   </h3>
@@ -492,7 +492,7 @@ export default function OnlineBackOfficeCaseStudy() {
             </div>
 
             <GlassCard>
-              <div className="p-6">
+              <div className="p-2 sm:p-6">
                 <h3 className="type-work text-lg text-accent mb-3">
                   {backOffice.deliverables.results.title}
                 </h3>

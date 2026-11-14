@@ -213,7 +213,7 @@ export default function FalakCaseStudy() {
           <div className="pl-0 md:pl-24 space-y-6">
             {patterns.map((p, i) => (
               <GlassCard key={i}>
-                <div className="p-6 flex flex-col md:flex-row gap-6">
+                <div className="p-2 sm:p-6 flex flex-col md:flex-row gap-6">
                   <div className="md:w-3/5">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
@@ -330,7 +330,7 @@ export default function FalakCaseStudy() {
           <div className="pl-0 md:pl-24 grid grid-cols-1 md:grid-cols-2 gap-6">
             {learnings.map((l, i) => (
               <GlassCard key={i}>
-                <div className="p-6">
+                <div className="p-2 sm:p-6">
                   <h3 className="type-work text-xl text-ink-900 mb-3">{l.title}</h3>
                   <p className="text-gray-300 leading-relaxed">{l.text}</p>
                 </div>
@@ -355,7 +355,7 @@ export default function FalakCaseStudy() {
           <div className="pl-0 md:pl-24">
             {/* Desktop table */}
             <GlassCard className="hidden lg:block">
-              <div className="p-6 overflow-x-auto">
+              <div className="p-2 sm:p-6 overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
                     <tr className="border-b border-gray-700">
@@ -383,7 +383,7 @@ export default function FalakCaseStudy() {
             <div className="lg:hidden space-y-4">
               {regulations.map((r, i) => (
                 <GlassCard key={i}>
-                  <div className="p-5">
+                  <div className="p-2 sm:p-5">
                     <h3 className="type-work text-ink-900 text-base mb-3">{r.rule}</h3>
                     <div className="space-y-3 text-sm">
                       <div>
