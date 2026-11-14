@@ -64,6 +64,7 @@ export const dowJones = {
   // Approach: una card per sottosezione, nell'ordine della pagina.
   // stat (facoltativo): il numero del vecchio blocco di Business Outcomes, mostrato in cima alla card.
   // lists: elenchi con la loro etichetta. closing (facoltativo): frase finale.
+  // video (facoltativo): loop 16:9 mostrato tra i paragrafi e gli elenchi.
   // Icone nella pagina (approachIcons), stesso ordine.
   approach: {
     number: "01",
@@ -93,8 +94,18 @@ export const dowJones = {
       {
         title: "Review and handoff",
         stat: { value: "30%", label: "Less back-and-forth" },
+        // Video in loop sotto il paragrafo e sopra l'elenco (file in public/video/).
+        // alt = testo alternativo; pauseLabel / playLabel = etichette del bottone per screen reader.
+        video: {
+          video: "video/workflow-loop.mp4",
+          webm: "video/workflow-loop.webm",
+          poster: "video/workflow-loop-poster.webp",
+          alt: "Animation: before the new rules, messages bounce between design and engineering for two weeks; after, three exchanges and a 15-minute call. 30% less back-and-forth.",
+          pauseLabel: "Pause video",
+          playLabel: "Play video",
+        },
         paragraphs: [
-          "I had no direct authority over designers or engineers, so the change had to be earned, not imposed. Approving one component could take two weeks of open questions in GitHub threads. I analysed the threads and found the arguments were about who could close a discussion, not about what the spec said. Measured by comparing GitHub review threads before and after the pilot.",
+          "I had no direct authority over designers or engineers, so the change had to be earned, not imposed. Approving one component could take two weeks of open questions in GitHub threads. Before changing anything, I copied the old review threads from GitHub into a spreadsheet, removed the sensitive data and used Vertex AI to help classify what each discussion was really about. Most were about who could close a discussion, not about what the spec said. Measured by comparing GitHub review threads before and after the pilot.",
         ],
         lists: [
           {
@@ -102,7 +113,7 @@ export const dowJones = {
             items: [
               "Questions written to be closed, not open",
               "A short ceremony before every handoff",
-              "A 15-minute call, with me moderating, once a thread stalled",
+              "A 15-minute call, with me moderating, after three exchanges",
               "Piloted on one team, then extended to all eight",
             ],
           },

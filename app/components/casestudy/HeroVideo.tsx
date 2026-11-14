@@ -32,21 +32,31 @@ export function HeroPlaceholder({ steps }: { steps: ReadonlyArray<{ label: strin
 }
 
 /**
- * Blocco 16:9 sotto l'hero (usato da /ai-product e /design-system).
+ * Blocco 16:9 sotto l'hero (usato da /ai-product e /design-system) e dentro una card di /dowjones.
  * Con i file video presenti: <video> muto in loop che parte da solo,
  * con sotto un bottone tondo pausa / play (come nella home del prodotto).
  * Se il browser blocca l'autoplay il bottone mostra play.
- * L'mp4 (H.264) va prima: lo decodifica qualsiasi browser e scheda video; il webm e' la riserva.
+ * Con prefers-reduced-motion il video non parte: resta il poster, e chi vuole lo avvia dal bottone.
+ * Per questo la riproduzione parte da JavaScript e non dall'attributo autoplay.
+ * Ordine delle sorgenti: di default l'mp4 (H.264) va prima, perche' lo decodifica qualsiasi browser
+ * e scheda video, e il webm e' la riserva; con webmFirst l'ordine e' invertito.
+ * width / height: misure del file, dichiarate perche' il browser riservi lo spazio.
  * Senza file video: il segnaposto.
  */
 export default function HeroVideo({
   files,
   media,
   placeholder,
+  webmFirst = false,
+  width = 1600,
+  height = 900,
 }: {
   files: HeroMediaFiles;
   media: HeroMediaContent;
   placeholder: ReadonlyArray<{ label: string; note: string }>;
+  webmFirst?: boolean;
+  width?: number;
+  height?: number;
 }) {
   const { video, webm, poster, alt, pauseLabel, playLabel } = media;
   const hasVideo = files.mp4 || files.webm;
@@ -61,7 +71,10 @@ export default function HeroVideo({
     el.addEventListener("play", onPlay);
     el.addEventListener("pause", onPause);
     setPlaying(!el.paused);
-    el.play().then(() => setPlaying(true)).catch(() => setPlaying(!el.paused));
+    // Riduci movimento: niente avvio automatico, resta il poster
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.play().then(() => setPlaying(true)).catch(() => setPlaying(!el.paused));
+    }
     return () => {
       el.removeEventListener("play", onPlay);
       el.removeEventListener("pause", onPause);
@@ -93,7 +106,8 @@ export default function HeroVideo({
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
+          width={width}
+          height={height}
           muted
           loop
           playsInline
@@ -101,8 +115,9 @@ export default function HeroVideo({
           poster={files.poster ? getImagePath(poster) : undefined}
           aria-label={alt || undefined}
         >
+          {webmFirst && files.webm && <source src={getImagePath(webm)} type="video/webm" />}
           {files.mp4 && <source src={getImagePath(video)} type="video/mp4" />}
-          {files.webm && <source src={getImagePath(webm)} type="video/webm" />}
+          {!webmFirst && files.webm && <source src={getImagePath(webm)} type="video/webm" />}
         </video>
       </div>
       <div className="flex justify-end mt-3">

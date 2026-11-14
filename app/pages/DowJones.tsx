@@ -20,6 +20,7 @@ import DecisionTable from "../components/work/DecisionTable";
 import GlassCard from "../components/portfolio/GlassCard";
 import ProjectIntroCard from "../components/work/ProjectIntroCard";
 import ProjectGallery from "../components/work/ProjectGallery";
+import HeroVideo from "../components/casestudy/HeroVideo";
 import { getImagePath } from "@/utils/image";
 import CopyEmailLink from "@/app/components/CopyEmailLink";
 import { dowJones } from "@/content/dow-jones";
@@ -154,6 +155,20 @@ export default function DowJones() {
                         </p>
                       ))}
                     </div>
+
+                    {/* Video in loop: sotto i paragrafi, sopra gli elenchi, a tutta la larghezza della card */}
+                    {"video" in item && item.video && (
+                      <div className="mt-6">
+                        <HeroVideo
+                          files={{ mp4: true, webm: true, poster: true }}
+                          media={item.video}
+                          placeholder={[]}
+                          webmFirst
+                          width={1920}
+                          height={1080}
+                        />
+                      </div>
+                    )}
 
                     {item.lists.map((list, j) => (
                       <div key={j} className="mt-4">
