@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { createPageUrl } from "@/utils";
 import { getImagePath } from "@/utils/image";
@@ -80,12 +79,6 @@ export default function Home() {
             >
               {hero.productWorkCta}
             </a>
-            <Link
-              href={createPageUrl("Teaching")}
-              className="px-8 py-4 glass rounded-xl text-[var(--button-secondary-text)] hover:text-[var(--color-text-inverse)] font-semibold hover:bg-[var(--color-surface-interactive-hover)] active:bg-[var(--color-surface-interactive-hover)] active:text-[var(--color-text-inverse)] active:border-[var(--color-border-interactive)] hover:border-[var(--color-border-interactive)] transition-all duration-200 hover:scale-105"
-            >
-              {hero.teachingCta}
-            </Link>
           </div>
 
           <motion.a

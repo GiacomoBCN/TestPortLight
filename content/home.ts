@@ -10,7 +10,6 @@ export const home = {
     intro:
       "I build AI products end to end. When something matters and I don't know it yet, I learn it, cross-check it and prove it with tests. Before that, I co-led the Dow Jones design system across 8 brands and taught product design to 1,000+ students.",
     productWorkCta: "View Product Work",
-    teachingCta: "View Teaching Portfolio",
     scrollCueLabel: "Scroll to Selected work",
   },
 

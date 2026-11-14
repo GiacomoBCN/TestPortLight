@@ -54,7 +54,7 @@ export const shell = {
 
   footer: {
     copyright: "© 2026 Giacomo Bianchi.",
-    tagline: "Italian by birth. Product leader by craft. Global by vocation.",
+    tagline: "Italian by birth. Builder by craft. Global by vocation.",
     location: "Barcelona • Open to MENA, Europe & Remote",
     emailAriaLabel: "Email",
     linkedinAriaLabel: "LinkedIn",
