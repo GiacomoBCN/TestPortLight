@@ -79,7 +79,10 @@ export const falak = {
     subtitle: "Eight patterns. Each one either changes what the system does, or makes checking cheaper.",
     enlarge: "Enlarge",
     enlargeImageLabel: (alt: string) => `Enlarge image: ${alt}`,
-    // images: chiavi di `shots`
+    // Card con piu' immagini: si vede la prima, con "+N" per le altre; il clic apre la galleria
+    galleryLabel: (alt: string, count: number) => `Open gallery of ${count} images: ${alt}`,
+    moreImages: (n: number) => `+${n}`,
+    // images: chiavi di `shots`; la prima e' quella mostrata nella card
     patterns: [
       {
         title: "Three behaviours, not one chat",

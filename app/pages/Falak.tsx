@@ -38,7 +38,7 @@ const REPO_URL = falak.repoUrl;
 
 const img = (file: string) => getImagePath(`images/projects/falak/${file}`);
 
-type Shot = { src: string; alt: string };
+type Shot = { src: string; alt: string; portrait?: boolean };
 
 export default function FalakCaseStudy() {
   // Lightbox condivisa dalle card dell'approccio
@@ -50,7 +50,8 @@ export default function FalakCaseStudy() {
   };
 
   const shots = Object.fromEntries(
-    Object.entries(falak.shots).map(([k, s]) => [k, { src: img(s.file), alt: s.alt }])
+    // portrait: screenshot da telefono (file "...-mobile-..."), piu' alti che larghi
+    Object.entries(falak.shots).map(([k, s]) => [k, { src: img(s.file), alt: s.alt, portrait: /mobile/.test(s.file) }])
   ) as Record<FalakShotKey, Shot>;
 
   // Icone delle card dell'approccio, nello stesso ordine di falak.approach.patterns
@@ -222,22 +223,36 @@ export default function FalakCaseStudy() {
                     </div>
                     <p className="text-gray-300 leading-relaxed">{p.text}</p>
                   </div>
-                  <div className="md:w-2/5 grid grid-cols-2 gap-3 content-start">
-                    {p.images.map((im, j) => (
+                  {p.images.length > 0 && (
+                    <div className="w-full md:w-2/5 md:flex-shrink-0">
+                      {/* Come nel case study del design system: solo la prima immagine, grande;
+                          se ce ne sono altre, "+N" e il clic apre la galleria.
+                          Riquadro 3:2 per gli screenshot desktop, 4:5 per quelli da telefono. */}
                       <button
                         type="button"
-                        key={j}
-                        onClick={() => open(p.images, j)}
-                        className="relative aspect-[3/2] rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer"
-                        aria-label={falak.approach.enlargeImageLabel(im.alt)}
+                        onClick={() => open(p.images, 0)}
+                        className={`relative block w-full ${p.images[0].portrait ? "aspect-[4/5]" : "aspect-[3/2]"} rounded-lg overflow-hidden border border-ink-900/10 bg-white group cursor-pointer`}
+                        aria-label={
+                          p.images.length > 1
+                            ? falak.approach.galleryLabel(p.images[0].alt, p.images.length)
+                            : falak.approach.enlargeImageLabel(p.images[0].alt)
+                        }
                       >
                         <Image
-                          src={im.src}
-                          alt={im.alt}
+                          src={p.images[0].src}
+                          alt={p.images[0].alt}
                           fill
-                          sizes="(max-width: 768px) 50vw, 20vw"
-                          className="object-cover object-top"
+                          sizes="(max-width: 768px) 100vw, 30vw"
+                          className={p.images[0].portrait ? "object-contain p-2" : "object-cover object-top"}
                         />
+                        {p.images.length > 1 && (
+                          <span
+                            className="absolute bottom-2 right-2 px-2.5 py-1 rounded-full bg-ink-900 text-white text-xs font-semibold"
+                            aria-hidden="true"
+                          >
+                            {falak.approach.moreImages(p.images.length - 1)}
+                          </span>
+                        )}
                         <div
                           className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center"
                           aria-hidden="true"
@@ -245,8 +260,8 @@ export default function FalakCaseStudy() {
                           <span className="text-white text-xs font-medium">{falak.approach.enlarge}</span>
                         </div>
                       </button>
-                    ))}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </GlassCard>
             ))}
