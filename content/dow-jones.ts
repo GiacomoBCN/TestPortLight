@@ -94,20 +94,10 @@ export const dowJones = {
         title: "Repository & documentation overhaul",
         stat: { value: "20%", label: "Complexity Reduction" },
         paragraphs: [
-          "Led the reorganization of core repositories and Storybook architecture, reducing component complexity by 20% and dramatically improving discoverability for both engineers and designers. This wasn't just technical cleanup. It required careful coordination across 8 brands.",
+          "I directed the reorganization of the library across Figma, the shared repositories and Storybook, so that a designer or an engineer could find and use a component without asking the system team. Because each brand had grown on its own, the libraries held duplicates and components that were only partly used. I set the direction: merge the duplicates, retire what nobody used, and rename the rest so that a name says what the component does. The team did the work and I approved each change. The 20% is the drop in components and variants after that work.",
           "I moderated every handoff and pre-handoff session, acting as problem solver when brand-specific needs conflicted with system-wide goals. These sessions were where the real governance work happened: finding solutions that satisfied individual brand requirements while maintaining system integrity.",
-          "Repository reorganization and architectural simplification made the system easier to maintain and extend. Simpler code means fewer bugs and faster onboarding.",
         ],
         lists: [
-          {
-            label: "Results:",
-            items: [
-              "Improved component organization and documentation structure",
-              "Streamlined contribution workflows and approval processes",
-              "Facilitated handoff sessions as moderator, resolving conflicts between brand needs and system goals",
-              "Faster onboarding (new team members reached productivity sooner)",
-            ],
-          },
           {
             label: "What changed:",
             items: [
@@ -161,9 +151,9 @@ export const dowJones = {
         ],
       },
       {
-        title: "AI-assisted workflow",
+        title: "AI in documentation",
         paragraphs: [
-          "I used AI throughout this work. ChatGPT and Vertex AI for speeding up documentation, component specs, and prototyping. Also automated quality checks and consistency validation.",
+          "This was before today’s AI tooling. I used ChatGPT and Vertex AI mainly for documentation: the same component was described in three ways, for a product manager, a designer and a developer, so each reader got what they needed to decide or to build.",
         ],
         lists: [],
       },

@@ -142,7 +142,7 @@ export const projects = {
       company: "Dow Jones",
       timeframe: "",
       description:
-        "I co-led the design system behind 8 products and was its final quality gate. When approving one component took two weeks of GitHub threads, I redesigned the review and cut back-and-forth by 30%.",
+        "I co-led the design system behind 8 brands and was its final quality gate. When approving one component took two weeks of GitHub threads, I redesigned the review and cut back-and-forth by 30%.",
       image: "images/projects/DJ1.webp",
       metrics: [
         { value: "60+", label: "Designers" },
