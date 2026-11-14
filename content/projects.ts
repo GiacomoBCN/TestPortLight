@@ -109,7 +109,7 @@ export const projects = {
       live: LIVE.tokenDemo,
       category: "DESIGN SYSTEM · DESIGN TOKENS · FIGMA ↔ CODE",
       title: "A design system sized to its product",
-      role: "Design Technologist, solo",
+      role: "Founder · Design Engineer",
       year: "",
       description:
         "A three-level token architecture where the content source is the theme. Everything in it exists because the product uses it; what it doesn't use, I didn't build, and wrote down why.",
