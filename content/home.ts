@@ -32,7 +32,7 @@ export const home = {
     title: "About",
     portrait: { image: "images/profile/gb.ven_2.webp", alt: "Giacomo Bianchi portrait" },
     intro:
-      "I work where people and systems meet. I hold a PhD in human capital and taught product design for seven years at EAE Business School. My work starts from user research: at XpuntoCero, 25+ research sessions led to 25% faster task completion. Today I design and build StayKeel on my own, from research to production.",
+      "I work where people and systems meet. I hold a PhD in human capital and have worked on digital products for more than eight years. I taught for seven years in master's programmes at EAE Business School. At XpuntoCero, a software company serving consumer-goods brands in Spain, Italy and Portugal, I designed products and wrote their front end. At Dow Jones, a global media group, I was Lead Design Technologist. Today I design and build StayKeel on my own, from research to production.",
     rulesTitle: "How I work, in four rules:",
     rules: [
       "Design for the culture you ship to, and lead for the culture you work in.",
