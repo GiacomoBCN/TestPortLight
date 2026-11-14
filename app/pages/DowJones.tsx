@@ -109,6 +109,7 @@ export default function DowJones() {
 
       {/* Galleria */}
       <ProjectGallery
+        thumb="square"
         title={dowJones.gallery.title}
         images={dowJones.gallery.images.map((image) => ({
           src: getImagePath(image.file),

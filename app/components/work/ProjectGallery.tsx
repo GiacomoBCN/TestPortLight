@@ -13,11 +13,15 @@ interface GalleryImage {
 interface ProjectGalleryProps {
   images: GalleryImage[];
   title?: string;
+  /** Forma delle miniature: "wide" (5:3, default) per screenshot orizzontali, "square" per immagini
+   *  quadrate, che in un riquadro largo resterebbero piccole con due strisce bianche ai lati. */
+  thumb?: "wide" | "square";
 }
 
 export default function ProjectGallery({
   images,
-  title = shell.ui.projectGallery.defaultTitle
+  title = shell.ui.projectGallery.defaultTitle,
+  thumb = "wide",
 }: ProjectGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
@@ -78,7 +82,7 @@ export default function ProjectGallery({
                 <button
                   type="button"
                   key={index}
-                  className="block flex-shrink-0 w-[80vw] sm:w-[28rem] lg:w-[30rem] aspect-[5/3] bg-white backdrop-blur-xl border border-ink-900/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group"
+                  className={`block flex-shrink-0 ${thumb === "square" ? "w-[80vw] sm:w-[20rem] lg:w-[21rem] aspect-square" : "w-[80vw] sm:w-[28rem] lg:w-[30rem] aspect-[5/3]"} bg-white backdrop-blur-xl border border-ink-900/10 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform relative group`}
                   onClick={() => setSelectedIndex(index)}
                   aria-label={shell.ui.enlargeImageLabel(image.alt)}
                 >
@@ -86,7 +90,7 @@ export default function ProjectGallery({
                     src={image.src}
                     alt={image.alt}
                     fill
-                    sizes="(max-width: 640px) 80vw, (max-width: 1024px) 448px, 480px"
+                    sizes={thumb === "square" ? "(max-width: 640px) 80vw, 336px" : "(max-width: 640px) 80vw, (max-width: 1024px) 448px, 480px"}
                     className="object-contain"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity flex items-center justify-center" aria-hidden="true">
