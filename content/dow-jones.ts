@@ -18,7 +18,7 @@ export const dowJones = {
     paragraphs: [
       "Dow Jones operates multiple B2B and B2C brands including The Wall Street Journal, Barron's, MarketWatch and Factiva (B2B), with more in the pipeline (B2C and B2B). Each brand had evolved independently with its own design team, which drove rapid innovation and brand-specific optimization. As the company scaled, the opportunity emerged to unify these learnings into a shared foundation while preserving each brand's unique identity.",
       "As Lead Design Technologist and Product Owner for the design system, I co-owned the product roadmap with design and engineering leadership. The challenge was a governance model that 8 autonomous brands would adopt by choice.",
-      "We succeeded by reorganizing the architecture (20% less complexity), streamlining workflows (30% less back-and-forth between design and engineering), and embedding accessibility (WCAG 2.2) from day one. Today, the system powers 200K+ component instances used by 60+ designers and 120+ stakeholders across web, iOS, and Android.",
+      "We succeeded by streamlining workflows (30% less back-and-forth between design and engineering), reorganizing the architecture (20% less complexity), and embedding accessibility (WCAG 2.2) from day one. Today, the system powers 200K+ component instances used by 60+ designers and 120+ stakeholders across web, iOS, and Android.",
     ],
   },
 
@@ -183,13 +183,6 @@ export const dowJones = {
         impact: "Cross-platform consistency",
       },
       {
-        point: "Component Complexity",
-        options: ["Simple atoms only", "Complex compositions", "Tiered system"],
-        rationale:
-          "Tiered system with reorganized Storybook architecture provided flexibility while maintaining consistency. Improved discoverability for 60+ designers and 120+ stakeholders.",
-        impact: "20% complexity reduction",
-      },
-      {
         point: "Documentation & Workflow Strategy",
         options: [
           "Code comments",
@@ -199,6 +192,13 @@ export const dowJones = {
         rationale:
           "Storybook integration kept docs close to code, increasing usage and reducing maintenance burden. I also improved team workflows for handoffs, UAT, QA, and design acceptance, streamlining how designers and engineers collaborated.",
         impact: "30% less back-and-forth in reviews",
+      },
+      {
+        point: "Component Complexity",
+        options: ["Simple atoms only", "Complex compositions", "Tiered system"],
+        rationale:
+          "Tiered system with reorganized Storybook architecture provided flexibility while maintaining consistency. Improved discoverability for 60+ designers and 120+ stakeholders.",
+        impact: "20% complexity reduction",
       },
     ],
   },
