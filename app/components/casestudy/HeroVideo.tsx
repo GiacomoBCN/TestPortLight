@@ -38,8 +38,8 @@ export function HeroPlaceholder({ steps }: { steps: ReadonlyArray<{ label: strin
  * Se il browser blocca l'autoplay il bottone mostra play.
  * Con prefers-reduced-motion il video non parte: resta il poster, e chi vuole lo avvia dal bottone.
  * Per questo la riproduzione parte da JavaScript e non dall'attributo autoplay.
- * Ordine delle sorgenti: di default l'mp4 (H.264) va prima, perche' lo decodifica qualsiasi browser
- * e scheda video, e il webm e' la riserva; con webmFirst l'ordine e' invertito.
+ * L'mp4 (H.264) va prima: lo decodifica qualsiasi browser e scheda video; il webm e' la riserva.
+ * (Con il webm per primo, su alcune macchine il video restava fermo e il bottone play non lo avviava.)
  * width / height: misure del file, dichiarate perche' il browser riservi lo spazio.
  * Senza file video: il segnaposto.
  */
@@ -47,14 +47,12 @@ export default function HeroVideo({
   files,
   media,
   placeholder,
-  webmFirst = false,
   width = 1600,
   height = 900,
 }: {
   files: HeroMediaFiles;
   media: HeroMediaContent;
   placeholder: ReadonlyArray<{ label: string; note: string }>;
-  webmFirst?: boolean;
   width?: number;
   height?: number;
 }) {
@@ -115,9 +113,8 @@ export default function HeroVideo({
           poster={files.poster ? getImagePath(poster) : undefined}
           aria-label={alt || undefined}
         >
-          {webmFirst && files.webm && <source src={getImagePath(webm)} type="video/webm" />}
           {files.mp4 && <source src={getImagePath(video)} type="video/mp4" />}
-          {!webmFirst && files.webm && <source src={getImagePath(webm)} type="video/webm" />}
+          {files.webm && <source src={getImagePath(webm)} type="video/webm" />}
         </video>
       </div>
       <div className="flex justify-end mt-3">

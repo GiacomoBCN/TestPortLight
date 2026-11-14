@@ -163,7 +163,6 @@ export default function DowJones() {
                           files={{ mp4: true, webm: true, poster: true }}
                           media={item.video}
                           placeholder={[]}
-                          webmFirst
                           width={1920}
                           height={1080}
                         />
