@@ -110,6 +110,12 @@ export const shell = {
       next: "Next image",
       counter: (n: number, total: number) => `${n} / ${total}`,
     },
+    // Video ingrandito su telefono (HeroVideo -> VideoLightbox)
+    videoLightbox: {
+      open: "Enlarge video",
+      dialogLabel: (alt: string) => (alt ? `Enlarged video: ${alt}` : "Enlarged video"),
+      close: "Close video",
+    },
     enlargeImageLabel: (alt: string) => `Enlarge image: ${alt}`,
     clickToEnlarge: "Click to enlarge",
     projectGallery: {
