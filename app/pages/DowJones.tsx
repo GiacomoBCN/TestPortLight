@@ -30,7 +30,7 @@ import HighlightLastWords from "../components/HighlightLastWords";
 // titolo e frase tesi, Challenge · Role · Scope, Approach, Key Decisions & Trade-offs, What I Learned, chiusura.
 
 // Icone delle card dell'Approach, nello stesso ordine di dowJones.approach.items
-const approachIcons = [Layers, FolderTree, MessageSquare, CheckCircle, Users, Sparkles];
+const approachIcons = [Layers, MessageSquare, FolderTree, CheckCircle, Users, Sparkles];
 
 export default function DowJones() {
   return (

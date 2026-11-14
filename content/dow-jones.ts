@@ -91,24 +91,6 @@ export const dowJones = {
           "Instead of 8 separate design systems, we had one flexible system expressing 8 brand identities. Kevin Muldoon and I were the two Lead Design Technologists. He led the token architecture; I contributed to it and co-led governance and adoption across eight brands.",
       },
       {
-        title: "Repository & documentation overhaul",
-        stat: { value: "20%", label: "Complexity Reduction" },
-        paragraphs: [
-          "I directed the reorganization of the library across Figma, the shared repositories and Storybook, so that a designer or an engineer could find and use a component without asking the system team. Because each brand had grown on its own, the libraries held duplicates and components that were only partly used. I set the direction: merge the duplicates, retire what nobody used, and rename the rest so that a name says what the component does. The team did the work and I approved each change. The 20% is the drop in components and variants after that work.",
-          "I moderated every handoff and pre-handoff session, acting as problem solver when brand-specific needs conflicted with system-wide goals. These sessions were where the real governance work happened: finding solutions that satisfied individual brand requirements while maintaining system integrity.",
-        ],
-        lists: [
-          {
-            label: "What changed:",
-            items: [
-              "Consolidated redundant components",
-              "Clearer component hierarchy in Storybook",
-              "Platform-agnostic tokens reduced platform-specific code",
-            ],
-          },
-        ],
-      },
-      {
         title: "Review and handoff",
         stat: { value: "30%", label: "Less back-and-forth" },
         paragraphs: [
@@ -122,6 +104,24 @@ export const dowJones = {
               "A short ceremony before every handoff",
               "A 15-minute call, with me moderating, once a thread stalled",
               "Piloted on one team, then extended to all eight",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Repository & documentation overhaul",
+        stat: { value: "20%", label: "Complexity Reduction" },
+        paragraphs: [
+          "I directed the reorganization of the library across Figma, the shared repositories and Storybook, so that a designer or an engineer could find and use a component without asking the system team. Because each brand had grown on its own, the libraries held duplicates and components that were only partly used. I set the direction: merge the duplicates, retire what nobody used, and rename the rest so that a name says what the component does. The team did the work and I approved each change. The 20% is the drop in components and variants after that work.",
+          "I moderated every handoff and pre-handoff session, acting as problem solver when brand-specific needs conflicted with system-wide goals. These sessions were where the real governance work happened: finding solutions that satisfied individual brand requirements while maintaining system integrity.",
+        ],
+        lists: [
+          {
+            label: "What changed:",
+            items: [
+              "Consolidated redundant components",
+              "Clearer component hierarchy in Storybook",
+              "Platform-agnostic tokens reduced platform-specific code",
             ],
           },
         ],
