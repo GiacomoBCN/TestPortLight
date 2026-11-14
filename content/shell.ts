@@ -110,6 +110,11 @@ export const shell = {
       next: "Next image",
       counter: (n: number, total: number) => `${n} / ${total}`,
     },
+    // Barra del capitolo nei case study, solo su telefono (ChapterBar)
+    chapterBar: {
+      toggle: (number: string, title: string) => `Chapter ${number}: ${title}. Show all chapters`,
+      listLabel: "Chapters on this page",
+    },
     // Video ingrandito su telefono (HeroVideo -> VideoLightbox)
     videoLightbox: {
       open: "Enlarge video",

@@ -15,6 +15,8 @@ export default function SectionNumber({ n, size = "md" }: { n: number; size?: "m
   return (
     <div
       aria-hidden="true"
+      // Il numero grande segna l'inizio di un capitolo: lo legge la barra dei capitoli su telefono (ChapterBar)
+      data-chapter-number={size === "md" ? String(n).padStart(2, "0") : undefined}
       className={`type-number shrink-0 leading-none text-[var(--section-number-color)] border-[color:var(--section-number-bar-color)] ${sizeClasses}`}
     >
       {String(n).padStart(2, "0")}

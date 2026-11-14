@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import SideBands from "./components/SideBands";
 import SketchFrame from "./components/SketchFrame";
 import CopyEmailLink, { CONTACT_EMAIL } from "./components/CopyEmailLink";
+import ChapterBar from "./components/ChapterBar";
 import { shell } from "@/content/shell";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -292,6 +293,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </>
         )}
+        {/* Solo telefono, solo case study: barra con il capitolo in lettura e l'elenco dei capitoli */}
+        <ChapterBar hidden={isMobileMenuOpen} />
       </nav>
 
       <div style={{ paddingLeft: "var(--band)", paddingRight: "var(--band)" }}>
