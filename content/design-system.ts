@@ -52,8 +52,8 @@ export const designSystem = {
   intro: {
     title: "The source is the theme",
     paragraphs: [
-      "In a multi-brand system, one theme keeps every product on the same structure: same token names, different values. Here there is one product, but five kinds of content, and each needs its own colour on the card. So I treated the five kinds of content as five themes. Articles and PDFs share one theme, because a PDF is almost always an article in another format. The colour is the theme, and the theme is where the token architecture starts.",
-      "Three levels. Raw values that no component ever reads. A scope per source that remaps six contextual tokens. And the contextual tokens, which are the only thing a component reads. The card does not know YouTube exists. Adding a source tomorrow is one block of CSS and zero lines in any component.",
+      "In a multi-brand system, one theme keeps every product on the same structure: same token names, different values. Here there is one product, but six kinds of content. Five of them get their own colour on the card. The sixth, PDF, shares the article colour, because a PDF is almost always an article in another format. So six sources became five themes. The source is the theme, and the theme is where the token architecture starts.",
+      "Three levels. Raw values that no component ever reads. A scope per source that remaps six contextual tokens. And the contextual tokens, which are the only thing a component reads. For colour, the card does not know YouTube exists. Adding a source tomorrow is one palette colour and one block of CSS.",
     ],
   },
 
@@ -96,13 +96,13 @@ export const designSystem = {
     patterns: [
       {
         title: "Three levels, and components read only the third",
-        text: "Level 1 is the palette: raw values, named by value, never read by a component. Level 2 is a scope per source, `[data-source=\"youtube\"]`, that remaps six contextual tokens. Level 3 is what the card reads: `border-card`, `icon-card`, `bkg-pill` and so on. A source lives in the scope, never in a token name. If it were in the name, the card would need a condition to pick it, and every new source would touch the component.",
+        text: "Level 1 is the palette: the raw colours. Source colours are named after the source (`palette-youtube`), all others after the colour (`red-700`). No component reads it. Level 2 is a scope per source, `[data-source=\"youtube\"]`: it points six card tokens at that source's colour. Level 3 is the names the card uses: `border-card`, `icon-card`, `bkg-pill` and so on. These names never mention a source. If they did, the card would have to check which source it is showing, and every new source would mean changing the card.",
         images: ["tokensBoard"],
         demo: false,
       },
       {
         title: "The proof, live",
-        text: "This is a demonstration card written for this page, with the same architecture and the same values. Change the source: six colours follow, the rating box doesn't, and the component code contains no colour name. In the product, a search for any source name inside the components, for colour purposes, returns nothing.",
+        text: "This is a demonstration card written for this page, with the same architecture and the same values. Change the source: six tokens follow, the rating box doesn't, and the component code contains no colour name. In the product, a search for any source name inside the components, for colour purposes, returns nothing.",
         images: [],
         demo: true,
       },
@@ -120,7 +120,7 @@ export const designSystem = {
       },
       {
         title: "Figma came last, generated from the product",
-        text: "Alone, the product was the fastest place to decide. The Figma library was generated from the code afterwards, so the two cannot disagree: every variable mirrors a token, every component carries an `IN CODE` label, the component library follows Atomic Design (tokens, atoms, molecules, organisms, templates), and the token page in the app is read from the stylesheet itself, with a drift check that flags any token without a documented role.",
+        text: "Alone, the product was the fastest place to decide. The Figma library was generated from the code afterwards, so the two cannot disagree: every variable mirrors a token, every component carries an `IN CODE` label, the component library follows Atomic Design (atoms, molecules, organisms, templates), with the tokens underneath, and the token page in the app is read from the stylesheet itself, with a drift check that flags any token without a documented role.",
         images: ["figmaAtoms", "figmaMolecules", "figmaOrganisms"],
         demo: false,
       },
@@ -169,7 +169,7 @@ export const designSystem = {
         options: ["In the token name (`border-card-youtube`)", "In a scope (`[data-source]`) that remaps the same names"],
         rationale:
           "A name per source puts a condition in every component. A scope keeps the component ignorant and makes a new source a CSS block.",
-        impact: "New source: 1 block, 0 component changes",
+        impact: "New source: 1 colour, 1 block of CSS",
       },
       {
         point: "Two levels or three",
@@ -182,7 +182,7 @@ export const designSystem = {
         point: "Lightness over nominal level",
         options: ["Every source at the same Tailwind step", "Align on perceived lightness"],
         rationale:
-          "Four sources sit at step 400. GitHub at 400 was ten L* points lighter than the cluster, so it is at 500. The palette aligns on how light the colour looks, not on what the scale calls it.",
+          "Four sources sit at step 400. GitHub at 400 was ten L* points lighter than the cluster, so it is at 500. The palette aligns on how light the colour looks, not on what the scale calls it. One exception is left on purpose: the article amber, covered under What I Learned.",
         impact: "Sources read as one family",
       },
       {
@@ -223,7 +223,7 @@ export const designSystem = {
       },
       {
         title: "Alone, the product is the fastest place to decide. With a team, that changes.",
-        text: "Working solo, Figma was a canvas for early ideas and the code was the source of truth. Add one more designer and the Figma file stops being optional: it is where people see the system without opening the product. The right setup depends on who has to reach the decisions, not on the tool.",
+        text: "Working solo, Figma was only a canvas for early sketches; the library came last, and the code was the source of truth. Add one more designer and the Figma file stops being optional: it is where people see the system without opening the product. The right setup depends on who has to reach the decisions, not on the tool.",
       },
       {
         title: "Figma can hold the truth. It cannot be the bottleneck.",
@@ -233,7 +233,7 @@ export const designSystem = {
   },
 
   cta: {
-    title: "See the tokens, or talk about them",
+    title: "Open the product, or talk about the tokens",
     text: "The product is live. If you run a design system and are deciding how much of it one product really needs, I'd like to compare notes.",
     demo: "Open StayKeel",
     allProjects: shell.caseStudy.allProjects,
